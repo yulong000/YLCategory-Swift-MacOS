@@ -13,7 +13,7 @@ Pod::Spec.new do |s|
   s.summary      = "MacOS 开发，常用的工具类"
   s.homepage     = "https://github.com/yulong000/YLCategory-Swift-MacOS"
   s.author       = { "魏宇龙" => "weiyulong1987@163.com" }
-  s.platform     = :macos， "10.14"
+  s.platform     = :macos, "10.14"
   s.source       = { :git => "https://github.com/yulong000/YLCategory-Swift-MacOS.git", :tag => "#{spec.version}" }
   s.source_files = "YLCategory-Swift-MacOS/*"
   s.requires_arc = true
