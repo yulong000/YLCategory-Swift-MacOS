@@ -20,7 +20,7 @@ public func YLLog(_ items: Any..., file: String = #file, function: String = #fun
     } else {
         for (index, item) in items.enumerated() {
             if index < items.count - 1 {
-                message.append("\(item)\n")
+                message.append("\(item)👈\n")
             } else {
                 message.append("\(item)")
             }

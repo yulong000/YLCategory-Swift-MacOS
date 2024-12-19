@@ -166,7 +166,10 @@ Pod::Spec.new do |s|
     ss.source_files  =   'YLCategory-Swift-MacOS/YLFileAccess/**/*.{h,m,swift}'
     ss.resource      =   'YLCategory-Swift-MacOS/YLFileAccess/Resources/*'
     end
-
+    
+    s.subspec 'YLTextField' do |ss|
+    ss.source_files  =   'YLCategory-Swift-MacOS/YLTextField/**/*.{h,m,swift}'
+    end
 
 end
 
