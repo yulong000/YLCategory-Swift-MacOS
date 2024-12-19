@@ -11,9 +11,84 @@
 		0080A4E32D04490300EEFEA2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0080A4DF2D04490300EEFEA2 /* ViewController.swift */; };
 		0080A4E42D04490300EEFEA2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0080A4DC2D04490300EEFEA2 /* Assets.xcassets */; };
 		0080A4E52D04490300EEFEA2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0080A4DE2D04490300EEFEA2 /* Main.storyboard */; };
-		0080A4EA2D044A7A00EEFEA2 /* Macro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0080A4E72D04493500EEFEA2 /* Macro.swift */; };
-		0080A4EB2D044A8900EEFEA2 /* YLLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0080A4E82D04493500EEFEA2 /* YLLog.swift */; };
-		0080A4EC2D044A8E00EEFEA2 /* NSView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0080A4E92D04493500EEFEA2 /* NSView+Extension.swift */; };
+		0080A4EC2D044A8E00EEFEA2 /* NSView+Frame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0080A4E92D04493500EEFEA2 /* NSView+Frame.swift */; };
+		00B79ADC2D1415AB00DAE137 /* YLLanguage.strings in Resources */ = {isa = PBXBuildFile; fileRef = 00B79A1E2D1415AA00DAE137 /* YLLanguage.strings */; };
+		00B79ADD2D1415AB00DAE137 /* MAShortcutLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 00B79A992D1415AA00DAE137 /* MAShortcutLocalizable.strings */; };
+		00B79ADE2D1415AB00DAE137 /* YLPermissionManager.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 00B79A2B2D1415AA00DAE137 /* YLPermissionManager.bundle */; };
+		00B79ADF2D1415AB00DAE137 /* YLUpdateManager.strings in Resources */ = {isa = PBXBuildFile; fileRef = 00B799FB2D1415AA00DAE137 /* YLUpdateManager.strings */; };
+		00B79AE02D1415AB00DAE137 /* YLShortcutView.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 00B79A7F2D1415AA00DAE137 /* YLShortcutView.bundle */; };
+		00B79AE12D1415AB00DAE137 /* YLAppleScript.strings in Resources */ = {isa = PBXBuildFile; fileRef = 00B79A4F2D1415AA00DAE137 /* YLAppleScript.strings */; };
+		00B79AE22D1415AB00DAE137 /* YLHud.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 00B79A092D1415AA00DAE137 /* YLHud.bundle */; };
+		00B79AE32D1415AB00DAE137 /* YLFileAccess.strings in Resources */ = {isa = PBXBuildFile; fileRef = 00B799E92D1415AA00DAE137 /* YLFileAccess.strings */; };
+		00B79AE42D1415AB00DAE137 /* YLShortcutView.strings in Resources */ = {isa = PBXBuildFile; fileRef = 00B79A892D1415AA00DAE137 /* YLShortcutView.strings */; };
+		00B79AE52D1415AB00DAE137 /* YLPermissionManager.strings in Resources */ = {isa = PBXBuildFile; fileRef = 00B79A352D1415AA00DAE137 /* YLPermissionManager.strings */; };
+		00B79AE62D1415AB00DAE137 /* MASShortcutViewButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B79A6B2D1415AA00DAE137 /* MASShortcutViewButtonCell.m */; };
+		00B79AE72D1415AB00DAE137 /* NSString+bounds.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B79AC02D1415AA00DAE137 /* NSString+bounds.m */; };
+		00B79AE82D1415AB00DAE137 /* NSArray+category.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B79AA32D1415AA00DAE137 /* NSArray+category.m */; };
+		00B79AE92D1415AB00DAE137 /* YLUpdateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B799F12D1415AA00DAE137 /* YLUpdateViewController.m */; };
+		00B79AEA2D1415AB00DAE137 /* NSButton+category.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B79AC32D1415AA00DAE137 /* NSButton+category.m */; };
+		00B79AEC2D1415AB00DAE137 /* YLControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B79A3F2D1415AA00DAE137 /* YLControl.m */; };
+		00B79AED2D1415AB00DAE137 /* YLCFNotificationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B79A422D1415AA00DAE137 /* YLCFNotificationManager.m */; };
+		00B79AEE2D1415AB00DAE137 /* Macro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B79AB42D1415AA00DAE137 /* Macro.swift */; };
+		00B79AEF2D1415AB00DAE137 /* MASLocalization.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B79A652D1415AA00DAE137 /* MASLocalization.m */; };
+		00B79AF02D1415AB00DAE137 /* YLFileAccess.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B799DF2D1415AA00DAE137 /* YLFileAccess.m */; };
+		00B79AF12D1415AB00DAE137 /* NSColor+category.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B79AA62D1415AA00DAE137 /* NSColor+category.m */; };
+		00B79AF22D1415AB00DAE137 /* YLShortcutView.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B79A7C2D1415AA00DAE137 /* YLShortcutView.m */; };
+		00B79AF32D1415AB00DAE137 /* XcodeLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B79AB62D1415AA00DAE137 /* XcodeLog.m */; };
+		00B79AF42D1415AB00DAE137 /* YLShortcutManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B79A7A2D1415AA00DAE137 /* YLShortcutManager.m */; };
+		00B79AF52D1415AB00DAE137 /* NSImage+category.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B79ACF2D1415AA00DAE137 /* NSImage+category.m */; };
+		00B79AF62D1415AB00DAE137 /* NSWindow+category.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B79AD22D1415AA00DAE137 /* NSWindow+category.m */; };
+		00B79AF72D1415AB00DAE137 /* YLAppleReview.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B79A392D1415AA00DAE137 /* YLAppleReview.m */; };
+		00B79AF82D1415AB00DAE137 /* YLPermissionWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B79A242D1415AA00DAE137 /* YLPermissionWindowController.m */; };
+		00B79AF92D1415AB00DAE137 /* YLLanguage.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B79A122D1415AA00DAE137 /* YLLanguage.m */; };
+		00B79AFA2D1415AB00DAE137 /* MASShortcutMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B79A702D1415AA00DAE137 /* MASShortcutMonitor.m */; };
+		00B79AFB2D1415AB00DAE137 /* NSAlert+category.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B79AC62D1415AA00DAE137 /* NSAlert+category.m */; };
+		00B79AFC2D1415AB00DAE137 /* YLLanguageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B79A142D1415AA00DAE137 /* YLLanguageModel.m */; };
+		00B79AFD2D1415AB00DAE137 /* MASShortcutBinder.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B79A622D1415AA00DAE137 /* MASShortcutBinder.m */; };
+		00B79AFE2D1415AB00DAE137 /* YLUpdateManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B799ED2D1415AA00DAE137 /* YLUpdateManager.m */; };
+		00B79AFF2D1415AB00DAE137 /* NSObject+category.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B79AC92D1415AA00DAE137 /* NSObject+category.m */; };
+		00B79B002D1415AB00DAE137 /* YLFlipView.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B79A532D1415AA00DAE137 /* YLFlipView.m */; };
+		00B79B012D1415AB00DAE137 /* NSString+secret.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B79ABA2D1415AA00DAE137 /* NSString+secret.m */; };
+		00B79B022D1415AB00DAE137 /* NSResponder+category.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B79AA02D1415AA00DAE137 /* NSResponder+category.m */; };
+		00B79B032D1415AB00DAE137 /* YLHudConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B79A042D1415AA00DAE137 /* YLHudConfig.m */; };
+		00B79B042D1415AB00DAE137 /* MASDictionaryTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B79A602D1415AA00DAE137 /* MASDictionaryTransformer.m */; };
+		00B79B052D1415AB00DAE137 /* NSView+category.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B79AAB2D1415AA00DAE137 /* NSView+category.m */; };
+		00B79B062D1415AB00DAE137 /* MASHotKey.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B79A6E2D1415AA00DAE137 /* MASHotKey.m */; };
+		00B79B072D1415AB00DAE137 /* YLHudProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B79A082D1415AA00DAE137 /* YLHudProgressView.m */; };
+		00B79B082D1415AB00DAE137 /* YLPermissionItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B79A282D1415AA00DAE137 /* YLPermissionItem.m */; };
+		00B79B092D1415AB00DAE137 /* NSWindow+frame.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B79AD42D1415AA00DAE137 /* NSWindow+frame.m */; };
+		00B79B0A2D1415AB00DAE137 /* NSImageView+category.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B79A9D2D1415AA00DAE137 /* NSImageView+category.m */; };
+		00B79B0B2D1415AB00DAE137 /* YLShortcutConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B79A7E2D1415AA00DAE137 /* YLShortcutConfig.m */; };
+		00B79B0C2D1415AB00DAE137 /* NSScreen+category.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B79AD72D1415AA00DAE137 /* NSScreen+category.m */; };
+		00B79B0D2D1415AB00DAE137 /* YLAppRating.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B799FF2D1415AA00DAE137 /* YLAppRating.m */; };
+		00B79B0E2D1415AB00DAE137 /* NSDate+category.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B79ADA2D1415AA00DAE137 /* NSDate+category.m */; };
+		00B79B0F2D1415AB00DAE137 /* AppSandboxFileAccess.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B799D82D1415AA00DAE137 /* AppSandboxFileAccess.m */; };
+		00B79B102D1415AB00DAE137 /* YLWindowButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B79A0D2D1415AA00DAE137 /* YLWindowButton.m */; };
+		00B79B112D1415AB00DAE137 /* AppSandboxFileAccessPersist.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B799DC2D1415AA00DAE137 /* AppSandboxFileAccessPersist.m */; };
+		00B79B122D1415AB00DAE137 /* YLUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B79A3C2D1415AA00DAE137 /* YLUtility.m */; };
+		00B79B132D1415AB00DAE137 /* YLPermissionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B79A262D1415AA00DAE137 /* YLPermissionViewController.m */; };
+		00B79B142D1415AB00DAE137 /* MASShortcutValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B79A762D1415AA00DAE137 /* MASShortcutValidator.m */; };
+		00B79B152D1415AB00DAE137 /* YLCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B79A562D1415AA00DAE137 /* YLCollectionView.m */; };
+		00B79B162D1415AB00DAE137 /* NSString+predicate.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B79ABC2D1415AA00DAE137 /* NSString+predicate.m */; };
+		00B79B172D1415AB00DAE137 /* MASShortcut.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B79A742D1415AA00DAE137 /* MASShortcut.m */; };
+		00B79B182D1415AB00DAE137 /* NSView+gesture.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B79AAD2D1415AA00DAE137 /* NSView+gesture.m */; };
+		00B79B192D1415AB00DAE137 /* MASShortcutView+Bindings.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B79A692D1415AA00DAE137 /* MASShortcutView+Bindings.m */; };
+		00B79B1A2D1415AB00DAE137 /* NSControl+category.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B79AB02D1415AA00DAE137 /* NSControl+category.m */; };
+		00B79B1B2D1415AB00DAE137 /* YLHudContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B79A062D1415AA00DAE137 /* YLHudContentView.m */; };
+		00B79B1C2D1415AB00DAE137 /* YLUserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B79A5C2D1415AA00DAE137 /* YLUserDefaults.m */; };
+		00B79B1D2D1415AB00DAE137 /* YLWindowOperateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B79A0F2D1415AA00DAE137 /* YLWindowOperateView.m */; };
+		00B79B1E2D1415AB00DAE137 /* YLAppleScript.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B79A452D1415AA00DAE137 /* YLAppleScript.m */; };
+		00B79B1F2D1415AB00DAE137 /* AppSandboxFileAccessOpenSavePanelDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B799DA2D1415AA00DAE137 /* AppSandboxFileAccessOpenSavePanelDelegate.m */; };
+		00B79B212D1415AB00DAE137 /* YLLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B79AB52D1415AA00DAE137 /* YLLog.swift */; };
+		00B79B222D1415AB00DAE137 /* YLHud.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B79A022D1415AA00DAE137 /* YLHud.m */; };
+		00B79B232D1415AB00DAE137 /* NSTextField+category.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B79ACC2D1415AA00DAE137 /* NSTextField+category.m */; };
+		00B79B242D1415AB00DAE137 /* NSString+category.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B79ABE2D1415AA00DAE137 /* NSString+category.m */; };
+		00B79B252D1415AB00DAE137 /* YLWeakTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B79A592D1415AA00DAE137 /* YLWeakTimer.m */; };
+		00B79B262D1415AB00DAE137 /* YLPermissionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B79A222D1415AA00DAE137 /* YLPermissionManager.m */; };
+		00B79B272D1415AB00DAE137 /* YLPermissionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B79A2A2D1415AA00DAE137 /* YLPermissionModel.m */; };
+		00B79B282D1415AB00DAE137 /* MASShortcutView.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B79A672D1415AA00DAE137 /* MASShortcutView.m */; };
+		00B79B292D1415AB00DAE137 /* YLUpdateWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B799EF2D1415AA00DAE137 /* YLUpdateWindowController.m */; };
+		00B79B2D2D14182500DAE137 /* YLTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B79B2C2D14182500DAE137 /* YLTextField.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,9 +98,213 @@
 		0080A4DD2D04490300EEFEA2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0080A4DF2D04490300EEFEA2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		0080A4E02D04490300EEFEA2 /* YLCategory_Swift_MacOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = YLCategory_Swift_MacOS.entitlements; sourceTree = "<group>"; };
-		0080A4E72D04493500EEFEA2 /* Macro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Macro.swift; sourceTree = "<group>"; };
-		0080A4E82D04493500EEFEA2 /* YLLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YLLog.swift; sourceTree = "<group>"; };
-		0080A4E92D04493500EEFEA2 /* NSView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSView+Extension.swift"; sourceTree = "<group>"; };
+		0080A4E92D04493500EEFEA2 /* NSView+Frame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSView+Frame.swift"; sourceTree = "<group>"; };
+		00B799D32D1414E200DAE137 /* YLCategory-Swift-MacOS-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "YLCategory-Swift-MacOS-Bridging-Header.h"; sourceTree = "<group>"; };
+		00B799D72D1415AA00DAE137 /* AppSandboxFileAccess.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppSandboxFileAccess.h; sourceTree = "<group>"; };
+		00B799D82D1415AA00DAE137 /* AppSandboxFileAccess.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppSandboxFileAccess.m; sourceTree = "<group>"; };
+		00B799D92D1415AA00DAE137 /* AppSandboxFileAccessOpenSavePanelDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppSandboxFileAccessOpenSavePanelDelegate.h; sourceTree = "<group>"; };
+		00B799DA2D1415AA00DAE137 /* AppSandboxFileAccessOpenSavePanelDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppSandboxFileAccessOpenSavePanelDelegate.m; sourceTree = "<group>"; };
+		00B799DB2D1415AA00DAE137 /* AppSandboxFileAccessPersist.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppSandboxFileAccessPersist.h; sourceTree = "<group>"; };
+		00B799DC2D1415AA00DAE137 /* AppSandboxFileAccessPersist.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppSandboxFileAccessPersist.m; sourceTree = "<group>"; };
+		00B799DE2D1415AA00DAE137 /* YLFileAccess.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YLFileAccess.h; sourceTree = "<group>"; };
+		00B799DF2D1415AA00DAE137 /* YLFileAccess.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YLFileAccess.m; sourceTree = "<group>"; };
+		00B799E02D1415AA00DAE137 /* YLFileAccess.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = YLFileAccess.strings; path = en.lproj/YLFileAccess.strings; sourceTree = "<group>"; };
+		00B799E12D1415AA00DAE137 /* YLFileAccess.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = YLFileAccess.strings; path = "zh-Hans.lproj/YLFileAccess.strings"; sourceTree = "<group>"; };
+		00B799E22D1415AA00DAE137 /* YLFileAccess.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = YLFileAccess.strings; path = "zh-Hant.lproj/YLFileAccess.strings"; sourceTree = "<group>"; };
+		00B799E32D1415AA00DAE137 /* YLFileAccess.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = YLFileAccess.strings; path = fr.lproj/YLFileAccess.strings; sourceTree = "<group>"; };
+		00B799E42D1415AA00DAE137 /* YLFileAccess.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = YLFileAccess.strings; path = de.lproj/YLFileAccess.strings; sourceTree = "<group>"; };
+		00B799E52D1415AA00DAE137 /* YLFileAccess.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = YLFileAccess.strings; path = ja.lproj/YLFileAccess.strings; sourceTree = "<group>"; };
+		00B799E62D1415AA00DAE137 /* YLFileAccess.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = YLFileAccess.strings; path = ko.lproj/YLFileAccess.strings; sourceTree = "<group>"; };
+		00B799E72D1415AA00DAE137 /* YLFileAccess.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = YLFileAccess.strings; path = pt.lproj/YLFileAccess.strings; sourceTree = "<group>"; };
+		00B799E82D1415AA00DAE137 /* YLFileAccess.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = YLFileAccess.strings; path = es.lproj/YLFileAccess.strings; sourceTree = "<group>"; };
+		00B799EC2D1415AA00DAE137 /* YLUpdateManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YLUpdateManager.h; sourceTree = "<group>"; };
+		00B799ED2D1415AA00DAE137 /* YLUpdateManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YLUpdateManager.m; sourceTree = "<group>"; };
+		00B799EE2D1415AA00DAE137 /* YLUpdateWindowController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YLUpdateWindowController.h; sourceTree = "<group>"; };
+		00B799EF2D1415AA00DAE137 /* YLUpdateWindowController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YLUpdateWindowController.m; sourceTree = "<group>"; };
+		00B799F02D1415AA00DAE137 /* YLUpdateViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YLUpdateViewController.h; sourceTree = "<group>"; };
+		00B799F12D1415AA00DAE137 /* YLUpdateViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YLUpdateViewController.m; sourceTree = "<group>"; };
+		00B799F22D1415AA00DAE137 /* YLUpdateManager.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = YLUpdateManager.strings; path = en.lproj/YLUpdateManager.strings; sourceTree = "<group>"; };
+		00B799F32D1415AA00DAE137 /* YLUpdateManager.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = YLUpdateManager.strings; path = "zh-Hans.lproj/YLUpdateManager.strings"; sourceTree = "<group>"; };
+		00B799F42D1415AA00DAE137 /* YLUpdateManager.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = YLUpdateManager.strings; path = "zh-Hant.lproj/YLUpdateManager.strings"; sourceTree = "<group>"; };
+		00B799F52D1415AA00DAE137 /* YLUpdateManager.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = YLUpdateManager.strings; path = fr.lproj/YLUpdateManager.strings; sourceTree = "<group>"; };
+		00B799F62D1415AA00DAE137 /* YLUpdateManager.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = YLUpdateManager.strings; path = de.lproj/YLUpdateManager.strings; sourceTree = "<group>"; };
+		00B799F72D1415AA00DAE137 /* YLUpdateManager.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = YLUpdateManager.strings; path = ja.lproj/YLUpdateManager.strings; sourceTree = "<group>"; };
+		00B799F82D1415AA00DAE137 /* YLUpdateManager.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = YLUpdateManager.strings; path = ko.lproj/YLUpdateManager.strings; sourceTree = "<group>"; };
+		00B799F92D1415AA00DAE137 /* YLUpdateManager.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = YLUpdateManager.strings; path = pt.lproj/YLUpdateManager.strings; sourceTree = "<group>"; };
+		00B799FA2D1415AA00DAE137 /* YLUpdateManager.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = YLUpdateManager.strings; path = es.lproj/YLUpdateManager.strings; sourceTree = "<group>"; };
+		00B799FE2D1415AA00DAE137 /* YLAppRating.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YLAppRating.h; sourceTree = "<group>"; };
+		00B799FF2D1415AA00DAE137 /* YLAppRating.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YLAppRating.m; sourceTree = "<group>"; };
+		00B79A012D1415AA00DAE137 /* YLHud.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YLHud.h; sourceTree = "<group>"; };
+		00B79A022D1415AA00DAE137 /* YLHud.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YLHud.m; sourceTree = "<group>"; };
+		00B79A032D1415AA00DAE137 /* YLHudConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YLHudConfig.h; sourceTree = "<group>"; };
+		00B79A042D1415AA00DAE137 /* YLHudConfig.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YLHudConfig.m; sourceTree = "<group>"; };
+		00B79A052D1415AA00DAE137 /* YLHudContentView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YLHudContentView.h; sourceTree = "<group>"; };
+		00B79A062D1415AA00DAE137 /* YLHudContentView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YLHudContentView.m; sourceTree = "<group>"; };
+		00B79A072D1415AA00DAE137 /* YLHudProgressView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YLHudProgressView.h; sourceTree = "<group>"; };
+		00B79A082D1415AA00DAE137 /* YLHudProgressView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YLHudProgressView.m; sourceTree = "<group>"; };
+		00B79A092D1415AA00DAE137 /* YLHud.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = YLHud.bundle; sourceTree = "<group>"; };
+		00B79A0C2D1415AA00DAE137 /* YLWindowButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YLWindowButton.h; sourceTree = "<group>"; };
+		00B79A0D2D1415AA00DAE137 /* YLWindowButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YLWindowButton.m; sourceTree = "<group>"; };
+		00B79A0E2D1415AA00DAE137 /* YLWindowOperateView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YLWindowOperateView.h; sourceTree = "<group>"; };
+		00B79A0F2D1415AA00DAE137 /* YLWindowOperateView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YLWindowOperateView.m; sourceTree = "<group>"; };
+		00B79A112D1415AA00DAE137 /* YLLanguage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YLLanguage.h; sourceTree = "<group>"; };
+		00B79A122D1415AA00DAE137 /* YLLanguage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YLLanguage.m; sourceTree = "<group>"; };
+		00B79A132D1415AA00DAE137 /* YLLanguageModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YLLanguageModel.h; sourceTree = "<group>"; };
+		00B79A142D1415AA00DAE137 /* YLLanguageModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YLLanguageModel.m; sourceTree = "<group>"; };
+		00B79A152D1415AA00DAE137 /* YLLanguage.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = YLLanguage.strings; path = en.lproj/YLLanguage.strings; sourceTree = "<group>"; };
+		00B79A162D1415AA00DAE137 /* YLLanguage.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = YLLanguage.strings; path = "zh-Hans.lproj/YLLanguage.strings"; sourceTree = "<group>"; };
+		00B79A172D1415AA00DAE137 /* YLLanguage.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = YLLanguage.strings; path = "zh-Hant.lproj/YLLanguage.strings"; sourceTree = "<group>"; };
+		00B79A182D1415AA00DAE137 /* YLLanguage.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = YLLanguage.strings; path = fr.lproj/YLLanguage.strings; sourceTree = "<group>"; };
+		00B79A192D1415AA00DAE137 /* YLLanguage.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = YLLanguage.strings; path = de.lproj/YLLanguage.strings; sourceTree = "<group>"; };
+		00B79A1A2D1415AA00DAE137 /* YLLanguage.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = YLLanguage.strings; path = ja.lproj/YLLanguage.strings; sourceTree = "<group>"; };
+		00B79A1B2D1415AA00DAE137 /* YLLanguage.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = YLLanguage.strings; path = ko.lproj/YLLanguage.strings; sourceTree = "<group>"; };
+		00B79A1C2D1415AA00DAE137 /* YLLanguage.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = YLLanguage.strings; path = pt.lproj/YLLanguage.strings; sourceTree = "<group>"; };
+		00B79A1D2D1415AA00DAE137 /* YLLanguage.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = YLLanguage.strings; path = es.lproj/YLLanguage.strings; sourceTree = "<group>"; };
+		00B79A212D1415AA00DAE137 /* YLPermissionManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YLPermissionManager.h; sourceTree = "<group>"; };
+		00B79A222D1415AA00DAE137 /* YLPermissionManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YLPermissionManager.m; sourceTree = "<group>"; };
+		00B79A232D1415AA00DAE137 /* YLPermissionWindowController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YLPermissionWindowController.h; sourceTree = "<group>"; };
+		00B79A242D1415AA00DAE137 /* YLPermissionWindowController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YLPermissionWindowController.m; sourceTree = "<group>"; };
+		00B79A252D1415AA00DAE137 /* YLPermissionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YLPermissionViewController.h; sourceTree = "<group>"; };
+		00B79A262D1415AA00DAE137 /* YLPermissionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YLPermissionViewController.m; sourceTree = "<group>"; };
+		00B79A272D1415AA00DAE137 /* YLPermissionItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YLPermissionItem.h; sourceTree = "<group>"; };
+		00B79A282D1415AA00DAE137 /* YLPermissionItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YLPermissionItem.m; sourceTree = "<group>"; };
+		00B79A292D1415AA00DAE137 /* YLPermissionModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YLPermissionModel.h; sourceTree = "<group>"; };
+		00B79A2A2D1415AA00DAE137 /* YLPermissionModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YLPermissionModel.m; sourceTree = "<group>"; };
+		00B79A2B2D1415AA00DAE137 /* YLPermissionManager.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = YLPermissionManager.bundle; sourceTree = "<group>"; };
+		00B79A2C2D1415AA00DAE137 /* YLPermissionManager.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = YLPermissionManager.strings; path = en.lproj/YLPermissionManager.strings; sourceTree = "<group>"; };
+		00B79A2D2D1415AA00DAE137 /* YLPermissionManager.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = YLPermissionManager.strings; path = "zh-Hans.lproj/YLPermissionManager.strings"; sourceTree = "<group>"; };
+		00B79A2E2D1415AA00DAE137 /* YLPermissionManager.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = YLPermissionManager.strings; path = "zh-Hant.lproj/YLPermissionManager.strings"; sourceTree = "<group>"; };
+		00B79A2F2D1415AA00DAE137 /* YLPermissionManager.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = YLPermissionManager.strings; path = fr.lproj/YLPermissionManager.strings; sourceTree = "<group>"; };
+		00B79A302D1415AA00DAE137 /* YLPermissionManager.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = YLPermissionManager.strings; path = de.lproj/YLPermissionManager.strings; sourceTree = "<group>"; };
+		00B79A312D1415AA00DAE137 /* YLPermissionManager.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = YLPermissionManager.strings; path = ja.lproj/YLPermissionManager.strings; sourceTree = "<group>"; };
+		00B79A322D1415AA00DAE137 /* YLPermissionManager.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = YLPermissionManager.strings; path = ko.lproj/YLPermissionManager.strings; sourceTree = "<group>"; };
+		00B79A332D1415AA00DAE137 /* YLPermissionManager.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = YLPermissionManager.strings; path = pt.lproj/YLPermissionManager.strings; sourceTree = "<group>"; };
+		00B79A342D1415AA00DAE137 /* YLPermissionManager.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = YLPermissionManager.strings; path = es.lproj/YLPermissionManager.strings; sourceTree = "<group>"; };
+		00B79A382D1415AA00DAE137 /* YLAppleReview.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YLAppleReview.h; sourceTree = "<group>"; };
+		00B79A392D1415AA00DAE137 /* YLAppleReview.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YLAppleReview.m; sourceTree = "<group>"; };
+		00B79A3B2D1415AA00DAE137 /* YLUtility.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YLUtility.h; sourceTree = "<group>"; };
+		00B79A3C2D1415AA00DAE137 /* YLUtility.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YLUtility.m; sourceTree = "<group>"; };
+		00B79A3E2D1415AA00DAE137 /* YLControl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YLControl.h; sourceTree = "<group>"; };
+		00B79A3F2D1415AA00DAE137 /* YLControl.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YLControl.m; sourceTree = "<group>"; };
+		00B79A412D1415AA00DAE137 /* YLCFNotificationManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YLCFNotificationManager.h; sourceTree = "<group>"; };
+		00B79A422D1415AA00DAE137 /* YLCFNotificationManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YLCFNotificationManager.m; sourceTree = "<group>"; };
+		00B79A442D1415AA00DAE137 /* YLAppleScript.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YLAppleScript.h; sourceTree = "<group>"; };
+		00B79A452D1415AA00DAE137 /* YLAppleScript.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YLAppleScript.m; sourceTree = "<group>"; };
+		00B79A462D1415AA00DAE137 /* YLAppleScript.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = YLAppleScript.strings; path = "zh-Hans.lproj/YLAppleScript.strings"; sourceTree = "<group>"; };
+		00B79A472D1415AA00DAE137 /* YLAppleScript.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = YLAppleScript.strings; path = en.lproj/YLAppleScript.strings; sourceTree = "<group>"; };
+		00B79A482D1415AA00DAE137 /* YLAppleScript.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = YLAppleScript.strings; path = "zh-Hant.lproj/YLAppleScript.strings"; sourceTree = "<group>"; };
+		00B79A492D1415AA00DAE137 /* YLAppleScript.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = YLAppleScript.strings; path = fr.lproj/YLAppleScript.strings; sourceTree = "<group>"; };
+		00B79A4A2D1415AA00DAE137 /* YLAppleScript.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = YLAppleScript.strings; path = ja.lproj/YLAppleScript.strings; sourceTree = "<group>"; };
+		00B79A4B2D1415AA00DAE137 /* YLAppleScript.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = YLAppleScript.strings; path = ko.lproj/YLAppleScript.strings; sourceTree = "<group>"; };
+		00B79A4C2D1415AA00DAE137 /* YLAppleScript.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = YLAppleScript.strings; path = pt.lproj/YLAppleScript.strings; sourceTree = "<group>"; };
+		00B79A4D2D1415AA00DAE137 /* YLAppleScript.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = YLAppleScript.strings; path = es.lproj/YLAppleScript.strings; sourceTree = "<group>"; };
+		00B79A4E2D1415AA00DAE137 /* YLAppleScript.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = YLAppleScript.strings; path = de.lproj/YLAppleScript.strings; sourceTree = "<group>"; };
+		00B79A522D1415AA00DAE137 /* YLFlipView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YLFlipView.h; sourceTree = "<group>"; };
+		00B79A532D1415AA00DAE137 /* YLFlipView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YLFlipView.m; sourceTree = "<group>"; };
+		00B79A552D1415AA00DAE137 /* YLCollectionView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YLCollectionView.h; sourceTree = "<group>"; };
+		00B79A562D1415AA00DAE137 /* YLCollectionView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YLCollectionView.m; sourceTree = "<group>"; };
+		00B79A582D1415AA00DAE137 /* YLWeakTimer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YLWeakTimer.h; sourceTree = "<group>"; };
+		00B79A592D1415AA00DAE137 /* YLWeakTimer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YLWeakTimer.m; sourceTree = "<group>"; };
+		00B79A5B2D1415AA00DAE137 /* YLUserDefaults.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YLUserDefaults.h; sourceTree = "<group>"; };
+		00B79A5C2D1415AA00DAE137 /* YLUserDefaults.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YLUserDefaults.m; sourceTree = "<group>"; };
+		00B79A5E2D1415AA00DAE137 /* Shortcut.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Shortcut.h; sourceTree = "<group>"; };
+		00B79A5F2D1415AA00DAE137 /* MASDictionaryTransformer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MASDictionaryTransformer.h; sourceTree = "<group>"; };
+		00B79A602D1415AA00DAE137 /* MASDictionaryTransformer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MASDictionaryTransformer.m; sourceTree = "<group>"; };
+		00B79A612D1415AA00DAE137 /* MASShortcutBinder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MASShortcutBinder.h; sourceTree = "<group>"; };
+		00B79A622D1415AA00DAE137 /* MASShortcutBinder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MASShortcutBinder.m; sourceTree = "<group>"; };
+		00B79A642D1415AA00DAE137 /* MASLocalization.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MASLocalization.h; sourceTree = "<group>"; };
+		00B79A652D1415AA00DAE137 /* MASLocalization.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MASLocalization.m; sourceTree = "<group>"; };
+		00B79A662D1415AA00DAE137 /* MASShortcutView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MASShortcutView.h; sourceTree = "<group>"; };
+		00B79A672D1415AA00DAE137 /* MASShortcutView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MASShortcutView.m; sourceTree = "<group>"; };
+		00B79A682D1415AA00DAE137 /* MASShortcutView+Bindings.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MASShortcutView+Bindings.h"; sourceTree = "<group>"; };
+		00B79A692D1415AA00DAE137 /* MASShortcutView+Bindings.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "MASShortcutView+Bindings.m"; sourceTree = "<group>"; };
+		00B79A6A2D1415AA00DAE137 /* MASShortcutViewButtonCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MASShortcutViewButtonCell.h; sourceTree = "<group>"; };
+		00B79A6B2D1415AA00DAE137 /* MASShortcutViewButtonCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MASShortcutViewButtonCell.m; sourceTree = "<group>"; };
+		00B79A6D2D1415AA00DAE137 /* MASHotKey.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MASHotKey.h; sourceTree = "<group>"; };
+		00B79A6E2D1415AA00DAE137 /* MASHotKey.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MASHotKey.m; sourceTree = "<group>"; };
+		00B79A6F2D1415AA00DAE137 /* MASShortcutMonitor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MASShortcutMonitor.h; sourceTree = "<group>"; };
+		00B79A702D1415AA00DAE137 /* MASShortcutMonitor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MASShortcutMonitor.m; sourceTree = "<group>"; };
+		00B79A722D1415AA00DAE137 /* MASKeyCodes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MASKeyCodes.h; sourceTree = "<group>"; };
+		00B79A732D1415AA00DAE137 /* MASShortcut.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MASShortcut.h; sourceTree = "<group>"; };
+		00B79A742D1415AA00DAE137 /* MASShortcut.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MASShortcut.m; sourceTree = "<group>"; };
+		00B79A752D1415AA00DAE137 /* MASShortcutValidator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MASShortcutValidator.h; sourceTree = "<group>"; };
+		00B79A762D1415AA00DAE137 /* MASShortcutValidator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MASShortcutValidator.m; sourceTree = "<group>"; };
+		00B79A792D1415AA00DAE137 /* YLShortcutManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YLShortcutManager.h; sourceTree = "<group>"; };
+		00B79A7A2D1415AA00DAE137 /* YLShortcutManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YLShortcutManager.m; sourceTree = "<group>"; };
+		00B79A7B2D1415AA00DAE137 /* YLShortcutView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YLShortcutView.h; sourceTree = "<group>"; };
+		00B79A7C2D1415AA00DAE137 /* YLShortcutView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YLShortcutView.m; sourceTree = "<group>"; };
+		00B79A7D2D1415AA00DAE137 /* YLShortcutConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YLShortcutConfig.h; sourceTree = "<group>"; };
+		00B79A7E2D1415AA00DAE137 /* YLShortcutConfig.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YLShortcutConfig.m; sourceTree = "<group>"; };
+		00B79A7F2D1415AA00DAE137 /* YLShortcutView.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = YLShortcutView.bundle; sourceTree = "<group>"; };
+		00B79A802D1415AA00DAE137 /* YLShortcutView.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = YLShortcutView.strings; path = "zh-Hans.lproj/YLShortcutView.strings"; sourceTree = "<group>"; };
+		00B79A812D1415AA00DAE137 /* YLShortcutView.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = YLShortcutView.strings; path = en.lproj/YLShortcutView.strings; sourceTree = "<group>"; };
+		00B79A822D1415AA00DAE137 /* YLShortcutView.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = YLShortcutView.strings; path = "zh-Hant.lproj/YLShortcutView.strings"; sourceTree = "<group>"; };
+		00B79A832D1415AA00DAE137 /* YLShortcutView.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = YLShortcutView.strings; path = ja.lproj/YLShortcutView.strings; sourceTree = "<group>"; };
+		00B79A842D1415AA00DAE137 /* YLShortcutView.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = YLShortcutView.strings; path = ko.lproj/YLShortcutView.strings; sourceTree = "<group>"; };
+		00B79A852D1415AA00DAE137 /* YLShortcutView.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = YLShortcutView.strings; path = fr.lproj/YLShortcutView.strings; sourceTree = "<group>"; };
+		00B79A862D1415AA00DAE137 /* YLShortcutView.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = YLShortcutView.strings; path = pt.lproj/YLShortcutView.strings; sourceTree = "<group>"; };
+		00B79A872D1415AA00DAE137 /* YLShortcutView.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = YLShortcutView.strings; path = es.lproj/YLShortcutView.strings; sourceTree = "<group>"; };
+		00B79A882D1415AA00DAE137 /* YLShortcutView.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = YLShortcutView.strings; path = de.lproj/YLShortcutView.strings; sourceTree = "<group>"; };
+		00B79A8A2D1415AA00DAE137 /* MAShortcutLocalizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = MAShortcutLocalizable.strings; path = cs.lproj/MAShortcutLocalizable.strings; sourceTree = "<group>"; };
+		00B79A8B2D1415AA00DAE137 /* MAShortcutLocalizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = MAShortcutLocalizable.strings; path = de.lproj/MAShortcutLocalizable.strings; sourceTree = "<group>"; };
+		00B79A8C2D1415AA00DAE137 /* MAShortcutLocalizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = MAShortcutLocalizable.strings; path = en.lproj/MAShortcutLocalizable.strings; sourceTree = "<group>"; };
+		00B79A8D2D1415AA00DAE137 /* MAShortcutLocalizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = MAShortcutLocalizable.strings; path = es.lproj/MAShortcutLocalizable.strings; sourceTree = "<group>"; };
+		00B79A8E2D1415AA00DAE137 /* MAShortcutLocalizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = MAShortcutLocalizable.strings; path = fr.lproj/MAShortcutLocalizable.strings; sourceTree = "<group>"; };
+		00B79A8F2D1415AA00DAE137 /* MAShortcutLocalizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = MAShortcutLocalizable.strings; path = it.lproj/MAShortcutLocalizable.strings; sourceTree = "<group>"; };
+		00B79A902D1415AA00DAE137 /* MAShortcutLocalizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = MAShortcutLocalizable.strings; path = ja.lproj/MAShortcutLocalizable.strings; sourceTree = "<group>"; };
+		00B79A912D1415AA00DAE137 /* MAShortcutLocalizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = MAShortcutLocalizable.strings; path = ko.lproj/MAShortcutLocalizable.strings; sourceTree = "<group>"; };
+		00B79A922D1415AA00DAE137 /* MAShortcutLocalizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = MAShortcutLocalizable.strings; path = nl.lproj/MAShortcutLocalizable.strings; sourceTree = "<group>"; };
+		00B79A932D1415AA00DAE137 /* MAShortcutLocalizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = MAShortcutLocalizable.strings; path = pl.lproj/MAShortcutLocalizable.strings; sourceTree = "<group>"; };
+		00B79A942D1415AA00DAE137 /* MAShortcutLocalizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = MAShortcutLocalizable.strings; path = pt.lproj/MAShortcutLocalizable.strings; sourceTree = "<group>"; };
+		00B79A952D1415AA00DAE137 /* MAShortcutLocalizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = MAShortcutLocalizable.strings; path = ru.lproj/MAShortcutLocalizable.strings; sourceTree = "<group>"; };
+		00B79A962D1415AA00DAE137 /* MAShortcutLocalizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = MAShortcutLocalizable.strings; path = sv.lproj/MAShortcutLocalizable.strings; sourceTree = "<group>"; };
+		00B79A972D1415AA00DAE137 /* MAShortcutLocalizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = MAShortcutLocalizable.strings; path = "zh-Hans.lproj/MAShortcutLocalizable.strings"; sourceTree = "<group>"; };
+		00B79A982D1415AA00DAE137 /* MAShortcutLocalizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = MAShortcutLocalizable.strings; path = "zh-Hant.lproj/MAShortcutLocalizable.strings"; sourceTree = "<group>"; };
+		00B79A9C2D1415AA00DAE137 /* NSImageView+category.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSImageView+category.h"; sourceTree = "<group>"; };
+		00B79A9D2D1415AA00DAE137 /* NSImageView+category.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSImageView+category.m"; sourceTree = "<group>"; };
+		00B79A9F2D1415AA00DAE137 /* NSResponder+category.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSResponder+category.h"; sourceTree = "<group>"; };
+		00B79AA02D1415AA00DAE137 /* NSResponder+category.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSResponder+category.m"; sourceTree = "<group>"; };
+		00B79AA22D1415AA00DAE137 /* NSArray+category.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSArray+category.h"; sourceTree = "<group>"; };
+		00B79AA32D1415AA00DAE137 /* NSArray+category.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSArray+category.m"; sourceTree = "<group>"; };
+		00B79AA52D1415AA00DAE137 /* NSColor+category.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSColor+category.h"; sourceTree = "<group>"; };
+		00B79AA62D1415AA00DAE137 /* NSColor+category.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSColor+category.m"; sourceTree = "<group>"; };
+		00B79AAA2D1415AA00DAE137 /* NSView+category.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSView+category.h"; sourceTree = "<group>"; };
+		00B79AAB2D1415AA00DAE137 /* NSView+category.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSView+category.m"; sourceTree = "<group>"; };
+		00B79AAC2D1415AA00DAE137 /* NSView+gesture.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSView+gesture.h"; sourceTree = "<group>"; };
+		00B79AAD2D1415AA00DAE137 /* NSView+gesture.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSView+gesture.m"; sourceTree = "<group>"; };
+		00B79AAF2D1415AA00DAE137 /* NSControl+category.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSControl+category.h"; sourceTree = "<group>"; };
+		00B79AB02D1415AA00DAE137 /* NSControl+category.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSControl+category.m"; sourceTree = "<group>"; };
+		00B79AB42D1415AA00DAE137 /* Macro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Macro.swift; sourceTree = "<group>"; };
+		00B79AB52D1415AA00DAE137 /* YLLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YLLog.swift; sourceTree = "<group>"; };
+		00B79AB62D1415AA00DAE137 /* XcodeLog.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XcodeLog.m; sourceTree = "<group>"; };
+		00B79AB92D1415AA00DAE137 /* NSString+secret.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+secret.h"; sourceTree = "<group>"; };
+		00B79ABA2D1415AA00DAE137 /* NSString+secret.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+secret.m"; sourceTree = "<group>"; };
+		00B79ABB2D1415AA00DAE137 /* NSString+predicate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+predicate.h"; sourceTree = "<group>"; };
+		00B79ABC2D1415AA00DAE137 /* NSString+predicate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+predicate.m"; sourceTree = "<group>"; };
+		00B79ABD2D1415AA00DAE137 /* NSString+category.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+category.h"; sourceTree = "<group>"; };
+		00B79ABE2D1415AA00DAE137 /* NSString+category.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+category.m"; sourceTree = "<group>"; };
+		00B79ABF2D1415AA00DAE137 /* NSString+bounds.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+bounds.h"; sourceTree = "<group>"; };
+		00B79AC02D1415AA00DAE137 /* NSString+bounds.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+bounds.m"; sourceTree = "<group>"; };
+		00B79AC22D1415AA00DAE137 /* NSButton+category.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSButton+category.h"; sourceTree = "<group>"; };
+		00B79AC32D1415AA00DAE137 /* NSButton+category.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSButton+category.m"; sourceTree = "<group>"; };
+		00B79AC52D1415AA00DAE137 /* NSAlert+category.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSAlert+category.h"; sourceTree = "<group>"; };
+		00B79AC62D1415AA00DAE137 /* NSAlert+category.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSAlert+category.m"; sourceTree = "<group>"; };
+		00B79AC82D1415AA00DAE137 /* NSObject+category.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+category.h"; sourceTree = "<group>"; };
+		00B79AC92D1415AA00DAE137 /* NSObject+category.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+category.m"; sourceTree = "<group>"; };
+		00B79ACB2D1415AA00DAE137 /* NSTextField+category.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSTextField+category.h"; sourceTree = "<group>"; };
+		00B79ACC2D1415AA00DAE137 /* NSTextField+category.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSTextField+category.m"; sourceTree = "<group>"; };
+		00B79ACE2D1415AA00DAE137 /* NSImage+category.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSImage+category.h"; sourceTree = "<group>"; };
+		00B79ACF2D1415AA00DAE137 /* NSImage+category.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSImage+category.m"; sourceTree = "<group>"; };
+		00B79AD12D1415AA00DAE137 /* NSWindow+category.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSWindow+category.h"; sourceTree = "<group>"; };
+		00B79AD22D1415AA00DAE137 /* NSWindow+category.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSWindow+category.m"; sourceTree = "<group>"; };
+		00B79AD32D1415AA00DAE137 /* NSWindow+frame.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSWindow+frame.h"; sourceTree = "<group>"; };
+		00B79AD42D1415AA00DAE137 /* NSWindow+frame.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSWindow+frame.m"; sourceTree = "<group>"; };
+		00B79AD62D1415AA00DAE137 /* NSScreen+category.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSScreen+category.h"; sourceTree = "<group>"; };
+		00B79AD72D1415AA00DAE137 /* NSScreen+category.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSScreen+category.m"; sourceTree = "<group>"; };
+		00B79AD92D1415AA00DAE137 /* NSDate+category.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDate+category.h"; sourceTree = "<group>"; };
+		00B79ADA2D1415AA00DAE137 /* NSDate+category.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDate+category.m"; sourceTree = "<group>"; };
+		00B79B2B2D14182500DAE137 /* YLTextField.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YLTextField.h; sourceTree = "<group>"; };
+		00B79B2C2D14182500DAE137 /* YLTextField.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YLTextField.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,11 +350,529 @@
 		0080A4E62D04490900EEFEA2 /* YLCategory-Swift-MacOS */ = {
 			isa = PBXGroup;
 			children = (
-				0080A4E72D04493500EEFEA2 /* Macro.swift */,
-				0080A4E82D04493500EEFEA2 /* YLLog.swift */,
-				0080A4E92D04493500EEFEA2 /* NSView+Extension.swift */,
+				00B799D32D1414E200DAE137 /* YLCategory-Swift-MacOS-Bridging-Header.h */,
+				00B79B2A2D14181600DAE137 /* YLTextField */,
+				00B799EB2D1415AA00DAE137 /* YLFileAccess */,
+				00B799FD2D1415AA00DAE137 /* YLUpdateManager */,
+				00B79A002D1415AA00DAE137 /* YLAppRating */,
+				00B79A0B2D1415AA00DAE137 /* YLHud */,
+				00B79A102D1415AA00DAE137 /* YLWindowButton */,
+				00B79A202D1415AA00DAE137 /* YLLanguage */,
+				00B79A372D1415AA00DAE137 /* YLPermissionManager */,
+				00B79A3A2D1415AA00DAE137 /* YLAppleReview */,
+				00B79A3D2D1415AA00DAE137 /* YLUtility */,
+				00B79A402D1415AA00DAE137 /* YLControl */,
+				00B79A432D1415AA00DAE137 /* YLCFNotificationManager */,
+				00B79A512D1415AA00DAE137 /* YLAppleScript */,
+				00B79A542D1415AA00DAE137 /* YLFlipView */,
+				00B79A572D1415AA00DAE137 /* YLCollectionView */,
+				00B79A5A2D1415AA00DAE137 /* YLWeakTimer */,
+				00B79A5D2D1415AA00DAE137 /* YLUserDefaults */,
+				00B79A9B2D1415AA00DAE137 /* YLShortcutView */,
+				00B79A9E2D1415AA00DAE137 /* NSImageView */,
+				00B79AA12D1415AA00DAE137 /* NSResponder */,
+				00B79AA42D1415AA00DAE137 /* NSArray */,
+				00B79AA72D1415AA00DAE137 /* NSColor */,
+				00B79AAE2D1415AA00DAE137 /* NSView */,
+				00B79AB12D1415AA00DAE137 /* NSControl */,
+				00B79AB82D1415AA00DAE137 /* Other */,
+				00B79AC12D1415AA00DAE137 /* NSString */,
+				00B79AC42D1415AA00DAE137 /* NSButton */,
+				00B79AC72D1415AA00DAE137 /* NSAlert */,
+				00B79ACA2D1415AA00DAE137 /* NSObject */,
+				00B79ACD2D1415AA00DAE137 /* NSTextField */,
+				00B79AD02D1415AA00DAE137 /* NSImage */,
+				00B79AD52D1415AA00DAE137 /* NSWindow */,
+				00B79AD82D1415AA00DAE137 /* NSScreen */,
+				00B79ADB2D1415AA00DAE137 /* NSDate */,
 			);
 			path = "YLCategory-Swift-MacOS";
+			sourceTree = "<group>";
+		};
+		00B799DD2D1415AA00DAE137 /* AppSandboxFileAccess */ = {
+			isa = PBXGroup;
+			children = (
+				00B799D72D1415AA00DAE137 /* AppSandboxFileAccess.h */,
+				00B799D82D1415AA00DAE137 /* AppSandboxFileAccess.m */,
+				00B799D92D1415AA00DAE137 /* AppSandboxFileAccessOpenSavePanelDelegate.h */,
+				00B799DA2D1415AA00DAE137 /* AppSandboxFileAccessOpenSavePanelDelegate.m */,
+				00B799DB2D1415AA00DAE137 /* AppSandboxFileAccessPersist.h */,
+				00B799DC2D1415AA00DAE137 /* AppSandboxFileAccessPersist.m */,
+			);
+			path = AppSandboxFileAccess;
+			sourceTree = "<group>";
+		};
+		00B799EA2D1415AA00DAE137 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				00B799E92D1415AA00DAE137 /* YLFileAccess.strings */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		00B799EB2D1415AA00DAE137 /* YLFileAccess */ = {
+			isa = PBXGroup;
+			children = (
+				00B799DD2D1415AA00DAE137 /* AppSandboxFileAccess */,
+				00B799DE2D1415AA00DAE137 /* YLFileAccess.h */,
+				00B799DF2D1415AA00DAE137 /* YLFileAccess.m */,
+				00B799EA2D1415AA00DAE137 /* Resources */,
+			);
+			path = YLFileAccess;
+			sourceTree = "<group>";
+		};
+		00B799FC2D1415AA00DAE137 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				00B799FB2D1415AA00DAE137 /* YLUpdateManager.strings */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		00B799FD2D1415AA00DAE137 /* YLUpdateManager */ = {
+			isa = PBXGroup;
+			children = (
+				00B799EC2D1415AA00DAE137 /* YLUpdateManager.h */,
+				00B799ED2D1415AA00DAE137 /* YLUpdateManager.m */,
+				00B799EE2D1415AA00DAE137 /* YLUpdateWindowController.h */,
+				00B799EF2D1415AA00DAE137 /* YLUpdateWindowController.m */,
+				00B799F02D1415AA00DAE137 /* YLUpdateViewController.h */,
+				00B799F12D1415AA00DAE137 /* YLUpdateViewController.m */,
+				00B799FC2D1415AA00DAE137 /* Resources */,
+			);
+			path = YLUpdateManager;
+			sourceTree = "<group>";
+		};
+		00B79A002D1415AA00DAE137 /* YLAppRating */ = {
+			isa = PBXGroup;
+			children = (
+				00B799FE2D1415AA00DAE137 /* YLAppRating.h */,
+				00B799FF2D1415AA00DAE137 /* YLAppRating.m */,
+			);
+			path = YLAppRating;
+			sourceTree = "<group>";
+		};
+		00B79A0A2D1415AA00DAE137 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				00B79A092D1415AA00DAE137 /* YLHud.bundle */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		00B79A0B2D1415AA00DAE137 /* YLHud */ = {
+			isa = PBXGroup;
+			children = (
+				00B79A012D1415AA00DAE137 /* YLHud.h */,
+				00B79A022D1415AA00DAE137 /* YLHud.m */,
+				00B79A032D1415AA00DAE137 /* YLHudConfig.h */,
+				00B79A042D1415AA00DAE137 /* YLHudConfig.m */,
+				00B79A052D1415AA00DAE137 /* YLHudContentView.h */,
+				00B79A062D1415AA00DAE137 /* YLHudContentView.m */,
+				00B79A072D1415AA00DAE137 /* YLHudProgressView.h */,
+				00B79A082D1415AA00DAE137 /* YLHudProgressView.m */,
+				00B79A0A2D1415AA00DAE137 /* Resources */,
+			);
+			path = YLHud;
+			sourceTree = "<group>";
+		};
+		00B79A102D1415AA00DAE137 /* YLWindowButton */ = {
+			isa = PBXGroup;
+			children = (
+				00B79A0C2D1415AA00DAE137 /* YLWindowButton.h */,
+				00B79A0D2D1415AA00DAE137 /* YLWindowButton.m */,
+				00B79A0E2D1415AA00DAE137 /* YLWindowOperateView.h */,
+				00B79A0F2D1415AA00DAE137 /* YLWindowOperateView.m */,
+			);
+			path = YLWindowButton;
+			sourceTree = "<group>";
+		};
+		00B79A1F2D1415AA00DAE137 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				00B79A1E2D1415AA00DAE137 /* YLLanguage.strings */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		00B79A202D1415AA00DAE137 /* YLLanguage */ = {
+			isa = PBXGroup;
+			children = (
+				00B79A112D1415AA00DAE137 /* YLLanguage.h */,
+				00B79A122D1415AA00DAE137 /* YLLanguage.m */,
+				00B79A132D1415AA00DAE137 /* YLLanguageModel.h */,
+				00B79A142D1415AA00DAE137 /* YLLanguageModel.m */,
+				00B79A1F2D1415AA00DAE137 /* Resources */,
+			);
+			path = YLLanguage;
+			sourceTree = "<group>";
+		};
+		00B79A362D1415AA00DAE137 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				00B79A2B2D1415AA00DAE137 /* YLPermissionManager.bundle */,
+				00B79A352D1415AA00DAE137 /* YLPermissionManager.strings */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		00B79A372D1415AA00DAE137 /* YLPermissionManager */ = {
+			isa = PBXGroup;
+			children = (
+				00B79A212D1415AA00DAE137 /* YLPermissionManager.h */,
+				00B79A222D1415AA00DAE137 /* YLPermissionManager.m */,
+				00B79A232D1415AA00DAE137 /* YLPermissionWindowController.h */,
+				00B79A242D1415AA00DAE137 /* YLPermissionWindowController.m */,
+				00B79A252D1415AA00DAE137 /* YLPermissionViewController.h */,
+				00B79A262D1415AA00DAE137 /* YLPermissionViewController.m */,
+				00B79A272D1415AA00DAE137 /* YLPermissionItem.h */,
+				00B79A282D1415AA00DAE137 /* YLPermissionItem.m */,
+				00B79A292D1415AA00DAE137 /* YLPermissionModel.h */,
+				00B79A2A2D1415AA00DAE137 /* YLPermissionModel.m */,
+				00B79A362D1415AA00DAE137 /* Resources */,
+			);
+			path = YLPermissionManager;
+			sourceTree = "<group>";
+		};
+		00B79A3A2D1415AA00DAE137 /* YLAppleReview */ = {
+			isa = PBXGroup;
+			children = (
+				00B79A382D1415AA00DAE137 /* YLAppleReview.h */,
+				00B79A392D1415AA00DAE137 /* YLAppleReview.m */,
+			);
+			path = YLAppleReview;
+			sourceTree = "<group>";
+		};
+		00B79A3D2D1415AA00DAE137 /* YLUtility */ = {
+			isa = PBXGroup;
+			children = (
+				00B79A3B2D1415AA00DAE137 /* YLUtility.h */,
+				00B79A3C2D1415AA00DAE137 /* YLUtility.m */,
+			);
+			path = YLUtility;
+			sourceTree = "<group>";
+		};
+		00B79A402D1415AA00DAE137 /* YLControl */ = {
+			isa = PBXGroup;
+			children = (
+				00B79A3E2D1415AA00DAE137 /* YLControl.h */,
+				00B79A3F2D1415AA00DAE137 /* YLControl.m */,
+			);
+			path = YLControl;
+			sourceTree = "<group>";
+		};
+		00B79A432D1415AA00DAE137 /* YLCFNotificationManager */ = {
+			isa = PBXGroup;
+			children = (
+				00B79A412D1415AA00DAE137 /* YLCFNotificationManager.h */,
+				00B79A422D1415AA00DAE137 /* YLCFNotificationManager.m */,
+			);
+			path = YLCFNotificationManager;
+			sourceTree = "<group>";
+		};
+		00B79A502D1415AA00DAE137 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				00B79A4F2D1415AA00DAE137 /* YLAppleScript.strings */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		00B79A512D1415AA00DAE137 /* YLAppleScript */ = {
+			isa = PBXGroup;
+			children = (
+				00B79A442D1415AA00DAE137 /* YLAppleScript.h */,
+				00B79A452D1415AA00DAE137 /* YLAppleScript.m */,
+				00B79A502D1415AA00DAE137 /* Resources */,
+			);
+			path = YLAppleScript;
+			sourceTree = "<group>";
+		};
+		00B79A542D1415AA00DAE137 /* YLFlipView */ = {
+			isa = PBXGroup;
+			children = (
+				00B79A522D1415AA00DAE137 /* YLFlipView.h */,
+				00B79A532D1415AA00DAE137 /* YLFlipView.m */,
+			);
+			path = YLFlipView;
+			sourceTree = "<group>";
+		};
+		00B79A572D1415AA00DAE137 /* YLCollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				00B79A552D1415AA00DAE137 /* YLCollectionView.h */,
+				00B79A562D1415AA00DAE137 /* YLCollectionView.m */,
+			);
+			path = YLCollectionView;
+			sourceTree = "<group>";
+		};
+		00B79A5A2D1415AA00DAE137 /* YLWeakTimer */ = {
+			isa = PBXGroup;
+			children = (
+				00B79A582D1415AA00DAE137 /* YLWeakTimer.h */,
+				00B79A592D1415AA00DAE137 /* YLWeakTimer.m */,
+			);
+			path = YLWeakTimer;
+			sourceTree = "<group>";
+		};
+		00B79A5D2D1415AA00DAE137 /* YLUserDefaults */ = {
+			isa = PBXGroup;
+			children = (
+				00B79A5B2D1415AA00DAE137 /* YLUserDefaults.h */,
+				00B79A5C2D1415AA00DAE137 /* YLUserDefaults.m */,
+			);
+			path = YLUserDefaults;
+			sourceTree = "<group>";
+		};
+		00B79A632D1415AA00DAE137 /* User Defaults Storage */ = {
+			isa = PBXGroup;
+			children = (
+				00B79A5F2D1415AA00DAE137 /* MASDictionaryTransformer.h */,
+				00B79A602D1415AA00DAE137 /* MASDictionaryTransformer.m */,
+				00B79A612D1415AA00DAE137 /* MASShortcutBinder.h */,
+				00B79A622D1415AA00DAE137 /* MASShortcutBinder.m */,
+			);
+			path = "User Defaults Storage";
+			sourceTree = "<group>";
+		};
+		00B79A6C2D1415AA00DAE137 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				00B79A642D1415AA00DAE137 /* MASLocalization.h */,
+				00B79A652D1415AA00DAE137 /* MASLocalization.m */,
+				00B79A662D1415AA00DAE137 /* MASShortcutView.h */,
+				00B79A672D1415AA00DAE137 /* MASShortcutView.m */,
+				00B79A682D1415AA00DAE137 /* MASShortcutView+Bindings.h */,
+				00B79A692D1415AA00DAE137 /* MASShortcutView+Bindings.m */,
+				00B79A6A2D1415AA00DAE137 /* MASShortcutViewButtonCell.h */,
+				00B79A6B2D1415AA00DAE137 /* MASShortcutViewButtonCell.m */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		00B79A712D1415AA00DAE137 /* Monitoring */ = {
+			isa = PBXGroup;
+			children = (
+				00B79A6D2D1415AA00DAE137 /* MASHotKey.h */,
+				00B79A6E2D1415AA00DAE137 /* MASHotKey.m */,
+				00B79A6F2D1415AA00DAE137 /* MASShortcutMonitor.h */,
+				00B79A702D1415AA00DAE137 /* MASShortcutMonitor.m */,
+			);
+			path = Monitoring;
+			sourceTree = "<group>";
+		};
+		00B79A772D1415AA00DAE137 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				00B79A722D1415AA00DAE137 /* MASKeyCodes.h */,
+				00B79A732D1415AA00DAE137 /* MASShortcut.h */,
+				00B79A742D1415AA00DAE137 /* MASShortcut.m */,
+				00B79A752D1415AA00DAE137 /* MASShortcutValidator.h */,
+				00B79A762D1415AA00DAE137 /* MASShortcutValidator.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		00B79A782D1415AA00DAE137 /* MASShortcut */ = {
+			isa = PBXGroup;
+			children = (
+				00B79A5E2D1415AA00DAE137 /* Shortcut.h */,
+				00B79A632D1415AA00DAE137 /* User Defaults Storage */,
+				00B79A6C2D1415AA00DAE137 /* UI */,
+				00B79A712D1415AA00DAE137 /* Monitoring */,
+				00B79A772D1415AA00DAE137 /* Model */,
+			);
+			path = MASShortcut;
+			sourceTree = "<group>";
+		};
+		00B79A9A2D1415AA00DAE137 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				00B79A7F2D1415AA00DAE137 /* YLShortcutView.bundle */,
+				00B79A892D1415AA00DAE137 /* YLShortcutView.strings */,
+				00B79A992D1415AA00DAE137 /* MAShortcutLocalizable.strings */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		00B79A9B2D1415AA00DAE137 /* YLShortcutView */ = {
+			isa = PBXGroup;
+			children = (
+				00B79A782D1415AA00DAE137 /* MASShortcut */,
+				00B79A792D1415AA00DAE137 /* YLShortcutManager.h */,
+				00B79A7A2D1415AA00DAE137 /* YLShortcutManager.m */,
+				00B79A7B2D1415AA00DAE137 /* YLShortcutView.h */,
+				00B79A7C2D1415AA00DAE137 /* YLShortcutView.m */,
+				00B79A7D2D1415AA00DAE137 /* YLShortcutConfig.h */,
+				00B79A7E2D1415AA00DAE137 /* YLShortcutConfig.m */,
+				00B79A9A2D1415AA00DAE137 /* Resources */,
+			);
+			path = YLShortcutView;
+			sourceTree = "<group>";
+		};
+		00B79A9E2D1415AA00DAE137 /* NSImageView */ = {
+			isa = PBXGroup;
+			children = (
+				00B79A9C2D1415AA00DAE137 /* NSImageView+category.h */,
+				00B79A9D2D1415AA00DAE137 /* NSImageView+category.m */,
+			);
+			path = NSImageView;
+			sourceTree = "<group>";
+		};
+		00B79AA12D1415AA00DAE137 /* NSResponder */ = {
+			isa = PBXGroup;
+			children = (
+				00B79A9F2D1415AA00DAE137 /* NSResponder+category.h */,
+				00B79AA02D1415AA00DAE137 /* NSResponder+category.m */,
+			);
+			path = NSResponder;
+			sourceTree = "<group>";
+		};
+		00B79AA42D1415AA00DAE137 /* NSArray */ = {
+			isa = PBXGroup;
+			children = (
+				00B79AA22D1415AA00DAE137 /* NSArray+category.h */,
+				00B79AA32D1415AA00DAE137 /* NSArray+category.m */,
+			);
+			path = NSArray;
+			sourceTree = "<group>";
+		};
+		00B79AA72D1415AA00DAE137 /* NSColor */ = {
+			isa = PBXGroup;
+			children = (
+				00B79AA52D1415AA00DAE137 /* NSColor+category.h */,
+				00B79AA62D1415AA00DAE137 /* NSColor+category.m */,
+			);
+			path = NSColor;
+			sourceTree = "<group>";
+		};
+		00B79AAE2D1415AA00DAE137 /* NSView */ = {
+			isa = PBXGroup;
+			children = (
+				0080A4E92D04493500EEFEA2 /* NSView+Frame.swift */,
+				00B79AAA2D1415AA00DAE137 /* NSView+category.h */,
+				00B79AAB2D1415AA00DAE137 /* NSView+category.m */,
+				00B79AAC2D1415AA00DAE137 /* NSView+gesture.h */,
+				00B79AAD2D1415AA00DAE137 /* NSView+gesture.m */,
+			);
+			path = NSView;
+			sourceTree = "<group>";
+		};
+		00B79AB12D1415AA00DAE137 /* NSControl */ = {
+			isa = PBXGroup;
+			children = (
+				00B79AAF2D1415AA00DAE137 /* NSControl+category.h */,
+				00B79AB02D1415AA00DAE137 /* NSControl+category.m */,
+			);
+			path = NSControl;
+			sourceTree = "<group>";
+		};
+		00B79AB82D1415AA00DAE137 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				00B79AB42D1415AA00DAE137 /* Macro.swift */,
+				00B79AB52D1415AA00DAE137 /* YLLog.swift */,
+				00B79AB62D1415AA00DAE137 /* XcodeLog.m */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
+		00B79AC12D1415AA00DAE137 /* NSString */ = {
+			isa = PBXGroup;
+			children = (
+				00B79AB92D1415AA00DAE137 /* NSString+secret.h */,
+				00B79ABA2D1415AA00DAE137 /* NSString+secret.m */,
+				00B79ABB2D1415AA00DAE137 /* NSString+predicate.h */,
+				00B79ABC2D1415AA00DAE137 /* NSString+predicate.m */,
+				00B79ABD2D1415AA00DAE137 /* NSString+category.h */,
+				00B79ABE2D1415AA00DAE137 /* NSString+category.m */,
+				00B79ABF2D1415AA00DAE137 /* NSString+bounds.h */,
+				00B79AC02D1415AA00DAE137 /* NSString+bounds.m */,
+			);
+			path = NSString;
+			sourceTree = "<group>";
+		};
+		00B79AC42D1415AA00DAE137 /* NSButton */ = {
+			isa = PBXGroup;
+			children = (
+				00B79AC22D1415AA00DAE137 /* NSButton+category.h */,
+				00B79AC32D1415AA00DAE137 /* NSButton+category.m */,
+			);
+			path = NSButton;
+			sourceTree = "<group>";
+		};
+		00B79AC72D1415AA00DAE137 /* NSAlert */ = {
+			isa = PBXGroup;
+			children = (
+				00B79AC52D1415AA00DAE137 /* NSAlert+category.h */,
+				00B79AC62D1415AA00DAE137 /* NSAlert+category.m */,
+			);
+			path = NSAlert;
+			sourceTree = "<group>";
+		};
+		00B79ACA2D1415AA00DAE137 /* NSObject */ = {
+			isa = PBXGroup;
+			children = (
+				00B79AC82D1415AA00DAE137 /* NSObject+category.h */,
+				00B79AC92D1415AA00DAE137 /* NSObject+category.m */,
+			);
+			path = NSObject;
+			sourceTree = "<group>";
+		};
+		00B79ACD2D1415AA00DAE137 /* NSTextField */ = {
+			isa = PBXGroup;
+			children = (
+				00B79ACB2D1415AA00DAE137 /* NSTextField+category.h */,
+				00B79ACC2D1415AA00DAE137 /* NSTextField+category.m */,
+			);
+			path = NSTextField;
+			sourceTree = "<group>";
+		};
+		00B79AD02D1415AA00DAE137 /* NSImage */ = {
+			isa = PBXGroup;
+			children = (
+				00B79ACE2D1415AA00DAE137 /* NSImage+category.h */,
+				00B79ACF2D1415AA00DAE137 /* NSImage+category.m */,
+			);
+			path = NSImage;
+			sourceTree = "<group>";
+		};
+		00B79AD52D1415AA00DAE137 /* NSWindow */ = {
+			isa = PBXGroup;
+			children = (
+				00B79AD12D1415AA00DAE137 /* NSWindow+category.h */,
+				00B79AD22D1415AA00DAE137 /* NSWindow+category.m */,
+				00B79AD32D1415AA00DAE137 /* NSWindow+frame.h */,
+				00B79AD42D1415AA00DAE137 /* NSWindow+frame.m */,
+			);
+			path = NSWindow;
+			sourceTree = "<group>";
+		};
+		00B79AD82D1415AA00DAE137 /* NSScreen */ = {
+			isa = PBXGroup;
+			children = (
+				00B79AD62D1415AA00DAE137 /* NSScreen+category.h */,
+				00B79AD72D1415AA00DAE137 /* NSScreen+category.m */,
+			);
+			path = NSScreen;
+			sourceTree = "<group>";
+		};
+		00B79ADB2D1415AA00DAE137 /* NSDate */ = {
+			isa = PBXGroup;
+			children = (
+				00B79AD92D1415AA00DAE137 /* NSDate+category.h */,
+				00B79ADA2D1415AA00DAE137 /* NSDate+category.m */,
+			);
+			path = NSDate;
+			sourceTree = "<group>";
+		};
+		00B79B2A2D14181600DAE137 /* YLTextField */ = {
+			isa = PBXGroup;
+			children = (
+				00B79B2B2D14182500DAE137 /* YLTextField.h */,
+				00B79B2C2D14182500DAE137 /* YLTextField.m */,
+			);
+			path = YLTextField;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -112,6 +909,7 @@
 				TargetAttributes = {
 					0080A4C82D0448EA00EEFEA2 = {
 						CreatedOnToolsVersion = 16.1;
+						LastSwiftMigration = 1620;
 					};
 				};
 			};
@@ -140,6 +938,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				0080A4E42D04490300EEFEA2 /* Assets.xcassets in Resources */,
+				00B79ADC2D1415AB00DAE137 /* YLLanguage.strings in Resources */,
+				00B79ADD2D1415AB00DAE137 /* MAShortcutLocalizable.strings in Resources */,
+				00B79ADE2D1415AB00DAE137 /* YLPermissionManager.bundle in Resources */,
+				00B79ADF2D1415AB00DAE137 /* YLUpdateManager.strings in Resources */,
+				00B79AE02D1415AB00DAE137 /* YLShortcutView.bundle in Resources */,
+				00B79AE12D1415AB00DAE137 /* YLAppleScript.strings in Resources */,
+				00B79AE22D1415AB00DAE137 /* YLHud.bundle in Resources */,
+				00B79AE32D1415AB00DAE137 /* YLFileAccess.strings in Resources */,
+				00B79AE42D1415AB00DAE137 /* YLShortcutView.strings in Resources */,
+				00B79AE52D1415AB00DAE137 /* YLPermissionManager.strings in Resources */,
 				0080A4E52D04490300EEFEA2 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -152,9 +960,74 @@
 			buildActionMask = 2147483647;
 			files = (
 				0080A4E22D04490300EEFEA2 /* AppDelegate.swift in Sources */,
-				0080A4EB2D044A8900EEFEA2 /* YLLog.swift in Sources */,
-				0080A4EC2D044A8E00EEFEA2 /* NSView+Extension.swift in Sources */,
-				0080A4EA2D044A7A00EEFEA2 /* Macro.swift in Sources */,
+				0080A4EC2D044A8E00EEFEA2 /* NSView+Frame.swift in Sources */,
+				00B79AE62D1415AB00DAE137 /* MASShortcutViewButtonCell.m in Sources */,
+				00B79AE72D1415AB00DAE137 /* NSString+bounds.m in Sources */,
+				00B79AE82D1415AB00DAE137 /* NSArray+category.m in Sources */,
+				00B79AE92D1415AB00DAE137 /* YLUpdateViewController.m in Sources */,
+				00B79AEA2D1415AB00DAE137 /* NSButton+category.m in Sources */,
+				00B79AEC2D1415AB00DAE137 /* YLControl.m in Sources */,
+				00B79AED2D1415AB00DAE137 /* YLCFNotificationManager.m in Sources */,
+				00B79AEE2D1415AB00DAE137 /* Macro.swift in Sources */,
+				00B79AEF2D1415AB00DAE137 /* MASLocalization.m in Sources */,
+				00B79AF02D1415AB00DAE137 /* YLFileAccess.m in Sources */,
+				00B79AF12D1415AB00DAE137 /* NSColor+category.m in Sources */,
+				00B79AF22D1415AB00DAE137 /* YLShortcutView.m in Sources */,
+				00B79AF32D1415AB00DAE137 /* XcodeLog.m in Sources */,
+				00B79AF42D1415AB00DAE137 /* YLShortcutManager.m in Sources */,
+				00B79B2D2D14182500DAE137 /* YLTextField.m in Sources */,
+				00B79AF52D1415AB00DAE137 /* NSImage+category.m in Sources */,
+				00B79AF62D1415AB00DAE137 /* NSWindow+category.m in Sources */,
+				00B79AF72D1415AB00DAE137 /* YLAppleReview.m in Sources */,
+				00B79AF82D1415AB00DAE137 /* YLPermissionWindowController.m in Sources */,
+				00B79AF92D1415AB00DAE137 /* YLLanguage.m in Sources */,
+				00B79AFA2D1415AB00DAE137 /* MASShortcutMonitor.m in Sources */,
+				00B79AFB2D1415AB00DAE137 /* NSAlert+category.m in Sources */,
+				00B79AFC2D1415AB00DAE137 /* YLLanguageModel.m in Sources */,
+				00B79AFD2D1415AB00DAE137 /* MASShortcutBinder.m in Sources */,
+				00B79AFE2D1415AB00DAE137 /* YLUpdateManager.m in Sources */,
+				00B79AFF2D1415AB00DAE137 /* NSObject+category.m in Sources */,
+				00B79B002D1415AB00DAE137 /* YLFlipView.m in Sources */,
+				00B79B012D1415AB00DAE137 /* NSString+secret.m in Sources */,
+				00B79B022D1415AB00DAE137 /* NSResponder+category.m in Sources */,
+				00B79B032D1415AB00DAE137 /* YLHudConfig.m in Sources */,
+				00B79B042D1415AB00DAE137 /* MASDictionaryTransformer.m in Sources */,
+				00B79B052D1415AB00DAE137 /* NSView+category.m in Sources */,
+				00B79B062D1415AB00DAE137 /* MASHotKey.m in Sources */,
+				00B79B072D1415AB00DAE137 /* YLHudProgressView.m in Sources */,
+				00B79B082D1415AB00DAE137 /* YLPermissionItem.m in Sources */,
+				00B79B092D1415AB00DAE137 /* NSWindow+frame.m in Sources */,
+				00B79B0A2D1415AB00DAE137 /* NSImageView+category.m in Sources */,
+				00B79B0B2D1415AB00DAE137 /* YLShortcutConfig.m in Sources */,
+				00B79B0C2D1415AB00DAE137 /* NSScreen+category.m in Sources */,
+				00B79B0D2D1415AB00DAE137 /* YLAppRating.m in Sources */,
+				00B79B0E2D1415AB00DAE137 /* NSDate+category.m in Sources */,
+				00B79B0F2D1415AB00DAE137 /* AppSandboxFileAccess.m in Sources */,
+				00B79B102D1415AB00DAE137 /* YLWindowButton.m in Sources */,
+				00B79B112D1415AB00DAE137 /* AppSandboxFileAccessPersist.m in Sources */,
+				00B79B122D1415AB00DAE137 /* YLUtility.m in Sources */,
+				00B79B132D1415AB00DAE137 /* YLPermissionViewController.m in Sources */,
+				00B79B142D1415AB00DAE137 /* MASShortcutValidator.m in Sources */,
+				00B79B152D1415AB00DAE137 /* YLCollectionView.m in Sources */,
+				00B79B162D1415AB00DAE137 /* NSString+predicate.m in Sources */,
+				00B79B172D1415AB00DAE137 /* MASShortcut.m in Sources */,
+				00B79B182D1415AB00DAE137 /* NSView+gesture.m in Sources */,
+				00B79B192D1415AB00DAE137 /* MASShortcutView+Bindings.m in Sources */,
+				00B79B1A2D1415AB00DAE137 /* NSControl+category.m in Sources */,
+				00B79B1B2D1415AB00DAE137 /* YLHudContentView.m in Sources */,
+				00B79B1C2D1415AB00DAE137 /* YLUserDefaults.m in Sources */,
+				00B79B1D2D1415AB00DAE137 /* YLWindowOperateView.m in Sources */,
+				00B79B1E2D1415AB00DAE137 /* YLAppleScript.m in Sources */,
+				00B79B1F2D1415AB00DAE137 /* AppSandboxFileAccessOpenSavePanelDelegate.m in Sources */,
+				00B79B212D1415AB00DAE137 /* YLLog.swift in Sources */,
+				00B79B222D1415AB00DAE137 /* YLHud.m in Sources */,
+				00B79B232D1415AB00DAE137 /* NSTextField+category.m in Sources */,
+				00B79B242D1415AB00DAE137 /* NSString+category.m in Sources */,
+				00B79B252D1415AB00DAE137 /* YLWeakTimer.m in Sources */,
+				00B79B262D1415AB00DAE137 /* YLPermissionManager.m in Sources */,
+				00B79B272D1415AB00DAE137 /* YLPermissionModel.m in Sources */,
+				00B79B282D1415AB00DAE137 /* MASShortcutView.m in Sources */,
+				00B79B292D1415AB00DAE137 /* YLUpdateWindowController.m in Sources */,
 				0080A4E32D04490300EEFEA2 /* ViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -168,6 +1041,124 @@
 				0080A4DD2D04490300EEFEA2 /* Base */,
 			);
 			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		00B799E92D1415AA00DAE137 /* YLFileAccess.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				00B799E02D1415AA00DAE137 /* YLFileAccess.strings */,
+				00B799E12D1415AA00DAE137 /* YLFileAccess.strings */,
+				00B799E22D1415AA00DAE137 /* YLFileAccess.strings */,
+				00B799E32D1415AA00DAE137 /* YLFileAccess.strings */,
+				00B799E42D1415AA00DAE137 /* YLFileAccess.strings */,
+				00B799E52D1415AA00DAE137 /* YLFileAccess.strings */,
+				00B799E62D1415AA00DAE137 /* YLFileAccess.strings */,
+				00B799E72D1415AA00DAE137 /* YLFileAccess.strings */,
+				00B799E82D1415AA00DAE137 /* YLFileAccess.strings */,
+			);
+			name = YLFileAccess.strings;
+			sourceTree = "<group>";
+		};
+		00B799FB2D1415AA00DAE137 /* YLUpdateManager.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				00B799F22D1415AA00DAE137 /* YLUpdateManager.strings */,
+				00B799F32D1415AA00DAE137 /* YLUpdateManager.strings */,
+				00B799F42D1415AA00DAE137 /* YLUpdateManager.strings */,
+				00B799F52D1415AA00DAE137 /* YLUpdateManager.strings */,
+				00B799F62D1415AA00DAE137 /* YLUpdateManager.strings */,
+				00B799F72D1415AA00DAE137 /* YLUpdateManager.strings */,
+				00B799F82D1415AA00DAE137 /* YLUpdateManager.strings */,
+				00B799F92D1415AA00DAE137 /* YLUpdateManager.strings */,
+				00B799FA2D1415AA00DAE137 /* YLUpdateManager.strings */,
+			);
+			name = YLUpdateManager.strings;
+			sourceTree = "<group>";
+		};
+		00B79A1E2D1415AA00DAE137 /* YLLanguage.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				00B79A152D1415AA00DAE137 /* YLLanguage.strings */,
+				00B79A162D1415AA00DAE137 /* YLLanguage.strings */,
+				00B79A172D1415AA00DAE137 /* YLLanguage.strings */,
+				00B79A182D1415AA00DAE137 /* YLLanguage.strings */,
+				00B79A192D1415AA00DAE137 /* YLLanguage.strings */,
+				00B79A1A2D1415AA00DAE137 /* YLLanguage.strings */,
+				00B79A1B2D1415AA00DAE137 /* YLLanguage.strings */,
+				00B79A1C2D1415AA00DAE137 /* YLLanguage.strings */,
+				00B79A1D2D1415AA00DAE137 /* YLLanguage.strings */,
+			);
+			name = YLLanguage.strings;
+			sourceTree = "<group>";
+		};
+		00B79A352D1415AA00DAE137 /* YLPermissionManager.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				00B79A2C2D1415AA00DAE137 /* YLPermissionManager.strings */,
+				00B79A2D2D1415AA00DAE137 /* YLPermissionManager.strings */,
+				00B79A2E2D1415AA00DAE137 /* YLPermissionManager.strings */,
+				00B79A2F2D1415AA00DAE137 /* YLPermissionManager.strings */,
+				00B79A302D1415AA00DAE137 /* YLPermissionManager.strings */,
+				00B79A312D1415AA00DAE137 /* YLPermissionManager.strings */,
+				00B79A322D1415AA00DAE137 /* YLPermissionManager.strings */,
+				00B79A332D1415AA00DAE137 /* YLPermissionManager.strings */,
+				00B79A342D1415AA00DAE137 /* YLPermissionManager.strings */,
+			);
+			name = YLPermissionManager.strings;
+			sourceTree = "<group>";
+		};
+		00B79A4F2D1415AA00DAE137 /* YLAppleScript.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				00B79A462D1415AA00DAE137 /* YLAppleScript.strings */,
+				00B79A472D1415AA00DAE137 /* YLAppleScript.strings */,
+				00B79A482D1415AA00DAE137 /* YLAppleScript.strings */,
+				00B79A492D1415AA00DAE137 /* YLAppleScript.strings */,
+				00B79A4A2D1415AA00DAE137 /* YLAppleScript.strings */,
+				00B79A4B2D1415AA00DAE137 /* YLAppleScript.strings */,
+				00B79A4C2D1415AA00DAE137 /* YLAppleScript.strings */,
+				00B79A4D2D1415AA00DAE137 /* YLAppleScript.strings */,
+				00B79A4E2D1415AA00DAE137 /* YLAppleScript.strings */,
+			);
+			name = YLAppleScript.strings;
+			sourceTree = "<group>";
+		};
+		00B79A892D1415AA00DAE137 /* YLShortcutView.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				00B79A802D1415AA00DAE137 /* YLShortcutView.strings */,
+				00B79A812D1415AA00DAE137 /* YLShortcutView.strings */,
+				00B79A822D1415AA00DAE137 /* YLShortcutView.strings */,
+				00B79A832D1415AA00DAE137 /* YLShortcutView.strings */,
+				00B79A842D1415AA00DAE137 /* YLShortcutView.strings */,
+				00B79A852D1415AA00DAE137 /* YLShortcutView.strings */,
+				00B79A862D1415AA00DAE137 /* YLShortcutView.strings */,
+				00B79A872D1415AA00DAE137 /* YLShortcutView.strings */,
+				00B79A882D1415AA00DAE137 /* YLShortcutView.strings */,
+			);
+			name = YLShortcutView.strings;
+			sourceTree = "<group>";
+		};
+		00B79A992D1415AA00DAE137 /* MAShortcutLocalizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				00B79A8A2D1415AA00DAE137 /* MAShortcutLocalizable.strings */,
+				00B79A8B2D1415AA00DAE137 /* MAShortcutLocalizable.strings */,
+				00B79A8C2D1415AA00DAE137 /* MAShortcutLocalizable.strings */,
+				00B79A8D2D1415AA00DAE137 /* MAShortcutLocalizable.strings */,
+				00B79A8E2D1415AA00DAE137 /* MAShortcutLocalizable.strings */,
+				00B79A8F2D1415AA00DAE137 /* MAShortcutLocalizable.strings */,
+				00B79A902D1415AA00DAE137 /* MAShortcutLocalizable.strings */,
+				00B79A912D1415AA00DAE137 /* MAShortcutLocalizable.strings */,
+				00B79A922D1415AA00DAE137 /* MAShortcutLocalizable.strings */,
+				00B79A932D1415AA00DAE137 /* MAShortcutLocalizable.strings */,
+				00B79A942D1415AA00DAE137 /* MAShortcutLocalizable.strings */,
+				00B79A952D1415AA00DAE137 /* MAShortcutLocalizable.strings */,
+				00B79A962D1415AA00DAE137 /* MAShortcutLocalizable.strings */,
+				00B79A972D1415AA00DAE137 /* MAShortcutLocalizable.strings */,
+				00B79A982D1415AA00DAE137 /* MAShortcutLocalizable.strings */,
+			);
+			name = MAShortcutLocalizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -296,10 +1287,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "YLCategory-Swift-Demo/YLCategory_Swift_MacOS.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 2024120701;
+				CURRENT_PROJECT_VERSION = 2024121901;
 				DEVELOPMENT_TEAM = 87LJF62PN6;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -311,10 +1303,12 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
-				MARKETING_VERSION = 1.0.0;
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.wyl.YLCategory-Swift-MacOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "YLCategory-Swift-MacOS/YLCategory-Swift-MacOS-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -324,10 +1318,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "YLCategory-Swift-Demo/YLCategory_Swift_MacOS.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 2024120701;
+				CURRENT_PROJECT_VERSION = 2024121901;
 				DEVELOPMENT_TEAM = 87LJF62PN6;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -339,10 +1334,11 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
-				MARKETING_VERSION = 1.0.0;
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.wyl.YLCategory-Swift-MacOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "YLCategory-Swift-MacOS/YLCategory-Swift-MacOS-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;

@@ -1,0 +1,22 @@
+/* 
+  YLShortcut.strings
+  Test
+
+  Created by 魏宇龙 on 2022/7/8.
+  
+*/
+
+
+"Click to record shortcut" = "Click to record shortcut";
+"Click to begin editing" = "Click to begin editing";
+"Begin record shortcut" = "Begin record shortcut";
+"Delete shortcut" = "Delete shortcut";
+"Record Shortcut" = "Record Shortcut";
+"End editing" = "End editing";
+"Shortcut has been registered by system" = "Shortcut has been registered by the system";
+"Control keys are unavailable" = "Control keys are unavailable";
+
+"Kind tips" = "Kind tips";
+"Option Modifier Tips" = "You are using 'Option +' as a shortcut, and the system requires Accessibility permissions to use it";
+"Auth Accessibility" = "Grant Accessibility Permissions";
+"Clear Option Shortcuts" = "Clear 'Option +' Shortcuts";

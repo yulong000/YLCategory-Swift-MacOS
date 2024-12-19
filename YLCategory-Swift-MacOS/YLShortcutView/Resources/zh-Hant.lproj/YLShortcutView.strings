@@ -1,0 +1,22 @@
+/* 
+  YLShortcut.strings
+  Test
+
+  Created by 魏宇龙 on 2022/7/8.
+  
+*/
+
+
+"Click to record shortcut" = "點選記錄快捷鍵";
+"Click to begin editing" = "點選開始編輯";
+"Begin record shortcut" = "開始記錄快捷鍵";
+"Delete shortcut" = "刪除快捷鍵";
+"Record Shortcut" = "記錄快捷鍵";
+"End editing" = "取消編輯";
+"Shortcut has been registered by system" = "快捷鍵已被系統註冊";
+"Control keys are unavailable" = "控制鍵不可用";
+
+"Kind tips" = "溫馨提示";
+"Option Modifier Tips" = "您使用了'Option +'作為快捷鍵，當前系統需要輔助功能權限才能使用";
+"Auth Accessibility" = "授權輔助功能權限";
+"Clear Option Shortcuts" = "清空'Option +'快捷鍵";
