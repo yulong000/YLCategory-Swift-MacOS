@@ -305,6 +305,7 @@
 		00B79ADA2D1415AA00DAE137 /* NSDate+category.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDate+category.m"; sourceTree = "<group>"; };
 		00B79B2B2D14182500DAE137 /* YLTextField.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YLTextField.h; sourceTree = "<group>"; };
 		00B79B2C2D14182500DAE137 /* YLTextField.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YLTextField.m; sourceTree = "<group>"; };
+		00B79B2E2D14789400DAE137 /* YLCategory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YLCategory.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -351,6 +352,7 @@
 			isa = PBXGroup;
 			children = (
 				00B799D32D1414E200DAE137 /* YLCategory-Swift-MacOS-Bridging-Header.h */,
+				00B79B2E2D14789400DAE137 /* YLCategory.h */,
 				00B79B2A2D14181600DAE137 /* YLTextField */,
 				00B799EB2D1415AA00DAE137 /* YLFileAccess */,
 				00B799FD2D1415AA00DAE137 /* YLUpdateManager */,
@@ -919,6 +921,20 @@
 			knownRegions = (
 				en,
 				Base,
+				"zh-Hans",
+				"zh-Hant",
+				fr,
+				de,
+				ja,
+				ko,
+				pt,
+				es,
+				cs,
+				it,
+				nl,
+				pl,
+				ru,
+				sv,
 			);
 			mainGroup = 0080A4C02D0448EA00EEFEA2;
 			minimizedProjectReferenceProxies = 1;
