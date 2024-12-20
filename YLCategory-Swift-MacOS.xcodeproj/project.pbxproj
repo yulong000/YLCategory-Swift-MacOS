@@ -306,6 +306,7 @@
 		00B79B2B2D14182500DAE137 /* YLTextField.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YLTextField.h; sourceTree = "<group>"; };
 		00B79B2C2D14182500DAE137 /* YLTextField.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YLTextField.m; sourceTree = "<group>"; };
 		00B79B2E2D14789400DAE137 /* YLCategory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YLCategory.h; sourceTree = "<group>"; };
+		00B79B2F2D14F4A800DAE137 /* Macro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Macro.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -343,6 +344,7 @@
 				0080A4DF2D04490300EEFEA2 /* ViewController.swift */,
 				0080A4DC2D04490300EEFEA2 /* Assets.xcassets */,
 				0080A4DE2D04490300EEFEA2 /* Main.storyboard */,
+				00B799D32D1414E200DAE137 /* YLCategory-Swift-MacOS-Bridging-Header.h */,
 				0080A4E02D04490300EEFEA2 /* YLCategory_Swift_MacOS.entitlements */,
 			);
 			path = "YLCategory-Swift-Demo";
@@ -351,7 +353,6 @@
 		0080A4E62D04490900EEFEA2 /* YLCategory-Swift-MacOS */ = {
 			isa = PBXGroup;
 			children = (
-				00B799D32D1414E200DAE137 /* YLCategory-Swift-MacOS-Bridging-Header.h */,
 				00B79B2E2D14789400DAE137 /* YLCategory.h */,
 				00B79B2A2D14181600DAE137 /* YLTextField */,
 				00B799EB2D1415AA00DAE137 /* YLFileAccess */,
@@ -772,6 +773,7 @@
 		00B79AB82D1415AA00DAE137 /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				00B79B2F2D14F4A800DAE137 /* Macro.h */,
 				00B79AB42D1415AA00DAE137 /* Macro.swift */,
 				00B79AB52D1415AA00DAE137 /* YLLog.swift */,
 				00B79AB62D1415AA00DAE137 /* XcodeLog.m */,
@@ -1323,7 +1325,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.wyl.YLCategory-Swift-MacOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "YLCategory-Swift-MacOS/YLCategory-Swift-MacOS-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "YLCategory-Swift-Demo/YLCategory-Swift-MacOS-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 			};
@@ -1354,7 +1356,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.wyl.YLCategory-Swift-MacOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "YLCategory-Swift-MacOS/YLCategory-Swift-MacOS-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "YLCategory-Swift-Demo/YLCategory-Swift-MacOS-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
