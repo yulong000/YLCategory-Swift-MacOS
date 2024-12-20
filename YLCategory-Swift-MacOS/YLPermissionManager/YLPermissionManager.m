@@ -60,8 +60,8 @@
                 };
                 weakSelf.permissionWC.permissionVc.quitHandler = ^{
                     // 退出
-                    if(weakSelf.skipHandler) {
-                        weakSelf.skipHandler();
+                    if(weakSelf.quitHandler) {
+                        weakSelf.quitHandler();
                     }
                 };
                 weakSelf.permissionWC.permissionVc.authTypes = authTypes;
@@ -86,8 +86,8 @@
                         };
                         weakSelf.permissionWC.permissionVc.quitHandler = ^{
                             // 退出
-                            if(weakSelf.skipHandler) {
-                                weakSelf.skipHandler();
+                            if(weakSelf.quitHandler) {
+                                weakSelf.quitHandler();
                             }
                         };
                         weakSelf.permissionWC.permissionVc.authTypes = authTypes;
