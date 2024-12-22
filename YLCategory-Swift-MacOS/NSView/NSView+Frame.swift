@@ -174,266 +174,273 @@ public extension NSView {
     
     /// 设置x值
     @discardableResult
-    func x(is value: CGFloat) -> NSView {
+    func x(is value: CGFloat) -> Self {
         self.x = value
         return self
     }
     
     /// 设置y值
     @discardableResult
-    func y(is value: CGFloat) -> NSView {
+    func y(is value: CGFloat) -> Self {
         self.y = value
         return self
     }
     
     /// 设置宽度
     @discardableResult
-    func width(is value: CGFloat) -> NSView {
+    func width(is value: CGFloat) -> Self {
         self.width = value
         return self
     }
     
     /// 设置高度
     @discardableResult
-    func height(is value: CGFloat) -> NSView {
+    func height(is value: CGFloat) -> Self {
         self.height = value
         return self
     }
     
     /// 设置顶部位置
     @discardableResult
-    func top(is value: CGFloat) -> NSView {
+    func top(is value: CGFloat) -> Self {
         self.top = value
         return self
     }
     
     /// 设置左侧位置
     @discardableResult
-    func left(is value: CGFloat) -> NSView {
+    func left(is value: CGFloat) -> Self {
         self.left = value
         return self
     }
     
     /// 设置底部位置
     @discardableResult
-    func bottom(is value: CGFloat) -> NSView {
+    func bottom(is value: CGFloat) -> Self {
         self.bottom = value
         return self
     }
     
     /// 设置右侧位置
     @discardableResult
-    func right(is value: CGFloat) -> NSView {
+    func right(is value: CGFloat) -> Self {
         self.right = value
         return self
     }
     
     /// 设置中心位置x
     @discardableResult
-    func centerX(is value: CGFloat) -> NSView {
+    func centerX(is value: CGFloat) -> Self {
         self.centerX = value
         return self
     }
     
     /// 设置中心位置y
     @discardableResult
-    func centerY(is value: CGFloat) -> NSView {
+    func centerY(is value: CGFloat) -> Self {
         self.centerY = value
         return self
     }
     
     /// 设置origin
     @discardableResult
-    func originIs(_ x: CGFloat, _ y: CGFloat) -> NSView {
+    func originIs(_ x: CGFloat, _ y: CGFloat) -> Self {
         self.origin = NSMakePoint(x, y)
         return self
     }
     
     /// 设置大小
     @discardableResult
-    func sizeIs(_ width: CGFloat, _ height: CGFloat) -> NSView {
+    func sizeIs(_ width: CGFloat, _ height: CGFloat) -> Self {
         self.size = NSMakeSize(width, height)
         return self
     }
     
     /// 设置中心位置
     @discardableResult
-    func centerIs(_ x: CGFloat, _ y: CGFloat) -> NSView {
+    func centerIs(_ x: CGFloat, _ y: CGFloat) -> Self {
         self.center = NSMakePoint(x, y)
         return self
     }
     
     /// 设置frame
     @discardableResult
-    func frameIs(_ x: CGFloat, _ y: CGFloat, _ w: CGFloat, _ h: CGFloat) -> NSView {
+    func frameIs(_ x: CGFloat, _ y: CGFloat, _ w: CGFloat, _ h: CGFloat) -> Self {
         self.frame = NSMakeRect(x, y, w, h)
         return self
     }
     
     /// 设置偏移量，x会增加
     @discardableResult
-    func offsetX(is value: CGFloat) -> NSView {
+    func offsetX(is value: CGFloat) -> Self {
         self.x += value
         return self
     }
     
     /// 设置偏移量，y会增加
     @discardableResult
-    func offsetY(is value: CGFloat) -> NSView {
+    func offsetY(is value: CGFloat) -> Self {
         self.y += value
+        return self
+    }
+    
+    /// 设置偏移量，x, y会增加
+    @discardableResult
+    func offset(_ x: CGFloat, _ y: CGFloat) -> Self {
+        self.origin = NSMakePoint(self.x + x, self.y + y)
         return self
     }
     
     /// 设置x等于另一个view
     @discardableResult
-    func x(equalTo view: NSView) -> NSView {
+    func x(equalTo view: NSView) -> Self {
         self.x = view.x
         return self
     }
     
     /// 设置y等于另一个view
     @discardableResult
-    func y(equalTo view: NSView) -> NSView {
+    func y(equalTo view: NSView) -> Self {
         self.y = view.y
         return self
     }
     
     /// 设置origin等于另一个view
     @discardableResult
-    func origin(equalTo view: NSView) -> NSView {
+    func origin(equalTo view: NSView) -> Self {
         self.origin = view.origin
         return self
     }
     
     /// 设置顶部等于另一个view
     @discardableResult
-    func top(equalTo view: NSView) -> NSView {
+    func top(equalTo view: NSView) -> Self {
         self.top = view.top
         return self
     }
     
     /// 设置左侧等于另一个view
     @discardableResult
-    func left(equalTo view: NSView) -> NSView {
+    func left(equalTo view: NSView) -> Self {
         self.left = view.left
         return self
     }
     
     /// 设置底部等于另一个view
     @discardableResult
-    func bottom(equalTo view: NSView) -> NSView {
+    func bottom(equalTo view: NSView) -> Self {
         self.bottom = view.bottom
         return self
     }
     
     /// 设置右侧等于另一个view
     @discardableResult
-    func right(equalTo view: NSView) -> NSView {
+    func right(equalTo view: NSView) -> Self {
         self.right = view.right
         return self
     }
     
     /// 设置宽度等于另一个view
     @discardableResult
-    func width(equalTo view: NSView) -> NSView {
+    func width(equalTo view: NSView) -> Self {
         self.width = view.width
         return self
     }
     
     /// 设置高度等于另一个view
     @discardableResult
-    func height(equalTo view: NSView) -> NSView {
+    func height(equalTo view: NSView) -> Self {
         self.height = view.height
         return self
     }
     
     /// 设置大小等于另一个view
     @discardableResult
-    func size(equalTo view: NSView) -> NSView {
+    func size(equalTo view: NSView) -> Self {
         self.size = view.size
         return self
     }
     
     /// 设置中心位置x等于另一个view
     @discardableResult
-    func centerX(equalTo view: NSView) -> NSView {
+    func centerX(equalTo view: NSView) -> Self {
         self.centerX = view.centerX
         return self
     }
     
     /// 设置中心位置y等于另一个view
     @discardableResult
-    func centerY(equalTo view: NSView) -> NSView {
+    func centerY(equalTo view: NSView) -> Self {
         self.centerY = view.centerY
         return self
     }
     
     /// 设置中心位置等于另一个view
     @discardableResult
-    func center(equalTo view: NSView) -> NSView {
+    func center(equalTo view: NSView) -> Self {
         self.center = view.center
         return self
     }
     
     /// 设置x等于另一个view的x，并增加偏移量
     @discardableResult
-    func x(equalTo view: NSView, offset: CGFloat) -> NSView {
+    func x(equalTo view: NSView, offset: CGFloat) -> Self {
         self.x = view.x + offset
         return self
     }
     
     /// 设置y等于另一个view的y，并增加偏移量
     @discardableResult
-    func y(equalTo view: NSView, offset: CGFloat) -> NSView {
+    func y(equalTo view: NSView, offset: CGFloat) -> Self {
         self.y = view.y + offset
         return self
     }
     
     /// 设置顶部对齐另一个view的顶部增加偏移量
     @discardableResult
-    func top(equalTo view: NSView, offset: CGFloat) -> NSView {
+    func top(equalTo view: NSView, offset: CGFloat) -> Self {
         self.top = view.top + offset
         return self
     }
     
     /// 设置左侧对齐另一个view的左侧，并增加偏移量
     @discardableResult
-    func left(equalTo view: NSView, offset: CGFloat) -> NSView {
+    func left(equalTo view: NSView, offset: CGFloat) -> Self {
         self.left = view.left + offset
         return self
     }
     
     /// 设置底部对齐另一个view的底部，并增加偏移量
     @discardableResult
-    func bottom(equalTo view: NSView, offset: CGFloat) -> NSView {
+    func bottom(equalTo view: NSView, offset: CGFloat) -> Self {
         self.bottom = view.bottom + offset
         return self
     }
     
     /// 设置右侧对齐另一个view的右侧，并增加偏移量
     @discardableResult
-    func right(equalTo view: NSView, offset: CGFloat) -> NSView {
+    func right(equalTo view: NSView, offset: CGFloat) -> Self {
         self.right = view.right + offset
         return self
     }
     
     /// 设置中心位置x对齐另一个view的中心位置x，并增加偏移量
     @discardableResult
-    func centerX(equalTo view: NSView, offset: CGFloat) -> NSView {
+    func centerX(equalTo view: NSView, offset: CGFloat) -> Self {
         self.centerX = view.centerX + offset
         return self
     }
     
     /// 设置中心位置y对齐另一个view的中心位置y，并增加偏移量
     @discardableResult
-    func centerY(equalTo view: NSView, offset: CGFloat) -> NSView {
+    func centerY(equalTo view: NSView, offset: CGFloat) -> Self {
         self.centerY = view.centerY + offset
         return self
     }
     
     /// 设置右侧对齐父视图右侧
     @discardableResult
-    func rightEqualToSuper() -> NSView {
+    func rightEqualToSuper() -> Self {
         guard let superview = superview else {
             assert(false, "Superview must not be nil")
             return self
@@ -444,7 +451,7 @@ public extension NSView {
     
     /// 设置底部对齐父视图底部
     @discardableResult
-    func bottomEqualToSuper() -> NSView {
+    func bottomEqualToSuper() -> Self {
         guard let superview = superview else {
             assert(false, "Superview must not be nil")
             return self
@@ -455,7 +462,7 @@ public extension NSView {
     
     /// 设置居中
     @discardableResult
-    func centerEqualToSuper() -> NSView {
+    func centerEqualToSuper() -> Self {
         guard let superview = superview else {
             assert(false, "Superview must not be nil")
             return self
@@ -466,7 +473,7 @@ public extension NSView {
     
     /// 设置水平居中
     @discardableResult
-    func centerXEqualToSuper() -> NSView {
+    func centerXEqualToSuper() -> Self {
         guard let superview = superview else {
             assert(false, "Superview must not be nil")
             return self
@@ -477,7 +484,7 @@ public extension NSView {
     
     /// 设置垂直居中
     @discardableResult
-    func centerYEqualToSuper() -> NSView {
+    func centerYEqualToSuper() -> Self {
         guard let superview = superview else {
             assert(false, "Superview must not be nil")
             return self
@@ -488,21 +495,21 @@ public extension NSView {
     
     /// 设置顶部与父视图底部的间距space
     @discardableResult
-    func top(spaceToSuper value: CGFloat) -> NSView {
+    func top(spaceToSuper value: CGFloat) -> Self {
         self.top = value
         return self
     }
     
     /// 设置左侧与父视图底部的间距space
     @discardableResult
-    func left(spaceToSuper value: CGFloat) -> NSView {
+    func left(spaceToSuper value: CGFloat) -> Self {
         self.x = value
         return self
     }
     
     /// 设置底部与父视图底部的间距space
     @discardableResult
-    func bottom(spaceToSuper value: CGFloat) -> NSView {
+    func bottom(spaceToSuper value: CGFloat) -> Self {
         guard let superview = superview else {
             assert(false, "Superview must not be nil")
             return self
@@ -513,7 +520,7 @@ public extension NSView {
     
     /// 设置右侧与父视图右侧的间距space
     @discardableResult
-    func right(spaceToSuper value: CGFloat) -> NSView {
+    func right(spaceToSuper value: CGFloat) -> Self {
         guard let superview = superview else {
             assert(false, "Superview must not be nil")
             return self
@@ -524,35 +531,35 @@ public extension NSView {
     
     /// 设置顶部与另一个view的底部的间距
     @discardableResult
-    func top(spaceTo view: NSView, _ value: CGFloat) -> NSView {
+    func top(spaceTo view: NSView, _ value: CGFloat) -> Self {
         self.top = view.bottom + value
         return self
     }
     
     /// 设置左侧与另一个view的右侧的间距
     @discardableResult
-    func left(spaceTo view: NSView, _ value: CGFloat) -> NSView {
+    func left(spaceTo view: NSView, _ value: CGFloat) -> Self {
         self.left = view.right + value
         return self
     }
     
     /// 设置底部与另一个view的顶部的间距
     @discardableResult
-    func bottom(spaceTo view: NSView, _ value: CGFloat) -> NSView {
+    func bottom(spaceTo view: NSView, _ value: CGFloat) -> Self {
         self.bottom = view.top - value
         return self
     }
     
     /// 设置右侧与另一个view的左侧的间距
     @discardableResult
-    func right(spaceTo view: NSView, _ value: CGFloat) -> NSView {
+    func right(spaceTo view: NSView, _ value: CGFloat) -> Self {
         self.right = view.left - value
         return self
     }
     
     /// 设置在父视图中上下左右的间距
     @discardableResult
-    func edgeToSuper(_ top: CGFloat, _ left: CGFloat, _ bottom: CGFloat, _ right: CGFloat) -> NSView {
+    func edgeToSuper(_ top: CGFloat, _ left: CGFloat, _ bottom: CGFloat, _ right: CGFloat) -> Self {
         guard let superview = superview else {
             assert(false, "Superview must not be nil")
             return self

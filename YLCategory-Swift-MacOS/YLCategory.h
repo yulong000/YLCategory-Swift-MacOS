@@ -10,8 +10,6 @@
 
 #import "NSButton+category.h"
 #import "NSTextField+category.h"
-#import "NSView+category.h"
-#import "NSView+gesture.h"
 #import "NSControl+category.h"
 #import "NSString+bounds.h"
 #import "NSString+secret.h"
