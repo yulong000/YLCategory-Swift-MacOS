@@ -12,6 +12,8 @@
 		0080A4E42D04490300EEFEA2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0080A4DC2D04490300EEFEA2 /* Assets.xcassets */; };
 		0080A4E52D04490300EEFEA2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0080A4DE2D04490300EEFEA2 /* Main.storyboard */; };
 		0080A4EC2D044A8E00EEFEA2 /* NSView+Frame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0080A4E92D04493500EEFEA2 /* NSView+Frame.swift */; };
+		00A0F9B12D1872180043E075 /* NSControl+Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A0F9B02D1872180043E075 /* NSControl+Category.swift */; };
+		00A0F9B32D1875980043E075 /* NSColor+Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A0F9B22D1875980043E075 /* NSColor+Category.swift */; };
 		00B79ADC2D1415AB00DAE137 /* YLLanguage.strings in Resources */ = {isa = PBXBuildFile; fileRef = 00B79A1E2D1415AA00DAE137 /* YLLanguage.strings */; };
 		00B79ADD2D1415AB00DAE137 /* MAShortcutLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 00B79A992D1415AA00DAE137 /* MAShortcutLocalizable.strings */; };
 		00B79ADE2D1415AB00DAE137 /* YLPermissionManager.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 00B79A2B2D1415AA00DAE137 /* YLPermissionManager.bundle */; };
@@ -32,7 +34,6 @@
 		00B79AEE2D1415AB00DAE137 /* Macro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B79AB42D1415AA00DAE137 /* Macro.swift */; };
 		00B79AEF2D1415AB00DAE137 /* MASLocalization.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B79A652D1415AA00DAE137 /* MASLocalization.m */; };
 		00B79AF02D1415AB00DAE137 /* YLFileAccess.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B799DF2D1415AA00DAE137 /* YLFileAccess.m */; };
-		00B79AF12D1415AB00DAE137 /* NSColor+category.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B79AA62D1415AA00DAE137 /* NSColor+category.m */; };
 		00B79AF22D1415AB00DAE137 /* YLShortcutView.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B79A7C2D1415AA00DAE137 /* YLShortcutView.m */; };
 		00B79AF32D1415AB00DAE137 /* XcodeLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B79AB62D1415AA00DAE137 /* XcodeLog.m */; };
 		00B79AF42D1415AB00DAE137 /* YLShortcutManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B79A7A2D1415AA00DAE137 /* YLShortcutManager.m */; };
@@ -71,7 +72,6 @@
 		00B79B162D1415AB00DAE137 /* NSString+predicate.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B79ABC2D1415AA00DAE137 /* NSString+predicate.m */; };
 		00B79B172D1415AB00DAE137 /* MASShortcut.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B79A742D1415AA00DAE137 /* MASShortcut.m */; };
 		00B79B192D1415AB00DAE137 /* MASShortcutView+Bindings.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B79A692D1415AA00DAE137 /* MASShortcutView+Bindings.m */; };
-		00B79B1A2D1415AB00DAE137 /* NSControl+category.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B79AB02D1415AA00DAE137 /* NSControl+category.m */; };
 		00B79B1B2D1415AB00DAE137 /* YLHudContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B79A062D1415AA00DAE137 /* YLHudContentView.m */; };
 		00B79B1C2D1415AB00DAE137 /* YLUserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B79A5C2D1415AA00DAE137 /* YLUserDefaults.m */; };
 		00B79B1D2D1415AB00DAE137 /* YLWindowOperateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B79A0F2D1415AA00DAE137 /* YLWindowOperateView.m */; };
@@ -99,6 +99,8 @@
 		0080A4DF2D04490300EEFEA2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		0080A4E02D04490300EEFEA2 /* YLCategory_Swift_MacOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = YLCategory_Swift_MacOS.entitlements; sourceTree = "<group>"; };
 		0080A4E92D04493500EEFEA2 /* NSView+Frame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSView+Frame.swift"; sourceTree = "<group>"; };
+		00A0F9B02D1872180043E075 /* NSControl+Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSControl+Category.swift"; sourceTree = "<group>"; };
+		00A0F9B22D1875980043E075 /* NSColor+Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSColor+Category.swift"; sourceTree = "<group>"; };
 		00B799D32D1414E200DAE137 /* YLCategory-Swift-MacOS-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "YLCategory-Swift-MacOS-Bridging-Header.h"; sourceTree = "<group>"; };
 		00B799D72D1415AA00DAE137 /* AppSandboxFileAccess.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppSandboxFileAccess.h; sourceTree = "<group>"; };
 		00B799D82D1415AA00DAE137 /* AppSandboxFileAccess.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppSandboxFileAccess.m; sourceTree = "<group>"; };
@@ -266,10 +268,6 @@
 		00B79AA02D1415AA00DAE137 /* NSResponder+category.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSResponder+category.m"; sourceTree = "<group>"; };
 		00B79AA22D1415AA00DAE137 /* NSArray+category.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSArray+category.h"; sourceTree = "<group>"; };
 		00B79AA32D1415AA00DAE137 /* NSArray+category.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSArray+category.m"; sourceTree = "<group>"; };
-		00B79AA52D1415AA00DAE137 /* NSColor+category.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSColor+category.h"; sourceTree = "<group>"; };
-		00B79AA62D1415AA00DAE137 /* NSColor+category.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSColor+category.m"; sourceTree = "<group>"; };
-		00B79AAF2D1415AA00DAE137 /* NSControl+category.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSControl+category.h"; sourceTree = "<group>"; };
-		00B79AB02D1415AA00DAE137 /* NSControl+category.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSControl+category.m"; sourceTree = "<group>"; };
 		00B79AB42D1415AA00DAE137 /* Macro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Macro.swift; sourceTree = "<group>"; };
 		00B79AB52D1415AA00DAE137 /* YLLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YLLog.swift; sourceTree = "<group>"; };
 		00B79AB62D1415AA00DAE137 /* XcodeLog.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XcodeLog.m; sourceTree = "<group>"; };
@@ -741,8 +739,7 @@
 		00B79AA72D1415AA00DAE137 /* NSColor */ = {
 			isa = PBXGroup;
 			children = (
-				00B79AA52D1415AA00DAE137 /* NSColor+category.h */,
-				00B79AA62D1415AA00DAE137 /* NSColor+category.m */,
+				00A0F9B22D1875980043E075 /* NSColor+Category.swift */,
 			);
 			path = NSColor;
 			sourceTree = "<group>";
@@ -760,8 +757,7 @@
 		00B79AB12D1415AA00DAE137 /* NSControl */ = {
 			isa = PBXGroup;
 			children = (
-				00B79AAF2D1415AA00DAE137 /* NSControl+category.h */,
-				00B79AB02D1415AA00DAE137 /* NSControl+category.m */,
+				00A0F9B02D1872180043E075 /* NSControl+Category.swift */,
 			);
 			path = NSControl;
 			sourceTree = "<group>";
@@ -986,7 +982,6 @@
 				00B79AEE2D1415AB00DAE137 /* Macro.swift in Sources */,
 				00B79AEF2D1415AB00DAE137 /* MASLocalization.m in Sources */,
 				00B79AF02D1415AB00DAE137 /* YLFileAccess.m in Sources */,
-				00B79AF12D1415AB00DAE137 /* NSColor+category.m in Sources */,
 				00B79AF22D1415AB00DAE137 /* YLShortcutView.m in Sources */,
 				00B79AF32D1415AB00DAE137 /* XcodeLog.m in Sources */,
 				00B79AF42D1415AB00DAE137 /* YLShortcutManager.m in Sources */,
@@ -1001,6 +996,7 @@
 				00B79AFB2D1415AB00DAE137 /* NSAlert+category.m in Sources */,
 				00B79AFC2D1415AB00DAE137 /* YLLanguageModel.m in Sources */,
 				00B79AFD2D1415AB00DAE137 /* MASShortcutBinder.m in Sources */,
+				00A0F9B32D1875980043E075 /* NSColor+Category.swift in Sources */,
 				00B79AFE2D1415AB00DAE137 /* YLUpdateManager.m in Sources */,
 				00B79AFF2D1415AB00DAE137 /* NSObject+category.m in Sources */,
 				00B79B002D1415AB00DAE137 /* YLFlipView.m in Sources */,
@@ -1027,10 +1023,10 @@
 				00B79B162D1415AB00DAE137 /* NSString+predicate.m in Sources */,
 				00B79B172D1415AB00DAE137 /* MASShortcut.m in Sources */,
 				00B79B192D1415AB00DAE137 /* MASShortcutView+Bindings.m in Sources */,
-				00B79B1A2D1415AB00DAE137 /* NSControl+category.m in Sources */,
 				00B79B1B2D1415AB00DAE137 /* YLHudContentView.m in Sources */,
 				00B79B1C2D1415AB00DAE137 /* YLUserDefaults.m in Sources */,
 				00B79B1D2D1415AB00DAE137 /* YLWindowOperateView.m in Sources */,
+				00A0F9B12D1872180043E075 /* NSControl+Category.swift in Sources */,
 				00B79B1E2D1415AB00DAE137 /* YLAppleScript.m in Sources */,
 				00B79B1F2D1415AB00DAE137 /* AppSandboxFileAccessOpenSavePanelDelegate.m in Sources */,
 				00B79B212D1415AB00DAE137 /* YLLog.swift in Sources */,

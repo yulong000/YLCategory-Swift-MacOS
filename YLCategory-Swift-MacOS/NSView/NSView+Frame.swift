@@ -5,7 +5,7 @@
 //  Created by 魏宇龙 on 2024/12/3.
 //
 
-import Cocoa
+import Foundation
 
 public extension NSView {
     

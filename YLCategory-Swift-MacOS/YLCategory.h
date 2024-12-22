@@ -10,7 +10,6 @@
 
 #import "NSButton+category.h"
 #import "NSTextField+category.h"
-#import "NSControl+category.h"
 #import "NSString+bounds.h"
 #import "NSString+secret.h"
 #import "NSString+predicate.h"
@@ -21,7 +20,6 @@
 #import "NSWindow+category.h"
 #import "NSWindow+frame.h"
 #import "NSAlert+category.h"
-#import "NSColor+category.h"
 #import "NSResponder+category.h"
 #import "NSImageView+category.h"
 #import "NSScreen+category.h"
