@@ -27,10 +27,6 @@ Pod::Spec.new do |s|
     ss.dependency        'YLCategory-Swift-MacOS/NSView'
     end
 
-    s.subspec 'NSArray' do |ss|
-    ss.source_files  =   'YLCategory-Swift-MacOS/NSArray/*.{h,m,swift}'
-    end
-
     s.subspec 'NSWindow' do |ss|
     ss.source_files  =    'YLCategory-Swift-MacOS/NSWindow/*.{h,m,swift}'
     end
@@ -40,7 +36,7 @@ Pod::Spec.new do |s|
     end
 
     s.subspec 'NSView' do |ss|
-    ss.source_files  =    'YLCategory-Swift-MacOS/NSView/*.{h,m,swift}'
+    ss.source_files  =    'YLCategory-Swift-MacOS/NSView/*.swift'
     end
 
     s.subspec 'NSTextField' do |ss|
@@ -64,11 +60,11 @@ Pod::Spec.new do |s|
     end
 
     s.subspec 'NSControl' do |ss|
-    ss.source_files  =   'YLCategory-Swift-MacOS/NSControl/*.{h,m,swift}'
+    ss.source_files  =   'YLCategory-Swift-MacOS/NSControl/*.swift'
     end
 
     s.subspec 'NSButton' do |ss|
-    ss.source_files  =   'YLCategory-Swift-MacOS/NSButton/*.{h,m,swift}'
+    ss.source_files  =   'YLCategory-Swift-MacOS/NSButton/*.swift'
     ss.dependency        'YLCategory-Swift-MacOS/NSControl'
     end
 
@@ -82,7 +78,7 @@ Pod::Spec.new do |s|
     end
 
     s.subspec 'NSColor' do |ss|
-    ss.source_files  =   'YLCategory-Swift-MacOS/NSColor/*.{h,m,swift}'
+    ss.source_files  =   'YLCategory-Swift-MacOS/NSColor/*.swift'
     end
 
     s.subspec 'NSImageView' do |ss|
