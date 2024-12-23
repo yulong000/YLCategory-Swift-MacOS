@@ -8,7 +8,6 @@
 #ifndef YLCategory_h
 #define YLCategory_h
 
-#import "NSButton+category.h"
 #import "NSTextField+category.h"
 #import "NSString+bounds.h"
 #import "NSString+secret.h"

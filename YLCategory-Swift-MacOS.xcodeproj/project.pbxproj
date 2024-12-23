@@ -14,6 +14,7 @@
 		0080A4EC2D044A8E00EEFEA2 /* NSView+Frame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0080A4E92D04493500EEFEA2 /* NSView+Frame.swift */; };
 		00A0F9B12D1872180043E075 /* NSControl+Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A0F9B02D1872180043E075 /* NSControl+Category.swift */; };
 		00A0F9B32D1875980043E075 /* NSColor+Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A0F9B22D1875980043E075 /* NSColor+Category.swift */; };
+		00A0F9B52D18EC1C0043E075 /* NSButton+Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A0F9B42D18EC1C0043E075 /* NSButton+Category.swift */; };
 		00B79ADC2D1415AB00DAE137 /* YLLanguage.strings in Resources */ = {isa = PBXBuildFile; fileRef = 00B79A1E2D1415AA00DAE137 /* YLLanguage.strings */; };
 		00B79ADD2D1415AB00DAE137 /* MAShortcutLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 00B79A992D1415AA00DAE137 /* MAShortcutLocalizable.strings */; };
 		00B79ADE2D1415AB00DAE137 /* YLPermissionManager.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 00B79A2B2D1415AA00DAE137 /* YLPermissionManager.bundle */; };
@@ -28,7 +29,6 @@
 		00B79AE72D1415AB00DAE137 /* NSString+bounds.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B79AC02D1415AA00DAE137 /* NSString+bounds.m */; };
 		00B79AE82D1415AB00DAE137 /* NSArray+category.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B79AA32D1415AA00DAE137 /* NSArray+category.m */; };
 		00B79AE92D1415AB00DAE137 /* YLUpdateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B799F12D1415AA00DAE137 /* YLUpdateViewController.m */; };
-		00B79AEA2D1415AB00DAE137 /* NSButton+category.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B79AC32D1415AA00DAE137 /* NSButton+category.m */; };
 		00B79AEC2D1415AB00DAE137 /* YLControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B79A3F2D1415AA00DAE137 /* YLControl.m */; };
 		00B79AED2D1415AB00DAE137 /* YLCFNotificationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B79A422D1415AA00DAE137 /* YLCFNotificationManager.m */; };
 		00B79AEE2D1415AB00DAE137 /* Macro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B79AB42D1415AA00DAE137 /* Macro.swift */; };
@@ -101,6 +101,7 @@
 		0080A4E92D04493500EEFEA2 /* NSView+Frame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSView+Frame.swift"; sourceTree = "<group>"; };
 		00A0F9B02D1872180043E075 /* NSControl+Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSControl+Category.swift"; sourceTree = "<group>"; };
 		00A0F9B22D1875980043E075 /* NSColor+Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSColor+Category.swift"; sourceTree = "<group>"; };
+		00A0F9B42D18EC1C0043E075 /* NSButton+Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSButton+Category.swift"; sourceTree = "<group>"; };
 		00B799D32D1414E200DAE137 /* YLCategory-Swift-MacOS-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "YLCategory-Swift-MacOS-Bridging-Header.h"; sourceTree = "<group>"; };
 		00B799D72D1415AA00DAE137 /* AppSandboxFileAccess.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppSandboxFileAccess.h; sourceTree = "<group>"; };
 		00B799D82D1415AA00DAE137 /* AppSandboxFileAccess.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppSandboxFileAccess.m; sourceTree = "<group>"; };
@@ -279,8 +280,6 @@
 		00B79ABE2D1415AA00DAE137 /* NSString+category.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+category.m"; sourceTree = "<group>"; };
 		00B79ABF2D1415AA00DAE137 /* NSString+bounds.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+bounds.h"; sourceTree = "<group>"; };
 		00B79AC02D1415AA00DAE137 /* NSString+bounds.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+bounds.m"; sourceTree = "<group>"; };
-		00B79AC22D1415AA00DAE137 /* NSButton+category.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSButton+category.h"; sourceTree = "<group>"; };
-		00B79AC32D1415AA00DAE137 /* NSButton+category.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSButton+category.m"; sourceTree = "<group>"; };
 		00B79AC52D1415AA00DAE137 /* NSAlert+category.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSAlert+category.h"; sourceTree = "<group>"; };
 		00B79AC62D1415AA00DAE137 /* NSAlert+category.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSAlert+category.m"; sourceTree = "<group>"; };
 		00B79AC82D1415AA00DAE137 /* NSObject+category.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+category.h"; sourceTree = "<group>"; };
@@ -791,8 +790,7 @@
 		00B79AC42D1415AA00DAE137 /* NSButton */ = {
 			isa = PBXGroup;
 			children = (
-				00B79AC22D1415AA00DAE137 /* NSButton+category.h */,
-				00B79AC32D1415AA00DAE137 /* NSButton+category.m */,
+				00A0F9B42D18EC1C0043E075 /* NSButton+Category.swift */,
 			);
 			path = NSButton;
 			sourceTree = "<group>";
@@ -976,7 +974,6 @@
 				00B79AE82D1415AB00DAE137 /* NSArray+category.m in Sources */,
 				00B79B352D15D5D200DAE137 /* NSView+Category.swift in Sources */,
 				00B79AE92D1415AB00DAE137 /* YLUpdateViewController.m in Sources */,
-				00B79AEA2D1415AB00DAE137 /* NSButton+category.m in Sources */,
 				00B79AEC2D1415AB00DAE137 /* YLControl.m in Sources */,
 				00B79AED2D1415AB00DAE137 /* YLCFNotificationManager.m in Sources */,
 				00B79AEE2D1415AB00DAE137 /* Macro.swift in Sources */,
@@ -1002,6 +999,7 @@
 				00B79B002D1415AB00DAE137 /* YLFlipView.m in Sources */,
 				00B79B012D1415AB00DAE137 /* NSString+secret.m in Sources */,
 				00B79B022D1415AB00DAE137 /* NSResponder+category.m in Sources */,
+				00A0F9B52D18EC1C0043E075 /* NSButton+Category.swift in Sources */,
 				00B79B032D1415AB00DAE137 /* YLHudConfig.m in Sources */,
 				00B79B042D1415AB00DAE137 /* MASDictionaryTransformer.m in Sources */,
 				00B79B062D1415AB00DAE137 /* MASHotKey.m in Sources */,
