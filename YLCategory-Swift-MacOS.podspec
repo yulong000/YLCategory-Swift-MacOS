@@ -24,7 +24,6 @@ Pod::Spec.new do |s|
 
     s.subspec 'Other' do |ss|
     ss.source_files  =   'YLCategory-Swift-MacOS/Other/**/*.{h,m,swift}'
-    ss.dependency        'YLCategory-Swift-MacOS/NSView'
     end
 
     s.subspec 'NSWindow' do |ss|
@@ -40,7 +39,7 @@ Pod::Spec.new do |s|
     end
 
     s.subspec 'NSTextField' do |ss|
-    ss.source_files  =    'YLCategory-Swift-MacOS/NSTextField/*.{h,m,swift}'
+    ss.source_files  =    'YLCategory-Swift-MacOS/NSTextField/*.swift'
     end
 
     s.subspec 'NSString' do |ss|
@@ -52,7 +51,7 @@ Pod::Spec.new do |s|
     end
 
     s.subspec 'NSImage' do |ss|
-    ss.source_files  =   'YLCategory-Swift-MacOS/NSImage/*.{h,m,swift}'
+    ss.source_files  =   'YLCategory-Swift-MacOS/NSImage/*.swift'
     end
 
     s.subspec 'NSDate' do |ss|
