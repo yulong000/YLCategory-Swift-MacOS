@@ -16,11 +16,7 @@
 #import "NSObject+category.h"
 #import "NSDate+category.h"
 #import "NSImage+category.h"
-#import "NSWindow+category.h"
-#import "NSWindow+frame.h"
 #import "NSAlert+category.h"
-#import "NSImageView+category.h"
-#import "NSScreen+category.h"
 
 // 封装的工具
 #import "Macro.h"

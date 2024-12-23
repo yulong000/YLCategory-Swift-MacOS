@@ -16,9 +16,7 @@ public extension NSView {
             frame.origin.x = newValue
             self.frame = frame
         }
-        get {
-            return self.frame.origin.x
-        }
+        get { frame.origin.x }
     }
     
     /// y值
@@ -28,9 +26,7 @@ public extension NSView {
             frame.origin.y = newValue
             self.frame = frame
         }
-        get {
-            return self.frame.origin.y
-        }
+        get { frame.origin.y }
     }
     
     /// 宽度
@@ -40,9 +36,7 @@ public extension NSView {
             frame.size.width = newValue
             self.frame = frame
         }
-        get {
-            return self.frame.size.width
-        }
+        get { frame.size.width }
     }
     
     /// 高度
@@ -52,9 +46,7 @@ public extension NSView {
             frame.size.height = newValue
             self.frame = frame
         }
-        get {
-            return self.frame.size.height
-        }
+        get { frame.size.height }
     }
     
     /// 大小
@@ -64,9 +56,7 @@ public extension NSView {
             frame.size = newValue
             self.frame = frame
         }
-        get {
-            return self.frame.size
-        }
+        get { frame.size }
     }
     
     /// 坐标原点
@@ -76,9 +66,7 @@ public extension NSView {
             frame.origin = newValue
             self.frame = frame
         }
-        get {
-            return self.frame.origin
-        }
+        get { frame.origin }
     }
     
     /// 中心点
@@ -88,9 +76,7 @@ public extension NSView {
             frame.origin = NSMakePoint(newValue.x - self.frame.size.width / 2, newValue.y - self.frame.size.height / 2)
             self.frame = frame
         }
-        get {
-            return NSMakePoint(NSMidX(self.frame), NSMidY(self.frame))
-        }
+        get { NSMakePoint(NSMidX(frame), NSMidY(frame)) }
     }
     
     /// 中心点 x 值
@@ -99,9 +85,7 @@ public extension NSView {
             let centerY = self.center.y;
             self.center = NSMakePoint(newValue, centerY)
         }
-        get {
-            return NSMidX(self.frame)
-        }
+        get { NSMidX(frame) }
     }
     
     /// 中心点 y 值
@@ -110,49 +94,31 @@ public extension NSView {
             let centerX = self.center.x;
             self.center = NSMakePoint(centerX, newValue)
         }
-        get {
-            return NSMidY(self.frame)
-        }
+        get { NSMidY(frame) }
     }
     
     /// 最大 x 值
-    var maxX: CGFloat {
-        return NSMaxX(self.frame)
-    }
+    var maxX: CGFloat { NSMaxX(frame) }
     
     /// 最大 y 值
-    var maxY: CGFloat {
-        return NSMaxY(self.frame)
-    }
+    var maxY: CGFloat { NSMaxY(frame) }
     
     /// 顶部
     var top: CGFloat {
-        set {
-            self.y = newValue
-        }
-        get {
-            return self.y
-        }
+        set { y = newValue }
+        get { y }
     }
     
     /// 左侧
     var left: CGFloat {
-        set {
-            self.x = newValue
-        }
-        get {
-            return self.x
-        }
+        set { x = newValue }
+        get { x }
     }
     
     /// 底部
     var bottom: CGFloat {
-        set {
-            self.y = newValue - self.height
-        }
-        get {
-            return self.y + self.height
-        }
+        set { y = newValue - height }
+        get { y + height }
     }
     
     /// 右侧
@@ -162,279 +128,275 @@ public extension NSView {
             frame.origin.x = newValue - self.width
             self.frame = frame
         }
-        get {
-            return self.maxX
-        }
+        get { maxX }
     }
     
     /// 自己的中心点
-    var centerPoint: NSPoint {
-        return NSMakePoint(self.width / 2, self.height / 2)
-    }
+    var centerPoint: NSPoint { NSMakePoint(width / 2, height / 2) }
     
     /// 设置x值
     @discardableResult
     func x(is value: CGFloat) -> Self {
-        self.x = value
+        x = value
         return self
     }
     
     /// 设置y值
     @discardableResult
     func y(is value: CGFloat) -> Self {
-        self.y = value
+        y = value
         return self
     }
     
     /// 设置宽度
     @discardableResult
     func width(is value: CGFloat) -> Self {
-        self.width = value
+        width = value
         return self
     }
     
     /// 设置高度
     @discardableResult
     func height(is value: CGFloat) -> Self {
-        self.height = value
+        height = value
         return self
     }
     
     /// 设置顶部位置
     @discardableResult
     func top(is value: CGFloat) -> Self {
-        self.top = value
+        top = value
         return self
     }
     
     /// 设置左侧位置
     @discardableResult
     func left(is value: CGFloat) -> Self {
-        self.left = value
+        left = value
         return self
     }
     
     /// 设置底部位置
     @discardableResult
     func bottom(is value: CGFloat) -> Self {
-        self.bottom = value
+        bottom = value
         return self
     }
     
     /// 设置右侧位置
     @discardableResult
     func right(is value: CGFloat) -> Self {
-        self.right = value
+        right = value
         return self
     }
     
     /// 设置中心位置x
     @discardableResult
     func centerX(is value: CGFloat) -> Self {
-        self.centerX = value
+        centerX = value
         return self
     }
     
     /// 设置中心位置y
     @discardableResult
     func centerY(is value: CGFloat) -> Self {
-        self.centerY = value
+        centerY = value
         return self
     }
     
     /// 设置origin
     @discardableResult
     func originIs(_ x: CGFloat, _ y: CGFloat) -> Self {
-        self.origin = NSMakePoint(x, y)
+        origin = NSMakePoint(x, y)
         return self
     }
     
     /// 设置大小
     @discardableResult
     func sizeIs(_ width: CGFloat, _ height: CGFloat) -> Self {
-        self.size = NSMakeSize(width, height)
+        size = NSMakeSize(width, height)
         return self
     }
     
     /// 设置中心位置
     @discardableResult
     func centerIs(_ x: CGFloat, _ y: CGFloat) -> Self {
-        self.center = NSMakePoint(x, y)
+        center = NSMakePoint(x, y)
         return self
     }
     
     /// 设置frame
     @discardableResult
     func frameIs(_ x: CGFloat, _ y: CGFloat, _ w: CGFloat, _ h: CGFloat) -> Self {
-        self.frame = NSMakeRect(x, y, w, h)
+        frame = NSMakeRect(x, y, w, h)
         return self
     }
     
     /// 设置偏移量，x会增加
     @discardableResult
     func offsetX(is value: CGFloat) -> Self {
-        self.x += value
+        x += value
         return self
     }
     
     /// 设置偏移量，y会增加
     @discardableResult
     func offsetY(is value: CGFloat) -> Self {
-        self.y += value
+        y += value
         return self
     }
     
     /// 设置偏移量，x, y会增加
     @discardableResult
     func offset(_ x: CGFloat, _ y: CGFloat) -> Self {
-        self.origin = NSMakePoint(self.x + x, self.y + y)
+        origin = NSMakePoint(self.x + x, self.y + y)
         return self
     }
     
     /// 设置x等于另一个view
     @discardableResult
     func x(equalTo view: NSView) -> Self {
-        self.x = view.x
+        x = view.x
         return self
     }
     
     /// 设置y等于另一个view
     @discardableResult
     func y(equalTo view: NSView) -> Self {
-        self.y = view.y
+        y = view.y
         return self
     }
     
     /// 设置origin等于另一个view
     @discardableResult
     func origin(equalTo view: NSView) -> Self {
-        self.origin = view.origin
+        origin = view.origin
         return self
     }
     
     /// 设置顶部等于另一个view
     @discardableResult
     func top(equalTo view: NSView) -> Self {
-        self.top = view.top
+        top = view.top
         return self
     }
     
     /// 设置左侧等于另一个view
     @discardableResult
     func left(equalTo view: NSView) -> Self {
-        self.left = view.left
+        left = view.left
         return self
     }
     
     /// 设置底部等于另一个view
     @discardableResult
     func bottom(equalTo view: NSView) -> Self {
-        self.bottom = view.bottom
+        bottom = view.bottom
         return self
     }
     
     /// 设置右侧等于另一个view
     @discardableResult
     func right(equalTo view: NSView) -> Self {
-        self.right = view.right
+        right = view.right
         return self
     }
     
     /// 设置宽度等于另一个view
     @discardableResult
     func width(equalTo view: NSView) -> Self {
-        self.width = view.width
+        width = view.width
         return self
     }
     
     /// 设置高度等于另一个view
     @discardableResult
     func height(equalTo view: NSView) -> Self {
-        self.height = view.height
+        height = view.height
         return self
     }
     
     /// 设置大小等于另一个view
     @discardableResult
     func size(equalTo view: NSView) -> Self {
-        self.size = view.size
+        size = view.size
         return self
     }
     
     /// 设置中心位置x等于另一个view
     @discardableResult
     func centerX(equalTo view: NSView) -> Self {
-        self.centerX = view.centerX
+        centerX = view.centerX
         return self
     }
     
     /// 设置中心位置y等于另一个view
     @discardableResult
     func centerY(equalTo view: NSView) -> Self {
-        self.centerY = view.centerY
+        centerY = view.centerY
         return self
     }
     
     /// 设置中心位置等于另一个view
     @discardableResult
     func center(equalTo view: NSView) -> Self {
-        self.center = view.center
+        center = view.center
         return self
     }
     
     /// 设置x等于另一个view的x，并增加偏移量
     @discardableResult
     func x(equalTo view: NSView, offset: CGFloat) -> Self {
-        self.x = view.x + offset
+        x = view.x + offset
         return self
     }
     
     /// 设置y等于另一个view的y，并增加偏移量
     @discardableResult
     func y(equalTo view: NSView, offset: CGFloat) -> Self {
-        self.y = view.y + offset
+        y = view.y + offset
         return self
     }
     
     /// 设置顶部对齐另一个view的顶部增加偏移量
     @discardableResult
     func top(equalTo view: NSView, offset: CGFloat) -> Self {
-        self.top = view.top + offset
+        top = view.top + offset
         return self
     }
     
     /// 设置左侧对齐另一个view的左侧，并增加偏移量
     @discardableResult
     func left(equalTo view: NSView, offset: CGFloat) -> Self {
-        self.left = view.left + offset
+        left = view.left + offset
         return self
     }
     
     /// 设置底部对齐另一个view的底部，并增加偏移量
     @discardableResult
     func bottom(equalTo view: NSView, offset: CGFloat) -> Self {
-        self.bottom = view.bottom + offset
+        bottom = view.bottom + offset
         return self
     }
     
     /// 设置右侧对齐另一个view的右侧，并增加偏移量
     @discardableResult
     func right(equalTo view: NSView, offset: CGFloat) -> Self {
-        self.right = view.right + offset
+        right = view.right + offset
         return self
     }
     
     /// 设置中心位置x对齐另一个view的中心位置x，并增加偏移量
     @discardableResult
     func centerX(equalTo view: NSView, offset: CGFloat) -> Self {
-        self.centerX = view.centerX + offset
+        centerX = view.centerX + offset
         return self
     }
     
     /// 设置中心位置y对齐另一个view的中心位置y，并增加偏移量
     @discardableResult
     func centerY(equalTo view: NSView, offset: CGFloat) -> Self {
-        self.centerY = view.centerY + offset
+        centerY = view.centerY + offset
         return self
     }
     
@@ -445,7 +407,7 @@ public extension NSView {
             assert(false, "Superview must not be nil")
             return self
         }
-        self.right = superview.width
+        right = superview.width
         return self
     }
     
@@ -456,7 +418,7 @@ public extension NSView {
             assert(false, "Superview must not be nil")
             return self
         }
-        self.bottom = superview.height
+        bottom = superview.height
         return self
     }
     
@@ -467,7 +429,7 @@ public extension NSView {
             assert(false, "Superview must not be nil")
             return self
         }
-        self.center = superview.centerPoint
+        center = superview.centerPoint
         return self
     }
     
@@ -478,7 +440,7 @@ public extension NSView {
             assert(false, "Superview must not be nil")
             return self
         }
-        self.centerX = superview.width / 2
+        centerX = superview.width / 2
         return self
     }
     
@@ -489,21 +451,21 @@ public extension NSView {
             assert(false, "Superview must not be nil")
             return self
         }
-        self.centerY = superview.height / 2
+        centerY = superview.height / 2
         return self
     }
     
     /// 设置顶部与父视图底部的间距space
     @discardableResult
     func top(spaceToSuper value: CGFloat) -> Self {
-        self.top = value
+        top = value
         return self
     }
     
     /// 设置左侧与父视图底部的间距space
     @discardableResult
     func left(spaceToSuper value: CGFloat) -> Self {
-        self.x = value
+        x = value
         return self
     }
     
@@ -514,7 +476,7 @@ public extension NSView {
             assert(false, "Superview must not be nil")
             return self
         }
-        self.bottom = superview.height - value
+        bottom = superview.height - value
         return self
     }
     
@@ -525,35 +487,35 @@ public extension NSView {
             assert(false, "Superview must not be nil")
             return self
         }
-        self.right = superview.width - value
+        right = superview.width - value
         return self
     }
     
     /// 设置顶部与另一个view的底部的间距
     @discardableResult
     func top(spaceTo view: NSView, _ value: CGFloat) -> Self {
-        self.top = view.bottom + value
+        top = view.bottom + value
         return self
     }
     
     /// 设置左侧与另一个view的右侧的间距
     @discardableResult
     func left(spaceTo view: NSView, _ value: CGFloat) -> Self {
-        self.left = view.right + value
+        left = view.right + value
         return self
     }
     
     /// 设置底部与另一个view的顶部的间距
     @discardableResult
     func bottom(spaceTo view: NSView, _ value: CGFloat) -> Self {
-        self.bottom = view.top - value
+        bottom = view.top - value
         return self
     }
     
     /// 设置右侧与另一个view的左侧的间距
     @discardableResult
     func right(spaceTo view: NSView, _ value: CGFloat) -> Self {
-        self.right = view.left - value
+        right = view.left - value
         return self
     }
     

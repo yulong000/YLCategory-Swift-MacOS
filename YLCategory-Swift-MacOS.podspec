@@ -28,11 +28,11 @@ Pod::Spec.new do |s|
     end
 
     s.subspec 'NSWindow' do |ss|
-    ss.source_files  =    'YLCategory-Swift-MacOS/NSWindow/*.{h,m,swift}'
+    ss.source_files  =    'YLCategory-Swift-MacOS/NSWindow/*.swift'
     end
 
     s.subspec 'NSScreen' do |ss|
-    ss.source_files  =   'YLCategory-Swift-MacOS/NSScreen/*.{h,m,swift}'
+    ss.source_files  =   'YLCategory-Swift-MacOS/NSScreen/*.swift'
     end
 
     s.subspec 'NSView' do |ss|
@@ -82,7 +82,7 @@ Pod::Spec.new do |s|
     end
 
     s.subspec 'NSImageView' do |ss|
-    ss.source_files  =   'YLCategory-Swift-MacOS/NSImageView/*.{h,m,swift}'
+    ss.source_files  =   'YLCategory-Swift-MacOS/NSImageView/*.swift'
     end
 
     s.subspec 'YLHud' do |ss|
