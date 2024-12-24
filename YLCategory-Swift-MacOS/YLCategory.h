@@ -8,13 +8,8 @@
 #ifndef YLCategory_h
 #define YLCategory_h
 
-#import "NSString+bounds.h"
-#import "NSString+secret.h"
-#import "NSString+predicate.h"
-#import "NSString+category.h"
 #import "NSObject+category.h"
 #import "NSDate+category.h"
-#import "NSAlert+category.h"
 
 // 封装的工具
 #import "Macro.h"

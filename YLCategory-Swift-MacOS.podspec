@@ -43,7 +43,7 @@ Pod::Spec.new do |s|
     end
 
     s.subspec 'NSString' do |ss|
-    ss.source_files  =   'YLCategory-Swift-MacOS/NSString/*.{h,m,swift}'
+    ss.source_files  =   'YLCategory-Swift-MacOS/NSString/*.swift'
     end
 
     s.subspec 'NSObject' do |ss|
@@ -164,6 +164,10 @@ Pod::Spec.new do |s|
     
     s.subspec 'YLTextField' do |ss|
     ss.source_files  =   'YLCategory-Swift-MacOS/YLTextField/**/*.{h,m,swift}'
+    end
+    
+    s.subspec 'Async' do |ss|
+    ss.source_files  =   'YLCategory-Swift-MacOS/Async/**/*.swift'
     end
 
 end
