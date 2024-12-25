@@ -18,7 +18,7 @@ public struct Async {
     ///   @Sendable：限定闭包的线程安全性，要求闭包中的捕获内容能安全地跨线程传递, 避免出现数据竞争问题。
     ///   @convention(block)：表明闭包以 Objective-C 的 block 调用约定执行, 用于与底层 GCD API 的交互，这些 API 是用 C 编写的。
     @discardableResult
-    static func delay(_ seconds: Float, execute: @escaping @Sendable @convention(block) () -> Void) -> DispatchWorkItem {
+    static func delay(_ seconds: Float, execute: @escaping @convention(block) () -> Void) -> DispatchWorkItem {
         let workItem = DispatchWorkItem(block: execute)
         DispatchQueue.main.asyncAfter(deadline: .now() + TimeInterval(seconds), execute: workItem)
         return workItem

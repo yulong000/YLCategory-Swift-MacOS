@@ -8,8 +8,6 @@
 #ifndef YLCategory_h
 #define YLCategory_h
 
-#import "NSObject+category.h"
-
 // 封装的工具
 #import "Macro.h"
 #import "YLUtility.h"

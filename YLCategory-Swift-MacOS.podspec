@@ -47,7 +47,7 @@ Pod::Spec.new do |s|
     end
 
     s.subspec 'NSObject' do |ss|
-    ss.source_files  =   'YLCategory-Swift-MacOS/NSObject/*.{h,m,swift}'
+    ss.source_files  =   'YLCategory-Swift-MacOS/NSObject/*.swift'
     end
 
     s.subspec 'NSImage' do |ss|
@@ -68,12 +68,11 @@ Pod::Spec.new do |s|
     end
 
     s.subspec 'NSAlert' do |ss|
-    ss.source_files  =   'YLCategory-Swift-MacOS/NSAlert/*.{h,m,swift}'
+    ss.source_files  =   'YLCategory-Swift-MacOS/NSAlert/*.swift'
     end
 
     s.subspec 'NSResponder' do |ss|
-    ss.source_files  =   'YLCategory-Swift-MacOS/NSResponder/*.{h,m,swift}'
-    ss.dependency        'YLCategory-Swift-MacOS/Other'
+    ss.source_files  =   'YLCategory-Swift-MacOS/NSResponder/*.swift'
     end
 
     s.subspec 'NSColor' do |ss|

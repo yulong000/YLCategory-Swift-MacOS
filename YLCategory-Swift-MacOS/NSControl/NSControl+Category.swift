@@ -18,11 +18,11 @@ public extension NSControl {
         set {
             objc_setAssociatedObject(self, &NSControlClickedHandlerKey, newValue, .OBJC_ASSOCIATION_COPY_NONATOMIC)
             target = self
-            action = #selector(yl_controlClicked)
+            action = #selector(controlClicked)
         }
     }
     
-    @objc private func yl_controlClicked() {
-            clickedHandler?(self)
+    @objc private func controlClicked() {
+        clickedHandler?(self)
     }
 }
