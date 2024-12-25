@@ -55,7 +55,7 @@ Pod::Spec.new do |s|
     end
 
     s.subspec 'NSDate' do |ss|
-    ss.source_files  =   'YLCategory-Swift-MacOS/NSDate/*.{h,m,swift}'
+    ss.source_files  =   'YLCategory-Swift-MacOS/NSDate/*.swift'
     end
 
     s.subspec 'NSControl' do |ss|

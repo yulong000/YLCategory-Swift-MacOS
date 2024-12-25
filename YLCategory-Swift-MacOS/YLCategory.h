@@ -9,7 +9,6 @@
 #define YLCategory_h
 
 #import "NSObject+category.h"
-#import "NSDate+category.h"
 
 // 封装的工具
 #import "Macro.h"
