@@ -125,10 +125,6 @@ Pod::Spec.new do |s|
     ss.source_files  =   'YLCategory-Swift-MacOS/YLControl/*.{h,m,swift}'
     end
 
-    s.subspec 'YLUtility' do |ss|
-    ss.source_files  =   'YLCategory-Swift-MacOS/YLUtility/*.{h,m,swift}'
-    end
-
     s.subspec 'YLUpdateManager' do |ss|
     ss.source_files  =   'YLCategory-Swift-MacOS/YLUpdateManager/*.{h,m,swift}'
     ss.resource      =   'YLCategory-Swift-MacOS/YLUpdateManager/Resources/*'

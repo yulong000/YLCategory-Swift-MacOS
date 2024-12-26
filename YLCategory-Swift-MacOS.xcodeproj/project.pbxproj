@@ -66,7 +66,6 @@
 		00B79B0F2D1415AB00DAE137 /* AppSandboxFileAccess.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B799D82D1415AA00DAE137 /* AppSandboxFileAccess.m */; };
 		00B79B102D1415AB00DAE137 /* YLWindowButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B79A0D2D1415AA00DAE137 /* YLWindowButton.m */; };
 		00B79B112D1415AB00DAE137 /* AppSandboxFileAccessPersist.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B799DC2D1415AA00DAE137 /* AppSandboxFileAccessPersist.m */; };
-		00B79B122D1415AB00DAE137 /* YLUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B79A3C2D1415AA00DAE137 /* YLUtility.m */; };
 		00B79B132D1415AB00DAE137 /* YLPermissionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B79A262D1415AA00DAE137 /* YLPermissionViewController.m */; };
 		00B79B142D1415AB00DAE137 /* MASShortcutValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B79A762D1415AA00DAE137 /* MASShortcutValidator.m */; };
 		00B79B152D1415AB00DAE137 /* YLCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B79A562D1415AA00DAE137 /* YLCollectionView.m */; };
@@ -199,8 +198,6 @@
 		00B79A342D1415AA00DAE137 /* YLPermissionManager.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = YLPermissionManager.strings; path = es.lproj/YLPermissionManager.strings; sourceTree = "<group>"; };
 		00B79A382D1415AA00DAE137 /* YLAppleReview.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YLAppleReview.h; sourceTree = "<group>"; };
 		00B79A392D1415AA00DAE137 /* YLAppleReview.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YLAppleReview.m; sourceTree = "<group>"; };
-		00B79A3B2D1415AA00DAE137 /* YLUtility.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YLUtility.h; sourceTree = "<group>"; };
-		00B79A3C2D1415AA00DAE137 /* YLUtility.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YLUtility.m; sourceTree = "<group>"; };
 		00B79A3E2D1415AA00DAE137 /* YLControl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YLControl.h; sourceTree = "<group>"; };
 		00B79A3F2D1415AA00DAE137 /* YLControl.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YLControl.m; sourceTree = "<group>"; };
 		00B79A412D1415AA00DAE137 /* YLCFNotificationManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YLCFNotificationManager.h; sourceTree = "<group>"; };
@@ -346,7 +343,6 @@
 				00B79A202D1415AA00DAE137 /* YLLanguage */,
 				00B79A372D1415AA00DAE137 /* YLPermissionManager */,
 				00B79A3A2D1415AA00DAE137 /* YLAppleReview */,
-				00B79A3D2D1415AA00DAE137 /* YLUtility */,
 				00B79A402D1415AA00DAE137 /* YLControl */,
 				00B79A432D1415AA00DAE137 /* YLCFNotificationManager */,
 				00B79A512D1415AA00DAE137 /* YLAppleScript */,
@@ -534,15 +530,6 @@
 				00B79A392D1415AA00DAE137 /* YLAppleReview.m */,
 			);
 			path = YLAppleReview;
-			sourceTree = "<group>";
-		};
-		00B79A3D2D1415AA00DAE137 /* YLUtility */ = {
-			isa = PBXGroup;
-			children = (
-				00B79A3B2D1415AA00DAE137 /* YLUtility.h */,
-				00B79A3C2D1415AA00DAE137 /* YLUtility.m */,
-			);
-			path = YLUtility;
 			sourceTree = "<group>";
 		};
 		00B79A402D1415AA00DAE137 /* YLControl */ = {
@@ -986,7 +973,6 @@
 				00B79B0F2D1415AB00DAE137 /* AppSandboxFileAccess.m in Sources */,
 				00B79B102D1415AB00DAE137 /* YLWindowButton.m in Sources */,
 				00B79B112D1415AB00DAE137 /* AppSandboxFileAccessPersist.m in Sources */,
-				00B79B122D1415AB00DAE137 /* YLUtility.m in Sources */,
 				00B79B132D1415AB00DAE137 /* YLPermissionViewController.m in Sources */,
 				00B79B142D1415AB00DAE137 /* MASShortcutValidator.m in Sources */,
 				00B79B152D1415AB00DAE137 /* YLCollectionView.m in Sources */,
