@@ -18,7 +18,6 @@
 #import "YLFlipView.h"
 #import "YLCFNotificationManager.h"
 #import "YLControl.h"
-#import "YLAppleReview.h"
 #import "YLPermissionManager.h"
 #import "YLLanguage.h"
 #import "YLWindowButton.h"

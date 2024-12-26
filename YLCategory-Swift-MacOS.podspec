@@ -127,7 +127,7 @@ Pod::Spec.new do |s|
     end
 
     s.subspec 'YLAppRating' do |ss|
-    ss.source_files  =   'YLCategory-Swift-MacOS/YLAppRating/*.{h,m,swift}'
+    ss.source_files  =   'YLCategory-Swift-MacOS/YLAppRating/*.swift'
     end
 
     s.subspec 'YLWindowButton' do |ss|
@@ -145,7 +145,7 @@ Pod::Spec.new do |s|
     end
 
     s.subspec 'YLAppleReview' do |ss|
-    ss.source_files  =   'YLCategory-Swift-MacOS/YLAppleReview/*.{h,m,swift}'
+    ss.source_files  =   'YLCategory-Swift-MacOS/YLAppleReview/*.swift'
     end
 
     s.subspec 'YLFileAccess' do |ss|
