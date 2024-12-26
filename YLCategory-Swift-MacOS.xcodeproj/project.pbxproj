@@ -78,7 +78,6 @@
 		00B79B1F2D1415AB00DAE137 /* AppSandboxFileAccessOpenSavePanelDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B799DA2D1415AA00DAE137 /* AppSandboxFileAccessOpenSavePanelDelegate.m */; };
 		00B79B212D1415AB00DAE137 /* YLLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B79AB52D1415AA00DAE137 /* YLLog.swift */; };
 		00B79B222D1415AB00DAE137 /* YLHud.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B79A022D1415AA00DAE137 /* YLHud.m */; };
-		00B79B252D1415AB00DAE137 /* YLWeakTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B79A592D1415AA00DAE137 /* YLWeakTimer.m */; };
 		00B79B262D1415AB00DAE137 /* YLPermissionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B79A222D1415AA00DAE137 /* YLPermissionManager.m */; };
 		00B79B272D1415AB00DAE137 /* YLPermissionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B79A2A2D1415AA00DAE137 /* YLPermissionModel.m */; };
 		00B79B282D1415AB00DAE137 /* MASShortcutView.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B79A672D1415AA00DAE137 /* MASShortcutView.m */; };
@@ -217,8 +216,6 @@
 		00B79A532D1415AA00DAE137 /* YLFlipView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YLFlipView.m; sourceTree = "<group>"; };
 		00B79A552D1415AA00DAE137 /* YLCollectionView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YLCollectionView.h; sourceTree = "<group>"; };
 		00B79A562D1415AA00DAE137 /* YLCollectionView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YLCollectionView.m; sourceTree = "<group>"; };
-		00B79A582D1415AA00DAE137 /* YLWeakTimer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YLWeakTimer.h; sourceTree = "<group>"; };
-		00B79A592D1415AA00DAE137 /* YLWeakTimer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YLWeakTimer.m; sourceTree = "<group>"; };
 		00B79A5B2D1415AA00DAE137 /* YLUserDefaults.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YLUserDefaults.h; sourceTree = "<group>"; };
 		00B79A5C2D1415AA00DAE137 /* YLUserDefaults.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YLUserDefaults.m; sourceTree = "<group>"; };
 		00B79A5E2D1415AA00DAE137 /* Shortcut.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Shortcut.h; sourceTree = "<group>"; };
@@ -333,7 +330,6 @@
 			isa = PBXGroup;
 			children = (
 				00B79B2E2D14789400DAE137 /* YLCategory.h */,
-				00A0F9C62D1A67300043E075 /* Async */,
 				00B79B2A2D14181600DAE137 /* YLTextField */,
 				00B799EB2D1415AA00DAE137 /* YLFileAccess */,
 				00B799FD2D1415AA00DAE137 /* YLUpdateManager */,
@@ -348,15 +344,15 @@
 				00B79A512D1415AA00DAE137 /* YLAppleScript */,
 				00B79A542D1415AA00DAE137 /* YLFlipView */,
 				00B79A572D1415AA00DAE137 /* YLCollectionView */,
-				00B79A5A2D1415AA00DAE137 /* YLWeakTimer */,
 				00B79A5D2D1415AA00DAE137 /* YLUserDefaults */,
 				00B79A9B2D1415AA00DAE137 /* YLShortcutView */,
+				00B79AB82D1415AA00DAE137 /* Other */,
+				00A0F9C62D1A67300043E075 /* Async */,
 				00B79A9E2D1415AA00DAE137 /* NSImageView */,
 				00B79AA12D1415AA00DAE137 /* NSResponder */,
 				00B79AA72D1415AA00DAE137 /* NSColor */,
 				00B79AAE2D1415AA00DAE137 /* NSView */,
 				00B79AB12D1415AA00DAE137 /* NSControl */,
-				00B79AB82D1415AA00DAE137 /* Other */,
 				00B79AC12D1415AA00DAE137 /* NSString */,
 				00B79AC42D1415AA00DAE137 /* NSButton */,
 				00B79AC72D1415AA00DAE137 /* NSAlert */,
@@ -584,15 +580,6 @@
 				00B79A562D1415AA00DAE137 /* YLCollectionView.m */,
 			);
 			path = YLCollectionView;
-			sourceTree = "<group>";
-		};
-		00B79A5A2D1415AA00DAE137 /* YLWeakTimer */ = {
-			isa = PBXGroup;
-			children = (
-				00B79A582D1415AA00DAE137 /* YLWeakTimer.h */,
-				00B79A592D1415AA00DAE137 /* YLWeakTimer.m */,
-			);
-			path = YLWeakTimer;
 			sourceTree = "<group>";
 		};
 		00B79A5D2D1415AA00DAE137 /* YLUserDefaults */ = {
@@ -989,7 +976,6 @@
 				00B79B212D1415AB00DAE137 /* YLLog.swift in Sources */,
 				00A0F9BF2D19B41E0043E075 /* NSWindow+Category.swift in Sources */,
 				00B79B222D1415AB00DAE137 /* YLHud.m in Sources */,
-				00B79B252D1415AB00DAE137 /* YLWeakTimer.m in Sources */,
 				00B79B262D1415AB00DAE137 /* YLPermissionManager.m in Sources */,
 				00B79B272D1415AB00DAE137 /* YLPermissionModel.m in Sources */,
 				00B79B282D1415AB00DAE137 /* MASShortcutView.m in Sources */,

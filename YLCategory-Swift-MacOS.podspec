@@ -99,10 +99,6 @@ Pod::Spec.new do |s|
     ss.source_files  =   'YLCategory-Swift-MacOS/YLUserDefaults/*.{h,m,swift}'
     end
 
-    s.subspec 'YLWeakTimer' do |ss|
-    ss.source_files  =   'YLCategory-Swift-MacOS/YLWeakTimer/*.{h,m,swift}'
-    end
-
     s.subspec 'YLCollectionView' do |ss|
     ss.source_files  =   'YLCategory-Swift-MacOS/YLCollectionView/*.{h,m,swift}'
     end

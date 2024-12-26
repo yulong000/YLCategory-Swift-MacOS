@@ -13,7 +13,6 @@
 #import "YLHud.h"
 #import "YLShortcutView.h"
 #import "YLUserDefaults.h"
-#import "YLWeakTimer.h"
 #import "YLCollectionView.h"
 #import "YLAppleScript.h"
 #import "YLFlipView.h"

@@ -17,7 +17,7 @@
         tab = tabString;
     }
     
-    [desc appendString:@"\t{\n"];
+    [desc appendString:@"{\n"];
     
     // 遍历字典,self就是当前的字典
     for (id key in self.allKeys) {
@@ -99,7 +99,7 @@
     if (level > 0) {
         tab = tabString;
     }
-    [desc appendString:@"\t[\n"];
+    [desc appendString:@"[\n"];
     
     for (id obj in self) {
         if (![obj respondsToSelector:@selector(description)]) {
