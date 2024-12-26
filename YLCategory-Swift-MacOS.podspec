@@ -96,7 +96,7 @@ Pod::Spec.new do |s|
     end
 
     s.subspec 'YLUserDefaults' do |ss|
-    ss.source_files  =   'YLCategory-Swift-MacOS/YLUserDefaults/**/*.{h,m,swift}'
+    ss.source_files  =   'YLCategory-Swift-MacOS/YLUserDefaults/**/*.swift'
     end
 
     s.subspec 'YLCollectionView' do |ss|

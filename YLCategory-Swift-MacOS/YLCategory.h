@@ -12,7 +12,6 @@
 #import "Macro.h"
 #import "YLHud.h"
 #import "YLShortcutView.h"
-#import "YLUserDefaults.h"
 #import "YLCollectionView.h"
 #import "YLAppleScript.h"
 #import "YLCFNotificationManager.h"

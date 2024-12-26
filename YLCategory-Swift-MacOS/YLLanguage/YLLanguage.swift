@@ -115,6 +115,6 @@ public class YLLanguage {
         }
     }
     
-    static var bundle = Bundle(for: YLLanguage.self)
+    static let bundle = Bundle(for: YLLanguage.self)
     static func localize(_ key: String) -> String { YLLanguage.bundle.localizedString(forKey: key, value: "", table: "YLLanguage") }
 }
