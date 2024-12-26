@@ -17,7 +17,6 @@
 #import "YLAppleScript.h"
 #import "YLCFNotificationManager.h"
 #import "YLPermissionManager.h"
-#import "YLLanguage.h"
 #import "YLWindowButton.h"
 #import "YLUpdateManager.h"
 #import "YLFileAccess.h"

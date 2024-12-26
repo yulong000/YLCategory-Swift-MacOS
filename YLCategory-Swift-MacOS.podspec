@@ -135,7 +135,7 @@ Pod::Spec.new do |s|
     end
 
     s.subspec 'YLLanguage' do |ss|
-    ss.source_files  =   'YLCategory-Swift-MacOS/YLLanguage/**/*.{h,m,swift}'
+    ss.source_files  =   'YLCategory-Swift-MacOS/YLLanguage/**/*.swift'
     ss.resource      =   'YLCategory-Swift-MacOS/YLLanguage/Resources/*'
     end
 
