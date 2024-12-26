@@ -15,15 +15,12 @@
 #import "YLUserDefaults.h"
 #import "YLCollectionView.h"
 #import "YLAppleScript.h"
-#import "YLFlipView.h"
 #import "YLCFNotificationManager.h"
-#import "YLControl.h"
 #import "YLPermissionManager.h"
 #import "YLLanguage.h"
 #import "YLWindowButton.h"
 #import "YLUpdateManager.h"
 #import "YLFileAccess.h"
-#import "YLTextField.h"
 
 
 #endif /* YLCategory_h */

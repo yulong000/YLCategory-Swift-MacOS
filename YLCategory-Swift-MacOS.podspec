@@ -27,64 +27,64 @@ Pod::Spec.new do |s|
     end
 
     s.subspec 'NSWindow' do |ss|
-    ss.source_files  =    'YLCategory-Swift-MacOS/NSWindow/*.swift'
+    ss.source_files  =    'YLCategory-Swift-MacOS/NSWindow/**/*.swift'
     end
 
     s.subspec 'NSScreen' do |ss|
-    ss.source_files  =   'YLCategory-Swift-MacOS/NSScreen/*.swift'
+    ss.source_files  =   'YLCategory-Swift-MacOS/NSScreen/**/*.swift'
     end
 
     s.subspec 'NSView' do |ss|
-    ss.source_files  =    'YLCategory-Swift-MacOS/NSView/*.swift'
+    ss.source_files  =    'YLCategory-Swift-MacOS/NSView/**/*.swift'
     end
 
     s.subspec 'NSTextField' do |ss|
-    ss.source_files  =    'YLCategory-Swift-MacOS/NSTextField/*.swift'
+    ss.source_files  =    'YLCategory-Swift-MacOS/NSTextField/**/*.swift'
     end
 
     s.subspec 'NSString' do |ss|
-    ss.source_files  =   'YLCategory-Swift-MacOS/NSString/*.swift'
+    ss.source_files  =   'YLCategory-Swift-MacOS/NSString/**/*.swift'
     end
 
     s.subspec 'NSObject' do |ss|
-    ss.source_files  =   'YLCategory-Swift-MacOS/NSObject/*.swift'
+    ss.source_files  =   'YLCategory-Swift-MacOS/NSObject/**/*.swift'
     end
 
     s.subspec 'NSImage' do |ss|
-    ss.source_files  =   'YLCategory-Swift-MacOS/NSImage/*.swift'
+    ss.source_files  =   'YLCategory-Swift-MacOS/NSImage/**/*.swift'
     end
 
     s.subspec 'NSDate' do |ss|
-    ss.source_files  =   'YLCategory-Swift-MacOS/NSDate/*.swift'
+    ss.source_files  =   'YLCategory-Swift-MacOS/NSDate/**/*.swift'
     end
 
     s.subspec 'NSControl' do |ss|
-    ss.source_files  =   'YLCategory-Swift-MacOS/NSControl/*.swift'
+    ss.source_files  =   'YLCategory-Swift-MacOS/NSControl/**/*.swift'
     end
 
     s.subspec 'NSButton' do |ss|
-    ss.source_files  =   'YLCategory-Swift-MacOS/NSButton/*.swift'
+    ss.source_files  =   'YLCategory-Swift-MacOS/NSButton/**/*.swift'
     ss.dependency        'YLCategory-Swift-MacOS/NSControl'
     end
 
     s.subspec 'NSAlert' do |ss|
-    ss.source_files  =   'YLCategory-Swift-MacOS/NSAlert/*.swift'
+    ss.source_files  =   'YLCategory-Swift-MacOS/NSAlert/**/*.swift'
     end
 
     s.subspec 'NSResponder' do |ss|
-    ss.source_files  =   'YLCategory-Swift-MacOS/NSResponder/*.swift'
+    ss.source_files  =   'YLCategory-Swift-MacOS/NSResponder/**/*.swift'
     end
 
     s.subspec 'NSColor' do |ss|
-    ss.source_files  =   'YLCategory-Swift-MacOS/NSColor/*.swift'
+    ss.source_files  =   'YLCategory-Swift-MacOS/NSColor/**/*.swift'
     end
 
     s.subspec 'NSImageView' do |ss|
-    ss.source_files  =   'YLCategory-Swift-MacOS/NSImageView/*.swift'
+    ss.source_files  =   'YLCategory-Swift-MacOS/NSImageView/**/*.swift'
     end
 
     s.subspec 'YLHud' do |ss|
-    ss.source_files  =   'YLCategory-Swift-MacOS/YLHud/*.{h,m,swift}'
+    ss.source_files  =   'YLCategory-Swift-MacOS/YLHud/**/*.{h,m,swift}'
     ss.resource      =   'YLCategory-Swift-MacOS/YLHud/Resources/*'
     ss.dependency        'YLCategory-Swift-MacOS/Other'
     end
@@ -96,56 +96,56 @@ Pod::Spec.new do |s|
     end
 
     s.subspec 'YLUserDefaults' do |ss|
-    ss.source_files  =   'YLCategory-Swift-MacOS/YLUserDefaults/*.{h,m,swift}'
+    ss.source_files  =   'YLCategory-Swift-MacOS/YLUserDefaults/**/*.{h,m,swift}'
     end
 
     s.subspec 'YLCollectionView' do |ss|
-    ss.source_files  =   'YLCategory-Swift-MacOS/YLCollectionView/*.{h,m,swift}'
+    ss.source_files  =   'YLCategory-Swift-MacOS/YLCollectionView/**/*.{h,m,swift}'
     end
 
     s.subspec 'YLAppleScript' do |ss|
-    ss.source_files  =   'YLCategory-Swift-MacOS/YLAppleScript/*.{h,m,swift}'
+    ss.source_files  =   'YLCategory-Swift-MacOS/YLAppleScript/**/*.{h,m,swift}'
     ss.resource      =   'YLCategory-Swift-MacOS/YLAppleScript/Resources/*'
     ss.dependency        'YLCategory-Swift-MacOS/YLHud'
     end
 
     s.subspec 'YLFlipView' do |ss|
-    ss.source_files  =   'YLCategory-Swift-MacOS/YLFlipView/*.{h,m,swift}'
+    ss.source_files  =   'YLCategory-Swift-MacOS/YLFlipView/**/*.swift'
     end
 
     s.subspec 'YLCFNotificationManager' do |ss|
-    ss.source_files  =   'YLCategory-Swift-MacOS/YLCFNotificationManager/*.{h,m,swift}'
+    ss.source_files  =   'YLCategory-Swift-MacOS/YLCFNotificationManager/**/*.{h,m,swift}'
     end
 
     s.subspec 'YLControl' do |ss|
-    ss.source_files  =   'YLCategory-Swift-MacOS/YLControl/*.{h,m,swift}'
+    ss.source_files  =   'YLCategory-Swift-MacOS/YLControl/**/*.swift'
     end
 
     s.subspec 'YLUpdateManager' do |ss|
-    ss.source_files  =   'YLCategory-Swift-MacOS/YLUpdateManager/*.{h,m,swift}'
+    ss.source_files  =   'YLCategory-Swift-MacOS/YLUpdateManager/**/*.{h,m,swift}'
     ss.resource      =   'YLCategory-Swift-MacOS/YLUpdateManager/Resources/*'
     end
 
     s.subspec 'YLAppRating' do |ss|
-    ss.source_files  =   'YLCategory-Swift-MacOS/YLAppRating/*.swift'
+    ss.source_files  =   'YLCategory-Swift-MacOS/YLAppRating/**/*.swift'
     end
 
     s.subspec 'YLWindowButton' do |ss|
-    ss.source_files  =   'YLCategory-Swift-MacOS/YLWindowButton/*.{h,m,swift}'
+    ss.source_files  =   'YLCategory-Swift-MacOS/YLWindowButton/**/*.{h,m,swift}'
     end
 
     s.subspec 'YLLanguage' do |ss|
-    ss.source_files  =   'YLCategory-Swift-MacOS/YLLanguage/*.{h,m,swift}'
+    ss.source_files  =   'YLCategory-Swift-MacOS/YLLanguage/**/*.{h,m,swift}'
     ss.resource      =   'YLCategory-Swift-MacOS/YLLanguage/Resources/*'
     end
 
     s.subspec 'YLPermissionManager' do |ss|
-    ss.source_files  =   'YLCategory-Swift-MacOS/YLPermissionManager/*.{h,m,swift}'
+    ss.source_files  =   'YLCategory-Swift-MacOS/YLPermissionManager/**/*.{h,m,swift}'
     ss.resource      =   'YLCategory-Swift-MacOS/YLPermissionManager/Resources/*'
     end
 
     s.subspec 'YLAppleReview' do |ss|
-    ss.source_files  =   'YLCategory-Swift-MacOS/YLAppleReview/*.swift'
+    ss.source_files  =   'YLCategory-Swift-MacOS/YLAppleReview/**/*.swift'
     end
 
     s.subspec 'YLFileAccess' do |ss|
@@ -154,7 +154,7 @@ Pod::Spec.new do |s|
     end
     
     s.subspec 'YLTextField' do |ss|
-    ss.source_files  =   'YLCategory-Swift-MacOS/YLTextField/**/*.{h,m,swift}'
+    ss.source_files  =   'YLCategory-Swift-MacOS/YLTextField/**/*.swift'
     end
     
     s.subspec 'Async' do |ss|
