@@ -58,7 +58,6 @@
 		00B79B082D1415AB00DAE137 /* YLPermissionItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B79A282D1415AA00DAE137 /* YLPermissionItem.m */; };
 		00B79B0B2D1415AB00DAE137 /* YLShortcutConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B79A7E2D1415AA00DAE137 /* YLShortcutConfig.m */; };
 		00B79B0F2D1415AB00DAE137 /* AppSandboxFileAccess.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B799D82D1415AA00DAE137 /* AppSandboxFileAccess.m */; };
-		00B79B102D1415AB00DAE137 /* YLWindowButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B79A0D2D1415AA00DAE137 /* YLWindowButton.m */; };
 		00B79B112D1415AB00DAE137 /* AppSandboxFileAccessPersist.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B799DC2D1415AA00DAE137 /* AppSandboxFileAccessPersist.m */; };
 		00B79B132D1415AB00DAE137 /* YLPermissionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B79A262D1415AA00DAE137 /* YLPermissionViewController.m */; };
 		00B79B142D1415AB00DAE137 /* MASShortcutValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B79A762D1415AA00DAE137 /* MASShortcutValidator.m */; };
@@ -66,7 +65,6 @@
 		00B79B172D1415AB00DAE137 /* MASShortcut.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B79A742D1415AA00DAE137 /* MASShortcut.m */; };
 		00B79B192D1415AB00DAE137 /* MASShortcutView+Bindings.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B79A692D1415AA00DAE137 /* MASShortcutView+Bindings.m */; };
 		00B79B1B2D1415AB00DAE137 /* YLHudContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B79A062D1415AA00DAE137 /* YLHudContentView.m */; };
-		00B79B1D2D1415AB00DAE137 /* YLWindowOperateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B79A0F2D1415AA00DAE137 /* YLWindowOperateView.m */; };
 		00B79B1E2D1415AB00DAE137 /* YLAppleScript.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B79A452D1415AA00DAE137 /* YLAppleScript.m */; };
 		00B79B1F2D1415AB00DAE137 /* AppSandboxFileAccessOpenSavePanelDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B799DA2D1415AA00DAE137 /* AppSandboxFileAccessOpenSavePanelDelegate.m */; };
 		00B79B212D1415AB00DAE137 /* YLLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B79AB52D1415AA00DAE137 /* YLLog.swift */; };
@@ -84,6 +82,8 @@
 		00CFDB462D1D502E00EF4FA4 /* YLLanguage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CFDB452D1D502E00EF4FA4 /* YLLanguage.swift */; };
 		00CFDB482D1D504D00EF4FA4 /* YLLanguageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CFDB472D1D504D00EF4FA4 /* YLLanguageModel.swift */; };
 		00CFDB4A2D1D8E5200EF4FA4 /* YLUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CFDB492D1D8E5200EF4FA4 /* YLUserDefaults.swift */; };
+		00CFDB4C2D1E3A9B00EF4FA4 /* YLWindowButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CFDB4B2D1E3A9B00EF4FA4 /* YLWindowButton.swift */; };
+		00CFDB4E2D1E3AB200EF4FA4 /* YLWindowOperateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CFDB4D2D1E3AB200EF4FA4 /* YLWindowOperateView.swift */; };
 		00E850622D1C529A00EBE080 /* NSObject+KVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E850612D1C529A00EBE080 /* NSObject+KVO.swift */; };
 		00E850642D1C579A00EBE080 /* NSObject+Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E850632D1C579A00EBE080 /* NSObject+Notification.swift */; };
 		00E850662D1C581A00EBE080 /* NSObject+Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E850652D1C581A00EBE080 /* NSObject+Event.swift */; };
@@ -156,10 +156,6 @@
 		00B79A072D1415AA00DAE137 /* YLHudProgressView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YLHudProgressView.h; sourceTree = "<group>"; };
 		00B79A082D1415AA00DAE137 /* YLHudProgressView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YLHudProgressView.m; sourceTree = "<group>"; };
 		00B79A092D1415AA00DAE137 /* YLHud.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = YLHud.bundle; sourceTree = "<group>"; };
-		00B79A0C2D1415AA00DAE137 /* YLWindowButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YLWindowButton.h; sourceTree = "<group>"; };
-		00B79A0D2D1415AA00DAE137 /* YLWindowButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YLWindowButton.m; sourceTree = "<group>"; };
-		00B79A0E2D1415AA00DAE137 /* YLWindowOperateView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YLWindowOperateView.h; sourceTree = "<group>"; };
-		00B79A0F2D1415AA00DAE137 /* YLWindowOperateView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YLWindowOperateView.m; sourceTree = "<group>"; };
 		00B79A152D1415AA00DAE137 /* YLLanguage.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = YLLanguage.strings; path = en.lproj/YLLanguage.strings; sourceTree = "<group>"; };
 		00B79A162D1415AA00DAE137 /* YLLanguage.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = YLLanguage.strings; path = "zh-Hans.lproj/YLLanguage.strings"; sourceTree = "<group>"; };
 		00B79A172D1415AA00DAE137 /* YLLanguage.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = YLLanguage.strings; path = "zh-Hant.lproj/YLLanguage.strings"; sourceTree = "<group>"; };
@@ -271,6 +267,8 @@
 		00CFDB452D1D502E00EF4FA4 /* YLLanguage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YLLanguage.swift; sourceTree = "<group>"; };
 		00CFDB472D1D504D00EF4FA4 /* YLLanguageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YLLanguageModel.swift; sourceTree = "<group>"; };
 		00CFDB492D1D8E5200EF4FA4 /* YLUserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YLUserDefaults.swift; sourceTree = "<group>"; };
+		00CFDB4B2D1E3A9B00EF4FA4 /* YLWindowButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YLWindowButton.swift; sourceTree = "<group>"; };
+		00CFDB4D2D1E3AB200EF4FA4 /* YLWindowOperateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YLWindowOperateView.swift; sourceTree = "<group>"; };
 		00E850612D1C529A00EBE080 /* NSObject+KVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+KVO.swift"; sourceTree = "<group>"; };
 		00E850632D1C579A00EBE080 /* NSObject+Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+Notification.swift"; sourceTree = "<group>"; };
 		00E850652D1C581A00EBE080 /* NSObject+Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+Event.swift"; sourceTree = "<group>"; };
@@ -455,10 +453,8 @@
 		00B79A102D1415AA00DAE137 /* YLWindowButton */ = {
 			isa = PBXGroup;
 			children = (
-				00B79A0C2D1415AA00DAE137 /* YLWindowButton.h */,
-				00B79A0D2D1415AA00DAE137 /* YLWindowButton.m */,
-				00B79A0E2D1415AA00DAE137 /* YLWindowOperateView.h */,
-				00B79A0F2D1415AA00DAE137 /* YLWindowOperateView.m */,
+				00CFDB4B2D1E3A9B00EF4FA4 /* YLWindowButton.swift */,
+				00CFDB4D2D1E3AB200EF4FA4 /* YLWindowOperateView.swift */,
 			);
 			path = YLWindowButton;
 			sourceTree = "<group>";
@@ -906,6 +902,7 @@
 				00A0F9CC2D1A7DB80043E075 /* String+Predicate.swift in Sources */,
 				00CFDB462D1D502E00EF4FA4 /* YLLanguage.swift in Sources */,
 				00CFDB3E2D1D369600EF4FA4 /* YLAppleReview.swift in Sources */,
+				00CFDB4E2D1E3AB200EF4FA4 /* YLWindowOperateView.swift in Sources */,
 				00B79AED2D1415AB00DAE137 /* YLCFNotificationManager.m in Sources */,
 				00B79AEE2D1415AB00DAE137 /* Macro.swift in Sources */,
 				00B79AEF2D1415AB00DAE137 /* MASLocalization.m in Sources */,
@@ -940,8 +937,8 @@
 				00B79B0B2D1415AB00DAE137 /* YLShortcutConfig.m in Sources */,
 				00A0F9D02D1BE9B00043E075 /* NSDate+Category.swift in Sources */,
 				00B79B0F2D1415AB00DAE137 /* AppSandboxFileAccess.m in Sources */,
-				00B79B102D1415AB00DAE137 /* YLWindowButton.m in Sources */,
 				00B79B112D1415AB00DAE137 /* AppSandboxFileAccessPersist.m in Sources */,
+				00CFDB4C2D1E3A9B00EF4FA4 /* YLWindowButton.swift in Sources */,
 				00B79B132D1415AB00DAE137 /* YLPermissionViewController.m in Sources */,
 				00B79B142D1415AB00DAE137 /* MASShortcutValidator.m in Sources */,
 				00B79B152D1415AB00DAE137 /* YLCollectionView.m in Sources */,
@@ -949,7 +946,6 @@
 				00B79B192D1415AB00DAE137 /* MASShortcutView+Bindings.m in Sources */,
 				00B79B1B2D1415AB00DAE137 /* YLHudContentView.m in Sources */,
 				00A0F9BB2D19B09E0043E075 /* NSScreen+Category.swift in Sources */,
-				00B79B1D2D1415AB00DAE137 /* YLWindowOperateView.m in Sources */,
 				00CFDB482D1D504D00EF4FA4 /* YLLanguageModel.swift in Sources */,
 				00A0F9B12D1872180043E075 /* NSControl+Category.swift in Sources */,
 				00B79B1E2D1415AB00DAE137 /* YLAppleScript.m in Sources */,

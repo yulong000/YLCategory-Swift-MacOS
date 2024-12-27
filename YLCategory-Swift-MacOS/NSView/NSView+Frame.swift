@@ -76,7 +76,7 @@ public extension NSView {
             frame.origin = NSMakePoint(newValue.x - self.frame.size.width / 2, newValue.y - self.frame.size.height / 2)
             self.frame = frame
         }
-        get { NSMakePoint(NSMidX(frame), NSMidY(frame)) }
+        get { NSMakePoint(frame.midX, frame.midY) }
     }
     
     /// 中心点 x 值
@@ -85,7 +85,7 @@ public extension NSView {
             let centerY = self.center.y;
             self.center = NSMakePoint(newValue, centerY)
         }
-        get { NSMidX(frame) }
+        get { frame.midX }
     }
     
     /// 中心点 y 值
@@ -94,14 +94,14 @@ public extension NSView {
             let centerX = self.center.x;
             self.center = NSMakePoint(centerX, newValue)
         }
-        get { NSMidY(frame) }
+        get { frame.midY }
     }
     
     /// 最大 x 值
-    var maxX: CGFloat { NSMaxX(frame) }
+    var maxX: CGFloat { frame.maxX }
     
     /// 最大 y 值
-    var maxY: CGFloat { NSMaxY(frame) }
+    var maxY: CGFloat { frame.maxY }
     
     /// 顶部
     var top: CGFloat {
