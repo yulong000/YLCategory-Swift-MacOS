@@ -100,7 +100,7 @@ Pod::Spec.new do |s|
     end
 
     s.subspec 'YLCollectionView' do |ss|
-    ss.source_files  =   'YLCategory-Swift-MacOS/YLCollectionView/**/*.{h,m,swift}'
+    ss.source_files  =   'YLCategory-Swift-MacOS/YLCollectionView/**/*.swift'
     end
 
     s.subspec 'YLAppleScript' do |ss|
