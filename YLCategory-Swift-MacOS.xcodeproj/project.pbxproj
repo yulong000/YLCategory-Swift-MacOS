@@ -40,7 +40,6 @@
 		00B79AE52D1415AB00DAE137 /* YLPermissionManager.strings in Resources */ = {isa = PBXBuildFile; fileRef = 00B79A352D1415AA00DAE137 /* YLPermissionManager.strings */; };
 		00B79AE62D1415AB00DAE137 /* MASShortcutViewButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B79A6B2D1415AA00DAE137 /* MASShortcutViewButtonCell.m */; };
 		00B79AE92D1415AB00DAE137 /* YLUpdateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B799F12D1415AA00DAE137 /* YLUpdateViewController.m */; };
-		00B79AED2D1415AB00DAE137 /* YLCFNotificationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B79A422D1415AA00DAE137 /* YLCFNotificationManager.m */; };
 		00B79AEE2D1415AB00DAE137 /* Macro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B79AB42D1415AA00DAE137 /* Macro.swift */; };
 		00B79AEF2D1415AB00DAE137 /* MASLocalization.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B79A652D1415AA00DAE137 /* MASLocalization.m */; };
 		00B79AF02D1415AB00DAE137 /* YLFileAccess.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B799DF2D1415AA00DAE137 /* YLFileAccess.m */; };
@@ -84,6 +83,7 @@
 		00CFDB4C2D1E3A9B00EF4FA4 /* YLWindowButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CFDB4B2D1E3A9B00EF4FA4 /* YLWindowButton.swift */; };
 		00CFDB4E2D1E3AB200EF4FA4 /* YLWindowOperateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CFDB4D2D1E3AB200EF4FA4 /* YLWindowOperateView.swift */; };
 		00CFDB502D1E77E700EF4FA4 /* YLCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CFDB4F2D1E77E700EF4FA4 /* YLCollectionView.swift */; };
+		00CFDB7F2D1EB0AF00EF4FA4 /* YLCFNotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CFDB7E2D1EB0AF00EF4FA4 /* YLCFNotificationCenter.swift */; };
 		00E850622D1C529A00EBE080 /* NSObject+KVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E850612D1C529A00EBE080 /* NSObject+KVO.swift */; };
 		00E850642D1C579A00EBE080 /* NSObject+Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E850632D1C579A00EBE080 /* NSObject+Notification.swift */; };
 		00E850662D1C581A00EBE080 /* NSObject+Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E850652D1C581A00EBE080 /* NSObject+Event.swift */; };
@@ -185,8 +185,6 @@
 		00B79A322D1415AA00DAE137 /* YLPermissionManager.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = YLPermissionManager.strings; path = ko.lproj/YLPermissionManager.strings; sourceTree = "<group>"; };
 		00B79A332D1415AA00DAE137 /* YLPermissionManager.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = YLPermissionManager.strings; path = pt.lproj/YLPermissionManager.strings; sourceTree = "<group>"; };
 		00B79A342D1415AA00DAE137 /* YLPermissionManager.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = YLPermissionManager.strings; path = es.lproj/YLPermissionManager.strings; sourceTree = "<group>"; };
-		00B79A412D1415AA00DAE137 /* YLCFNotificationManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YLCFNotificationManager.h; sourceTree = "<group>"; };
-		00B79A422D1415AA00DAE137 /* YLCFNotificationManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YLCFNotificationManager.m; sourceTree = "<group>"; };
 		00B79A442D1415AA00DAE137 /* YLAppleScript.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YLAppleScript.h; sourceTree = "<group>"; };
 		00B79A452D1415AA00DAE137 /* YLAppleScript.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YLAppleScript.m; sourceTree = "<group>"; };
 		00B79A462D1415AA00DAE137 /* YLAppleScript.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = YLAppleScript.strings; path = "zh-Hans.lproj/YLAppleScript.strings"; sourceTree = "<group>"; };
@@ -268,6 +266,7 @@
 		00CFDB4B2D1E3A9B00EF4FA4 /* YLWindowButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YLWindowButton.swift; sourceTree = "<group>"; };
 		00CFDB4D2D1E3AB200EF4FA4 /* YLWindowOperateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YLWindowOperateView.swift; sourceTree = "<group>"; };
 		00CFDB4F2D1E77E700EF4FA4 /* YLCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YLCollectionView.swift; sourceTree = "<group>"; };
+		00CFDB7E2D1EB0AF00EF4FA4 /* YLCFNotificationCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YLCFNotificationCenter.swift; sourceTree = "<group>"; };
 		00E850612D1C529A00EBE080 /* NSObject+KVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+KVO.swift"; sourceTree = "<group>"; };
 		00E850632D1C579A00EBE080 /* NSObject+Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+Notification.swift"; sourceTree = "<group>"; };
 		00E850652D1C581A00EBE080 /* NSObject+Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+Event.swift"; sourceTree = "<group>"; };
@@ -522,8 +521,7 @@
 		00B79A432D1415AA00DAE137 /* YLCFNotificationManager */ = {
 			isa = PBXGroup;
 			children = (
-				00B79A412D1415AA00DAE137 /* YLCFNotificationManager.h */,
-				00B79A422D1415AA00DAE137 /* YLCFNotificationManager.m */,
+				00CFDB7E2D1EB0AF00EF4FA4 /* YLCFNotificationCenter.swift */,
 			);
 			path = YLCFNotificationManager;
 			sourceTree = "<group>";
@@ -892,6 +890,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				00CFDB7F2D1EB0AF00EF4FA4 /* YLCFNotificationCenter.swift in Sources */,
 				0080A4E22D04490300EEFEA2 /* AppDelegate.swift in Sources */,
 				0080A4EC2D044A8E00EEFEA2 /* NSView+Frame.swift in Sources */,
 				00B79AE62D1415AB00DAE137 /* MASShortcutViewButtonCell.m in Sources */,
@@ -901,7 +900,6 @@
 				00CFDB462D1D502E00EF4FA4 /* YLLanguage.swift in Sources */,
 				00CFDB3E2D1D369600EF4FA4 /* YLAppleReview.swift in Sources */,
 				00CFDB4E2D1E3AB200EF4FA4 /* YLWindowOperateView.swift in Sources */,
-				00B79AED2D1415AB00DAE137 /* YLCFNotificationManager.m in Sources */,
 				00B79AEE2D1415AB00DAE137 /* Macro.swift in Sources */,
 				00B79AEF2D1415AB00DAE137 /* MASLocalization.m in Sources */,
 				00B79AF02D1415AB00DAE137 /* YLFileAccess.m in Sources */,
