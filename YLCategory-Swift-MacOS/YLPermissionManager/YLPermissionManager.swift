@@ -54,8 +54,9 @@ public class YLPermissionManager: NSObject {
     /// 一次性监听所有权限，如果有权限未授权，则会显示授权窗口，当所有权限都授权时，则自动隐藏
     /// - Parameters:
     ///   - authTypes: 需要授权的权限
-    ///   - repeatSeconds: 定时监听的秒数，一旦某个权限有变化，就会更新显示；默认为0，表示不重复，授权完毕后，退出监测
-    private var second = 0
+    ///   - repeatSeconds: * 3 为 定时监听的秒数（比如，传入5s，则15s内检测3次，3次都返回false，则弹出授权窗口），一旦某个权限有变化，就会更新显示；默认为0，表示不重复，授权完毕后，退出监测
+    private var second = 0 // 记录过了多少秒
+    private var retryCount = 0 // 如果获取到有权限未授权，重新获取，超过一定次数，则判断为未全部授权，防止系统问题引起的授权窗口弹出
     func monitorPermissionAuth(_ authTypes: [YLPermissionModel], repeatSeconds: Int = 0) {
         self.authTypes = authTypes
         monitorTimer?.invalidate()
@@ -94,10 +95,16 @@ public class YLPermissionManager: NSObject {
                 }
                 self.permissionWC?.window?.orderFrontRegardless()
             } else {
-                second += 1
-                if second >= repeatSeconds {
+                self.second += 1
+                if self.second >= repeatSeconds {
                     // 达到了设置的间隔秒数
+                    self.second = 0
                     if self.allAuthPassed == false {
+                        self.retryCount += 1
+                        if self.retryCount < 3 {
+                            return
+                        }
+                        self.retryCount = 0
                         // 有权限未授权，弹出授权窗口
                         if self.permissionWC == nil {
                             self.permissionWC = YLPermissionWindowController()
@@ -116,7 +123,6 @@ public class YLPermissionManager: NSObject {
                             self.permissionWC?.permissionVc.authTypes = authTypes
                         }
                         self.permissionWC?.window?.orderFrontRegardless()
-                        second = 0
                     } else {
                         // 都已授权
                         if self.permissionWC != nil {
