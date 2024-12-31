@@ -114,7 +114,7 @@ Pod::Spec.new do |s|
     end
 
     s.subspec 'YLCFNotificationManager' do |ss|
-    ss.source_files  =   'YLCategory-Swift-MacOS/YLCFNotificationManager/**/*.{h,m,swift}'
+    ss.source_files  =   'YLCategory-Swift-MacOS/YLCFNotificationManager/**/*.swift'
     end
 
     s.subspec 'YLControl' do |ss|
@@ -122,7 +122,7 @@ Pod::Spec.new do |s|
     end
 
     s.subspec 'YLUpdateManager' do |ss|
-    ss.source_files  =   'YLCategory-Swift-MacOS/YLUpdateManager/**/*.{h,m,swift}'
+    ss.source_files  =   'YLCategory-Swift-MacOS/YLUpdateManager/**/*.swift'
     ss.resource      =   'YLCategory-Swift-MacOS/YLUpdateManager/Resources/*'
     end
 
@@ -131,7 +131,7 @@ Pod::Spec.new do |s|
     end
 
     s.subspec 'YLWindowButton' do |ss|
-    ss.source_files  =   'YLCategory-Swift-MacOS/YLWindowButton/**/*.{h,m,swift}'
+    ss.source_files  =   'YLCategory-Swift-MacOS/YLWindowButton/**/*.swift'
     end
 
     s.subspec 'YLLanguage' do |ss|
@@ -140,7 +140,7 @@ Pod::Spec.new do |s|
     end
 
     s.subspec 'YLPermissionManager' do |ss|
-    ss.source_files  =   'YLCategory-Swift-MacOS/YLPermissionManager/**/*.{h,m,swift}'
+    ss.source_files  =   'YLCategory-Swift-MacOS/YLPermissionManager/**/*.swift'
     ss.resource      =   'YLCategory-Swift-MacOS/YLPermissionManager/Resources/*'
     end
 

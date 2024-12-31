@@ -13,7 +13,6 @@
 #import "YLHud.h"
 #import "YLShortcutView.h"
 #import "YLAppleScript.h"
-#import "YLUpdateManager.h"
 #import "YLFileAccess.h"
 
 
