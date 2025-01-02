@@ -17,7 +17,6 @@
 		00A0F9B12D1872180043E075 /* NSControl+Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A0F9B02D1872180043E075 /* NSControl+Category.swift */; };
 		00A0F9B32D1875980043E075 /* NSColor+Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A0F9B22D1875980043E075 /* NSColor+Category.swift */; };
 		00A0F9B52D18EC1C0043E075 /* NSButton+Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A0F9B42D18EC1C0043E075 /* NSButton+Category.swift */; };
-		00A0F9B72D18FC360043E075 /* NSResponder+Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A0F9B62D18FC360043E075 /* NSResponder+Category.swift */; };
 		00A0F9B92D19AE400043E075 /* NSImageView+Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A0F9B82D19AE400043E075 /* NSImageView+Category.swift */; };
 		00A0F9BB2D19B09E0043E075 /* NSScreen+Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A0F9BA2D19B09E0043E075 /* NSScreen+Category.swift */; };
 		00A0F9BD2D19B40F0043E075 /* NSWindow+Frame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A0F9BC2D19B40F0043E075 /* NSWindow+Frame.swift */; };
@@ -101,7 +100,6 @@
 		00A0F9B02D1872180043E075 /* NSControl+Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSControl+Category.swift"; sourceTree = "<group>"; };
 		00A0F9B22D1875980043E075 /* NSColor+Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSColor+Category.swift"; sourceTree = "<group>"; };
 		00A0F9B42D18EC1C0043E075 /* NSButton+Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSButton+Category.swift"; sourceTree = "<group>"; };
-		00A0F9B62D18FC360043E075 /* NSResponder+Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSResponder+Category.swift"; sourceTree = "<group>"; };
 		00A0F9B82D19AE400043E075 /* NSImageView+Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSImageView+Category.swift"; sourceTree = "<group>"; };
 		00A0F9BA2D19B09E0043E075 /* NSScreen+Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSScreen+Category.swift"; sourceTree = "<group>"; };
 		00A0F9BC2D19B40F0043E075 /* NSWindow+Frame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSWindow+Frame.swift"; sourceTree = "<group>"; };
@@ -320,7 +318,6 @@
 				00B79AB82D1415AA00DAE137 /* Other */,
 				00A0F9C62D1A67300043E075 /* Async */,
 				00B79A9E2D1415AA00DAE137 /* NSImageView */,
-				00B79AA12D1415AA00DAE137 /* NSResponder */,
 				00B79AA72D1415AA00DAE137 /* NSColor */,
 				00B79AAE2D1415AA00DAE137 /* NSView */,
 				00B79AB12D1415AA00DAE137 /* NSControl */,
@@ -630,14 +627,6 @@
 			path = NSImageView;
 			sourceTree = "<group>";
 		};
-		00B79AA12D1415AA00DAE137 /* NSResponder */ = {
-			isa = PBXGroup;
-			children = (
-				00A0F9B62D18FC360043E075 /* NSResponder+Category.swift */,
-			);
-			path = NSResponder;
-			sourceTree = "<group>";
-		};
 		00B79AA72D1415AA00DAE137 /* NSColor */ = {
 			isa = PBXGroup;
 			children = (
@@ -877,7 +866,6 @@
 				00CFDB402D1D3AFC00EF4FA4 /* YLFlipView.swift in Sources */,
 				00B79AF42D1415AB00DAE137 /* YLShortcutManager.m in Sources */,
 				00E850622D1C529A00EBE080 /* NSObject+KVO.swift in Sources */,
-				00A0F9B72D18FC360043E075 /* NSResponder+Category.swift in Sources */,
 				00B79AFA2D1415AB00DAE137 /* MASShortcutMonitor.m in Sources */,
 				00CFDCE62D22AB9A00EF4FA4 /* YLUpdateWindowController.swift in Sources */,
 				00B79B332D15D5C000DAE137 /* NSView+Gesture.swift in Sources */,

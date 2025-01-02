@@ -71,10 +71,6 @@ Pod::Spec.new do |s|
     ss.source_files  =   'YLCategory-Swift-MacOS/NSAlert/**/*.swift'
     end
 
-    s.subspec 'NSResponder' do |ss|
-    ss.source_files  =   'YLCategory-Swift-MacOS/NSResponder/**/*.swift'
-    end
-
     s.subspec 'NSColor' do |ss|
     ss.source_files  =   'YLCategory-Swift-MacOS/NSColor/**/*.swift'
     end
