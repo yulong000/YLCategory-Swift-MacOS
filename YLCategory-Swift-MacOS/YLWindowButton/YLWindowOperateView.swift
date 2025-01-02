@@ -24,7 +24,7 @@ public class YLWindowOperateView: NSView {
     
     // MARK: - 构造方法
     
-    convenience init(buttonTypes: [YLWindowButtonType]) {
+    convenience public init(buttonTypes: [YLWindowButtonType]) {
         self.init()
         self.buttonTypes = buttonTypes
         addBtns()

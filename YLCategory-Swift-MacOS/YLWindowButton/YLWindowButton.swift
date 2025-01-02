@@ -35,7 +35,7 @@ public class YLWindowButton: NSControl {
     
     // MARK: - 初始化
     
-    convenience init(buttonType: YLWindowButtonType) {
+    convenience public init(buttonType: YLWindowButtonType) {
         self.init(frame: .zero)
         self.buttonType = buttonType
     }
