@@ -7,7 +7,7 @@
 
 import Cocoa
 
-public class YLTextField: NSTextField {
+open class YLTextField: NSTextField {
     
     // 是否支持换行
     open var lineFeed = false {
@@ -22,7 +22,7 @@ public class YLTextField: NSTextField {
         self.isEditable = true
     }
     
-    required init?(coder: NSCoder) {
+    required public init?(coder: NSCoder) {
         super.init(coder: coder)
         self.cell = YLTextFieldCell()
         self.isEditable = true

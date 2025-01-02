@@ -7,7 +7,7 @@
 
 import Foundation
 
-public class YLControl: NSControl {
+open class YLControl: NSControl {
     
     // 自定义NSControl时，为了响应点击事件，需要实现下面的方法
     

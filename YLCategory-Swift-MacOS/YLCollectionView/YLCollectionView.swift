@@ -7,7 +7,7 @@
 
 import Foundation
 
-public class YLCollectionView: NSView, NSCollectionViewDelegate, NSCollectionViewDataSource, NSCollectionViewDelegateFlowLayout {
+open class YLCollectionView: NSView, NSCollectionViewDelegate, NSCollectionViewDataSource, NSCollectionViewDelegateFlowLayout {
     
     public private(set) var collectionView: NSCollectionView = NSCollectionView()
     public private(set) var scrollView: NSScrollView = NSScrollView()

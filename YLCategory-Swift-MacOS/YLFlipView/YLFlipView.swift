@@ -7,7 +7,7 @@
 
 import Foundation
 
-public class YLFlipView: NSView {
+open class YLFlipView: NSView {
     
     public override var isFlipped: Bool { true }
     
