@@ -17,7 +17,7 @@ public extension NSObject {
     }
     
     // MARK: 接收通知
-    func addNotification(name: Notification.Name, handler: @escaping @Sendable (Notification) -> Void) {
+    func addNotification(name: Notification.Name, handler: @escaping (Notification) -> Void) {
         NotificationCenter.default.addObserver(forName: name, object: nil, queue: .main, using: handler)
     }
     
@@ -39,7 +39,7 @@ public extension NSObject {
     }
     
     // MARK: 接收通知
-    func addDistributedNotification(name: Notification.Name, handler: @escaping @Sendable (Notification) -> Void) {
+    func addDistributedNotification(name: Notification.Name, handler: @escaping (Notification) -> Void) {
         DistributedNotificationCenter.default().addObserver(forName: name, object: nil, queue: .main, using: handler)
     }
     
@@ -61,7 +61,7 @@ public extension NSObject {
     }
     
     // MARK: 接收通知
-    func addWorkspaceNotification(name: Notification.Name, handler: @escaping @Sendable (Notification) -> Void) {
+    func addWorkspaceNotification(name: Notification.Name, handler: @escaping (Notification) -> Void) {
         NSWorkspace.shared.notificationCenter.addObserver(forName: name, object: nil, queue: .main, using: handler)
     }
     
