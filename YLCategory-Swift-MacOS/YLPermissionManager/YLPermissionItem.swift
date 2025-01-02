@@ -69,7 +69,7 @@ class YLPermissionItem: NSView {
         
         authBtn.sizeToFit()
         let authOrigin = NSPoint(x: frame.size.width - authBtn.frame.size.width, y: frame.size.height / 2 - authBtn.frame.size.height / 2)
-        authBtn.frame = NSRect(origin: authOrigin, size: authBtn.size)
+        authBtn.frame = NSRect(origin: authOrigin, size: authBtn.frame.size)
     }
     
     // MARK: -

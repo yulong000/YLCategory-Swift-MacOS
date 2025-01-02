@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Carbon
 
 public class YLAppleScript {
     
@@ -111,22 +112,33 @@ public class YLAppleScript {
         let parameters = NSAppleEventDescriptor.list()
         
         arguments?.enumerated().forEach({ index, argument in
-            if let argStr = argument as? String {
-                parameters.insert(NSAppleEventDescriptor(string: argStr), at: index + 1)
-            } else if let argNum = argument as? NSNumber {
-                parameters.insert(NSAppleEventDescriptor(int32: argNum.int32Value), at: index + 1)
-            } else if let argBool = argument as? Bool {
-                parameters.insert(NSAppleEventDescriptor(boolean: argBool), at: index + 1)
-            } else if let argDouble = argument as? Double {
-                parameters.insert(NSAppleEventDescriptor(double: argDouble), at: index + 1)
-            } else if let argDate = argument as? Date {
-                parameters.insert(NSAppleEventDescriptor(date: argDate), at: index + 1)
-            } else if let argUrl = argument as? URL {
-                parameters.insert(NSAppleEventDescriptor(fileURL: argUrl), at: index + 1)
+            let descriptor: NSAppleEventDescriptor?
+            switch argument {
+            case let string as String:
+                descriptor = NSAppleEventDescriptor(string: string)
+            case let number as NSNumber:
+                descriptor = NSAppleEventDescriptor(int32: number.int32Value)
+            case let bool as Bool:
+                descriptor = NSAppleEventDescriptor(boolean: bool)
+            case let double as Double:
+                descriptor = NSAppleEventDescriptor(double: double)
+            case let date as Date:
+                descriptor = NSAppleEventDescriptor(date: date)
+            case let url as URL:
+                descriptor = NSAppleEventDescriptor(fileURL: url)
+            default:
+                descriptor = nil
+            }
+            if let descriptor = descriptor {
+                parameters.insert(descriptor, at: index + 1)
             }
         })
         
-        let event = NSAppleEventDescriptor.appleEvent(withEventClass: AEEventClass(kASAppleScriptSuite), eventID: AEEventID(kASSubroutineEvent), targetDescriptor: target, returnID: AEReturnID(kAutoGenerateReturnID), transactionID: AETransactionID(kAnyTransactionID))
+        // 创建 apple event
+        guard let eventClass = AEEventClass(exactly: UInt32(kASAppleScriptSuite)),
+              let eventID = AEEventID(exactly: UInt32(kASSubroutineEvent)) else { return nil}
+        let event = NSAppleEventDescriptor.appleEvent(withEventClass: eventClass, eventID: eventID, targetDescriptor: target, returnID: AEReturnID(kAutoGenerateReturnID), transactionID: AETransactionID(kAnyTransactionID))
+        // 设置方法和参数
         event.setParam(function, forKeyword: AEKeyword(keyASSubroutineName))
         event.setParam(parameters, forKeyword: keyDirectObject)
         return event

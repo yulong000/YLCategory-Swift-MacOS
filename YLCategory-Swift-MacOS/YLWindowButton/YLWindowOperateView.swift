@@ -31,7 +31,7 @@ public class YLWindowOperateView: NSView {
     }
     
     private func addBtns() {
-        removeAllSubviews()
+        subviews.forEach { $0.removeFromSuperview() }
         guard let buttonTypes = buttonTypes else { return }
         for type in buttonTypes {
             if type == .exitFullScreen { continue }

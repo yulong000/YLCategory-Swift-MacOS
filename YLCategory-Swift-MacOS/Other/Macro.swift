@@ -8,6 +8,7 @@
 // MARK: - 颜色
 
 import Cocoa
+import Carbon
 
 public let WhiteColor: NSColor = .white
 public let BlackColor: NSColor = .black
