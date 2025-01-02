@@ -17,7 +17,7 @@ public struct Async {
     ///   - execute: 回调block
     ///   @convention(block)：表明闭包以 Objective-C 的 block 调用约定执行, 用于与底层 GCD API 的交互，这些 API 是用 C 编写的。
     @discardableResult
-    static func delay(_ seconds: TimeInterval, execute: @escaping @convention(block) () -> Void) -> DispatchWorkItem {
+    static func after(_ seconds: TimeInterval, execute: @escaping @convention(block) () -> Void) -> DispatchWorkItem {
         let workItem = DispatchWorkItem(block: execute)
         DispatchQueue.main.asyncAfter(deadline: .now() + seconds, execute: workItem)
         return workItem

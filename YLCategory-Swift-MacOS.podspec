@@ -84,9 +84,8 @@ Pod::Spec.new do |s|
     end
 
     s.subspec 'YLHud' do |ss|
-    ss.source_files  =   'YLCategory-Swift-MacOS/YLHud/**/*.{h,m,swift}'
+    ss.source_files  =   'YLCategory-Swift-MacOS/YLHud/**/*.swift'
     ss.resource      =   'YLCategory-Swift-MacOS/YLHud/Resources/*'
-    ss.dependency        'YLCategory-Swift-MacOS/Other'
     end
 
     s.subspec 'YLShortcutView' do |ss|
@@ -104,7 +103,7 @@ Pod::Spec.new do |s|
     end
 
     s.subspec 'YLAppleScript' do |ss|
-    ss.source_files  =   'YLCategory-Swift-MacOS/YLAppleScript/**/*.{h,m,swift}'
+    ss.source_files  =   'YLCategory-Swift-MacOS/YLAppleScript/**/*.swift'
     ss.resource      =   'YLCategory-Swift-MacOS/YLAppleScript/Resources/*'
     ss.dependency        'YLCategory-Swift-MacOS/YLHud'
     end

@@ -13,5 +13,10 @@ class ViewController: NSViewController {
         super.viewDidLoad()
         
     }
+    
+    override func mouseDown(with event: NSEvent) {
+        super.mouseDown(with: event)
+    }
+    
 }
 

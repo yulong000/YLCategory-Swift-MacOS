@@ -6,7 +6,6 @@
 //
 
 #import "YLShortcutView.h"
-#import "YLHud.h"
 
 @interface YLShortcutView ()
 
@@ -176,7 +175,13 @@
                             // 已经注册过了
                             NSBeep();
                             NSLog(@"%@", explanation);
-                            [YLHud showError:YLShortcutLocalizeString(@"Shortcut has been registered by system", @"") toWindow:weakSelf.window];
+                            NSAlert *alert = [[NSAlert alloc] init];
+                            alert.messageText = YLShortcutLocalizeString(@"Kind tips", @"");
+                            alert.informativeText = YLShortcutLocalizeString(@"Shortcut has been registered by system", @"");
+                            [alert addButtonWithTitle:MASLocalizedString(@"OK", @"")];
+                            [alert runModal];
+                            
+//                            [YLHud showError:YLShortcutLocalizeString(@"Shortcut has been registered by system", @"") toWindow:weakSelf.window];
                         } else if ([YLShortcutManager.share isShortcutValidWithOptionModifier:shortcut] == NO) {
                             // 含有Option,且在当前系统无效，需要打开辅助功能权限
                             event = nil;
@@ -212,7 +217,12 @@
                     } else {
                         // 控制键不可用
                         NSBeep();
-                        [YLHud showError:YLShortcutLocalizeString(@"Control keys are unavailable", @"") toWindow:weakSelf.window];
+//                        [YLHud showError:YLShortcutLocalizeString(@"Control keys are unavailable", @"") toWindow:weakSelf.window];
+                        NSAlert *alert = [[NSAlert alloc] init];
+                        alert.messageText = YLShortcutLocalizeString(@"Kind tips", @"");
+                        alert.informativeText = YLShortcutLocalizeString(@"Control keys are unavailable", @"");
+                        [alert addButtonWithTitle:MASLocalizedString(@"OK", @"")];
+                        [alert runModal];
                     }
                 } else {
                     // 字母键未按下
