@@ -9,7 +9,7 @@ import Foundation
 
 public class YLCFNotificationCenter {
     
-    static var shared = YLCFNotificationCenter()
+    public static var shared = YLCFNotificationCenter()
     private init() {}
     deinit {
         removeAllObservers()
@@ -18,17 +18,17 @@ public class YLCFNotificationCenter {
     // MARK: - 单向发送
     
     // MARK: 添加通知，block回调
-    func addObserver(_ observer: AnyObject, name: Notification.Name, handler: @escaping ([String: Any]?) -> Void) {
+    public func addObserver(_ observer: AnyObject, name: Notification.Name, handler: @escaping ([String: Any]?) -> Void) {
         _addObserver(observer, name: name, handler: handler)
     }
     
     // MARK: 添加通知，selector回调
-    func addObserver(_ observer: AnyObject, name: Notification.Name, selector: Selector) {
+    public func addObserver(_ observer: AnyObject, name: Notification.Name, selector: Selector) {
         _addObserver(observer, name: name, selector: selector)
     }
     
     // MARK: 发送通知
-    func postCFNotification(_ name: Notification.Name, userInfo: [String : Any]? = nil) {
+    public func postCFNotification(_ name: Notification.Name, userInfo: [String : Any]? = nil) {
         let info = (isSandbox ? nil : userInfo) as CFDictionary?
         let notificationName = CFNotificationName(name.rawValue as CFString)
         CFNotificationCenterPostNotificationWithOptions(CFNotificationCenterGetDistributedCenter(), notificationName, nil, info, kCFNotificationDeliverImmediately | kCFNotificationPostToAllSessions)
@@ -41,7 +41,7 @@ public class YLCFNotificationCenter {
     ///   - observer: 监听的对象
     ///   - name: 通知名
     ///   - handler: 收到通知后，发送回复信息
-    func addObserver(_ observer: AnyObject, name: Notification.Name, response handler: @escaping ([String : Any]?, ([String : Any]?) -> Void) -> Void) {
+    public func addObserver(_ observer: AnyObject, name: Notification.Name, response handler: @escaping ([String : Any]?, ([String : Any]?) -> Void) -> Void) {
         _addObserver(observer, name: name, response: handler)
     }
     
@@ -51,7 +51,7 @@ public class YLCFNotificationCenter {
     ///   - userInfo: 发送到信息
     ///   - observer: 回调接收对象，传nil则不会回调
     ///   - handler: 对方收到通知后的回调
-    func postCFNotification(_ name: Notification.Name, userInfo: [String : Any]? = nil, observer: AnyObject? = nil, handler: ([String : Any]) -> Void) {
+    public func postCFNotification(_ name: Notification.Name, userInfo: [String : Any]? = nil, observer: AnyObject? = nil, handler: ([String : Any]) -> Void) {
         let info = (isSandbox ? nil : userInfo) as CFDictionary?
         let notificationName = CFNotificationName(name.rawValue as CFString)
         guard let observer = observer else { return }
@@ -64,7 +64,7 @@ public class YLCFNotificationCenter {
     // MARK: - 移除
     
     // MARK: 移除某个监听对象
-    func removeObserver(_ observer: AnyObject, name: Notification.Name? = nil) {
+    public func removeObserver(_ observer: AnyObject, name: Notification.Name? = nil) {
         
         guard let notiName = name?.rawValue else {
             // 移除传入对象的所有通知
@@ -84,7 +84,7 @@ public class YLCFNotificationCenter {
     }
     
     // MARK: 移除所有的监听对象
-    func removeAllObservers() {
+    public func removeAllObservers() {
         for name in observerDict.keys {
             CFNotificationCenterRemoveObserver(CFNotificationCenterGetDistributedCenter(), Unmanaged.passUnretained(self).toOpaque(), CFNotificationName(name as CFString), nil)
         }

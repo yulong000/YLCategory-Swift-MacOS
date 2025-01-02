@@ -9,9 +9,9 @@ import Foundation
 
 public class YLLanguageModel {
     
-    var languageType: LanguageType
-    var code: String = ""
-    var title: String = ""
+    public var languageType: LanguageType
+    public var code: String = ""
+    public var title: String = ""
     
     init(type: LanguageType) {
         languageType = type

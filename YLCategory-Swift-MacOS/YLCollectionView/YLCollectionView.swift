@@ -9,8 +9,8 @@ import Foundation
 
 public class YLCollectionView: NSView, NSCollectionViewDelegate, NSCollectionViewDataSource, NSCollectionViewDelegateFlowLayout {
     
-    private(set) var collectionView: NSCollectionView = NSCollectionView()
-    private(set) var scrollView: NSScrollView = NSScrollView()
+    public private(set) var collectionView: NSCollectionView = NSCollectionView()
+    public private(set) var scrollView: NSScrollView = NSScrollView()
     private lazy var clipView: YLCollectionClipView = {
         let clipView = YLCollectionClipView()
         clipView.postsBoundsChangedNotifications = true
@@ -72,22 +72,22 @@ public class YLCollectionView: NSView, NSCollectionViewDelegate, NSCollectionVie
     // MARK: - 注册
     
     // MARK: 注册item
-    func registerItem(_ itemClass: AnyClass?, withIdentifier identifier: NSUserInterfaceItemIdentifier) {
+    public func registerItem(_ itemClass: AnyClass?, withIdentifier identifier: NSUserInterfaceItemIdentifier) {
         collectionView.register(itemClass, forItemWithIdentifier: identifier)
     }
     
     // MARK: 注册header，footer
-    func registerSupplementary(_ viewClass: AnyClass?, kind: NSCollectionView.SupplementaryElementKind, withIdentifier identifier: NSUserInterfaceItemIdentifier) {
+    public func registerSupplementary(_ viewClass: AnyClass?, kind: NSCollectionView.SupplementaryElementKind, withIdentifier identifier: NSUserInterfaceItemIdentifier) {
         collectionView.register(viewClass, forSupplementaryViewOfKind: kind, withIdentifier: identifier)
     }
     
     // MARK: 注册 NIB item
-    func registerItemNib(_ nib: NSNib?, withIdentifier identifier: NSUserInterfaceItemIdentifier) {
+    public func registerItemNib(_ nib: NSNib?, withIdentifier identifier: NSUserInterfaceItemIdentifier) {
         collectionView.register(nib, forItemWithIdentifier: identifier)
     }
     
     // MARK: 注册 NIB header，footer
-    func registerSupplementaryNib(_ nib: NSNib?, kind: NSCollectionView.SupplementaryElementKind, withIdentifier identifier: NSUserInterfaceItemIdentifier) {
+    public func registerSupplementaryNib(_ nib: NSNib?, kind: NSCollectionView.SupplementaryElementKind, withIdentifier identifier: NSUserInterfaceItemIdentifier) {
         collectionView.register(nib, forSupplementaryViewOfKind: kind, withIdentifier: identifier)
     }
     
@@ -97,7 +97,7 @@ public class YLCollectionView: NSView, NSCollectionViewDelegate, NSCollectionVie
     }
     
     // MARK: 重新加载数据
-    func reloadData() {
+    public func reloadData() {
         collectionView.reloadData()
     }
     
@@ -105,53 +105,53 @@ public class YLCollectionView: NSView, NSCollectionViewDelegate, NSCollectionVie
     // MARK: - dataSource
     
     /// 返回分组个数，默认1
-    var numberOfSectionsHandler: ((NSCollectionView) -> Int)?
+    public var numberOfSectionsHandler: ((NSCollectionView) -> Int)?
     /// 返回每个分组item的个数
-    var numberOfItemsHandler: ((NSCollectionView, Int) -> Int)?
+    public var numberOfItemsHandler: ((NSCollectionView, Int) -> Int)?
     /// 返回item对象
-    var itemHandler: ((NSCollectionView, IndexPath) -> NSCollectionViewItem)?
+    public var itemHandler: ((NSCollectionView, IndexPath) -> NSCollectionViewItem)?
     /// 返回header & footer
-    var supplementaryViewHandler: ((NSCollectionView, NSCollectionView.SupplementaryElementKind, IndexPath) -> NSView?)?
+    public var supplementaryViewHandler: ((NSCollectionView, NSCollectionView.SupplementaryElementKind, IndexPath) -> NSView?)?
     
     
     // MARK: - delegate
     
     /// 将要选中回调
-    var shouldSelectHandler: ((NSCollectionView, Set<IndexPath>) -> Set<IndexPath>)?
+    public var shouldSelectHandler: ((NSCollectionView, Set<IndexPath>) -> Set<IndexPath>)?
     /// 选中回调
-    var selectHandler: ((NSCollectionView, Set<IndexPath>) -> Void)?
+    public var selectHandler: ((NSCollectionView, Set<IndexPath>) -> Void)?
     /// 将要取消选中回调
-    var shouldDeselectHandler: ((NSCollectionView, Set<IndexPath>) -> Set<IndexPath>)?
+    public var shouldDeselectHandler: ((NSCollectionView, Set<IndexPath>) -> Set<IndexPath>)?
     /// 取消选中回调
-    var deselectHandler: ((NSCollectionView, Set<IndexPath>) -> Void)?
+    public var deselectHandler: ((NSCollectionView, Set<IndexPath>) -> Void)?
     /// 滚动回调
-    var scrollHandler: ((NSScrollView, NSCollectionView) -> Void)?
+    public var scrollHandler: ((NSScrollView, NSCollectionView) -> Void)?
     
     // MARK: - 拖拽
     
     /// 是否可以拖拽
-    var canDragHandler: ((NSCollectionView, Set<IndexPath>, NSEvent) -> Bool)?
+    public var canDragHandler: ((NSCollectionView, Set<IndexPath>, NSEvent) -> Bool)?
     /// 写入数据到剪切版
-    var pasteboardWriterForItemHandler: ((NSCollectionView, IndexPath) -> NSPasteboardWriting?)?
+    public var pasteboardWriterForItemHandler: ((NSCollectionView, IndexPath) -> NSPasteboardWriting?)?
     /// 拖拽的操作类型
-    var validateDropHandler: ((NSCollectionView, NSDraggingInfo, AutoreleasingUnsafeMutablePointer<NSIndexPath>, UnsafeMutablePointer<NSCollectionView.DropOperation>) -> NSDragOperation)?
+    public var validateDropHandler: ((NSCollectionView, NSDraggingInfo, AutoreleasingUnsafeMutablePointer<NSIndexPath>, UnsafeMutablePointer<NSCollectionView.DropOperation>) -> NSDragOperation)?
     /// 接收拖拽数据
-    var acceptDropHandler: ((NSCollectionView, NSDraggingInfo, IndexPath, NSCollectionView.DropOperation) -> Bool)?
+    public var acceptDropHandler: ((NSCollectionView, NSDraggingInfo, IndexPath, NSCollectionView.DropOperation) -> Bool)?
     
     // MARK: - layout
     
     /// item 大小
-    var itemSizeHandler: ((NSCollectionView, IndexPath) -> NSSize)?
+    public var itemSizeHandler: ((NSCollectionView, IndexPath) -> NSSize)?
     /// 分组 edgeInsets
-    var sectionInsetHandler: ((NSCollectionView, Int) -> NSEdgeInsets)?
+    public var sectionInsetHandler: ((NSCollectionView, Int) -> NSEdgeInsets)?
     /// 行间距最小值
-    var lineSpacingHandler: ((NSCollectionView, Int) -> CGFloat)?
+    public var lineSpacingHandler: ((NSCollectionView, Int) -> CGFloat)?
     /// item间距最小值
-    var itemSpacingHandler: ((NSCollectionView, Int) -> CGFloat)?
+    public var itemSpacingHandler: ((NSCollectionView, Int) -> CGFloat)?
     /// header 大小
-    var headerSizeHandler: ((NSCollectionView, Int) -> NSSize)?
+    public var headerSizeHandler: ((NSCollectionView, Int) -> NSSize)?
     /// footer 大小
-    var footerSizeHandler: ((NSCollectionView, Int) -> NSSize)?
+    public var footerSizeHandler: ((NSCollectionView, Int) -> NSSize)?
     
     // MARK: - collectionView dataSource
     

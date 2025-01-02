@@ -17,7 +17,7 @@ public class YLAppleReview {
     /// - Parameters:
     ///   - begin: 开始时间字符串， 格式： yyyy-MM-dd HH:mm:ss
     ///   - end: 结束时间字符串， 格式： yyyy-MM-dd HH:mm:ss
-    class func set(begin: String, end: String) {
+    public class func set(begin: String, end: String) {
         let formatter = DateFormatter()
         formatter.locale = Locale(identifier: "en_US_POSIX")
         formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
@@ -27,7 +27,7 @@ public class YLAppleReview {
     }
     
     // MARK: 是否审核中
-    static var isReviewing: Bool {
+    public static var isReviewing: Bool {
         guard let beginDate = YLAppleReview.shared.beginDate,
               let endDate = YLAppleReview.shared.endDate else { return false }
         return beginDate.timeIntervalSinceNow < 0 && endDate.timeIntervalSinceNow > 0

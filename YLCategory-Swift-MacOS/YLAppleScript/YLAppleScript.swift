@@ -11,7 +11,7 @@ import Carbon
 public class YLAppleScript {
     
     /// 获取脚本的安装路径
-    class func getScriptLocalURL() -> URL? {
+    public class func getScriptLocalURL() -> URL? {
         var url: URL?
         do {
             url = try FileManager.default.url(for: .applicationScriptsDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
@@ -24,7 +24,7 @@ public class YLAppleScript {
     /// 脚本文件是否已安装
     /// - Parameter fileName: 文件名   apple_script.scpt
     /// - Returns: 返回 ture or false
-    class func scriptFileHasInstalled(_ fileName: String) -> Bool {
+    public class func scriptFileHasInstalled(_ fileName: String) -> Bool {
         guard !fileName.isEmpty else { return false }
         guard let destinationUrl = getScriptLocalURL()?.appendingPathComponent(fileName) else { return false }
         return FileManager.default.fileExists(atPath: destinationUrl.path)
@@ -35,7 +35,7 @@ public class YLAppleScript {
     /// - Parameter funcName: 文件内函数的名字
     /// - Parameter arguments: 函数的传参
     /// - Parameter completionHandler: 执行完毕的回调
-    class func executeScript(fileName: String, funcName: String? = nil, arguments: [Any]? = nil, completionHandler: NSUserAppleScriptTask.CompletionHandler? = nil) {
+    public class func executeScript(fileName: String, funcName: String? = nil, arguments: [Any]? = nil, completionHandler: NSUserAppleScriptTask.CompletionHandler? = nil) {
         // 给文件名拼上 ".scpt"
         var fileName = fileName
         if fileName.hasSuffix(".scpt") == false {
@@ -148,7 +148,7 @@ public class YLAppleScript {
     /// - Parameters:
     ///   - fileName: 脚本文件名 apple_script.scpt
     ///   - handler: 执行后的回调
-    class func installScript(_ fileName: String, handler: @escaping ((Bool) -> Void)) {
+    public class func installScript(_ fileName: String, handler: @escaping ((Bool) -> Void)) {
         installScripts([fileName], handler: handler)
     }
     
@@ -156,7 +156,7 @@ public class YLAppleScript {
     /// - Parameters:
     ///   - fileNames: 多个文件名
     ///   - handler: 执行后的回调
-    class func installScripts(_ fileNames: [String], handler: @escaping ((Bool) -> Void)) {
+    public class func installScripts(_ fileNames: [String], handler: @escaping ((Bool) -> Void)) {
         guard fileNames.isEmpty else {
             assert(false, "fileNames must not be empty")
             handler(false)

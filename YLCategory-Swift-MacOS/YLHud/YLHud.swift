@@ -22,10 +22,10 @@ public class YLHudWindow: NSWindow {
 public class YLHud: YLHudWindow {
     
     /// 全局配置
-    static var config = YLHudConfig()
+    public static var config = YLHudConfig()
     
     /// 显示的样式
-    var style: YLHudStyle = .auto {
+    public var style: YLHudStyle = .auto {
         didSet {
             if style == .auto {
                 style = YLHud.getDisplayStyle(style)
@@ -45,7 +45,7 @@ public class YLHud: YLHudWindow {
     ///   - completionHandler: 隐藏后的回调
     /// - Returns: hud
     @discardableResult
-    class func showSuccess(_ text: String, to window: NSWindow?, hideAfter delay: CGFloat? = 1, completionHandler: (() -> Void)? = nil) -> YLHud {
+    public class func showSuccess(_ text: String, to window: NSWindow?, hideAfter delay: CGFloat? = 1, completionHandler: (() -> Void)? = nil) -> YLHud {
         let successView = createSuccessView(style: config.style)
         return showCustomView(successView, text: text, to: window, hideAfter: delay, completionHandler: completionHandler)
     }
@@ -58,7 +58,7 @@ public class YLHud: YLHudWindow {
     ///   - completionHandler: 隐藏后的回调
     /// - Returns: hud
     @discardableResult
-    class func showError(_ text: String, to window: NSWindow?, hideAfter delay: CGFloat? = 1, completionHandler: (() -> Void)? = nil) -> YLHud {
+    public class func showError(_ text: String, to window: NSWindow?, hideAfter delay: CGFloat? = 1, completionHandler: (() -> Void)? = nil) -> YLHud {
         let errorView = createErrorView(style: config.style)
         return showCustomView(errorView, text: text, to: window, hideAfter: delay, completionHandler: completionHandler)
     }
@@ -71,7 +71,7 @@ public class YLHud: YLHudWindow {
     ///   - completionHandler: 隐藏后的回调
     /// - Returns: hud
     @discardableResult
-    class func showText(_ text: String, to window: NSWindow?, hideAfter delay: CGFloat? = 1, completionHandler: (() -> Void)? = nil) -> YLHud {
+    public class func showText(_ text: String, to window: NSWindow?, hideAfter delay: CGFloat? = 1, completionHandler: (() -> Void)? = nil) -> YLHud {
         return showCustomView(nil, text: text, to: window, hideAfter: delay, completionHandler: completionHandler)
     }
     
@@ -81,7 +81,7 @@ public class YLHud: YLHudWindow {
     ///   - window: 显示到的窗口
     /// - Returns: hud
     @discardableResult
-    class func showLoading(_ text: String, to window: NSWindow?) -> YLHud {
+    public class func showLoading(_ text: String, to window: NSWindow?) -> YLHud {
         let indicator = createLoadingIndicator()
         return showCustomView(indicator, text: text, to: window, hideAfter: -1)
     }
@@ -93,7 +93,7 @@ public class YLHud: YLHudWindow {
     ///   - window: 显示到的窗口
     /// - Returns: hud
     @discardableResult
-    class func showProgress(_ progress: Float, text: String? = nil, to window: NSWindow?) -> YLHud {
+    public class func showProgress(_ progress: Float, text: String? = nil, to window: NSWindow?) -> YLHud {
         let progressView = createProgressView(style: config.style)
         progressView.progress = progress
         return showCustomView(progressView, text: text ?? progressView.progressText, to: window, hideAfter: -1)
@@ -108,7 +108,7 @@ public class YLHud: YLHudWindow {
     ///   - completionHandler: 隐藏后的回调
     /// - Returns: hud
     @discardableResult
-    class func showCustomView(_ customView: NSView?, text: String, to window: NSWindow?, hideAfter delay: CGFloat? = 1.0, completionHandler: (() -> Void)? = nil) -> YLHud {
+    public class func showCustomView(_ customView: NSView?, text: String, to window: NSWindow?, hideAfter delay: CGFloat? = 1.0, completionHandler: (() -> Void)? = nil) -> YLHud {
         guard let toWindow = window ?? NSApp.keyWindow else { return YLHud() }
         
         // 增加一个全覆盖的window，禁用点击其他地方，如果设置为[NSColor clearColor]，鼠标是可以穿透的，所以必须得有个色值
@@ -147,7 +147,7 @@ public class YLHud: YLHudWindow {
     
     /// 隐藏hud
     /// - Parameter window: 隐藏传入window上的hud
-    class func hideHUDForWindow(_ window: NSWindow?) {
+    public class func hideHUDForWindow(_ window: NSWindow?) {
         guard let w = window ?? NSApp.keyWindow, let children = w.childWindows, !children.isEmpty else { return }
         for child in children {
             if child.isKind(of: YLHud.self) {
@@ -160,7 +160,7 @@ public class YLHud: YLHudWindow {
     
     /// 隐藏指定的hud
     /// - Parameter hud: 只隐藏该hud
-    class func hideHUD(_ hud: YLHud) {
+    public class func hideHUD(_ hud: YLHud) {
         if let handler = hud.completionHandler {
             handler()
         }
@@ -176,7 +176,7 @@ public class YLHud: YLHudWindow {
     /// - Parameters:
     ///   - delay: 延迟几秒后隐藏
     ///   - completionHandler: 隐藏后的回调
-    func hide(after delay: CGFloat? = nil, completionHandler: (() -> Void)? = nil) {
+    public func hide(after delay: CGFloat? = nil, completionHandler: (() -> Void)? = nil) {
         self.completionHandler = completionHandler
         if let delay = delay, delay >= 0 {
             DispatchQueue.main.asyncAfter(deadline: .now() + delay) {
@@ -189,7 +189,7 @@ public class YLHud: YLHudWindow {
     
     /// 切换显示加载框
     /// - Parameter text: 文字
-    func showLoading(_ text: String) {
+    public func showLoading(_ text: String) {
         textLabel.stringValue = text
         layoutUI()
     }
@@ -199,7 +199,7 @@ public class YLHud: YLHudWindow {
     ///   - text: 文字
     ///   - delay: 延迟几秒后隐藏
     ///   - completionHandler: 隐藏后的回调
-    func showText(_ text: String, hideAfter delay: CGFloat? = 1.0, completionHandler: (() -> Void)? = nil) {
+    public func showText(_ text: String, hideAfter delay: CGFloat? = 1.0, completionHandler: (() -> Void)? = nil) {
         customView?.removeFromSuperview()
         customView = nil
         textLabel.stringValue = text
@@ -218,7 +218,7 @@ public class YLHud: YLHudWindow {
     ///   - text: 文字
     ///   - delay: 延迟几秒后隐藏
     ///   - completionHandler: 隐藏后的回调
-    func showSuccess(_ text: String, hideAfter delay: CGFloat? = 1.0, completionHandler: (() -> Void)? = nil) {
+    public func showSuccess(_ text: String, hideAfter delay: CGFloat? = 1.0, completionHandler: (() -> Void)? = nil) {
         customView?.removeFromSuperview()
         customView = YLHud.createSuccessView(style: style)
         hudView.addSubview(customView!)
@@ -238,7 +238,7 @@ public class YLHud: YLHudWindow {
     ///   - text: 文字
     ///   - delay: 延迟几秒后隐藏
     ///   - completionHandler: 隐藏后的回调
-    func showError(_ text: String, hideAfter delay: CGFloat? = 1.0, completionHandler: (() -> Void)? = nil) {
+    public func showError(_ text: String, hideAfter delay: CGFloat? = 1.0, completionHandler: (() -> Void)? = nil) {
         customView?.removeFromSuperview()
         customView = YLHud.createErrorView(style: style)
         hudView.addSubview(customView!)
@@ -257,7 +257,7 @@ public class YLHud: YLHudWindow {
     /// - Parameters:
     ///   - progress: 进度  0.0 ～ 1, 显示格式为30%
     ///   - text: 文字
-    func showProgress(_ progress: Float, text: String? = nil) {
+    public func showProgress(_ progress: Float, text: String? = nil) {
         if let customView = customView, customView.isKind(of: YLHudProgressView.self) {
             let progressView = customView as! YLHudProgressView
             progressView.progress = progress
@@ -443,11 +443,11 @@ public class YLHud: YLHudWindow {
 public struct YLHudConfig {
     
     /// 显示的样式
-    var style: YLHudStyle = .auto
+    public var style: YLHudStyle = .auto
     /// 显示的文字的字体
-    var textFont: NSFont? = nil
+    public var textFont: NSFont? = nil
     /// 是否可以通过拖动移动背后的window
-    var movable: Bool = true
+    public var movable: Bool = true
     
 }
 

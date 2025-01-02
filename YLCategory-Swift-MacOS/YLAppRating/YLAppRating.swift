@@ -21,7 +21,7 @@ public class YLAppRating {
     ///   - daysSinceFirstLaunch: 从第一次启动，到执行弹窗，最少间隔的天数，防止一上来就弹窗，需与minExecCount同时满足
     ///   - daysSinceLastPrompt: 从上次一执行弹窗代码，到下一次执行弹窗代码，中间最少间隔的天数，需与minExecCount同时满足
     ///   - delayInSeconds: 执行弹窗代码的延时操作，防止一打开app就弹窗
-    class func showWith(appID: String,
+    public class func showWith(appID: String,
                          minExecCount: Int = 10,
                          daysSinceFirstLaunch: Int = 3,
                          daysSinceLastPrompt: Int = 365,

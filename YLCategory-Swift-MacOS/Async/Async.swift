@@ -17,7 +17,7 @@ public struct Async {
     ///   - execute: 回调block
     ///   @convention(block)：表明闭包以 Objective-C 的 block 调用约定执行, 用于与底层 GCD API 的交互，这些 API 是用 C 编写的。
     @discardableResult
-    static func after(_ seconds: TimeInterval, execute: @escaping @convention(block) () -> Void) -> DispatchWorkItem {
+    public static func after(_ seconds: TimeInterval, execute: @escaping @convention(block) () -> Void) -> DispatchWorkItem {
         let workItem = DispatchWorkItem(block: execute)
         DispatchQueue.main.asyncAfter(deadline: .now() + seconds, execute: workItem)
         return workItem
@@ -27,7 +27,7 @@ public struct Async {
     /// - Parameters:
     ///   - globalBlock: 子线程内执行
     ///   - block: 主线程内执行
-    static func global(_ globalBlock: @escaping @convention(block) () -> Void, main block: @escaping @convention(block) () -> Void) {
+    public static func global(_ globalBlock: @escaping @convention(block) () -> Void, main block: @escaping @convention(block) () -> Void) {
         DispatchQueue.global().async {
             globalBlock()
             DispatchQueue.main.async {
@@ -44,7 +44,7 @@ public struct Async {
     ///   - repeats: 是否重复
     ///   - handler: 回调
     /// - Returns: 定时器
-    static func timer(with interval: TimeInterval, target: AnyObject, userInfo: Any? = nil, repeats: Bool = true, handler: @escaping (Timer) -> Void) -> Timer {
+    public static func timer(with interval: TimeInterval, target: AnyObject, userInfo: Any? = nil, repeats: Bool = true, handler: @escaping (Timer) -> Void) -> Timer {
         let timerTarget = WeakTimerTarget()
         timerTarget.handler = handler
         timerTarget.target = target
@@ -57,7 +57,7 @@ public struct Async {
     ///   - interval: 指定秒内重复调用，只在最后一次执行
     ///   - action: 执行动作
     /// - Returns: 闭包
-    static func debounceAction(interval: TimeInterval, action: @escaping () -> Void) -> () -> Void {
+    public static func debounceAction(interval: TimeInterval, action: @escaping () -> Void) -> () -> Void {
         var index = 0
         return {
             let currentIndex = index + 1
@@ -76,7 +76,7 @@ public struct Async {
     ///   - interval: 指定秒内重复调用，只在第一次执行
     ///   - action: 执行动作
     /// - Returns: 闭包
-    static func onceAction(interval: TimeInterval, action: @escaping () -> Void) -> () -> Void {
+    public static func onceAction(interval: TimeInterval, action: @escaping () -> Void) -> () -> Void {
         var index = 0
         return {
             if index == 0 { action() }

@@ -10,7 +10,7 @@ import Cocoa
 public class YLTextField: NSTextField {
     
     // 是否支持换行
-    var lineFeed = false {
+    open var lineFeed = false {
         didSet {
             cell?.isScrollable = !lineFeed
         }

@@ -16,11 +16,11 @@ public enum YLPermissionAuthType {
 
 public class YLPermissionManager: NSObject {
     
-    static let shared = YLPermissionManager()
+    public static let shared = YLPermissionManager()
     private override init() {}
     
     /// 是否所有权限都已授权
-    var allAuthPassed: Bool {
+    public var allAuthPassed: Bool {
         var flag = true
         for model in authTypes {
             switch model.authType {
@@ -38,17 +38,17 @@ public class YLPermissionManager: NSObject {
         return flag
     }
     /// 是否点击了跳过授权
-    var isSkipped: Bool { skipped }
+    public var isSkipped: Bool { skipped }
     
     /// 点击了跳过授权
-    var skipHandler: (() -> Void)?
+    public var skipHandler: (() -> Void)?
     /// 点击了退出
-    var quitHandler: (() -> Void)?
+    public var quitHandler: (() -> Void)?
     /// 所有权限都已授权后的回调
-    var allAuthPassedHandler: (() -> Void)?
+    public var allAuthPassedHandler: (() -> Void)?
     
     /// 教学视频链接，不设置则不显示 观看权限设置教学>> 的按钮
-    var tutorialLink: String?
+    public var tutorialLink: String?
     
     
     /// 一次性监听所有权限，如果有权限未授权，则会显示授权窗口，当所有权限都授权时，则自动隐藏
@@ -57,7 +57,7 @@ public class YLPermissionManager: NSObject {
     ///   - repeatSeconds: * 3 为 定时监听的秒数（比如，传入5s，则15s内检测3次，3次都返回false，则弹出授权窗口），一旦某个权限有变化，就会更新显示；默认为0，表示不重复，授权完毕后，退出监测
     private var second = 0 // 记录过了多少秒
     private var retryCount = 0 // 如果获取到有权限未授权，重新获取，超过一定次数，则判断为未全部授权，防止系统问题引起的授权窗口弹出
-    func monitorPermissionAuth(_ authTypes: [YLPermissionModel], repeatSeconds: Int = 0) {
+    public func monitorPermissionAuth(_ authTypes: [YLPermissionModel], repeatSeconds: Int = 0) {
         self.authTypes = authTypes
         monitorTimer?.invalidate()
         monitorTimer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { [weak self] timer in
@@ -141,7 +141,7 @@ public class YLPermissionManager: NSObject {
     
     // MARK: 检查某个权限是否开启，如果未开启，则弹出Alert，请求打开权限
     @discardableResult
-    func checkPermission(authType type:YLPermissionAuthType) -> Bool {
+    public func checkPermission(authType type:YLPermissionAuthType) -> Bool {
         var flag = true
         var selector: Selector?
         var tips: String = ""
@@ -179,10 +179,10 @@ public class YLPermissionManager: NSObject {
     }
     
     // MARK: 获取辅助功能权限是否打开
-    func getPrivacyAccessibilityIsEnabled() -> Bool { AXIsProcessTrusted() }
+    public func getPrivacyAccessibilityIsEnabled() -> Bool { AXIsProcessTrusted() }
     
     // MARK: 获取录屏权限是否打开
-    func getScreenCaptureIsEnabled() -> Bool {
+    public func getScreenCaptureIsEnabled() -> Bool {
         guard #available(macOS 10.15, *) else { return true }
         let currentPid = NSRunningApplication.current.processIdentifier
         // 获取当前屏幕上的窗口信息
@@ -202,7 +202,7 @@ public class YLPermissionManager: NSObject {
     }
     
     // MARK: 获取完全磁盘权限是否打开
-    func getFullDiskAccessIsEnabled() -> Bool {
+    public func getFullDiskAccessIsEnabled() -> Bool {
         if #available(macOS 10.14, *) {
             let isSandbox = ProcessInfo.processInfo.environment["APP_SANDBOX_CONTAINER_ID"] != nil
             let userHomePath: String
@@ -236,7 +236,7 @@ public class YLPermissionManager: NSObject {
     }
     
     // MARK: 打开辅助功能权限设置窗口
-    @objc func openPrivacyAccessibilitySetting() {
+    @objc public func openPrivacyAccessibilitySetting() {
         let url = "x-apple.systempreferences:com.apple.preference.security?Privacy_Accessibility"
         NSWorkspace.shared.open(URL(string: url)!)
         // 模拟键盘事件，将app带入到权限列表
@@ -247,7 +247,7 @@ public class YLPermissionManager: NSObject {
     }
     
     // MARK: 打开录屏权限设置窗口
-    @objc func openScreenCaptureSetting() {
+    @objc public func openScreenCaptureSetting() {
         // 创建一个 1x1 的屏幕截图，检查屏幕录制权限
         let _ = CGWindowListCreateImage(CGRect(x: 0, y: 0, width: 1, height: 1), .optionOnScreenOnly, kCGNullWindowID, [])
         let url = "x-apple.systempreferences:com.apple.preference.security?Privacy_ScreenCapture"
@@ -255,7 +255,7 @@ public class YLPermissionManager: NSObject {
     }
     
     // MARK: 打开完全磁盘权限设置窗口
-    @objc func openFullDiskAccessSetting() {
+    @objc public func openFullDiskAccessSetting() {
         let url = "x-apple.systempreferences:com.apple.preference.security?Privacy_AllFiles"
         NSWorkspace.shared.open(URL(string: url)!)
     }

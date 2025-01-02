@@ -24,7 +24,7 @@ public enum LanguageType: Int {
 public class YLLanguage {
     
     /// 所有的语言
-    class var allLanguages: [YLLanguageModel] {
+    public class var allLanguages: [YLLanguageModel] {
         [
             YLLanguageModel(type: .system),
             YLLanguageModel(type: .chineseSimplified),
@@ -40,7 +40,7 @@ public class YLLanguage {
     }
     
     /// 当前语言类型
-    class var currentType: LanguageType {
+    public class var currentType: LanguageType {
         var type: LanguageType = .system
         if let current = Bundle.main.preferredLocalizations.first {
             for model in YLLanguage.allLanguages {
@@ -58,7 +58,7 @@ public class YLLanguage {
     ///   - model: 语言模型
     ///   - type: 原来的语言类型
     ///   - action: 设置完成后，重启app之前，执行的代码
-    class func set(language model: YLLanguageModel, from type: LanguageType, beforeRestart action: (() -> Void)?) {
+    public class func set(language model: YLLanguageModel, from type: LanguageType, beforeRestart action: (() -> Void)?) {
         if model.languageType == type { return }
         if model.languageType == .system {
             // 跟随系统
@@ -76,7 +76,7 @@ public class YLLanguage {
     /// - Parameters:
     ///   - languageType: 语言类型
     ///   - restart: 是否重启app
-    class func set(languageType: LanguageType, restart: Bool) {
+    public class func set(languageType: LanguageType, restart: Bool) {
         let model = YLLanguageModel(type: languageType)
         if model.languageType == .system {
             // 跟随系统

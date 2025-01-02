@@ -17,18 +17,18 @@ public enum YLWindowButtonType {
 public class YLWindowButton: NSControl {
     
     // 按钮类型
-    var buttonType: YLWindowButtonType = .close {
+    public var buttonType: YLWindowButtonType = .close {
         didSet {
             isHover = false
             needsDisplay = true
         }
     }
     // 忽略鼠标划入
-    var ignoreMouseHover: Bool = false { didSet { updateTrackingAreas() } }
+    public var ignoreMouseHover: Bool = false { didSet { updateTrackingAreas() } }
     // 是否是激活状态
-    var isActive: Bool = false { didSet { needsDisplay = true } }
+    public  var isActive: Bool = false { didSet { needsDisplay = true } }
     // 是否选中
-    var isHover: Bool = false { didSet { needsDisplay = true } }
+    public var isHover: Bool = false { didSet { needsDisplay = true } }
     // 窗口全屏
     private(set) var isWindowFullScreen: Bool = false { didSet { needsDisplay = true } }
     

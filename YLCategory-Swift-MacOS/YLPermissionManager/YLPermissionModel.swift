@@ -7,9 +7,9 @@
 
 import Foundation
 
-class YLPermissionModel {
-    var authType: YLPermissionAuthType = .none
-    var desc: String = ""
+public class YLPermissionModel {
+    public var authType: YLPermissionAuthType = .none
+    public var desc: String = ""
     
     convenience init(authType: YLPermissionAuthType, desc: String) {
         self.init()

@@ -10,15 +10,15 @@ import Foundation
 public class YLWindowOperateView: NSView {
     
     // 点击按钮回调
-    var operateHandler: ((YLWindowButtonType) -> Void)?
+    public var operateHandler: ((YLWindowButtonType) -> Void)?
     // 所有的按钮
-    var buttonTypes: [YLWindowButtonType]? {
+    public var buttonTypes: [YLWindowButtonType]? {
         didSet {
             addBtns()
         }
     }
     // 获取对应类型的按钮
-    func button(withType buttonType: YLWindowButtonType) -> YLWindowButton? {
+    public func button(withType buttonType: YLWindowButtonType) -> YLWindowButton? {
         subviews.compactMap { $0 as? YLWindowButton }.first { $0.buttonType == buttonType }
     }
     

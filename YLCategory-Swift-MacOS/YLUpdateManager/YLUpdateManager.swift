@@ -12,13 +12,13 @@ import Sparkle
 
 public class YLUpdateManager: NSObject {
     
-    static let shared = YLUpdateManager()
+    public static let shared = YLUpdateManager()
     private override init() {}
     
 #if !OFFLINE
     
     /// app ID（app store版）
-    var appID: String? {
+    public var appID: String? {
         didSet {
             guard let appID = appID, !appID.isEmpty else { return }
             let countryCode = Locale.current.regionCode?.lowercased() ?? ""
@@ -28,7 +28,7 @@ public class YLUpdateManager: NSObject {
         }
     }
     /// 强制更新地址（app store版）
-    var forceUpdateUrl: String?
+    public var forceUpdateUrl: String?
     
     // MARK: - app store 版本，根据app ID生成的链接
     
@@ -45,7 +45,7 @@ public class YLUpdateManager: NSObject {
     
     /// 检测更新
     /// - Parameter background: 是否后台检测
-    func checkForUpdates(background: Bool = true) {
+    public func checkForUpdates(background: Bool = true) {
         guard let appID = appID, !appID.isEmpty else { return }
         let task = URLSession.shared.dataTask(with: URL(string: appUpdateUrl!)!) { data, response, error in
             guard let data = data, error == nil else { return }
@@ -132,7 +132,7 @@ public class YLUpdateManager: NSObject {
     /// - Parameters:
     ///   - date: 过期日期 yyyy-MM-dd
     ///   - osVersion: 过期系统版本号 6.0.0
-    func judgeAppExpire(date: String? = nil, osVersion: String? = nil) {
+    public func judgeAppExpire(date: String? = nil, osVersion: String? = nil) {
         guard let _ = appID else { return }
         if let date = date, !date.isEmpty {
             // 传的有日期
@@ -187,7 +187,7 @@ public class YLUpdateManager: NSObject {
     // MARK: - 线下版
     
     /// 下载地址（线下版）
-    var offlineDownloadUrl: String?
+    public var offlineDownloadUrl: String?
     /// 检测更新控制器
     private lazy var updateController: SPUStandardUpdaterController = {
         let controller = SPUStandardUpdaterController(startingUpdater: true, updaterDelegate: self, userDriverDelegate: self)
@@ -197,7 +197,7 @@ public class YLUpdateManager: NSObject {
     
     /// 检测更新
     /// - Parameter background: 是否后台检测
-    func checkForUpdates(background: Bool = true) {
+    public func checkForUpdates(background: Bool = true) {
         if background {
             updateController.updater.checkForUpdatesInBackground()
         } else {
@@ -209,7 +209,7 @@ public class YLUpdateManager: NSObject {
     /// - Parameters:
     ///   - date: 过期日期  yyyy-MM-dd
     ///   - osVersion: 过期系统版本号 6.0.0
-    func judgeAppExpire(date: String? = nil, osVersion: String? = nil) {
+    public func judgeAppExpire(date: String? = nil, osVersion: String? = nil) {
         guard let offlineUrl = offlineDownloadUrl else { return }
         if let date = date, !date.isEmpty {
             // 传的有日期
