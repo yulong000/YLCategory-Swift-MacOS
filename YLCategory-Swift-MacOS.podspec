@@ -144,7 +144,7 @@ Pod::Spec.new do |s|
     end
 
     s.subspec 'YLFileAccess' do |ss|
-    ss.source_files  =   'YLCategory-Swift-MacOS/YLFileAccess/**/*.{h,m,swift}'
+    ss.source_files  =   'YLCategory-Swift-MacOS/YLFileAccess/**/*.swift'
     ss.resource      =   'YLCategory-Swift-MacOS/YLFileAccess/Resources/*'
     end
     

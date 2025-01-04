@@ -9,9 +9,7 @@
 #define YLCategory_h
 
 // 封装的工具
-#import "Macro.h"
 #import "YLShortcutView.h"
-#import "YLFileAccess.h"
 
 
 #endif /* YLCategory_h */

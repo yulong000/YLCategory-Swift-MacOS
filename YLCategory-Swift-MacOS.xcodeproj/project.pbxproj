@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0037DEB02D23D3900061136D /* YLAppleScript.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0037DEAF2D23D3900061136D /* YLAppleScript.swift */; };
 		0037DEB22D2575E70061136D /* YLHud.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0037DEB12D2575E70061136D /* YLHud.swift */; };
+		0037DEB72D26DAB60061136D /* YLFileAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0037DEB62D26DAB60061136D /* YLFileAccess.swift */; };
 		0080A4E22D04490300EEFEA2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0080A4DB2D04490300EEFEA2 /* AppDelegate.swift */; };
 		0080A4E32D04490300EEFEA2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0080A4DF2D04490300EEFEA2 /* ViewController.swift */; };
 		0080A4E42D04490300EEFEA2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0080A4DC2D04490300EEFEA2 /* Assets.xcassets */; };
@@ -42,7 +43,6 @@
 		00B79AE62D1415AB00DAE137 /* MASShortcutViewButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B79A6B2D1415AA00DAE137 /* MASShortcutViewButtonCell.m */; };
 		00B79AEE2D1415AB00DAE137 /* Macro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B79AB42D1415AA00DAE137 /* Macro.swift */; };
 		00B79AEF2D1415AB00DAE137 /* MASLocalization.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B79A652D1415AA00DAE137 /* MASLocalization.m */; };
-		00B79AF02D1415AB00DAE137 /* YLFileAccess.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B799DF2D1415AA00DAE137 /* YLFileAccess.m */; };
 		00B79AF22D1415AB00DAE137 /* YLShortcutView.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B79A7C2D1415AA00DAE137 /* YLShortcutView.m */; };
 		00B79AF32D1415AB00DAE137 /* XcodeLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B79AB62D1415AA00DAE137 /* XcodeLog.m */; };
 		00B79AF42D1415AB00DAE137 /* YLShortcutManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B79A7A2D1415AA00DAE137 /* YLShortcutManager.m */; };
@@ -51,12 +51,9 @@
 		00B79B042D1415AB00DAE137 /* MASDictionaryTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B79A602D1415AA00DAE137 /* MASDictionaryTransformer.m */; };
 		00B79B062D1415AB00DAE137 /* MASHotKey.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B79A6E2D1415AA00DAE137 /* MASHotKey.m */; };
 		00B79B0B2D1415AB00DAE137 /* YLShortcutConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B79A7E2D1415AA00DAE137 /* YLShortcutConfig.m */; };
-		00B79B0F2D1415AB00DAE137 /* AppSandboxFileAccess.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B799D82D1415AA00DAE137 /* AppSandboxFileAccess.m */; };
-		00B79B112D1415AB00DAE137 /* AppSandboxFileAccessPersist.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B799DC2D1415AA00DAE137 /* AppSandboxFileAccessPersist.m */; };
 		00B79B142D1415AB00DAE137 /* MASShortcutValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B79A762D1415AA00DAE137 /* MASShortcutValidator.m */; };
 		00B79B172D1415AB00DAE137 /* MASShortcut.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B79A742D1415AA00DAE137 /* MASShortcut.m */; };
 		00B79B192D1415AB00DAE137 /* MASShortcutView+Bindings.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B79A692D1415AA00DAE137 /* MASShortcutView+Bindings.m */; };
-		00B79B1F2D1415AB00DAE137 /* AppSandboxFileAccessOpenSavePanelDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B799DA2D1415AA00DAE137 /* AppSandboxFileAccessOpenSavePanelDelegate.m */; };
 		00B79B212D1415AB00DAE137 /* YLLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B79AB52D1415AA00DAE137 /* YLLog.swift */; };
 		00B79B282D1415AB00DAE137 /* MASShortcutView.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B79A672D1415AA00DAE137 /* MASShortcutView.m */; };
 		00B79B332D15D5C000DAE137 /* NSView+Gesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B79B322D15D5BF00DAE137 /* NSView+Gesture.swift */; };
@@ -90,6 +87,7 @@
 /* Begin PBXFileReference section */
 		0037DEAF2D23D3900061136D /* YLAppleScript.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YLAppleScript.swift; sourceTree = "<group>"; };
 		0037DEB12D2575E70061136D /* YLHud.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YLHud.swift; sourceTree = "<group>"; };
+		0037DEB62D26DAB60061136D /* YLFileAccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YLFileAccess.swift; sourceTree = "<group>"; };
 		0080A4C92D0448EA00EEFEA2 /* YLCategory-Swift-MacOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "YLCategory-Swift-MacOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0080A4DB2D04490300EEFEA2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0080A4DC2D04490300EEFEA2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -113,14 +111,6 @@
 		00A0F9CD2D1A7DC80043E075 /* String+Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Category.swift"; sourceTree = "<group>"; };
 		00A0F9CF2D1BE9B00043E075 /* NSDate+Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSDate+Category.swift"; sourceTree = "<group>"; };
 		00B799D32D1414E200DAE137 /* YLCategory-Swift-MacOS-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "YLCategory-Swift-MacOS-Bridging-Header.h"; sourceTree = "<group>"; };
-		00B799D72D1415AA00DAE137 /* AppSandboxFileAccess.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppSandboxFileAccess.h; sourceTree = "<group>"; };
-		00B799D82D1415AA00DAE137 /* AppSandboxFileAccess.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppSandboxFileAccess.m; sourceTree = "<group>"; };
-		00B799D92D1415AA00DAE137 /* AppSandboxFileAccessOpenSavePanelDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppSandboxFileAccessOpenSavePanelDelegate.h; sourceTree = "<group>"; };
-		00B799DA2D1415AA00DAE137 /* AppSandboxFileAccessOpenSavePanelDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppSandboxFileAccessOpenSavePanelDelegate.m; sourceTree = "<group>"; };
-		00B799DB2D1415AA00DAE137 /* AppSandboxFileAccessPersist.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppSandboxFileAccessPersist.h; sourceTree = "<group>"; };
-		00B799DC2D1415AA00DAE137 /* AppSandboxFileAccessPersist.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppSandboxFileAccessPersist.m; sourceTree = "<group>"; };
-		00B799DE2D1415AA00DAE137 /* YLFileAccess.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YLFileAccess.h; sourceTree = "<group>"; };
-		00B799DF2D1415AA00DAE137 /* YLFileAccess.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YLFileAccess.m; sourceTree = "<group>"; };
 		00B799E02D1415AA00DAE137 /* YLFileAccess.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = YLFileAccess.strings; path = en.lproj/YLFileAccess.strings; sourceTree = "<group>"; };
 		00B799E12D1415AA00DAE137 /* YLFileAccess.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = YLFileAccess.strings; path = "zh-Hans.lproj/YLFileAccess.strings"; sourceTree = "<group>"; };
 		00B799E22D1415AA00DAE137 /* YLFileAccess.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = YLFileAccess.strings; path = "zh-Hant.lproj/YLFileAccess.strings"; sourceTree = "<group>"; };
@@ -225,7 +215,6 @@
 		00B79AB52D1415AA00DAE137 /* YLLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YLLog.swift; sourceTree = "<group>"; };
 		00B79AB62D1415AA00DAE137 /* XcodeLog.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XcodeLog.m; sourceTree = "<group>"; };
 		00B79B2E2D14789400DAE137 /* YLCategory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YLCategory.h; sourceTree = "<group>"; };
-		00B79B2F2D14F4A800DAE137 /* Macro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Macro.h; sourceTree = "<group>"; };
 		00B79B322D15D5BF00DAE137 /* NSView+Gesture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSView+Gesture.swift"; sourceTree = "<group>"; };
 		00B79B342D15D5D200DAE137 /* NSView+Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSView+Category.swift"; sourceTree = "<group>"; };
 		00CFDB3D2D1D369600EF4FA4 /* YLAppleReview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YLAppleReview.swift; sourceTree = "<group>"; };
@@ -342,19 +331,6 @@
 			path = Async;
 			sourceTree = "<group>";
 		};
-		00B799DD2D1415AA00DAE137 /* AppSandboxFileAccess */ = {
-			isa = PBXGroup;
-			children = (
-				00B799D72D1415AA00DAE137 /* AppSandboxFileAccess.h */,
-				00B799D82D1415AA00DAE137 /* AppSandboxFileAccess.m */,
-				00B799D92D1415AA00DAE137 /* AppSandboxFileAccessOpenSavePanelDelegate.h */,
-				00B799DA2D1415AA00DAE137 /* AppSandboxFileAccessOpenSavePanelDelegate.m */,
-				00B799DB2D1415AA00DAE137 /* AppSandboxFileAccessPersist.h */,
-				00B799DC2D1415AA00DAE137 /* AppSandboxFileAccessPersist.m */,
-			);
-			path = AppSandboxFileAccess;
-			sourceTree = "<group>";
-		};
 		00B799EA2D1415AA00DAE137 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -366,9 +342,7 @@
 		00B799EB2D1415AA00DAE137 /* YLFileAccess */ = {
 			isa = PBXGroup;
 			children = (
-				00B799DD2D1415AA00DAE137 /* AppSandboxFileAccess */,
-				00B799DE2D1415AA00DAE137 /* YLFileAccess.h */,
-				00B799DF2D1415AA00DAE137 /* YLFileAccess.m */,
+				0037DEB62D26DAB60061136D /* YLFileAccess.swift */,
 				00B799EA2D1415AA00DAE137 /* Resources */,
 			);
 			path = YLFileAccess;
@@ -656,7 +630,6 @@
 		00B79AB82D1415AA00DAE137 /* Other */ = {
 			isa = PBXGroup;
 			children = (
-				00B79B2F2D14F4A800DAE137 /* Macro.h */,
 				00B79AB42D1415AA00DAE137 /* Macro.swift */,
 				00B79AB52D1415AA00DAE137 /* YLLog.swift */,
 				00B79AB62D1415AA00DAE137 /* XcodeLog.m */,
@@ -860,7 +833,6 @@
 				00CFDB4E2D1E3AB200EF4FA4 /* YLWindowOperateView.swift in Sources */,
 				00B79AEE2D1415AB00DAE137 /* Macro.swift in Sources */,
 				00B79AEF2D1415AB00DAE137 /* MASLocalization.m in Sources */,
-				00B79AF02D1415AB00DAE137 /* YLFileAccess.m in Sources */,
 				00B79AF22D1415AB00DAE137 /* YLShortcutView.m in Sources */,
 				00B79AF32D1415AB00DAE137 /* XcodeLog.m in Sources */,
 				00CFDB402D1D3AFC00EF4FA4 /* YLFlipView.swift in Sources */,
@@ -893,8 +865,6 @@
 				00A0F9C82D1A673E0043E075 /* Async.swift in Sources */,
 				00B79B0B2D1415AB00DAE137 /* YLShortcutConfig.m in Sources */,
 				00A0F9D02D1BE9B00043E075 /* NSDate+Category.swift in Sources */,
-				00B79B0F2D1415AB00DAE137 /* AppSandboxFileAccess.m in Sources */,
-				00B79B112D1415AB00DAE137 /* AppSandboxFileAccessPersist.m in Sources */,
 				00CFDB4C2D1E3A9B00EF4FA4 /* YLWindowButton.swift in Sources */,
 				00B79B142D1415AB00DAE137 /* MASShortcutValidator.m in Sources */,
 				00B79B172D1415AB00DAE137 /* MASShortcut.m in Sources */,
@@ -902,7 +872,6 @@
 				00A0F9BB2D19B09E0043E075 /* NSScreen+Category.swift in Sources */,
 				00CFDB482D1D504D00EF4FA4 /* YLLanguageModel.swift in Sources */,
 				00A0F9B12D1872180043E075 /* NSControl+Category.swift in Sources */,
-				00B79B1F2D1415AB00DAE137 /* AppSandboxFileAccessOpenSavePanelDelegate.m in Sources */,
 				00A0F9CA2D1A7DA10043E075 /* String+Secret.swift in Sources */,
 				00B79B212D1415AB00DAE137 /* YLLog.swift in Sources */,
 				00CFDCE82D22ABA600EF4FA4 /* YLUpdateViewController.swift in Sources */,
@@ -911,6 +880,7 @@
 				00B79B282D1415AB00DAE137 /* MASShortcutView.m in Sources */,
 				00E850662D1C581A00EBE080 /* NSObject+Event.swift in Sources */,
 				00CFDB422D1D450C00EF4FA4 /* YLTextField.swift in Sources */,
+				0037DEB72D26DAB60061136D /* YLFileAccess.swift in Sources */,
 				0080A4E32D04490300EEFEA2 /* ViewController.swift in Sources */,
 				00A0F9C52D1A489F0043E075 /* NSAlert+Category.swift in Sources */,
 			);
