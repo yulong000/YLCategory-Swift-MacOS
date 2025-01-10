@@ -7,11 +7,10 @@
 */
 
 
-"Click to record shortcut" = "點選記錄快捷鍵";
-"Click to begin editing" = "點選開始編輯";
-"Begin record shortcut" = "開始記錄快捷鍵";
+"Set shortcut keys" = "設置快捷鍵";
+"Click to edit" = "點擊開始編輯";
+"Enter shortcut keys" = "輸入快捷鍵";
 "Delete shortcut" = "刪除快捷鍵";
-"Record Shortcut" = "記錄快捷鍵";
 "End editing" = "取消編輯";
 "Shortcut has been registered by system" = "快捷鍵已被系統註冊";
 "Control keys are unavailable" = "控制鍵不可用";
@@ -20,3 +19,6 @@
 "Option Modifier Tips" = "您使用了'Option +'作為快捷鍵，當前系統需要輔助功能權限才能使用";
 "Auth Accessibility" = "授權輔助功能權限";
 "Clear Option Shortcuts" = "清空'Option +'快捷鍵";
+
+"Accessibility Tips" = "註冊 Option 作為修飾鍵，需要授權輔助功能權限，如果顯示您已授權，請刪除後重新添加";
+"To Authorize" = "去授權";

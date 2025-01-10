@@ -5,6 +5,8 @@
 //  Created by 魏宇龙 on 2024/12/30.
 //
 
+import Foundation
+
 class YLUpdateXMLParserDelegate: NSObject, XMLParserDelegate {
     
     var update: YLUpdateXMLModel? = YLUpdateXMLModel()

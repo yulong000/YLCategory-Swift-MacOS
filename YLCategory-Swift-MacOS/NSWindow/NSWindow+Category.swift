@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import AppKit
 
 public extension NSWindow {
     static func clearBackground() -> NSWindow {

@@ -7,11 +7,10 @@
 */
 
 
-"Click to record shortcut" = "点击记录快捷键";
-"Click to begin editing" = "点击开始编辑";
-"Begin record shortcut" = "开始记录快捷键";
+"Set shortcut keys" = "设置快捷键";
+"Click to edit" = "点击开始编辑";
+"Enter shortcut keys" = "输入快捷键";
 "Delete shortcut" = "删除快捷键";
-"Record Shortcut" = "记录快捷键";
 "End editing" = "取消编辑";
 "Shortcut has been registered by system" = "快捷键已被系统注册";
 "Control keys are unavailable" = "控制键不可用";
@@ -20,3 +19,6 @@
 "Option Modifier Tips" = "您使用了'Option +'作为快捷键，当前系统需要辅助功能权限才能使用";
 "Auth Accessibility" = "授权辅助功能权限";
 "Clear Option Shortcuts" = "清空'Option +'快捷键";
+
+"Accessibility Tips" = "注册 Option 作为修饰键，需要授权辅助功能权限，如果显示您已授权，请删除后重新添加";
+"To Authorize" = "去授权";

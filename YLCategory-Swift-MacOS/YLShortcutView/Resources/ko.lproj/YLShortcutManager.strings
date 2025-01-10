@@ -7,11 +7,10 @@
 */
 
 
-"Click to record shortcut" = "단축키를 녹음하려면 클릭";
-"Click to begin editing" = "편집을 시작하려면 클릭";
-"Begin record shortcut" = "단축키 녹음 시작";
+"Set shortcut keys" = "단축키 설정";
+"Click to edit" = "클릭하여 편집";
+"Enter shortcut keys" = "단축키를 입력하세요";
 "Delete shortcut" = "단축키 삭제";
-"Record Shortcut" = "단축키 녹음";
 "End editing" = "편집 종료";
 "Shortcut has been registered by system" = "단축키가 시스템에 의해 등록되었습니다";
 "Control keys are unavailable" = "컨트롤 키를 사용할 수 없습니다";
@@ -20,3 +19,6 @@
 "Option Modifier Tips" = "'Option +'을(를) 단축키로 사용하고 있습니다. 시스템에서 접근성 권한이 필요합니다";
 "Auth Accessibility" = "접근성 권한 부여";
 "Clear Option Shortcuts" = "'Option +' 단축키 지우기";
+
+"Accessibility Tips" = "Option 키를 수정 키로 등록하려면 접근성 권한이 필요합니다. 이미 권한이 부여된 경우, 제거한 후 다시 추가해 주세요.";
+"To Authorize" = "권한 부여";

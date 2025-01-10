@@ -7,11 +7,10 @@
 */
 
 
-"Click to record shortcut" = "Klicken Sie, um die Tastenkombination aufzuzeichnen";
-"Click to begin editing" = "Klicken Sie, um mit der Bearbeitung zu beginnen";
-"Begin record shortcut" = "Beginnen Sie mit der Aufzeichnung der Tastenkombination";
+"Set shortcut keys" = "Tastenkombinationen einstellen";
+"Click to edit" = "Zum Bearbeiten klicken";
+"Enter shortcut keys" = "Tastenkombinationen eingeben";
 "Delete shortcut" = "Tastenkombination löschen";
-"Record Shortcut" = "Tastenkombination aufzeichnen";
 "End editing" = "Bearbeitung beenden";
 "Shortcut has been registered by system" = "Die Verknüpfung wurde vom System registriert";
 "Control keys are unavailable" = "Steuerungstasten sind nicht verfügbar";
@@ -20,3 +19,6 @@
 "Option Modifier Tips" = "Sie verwenden 'Option +' als Shortcut, und das System erfordert Zugriffsrechte, um es zu verwenden";
 "Auth Accessibility" = "Zugriffserlaubnis erteilen";
 "Clear Option Shortcuts" = "Option+'-Shortcut löschen";
+
+"Accessibility Tips" = "Um die Option-Taste als Modifikatortaste zu registrieren, ist der Zugriff auf Bedienungshilfen erforderlich. Wenn der Zugriff bereits gewährt wurde, entfernen Sie die Berechtigung und fügen Sie sie erneut hinzu.";
+"To Authorize" = "Autorisieren";

@@ -7,11 +7,10 @@
 */
 
 
-"Click to record shortcut" = "ショートカットを記録するにはクリックしてください";
-"Click to begin editing" = "編集を開始するにはクリックしてください";
-"Begin record shortcut" = "ショートカットの記録を開始";
+"Set shortcut keys" = "ショートカットキーを設定";
+"Click to edit" = "クリックして編集";
+"Enter shortcut keys" = "ショートカットキーを入力";
 "Delete shortcut" = "ショートカットを削除";
-"Record Shortcut" = "ショートカットを記録";
 "End editing" = "編集を終了";
 "Shortcut has been registered by system" = "ショートカットはシステムによって登録されています";
 "Control keys are unavailable" = "コントロールキーは利用できません";
@@ -20,3 +19,6 @@
 "Option Modifier Tips" = "「Option +」をショートカットとして使用しています。システムがアクセシビリティの許可を必要としています";
 "Auth Accessibility" = "アクセシビリティ権限を付与する";
 "Clear Option Shortcuts" = "「Option +」ショートカットをクリア";
+
+"Accessibility Tips" = "Optionキーを修飾キーとして登録するには、アクセシビリティの権限が必要です。権限が既に付与されている場合は、一度削除して再追加してください。";
+"To Authorize" = "認可する";

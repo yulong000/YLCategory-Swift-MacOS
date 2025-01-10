@@ -7,11 +7,10 @@
 */
 
 
-"Click to record shortcut" = "Haz clic para grabar el acceso directo";
-"Click to begin editing" = "Haz clic para empezar a editar";
-"Begin record shortcut" = "Comenzar a grabar el acceso directo";
+"Set shortcut keys" = "Configurar teclas de acceso";
+"Click to edit" = "Haga clic para editar";
+"Enter shortcut keys" = "Introduzca los atajos";
 "Delete shortcut" = "Eliminar acceso directo";
-"Record Shortcut" = "Grabar acceso directo";
 "End editing" = "Terminar edición";
 "Shortcut has been registered by system" = "El atajo ha sido registrado por el sistema";
 "Control keys are unavailable" = "Las teclas de control no están disponibles";
@@ -20,3 +19,6 @@
 "Option Modifier Tips" = "Está usando 'Option +' como un acceso directo, y el sistema requiere permisos de accesibilidad para usarlo";
 "Auth Accessibility" = "Otorgar permisos de accesibilidad";
 "Clear Option Shortcuts" = "Borrar el acceso directo 'Option +'";
+
+"Accessibility Tips" = "Para registrar la tecla Opción como tecla modificadora, se requieren permisos de accesibilidad. Si ya están otorgados, elimínelos y vuelva a agregarlos.";
+"To Authorize" = "Autorizar";

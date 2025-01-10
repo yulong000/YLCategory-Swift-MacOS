@@ -7,11 +7,10 @@
 */
 
 
-"Click to record shortcut" = "Cliquez pour enregistrer le raccourci";
-"Click to begin editing" = "Cliquez pour commencer l'édition";
-"Begin record shortcut" = "Commencer l'enregistrement du raccourci";
+"Set shortcut keys" = "Définir des raccourcis";
+"Click to edit" = "Cliquez pour modifier";
+"Enter shortcut keys" = "Entrez les raccourcis";
 "Delete shortcut" = "Supprimer le raccourci";
-"Record Shortcut" = "Enregistrer le raccourci";
 "End editing" = "Terminer l'édition";
 "Shortcut has been registered by system" = "Le raccourci a été enregistré par le système";
 "Control keys are unavailable" = "Les touches de contrôle ne sont pas disponibles";
@@ -20,3 +19,6 @@
 "Option Modifier Tips" = "Vous utilisez 'Option +' comme raccourci, et le système nécessite des autorisations d'accessibilité pour l'utiliser";
 "Auth Accessibility" = "Autoriser les permissions d'accessibilité";
 "Clear Option Shortcuts" = "Effacer le raccourci 'Option +'";
+
+"Accessibility Tips" = "Pour enregistrer la touche Option comme touche de modification, les autorisations d’accessibilité sont requises. Si elles sont déjà accordées, veuillez les supprimer et les ajouter à nouveau.";
+"To Authorize" = "Autoriser";

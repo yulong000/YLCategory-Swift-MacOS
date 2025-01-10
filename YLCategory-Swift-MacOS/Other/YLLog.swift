@@ -5,6 +5,8 @@
 //  Created by 魏宇龙 on 2024/12/3.
 //
 
+import Foundation
+
 public var YL_LOG_MORE: Bool = false // 是否可以打印更详细的信息
 public var YL_LOG_RELEASE: Bool = false // 打包时是否打印
 

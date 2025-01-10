@@ -7,6 +7,7 @@
 
 import Foundation
 import Carbon
+import AppKit
 
 public class YLAppleScript {
     

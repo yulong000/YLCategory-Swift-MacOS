@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import AppKit
 
 public extension NSImageView {
     // MARK: 图片按比例缩放，填充最短边，裁剪并显示中间部分

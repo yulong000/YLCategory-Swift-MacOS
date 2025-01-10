@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import AppKit
 
 fileprivate var NSViewClickGestureHandlerKey = false
 fileprivate var NSViewPanGestureHandlerKey = false

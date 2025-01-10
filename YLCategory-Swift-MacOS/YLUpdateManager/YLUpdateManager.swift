@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import AppKit
 #if OFFLINE
 import Sparkle
 #endif

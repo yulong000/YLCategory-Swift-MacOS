@@ -10,6 +10,9 @@
 		0037DEB02D23D3900061136D /* YLAppleScript.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0037DEAF2D23D3900061136D /* YLAppleScript.swift */; };
 		0037DEB22D2575E70061136D /* YLHud.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0037DEB12D2575E70061136D /* YLHud.swift */; };
 		0037DEB72D26DAB60061136D /* YLFileAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0037DEB62D26DAB60061136D /* YLFileAccess.swift */; };
+		0037DEC62D292E1D0061136D /* YLShortcutManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0037DEC52D292E1D0061136D /* YLShortcutManager.swift */; };
+		0037DEC82D292E330061136D /* YLShortcutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0037DEC72D292E330061136D /* YLShortcutView.swift */; };
+		0037DECA2D2BA4E80061136D /* YLShortcut.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0037DEC92D2BA4E80061136D /* YLShortcut.swift */; };
 		0080A4E22D04490300EEFEA2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0080A4DB2D04490300EEFEA2 /* AppDelegate.swift */; };
 		0080A4E32D04490300EEFEA2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0080A4DF2D04490300EEFEA2 /* ViewController.swift */; };
 		0080A4E42D04490300EEFEA2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0080A4DC2D04490300EEFEA2 /* Assets.xcassets */; };
@@ -31,31 +34,17 @@
 		00A0F9CE2D1A7DC80043E075 /* String+Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A0F9CD2D1A7DC80043E075 /* String+Category.swift */; };
 		00A0F9D02D1BE9B00043E075 /* NSDate+Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A0F9CF2D1BE9B00043E075 /* NSDate+Category.swift */; };
 		00B79ADC2D1415AB00DAE137 /* YLLanguage.strings in Resources */ = {isa = PBXBuildFile; fileRef = 00B79A1E2D1415AA00DAE137 /* YLLanguage.strings */; };
-		00B79ADD2D1415AB00DAE137 /* MAShortcutLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 00B79A992D1415AA00DAE137 /* MAShortcutLocalizable.strings */; };
 		00B79ADE2D1415AB00DAE137 /* YLPermissionManager.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 00B79A2B2D1415AA00DAE137 /* YLPermissionManager.bundle */; };
 		00B79ADF2D1415AB00DAE137 /* YLUpdateManager.strings in Resources */ = {isa = PBXBuildFile; fileRef = 00B799FB2D1415AA00DAE137 /* YLUpdateManager.strings */; };
-		00B79AE02D1415AB00DAE137 /* YLShortcutView.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 00B79A7F2D1415AA00DAE137 /* YLShortcutView.bundle */; };
+		00B79AE02D1415AB00DAE137 /* YLShortcutManager.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 00B79A7F2D1415AA00DAE137 /* YLShortcutManager.bundle */; };
 		00B79AE12D1415AB00DAE137 /* YLAppleScript.strings in Resources */ = {isa = PBXBuildFile; fileRef = 00B79A4F2D1415AA00DAE137 /* YLAppleScript.strings */; };
 		00B79AE22D1415AB00DAE137 /* YLHud.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 00B79A092D1415AA00DAE137 /* YLHud.bundle */; };
 		00B79AE32D1415AB00DAE137 /* YLFileAccess.strings in Resources */ = {isa = PBXBuildFile; fileRef = 00B799E92D1415AA00DAE137 /* YLFileAccess.strings */; };
-		00B79AE42D1415AB00DAE137 /* YLShortcutView.strings in Resources */ = {isa = PBXBuildFile; fileRef = 00B79A892D1415AA00DAE137 /* YLShortcutView.strings */; };
+		00B79AE42D1415AB00DAE137 /* YLShortcutManager.strings in Resources */ = {isa = PBXBuildFile; fileRef = 00B79A892D1415AA00DAE137 /* YLShortcutManager.strings */; };
 		00B79AE52D1415AB00DAE137 /* YLPermissionManager.strings in Resources */ = {isa = PBXBuildFile; fileRef = 00B79A352D1415AA00DAE137 /* YLPermissionManager.strings */; };
-		00B79AE62D1415AB00DAE137 /* MASShortcutViewButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B79A6B2D1415AA00DAE137 /* MASShortcutViewButtonCell.m */; };
 		00B79AEE2D1415AB00DAE137 /* Macro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B79AB42D1415AA00DAE137 /* Macro.swift */; };
-		00B79AEF2D1415AB00DAE137 /* MASLocalization.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B79A652D1415AA00DAE137 /* MASLocalization.m */; };
-		00B79AF22D1415AB00DAE137 /* YLShortcutView.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B79A7C2D1415AA00DAE137 /* YLShortcutView.m */; };
 		00B79AF32D1415AB00DAE137 /* XcodeLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B79AB62D1415AA00DAE137 /* XcodeLog.m */; };
-		00B79AF42D1415AB00DAE137 /* YLShortcutManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B79A7A2D1415AA00DAE137 /* YLShortcutManager.m */; };
-		00B79AFA2D1415AB00DAE137 /* MASShortcutMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B79A702D1415AA00DAE137 /* MASShortcutMonitor.m */; };
-		00B79AFD2D1415AB00DAE137 /* MASShortcutBinder.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B79A622D1415AA00DAE137 /* MASShortcutBinder.m */; };
-		00B79B042D1415AB00DAE137 /* MASDictionaryTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B79A602D1415AA00DAE137 /* MASDictionaryTransformer.m */; };
-		00B79B062D1415AB00DAE137 /* MASHotKey.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B79A6E2D1415AA00DAE137 /* MASHotKey.m */; };
-		00B79B0B2D1415AB00DAE137 /* YLShortcutConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B79A7E2D1415AA00DAE137 /* YLShortcutConfig.m */; };
-		00B79B142D1415AB00DAE137 /* MASShortcutValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B79A762D1415AA00DAE137 /* MASShortcutValidator.m */; };
-		00B79B172D1415AB00DAE137 /* MASShortcut.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B79A742D1415AA00DAE137 /* MASShortcut.m */; };
-		00B79B192D1415AB00DAE137 /* MASShortcutView+Bindings.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B79A692D1415AA00DAE137 /* MASShortcutView+Bindings.m */; };
 		00B79B212D1415AB00DAE137 /* YLLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B79AB52D1415AA00DAE137 /* YLLog.swift */; };
-		00B79B282D1415AB00DAE137 /* MASShortcutView.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B79A672D1415AA00DAE137 /* MASShortcutView.m */; };
 		00B79B332D15D5C000DAE137 /* NSView+Gesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B79B322D15D5BF00DAE137 /* NSView+Gesture.swift */; };
 		00B79B352D15D5D200DAE137 /* NSView+Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B79B342D15D5D200DAE137 /* NSView+Category.swift */; };
 		00CFDB3E2D1D369600EF4FA4 /* YLAppleReview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CFDB3D2D1D369600EF4FA4 /* YLAppleReview.swift */; };
@@ -88,6 +77,9 @@
 		0037DEAF2D23D3900061136D /* YLAppleScript.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YLAppleScript.swift; sourceTree = "<group>"; };
 		0037DEB12D2575E70061136D /* YLHud.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YLHud.swift; sourceTree = "<group>"; };
 		0037DEB62D26DAB60061136D /* YLFileAccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YLFileAccess.swift; sourceTree = "<group>"; };
+		0037DEC52D292E1D0061136D /* YLShortcutManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YLShortcutManager.swift; sourceTree = "<group>"; };
+		0037DEC72D292E330061136D /* YLShortcutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YLShortcutView.swift; sourceTree = "<group>"; };
+		0037DEC92D2BA4E80061136D /* YLShortcut.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YLShortcut.swift; sourceTree = "<group>"; };
 		0080A4C92D0448EA00EEFEA2 /* YLCategory-Swift-MacOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "YLCategory-Swift-MacOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0080A4DB2D04490300EEFEA2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0080A4DC2D04490300EEFEA2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -158,63 +150,19 @@
 		00B79A4C2D1415AA00DAE137 /* YLAppleScript.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = YLAppleScript.strings; path = pt.lproj/YLAppleScript.strings; sourceTree = "<group>"; };
 		00B79A4D2D1415AA00DAE137 /* YLAppleScript.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = YLAppleScript.strings; path = es.lproj/YLAppleScript.strings; sourceTree = "<group>"; };
 		00B79A4E2D1415AA00DAE137 /* YLAppleScript.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = YLAppleScript.strings; path = de.lproj/YLAppleScript.strings; sourceTree = "<group>"; };
-		00B79A5E2D1415AA00DAE137 /* Shortcut.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Shortcut.h; sourceTree = "<group>"; };
-		00B79A5F2D1415AA00DAE137 /* MASDictionaryTransformer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MASDictionaryTransformer.h; sourceTree = "<group>"; };
-		00B79A602D1415AA00DAE137 /* MASDictionaryTransformer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MASDictionaryTransformer.m; sourceTree = "<group>"; };
-		00B79A612D1415AA00DAE137 /* MASShortcutBinder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MASShortcutBinder.h; sourceTree = "<group>"; };
-		00B79A622D1415AA00DAE137 /* MASShortcutBinder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MASShortcutBinder.m; sourceTree = "<group>"; };
-		00B79A642D1415AA00DAE137 /* MASLocalization.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MASLocalization.h; sourceTree = "<group>"; };
-		00B79A652D1415AA00DAE137 /* MASLocalization.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MASLocalization.m; sourceTree = "<group>"; };
-		00B79A662D1415AA00DAE137 /* MASShortcutView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MASShortcutView.h; sourceTree = "<group>"; };
-		00B79A672D1415AA00DAE137 /* MASShortcutView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MASShortcutView.m; sourceTree = "<group>"; };
-		00B79A682D1415AA00DAE137 /* MASShortcutView+Bindings.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MASShortcutView+Bindings.h"; sourceTree = "<group>"; };
-		00B79A692D1415AA00DAE137 /* MASShortcutView+Bindings.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "MASShortcutView+Bindings.m"; sourceTree = "<group>"; };
-		00B79A6A2D1415AA00DAE137 /* MASShortcutViewButtonCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MASShortcutViewButtonCell.h; sourceTree = "<group>"; };
-		00B79A6B2D1415AA00DAE137 /* MASShortcutViewButtonCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MASShortcutViewButtonCell.m; sourceTree = "<group>"; };
-		00B79A6D2D1415AA00DAE137 /* MASHotKey.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MASHotKey.h; sourceTree = "<group>"; };
-		00B79A6E2D1415AA00DAE137 /* MASHotKey.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MASHotKey.m; sourceTree = "<group>"; };
-		00B79A6F2D1415AA00DAE137 /* MASShortcutMonitor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MASShortcutMonitor.h; sourceTree = "<group>"; };
-		00B79A702D1415AA00DAE137 /* MASShortcutMonitor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MASShortcutMonitor.m; sourceTree = "<group>"; };
-		00B79A722D1415AA00DAE137 /* MASKeyCodes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MASKeyCodes.h; sourceTree = "<group>"; };
-		00B79A732D1415AA00DAE137 /* MASShortcut.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MASShortcut.h; sourceTree = "<group>"; };
-		00B79A742D1415AA00DAE137 /* MASShortcut.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MASShortcut.m; sourceTree = "<group>"; };
-		00B79A752D1415AA00DAE137 /* MASShortcutValidator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MASShortcutValidator.h; sourceTree = "<group>"; };
-		00B79A762D1415AA00DAE137 /* MASShortcutValidator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MASShortcutValidator.m; sourceTree = "<group>"; };
-		00B79A792D1415AA00DAE137 /* YLShortcutManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YLShortcutManager.h; sourceTree = "<group>"; };
-		00B79A7A2D1415AA00DAE137 /* YLShortcutManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YLShortcutManager.m; sourceTree = "<group>"; };
-		00B79A7B2D1415AA00DAE137 /* YLShortcutView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YLShortcutView.h; sourceTree = "<group>"; };
-		00B79A7C2D1415AA00DAE137 /* YLShortcutView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YLShortcutView.m; sourceTree = "<group>"; };
-		00B79A7D2D1415AA00DAE137 /* YLShortcutConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YLShortcutConfig.h; sourceTree = "<group>"; };
-		00B79A7E2D1415AA00DAE137 /* YLShortcutConfig.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YLShortcutConfig.m; sourceTree = "<group>"; };
-		00B79A7F2D1415AA00DAE137 /* YLShortcutView.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = YLShortcutView.bundle; sourceTree = "<group>"; };
-		00B79A802D1415AA00DAE137 /* YLShortcutView.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = YLShortcutView.strings; path = "zh-Hans.lproj/YLShortcutView.strings"; sourceTree = "<group>"; };
-		00B79A812D1415AA00DAE137 /* YLShortcutView.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = YLShortcutView.strings; path = en.lproj/YLShortcutView.strings; sourceTree = "<group>"; };
-		00B79A822D1415AA00DAE137 /* YLShortcutView.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = YLShortcutView.strings; path = "zh-Hant.lproj/YLShortcutView.strings"; sourceTree = "<group>"; };
-		00B79A832D1415AA00DAE137 /* YLShortcutView.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = YLShortcutView.strings; path = ja.lproj/YLShortcutView.strings; sourceTree = "<group>"; };
-		00B79A842D1415AA00DAE137 /* YLShortcutView.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = YLShortcutView.strings; path = ko.lproj/YLShortcutView.strings; sourceTree = "<group>"; };
-		00B79A852D1415AA00DAE137 /* YLShortcutView.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = YLShortcutView.strings; path = fr.lproj/YLShortcutView.strings; sourceTree = "<group>"; };
-		00B79A862D1415AA00DAE137 /* YLShortcutView.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = YLShortcutView.strings; path = pt.lproj/YLShortcutView.strings; sourceTree = "<group>"; };
-		00B79A872D1415AA00DAE137 /* YLShortcutView.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = YLShortcutView.strings; path = es.lproj/YLShortcutView.strings; sourceTree = "<group>"; };
-		00B79A882D1415AA00DAE137 /* YLShortcutView.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = YLShortcutView.strings; path = de.lproj/YLShortcutView.strings; sourceTree = "<group>"; };
-		00B79A8A2D1415AA00DAE137 /* MAShortcutLocalizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = MAShortcutLocalizable.strings; path = cs.lproj/MAShortcutLocalizable.strings; sourceTree = "<group>"; };
-		00B79A8B2D1415AA00DAE137 /* MAShortcutLocalizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = MAShortcutLocalizable.strings; path = de.lproj/MAShortcutLocalizable.strings; sourceTree = "<group>"; };
-		00B79A8C2D1415AA00DAE137 /* MAShortcutLocalizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = MAShortcutLocalizable.strings; path = en.lproj/MAShortcutLocalizable.strings; sourceTree = "<group>"; };
-		00B79A8D2D1415AA00DAE137 /* MAShortcutLocalizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = MAShortcutLocalizable.strings; path = es.lproj/MAShortcutLocalizable.strings; sourceTree = "<group>"; };
-		00B79A8E2D1415AA00DAE137 /* MAShortcutLocalizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = MAShortcutLocalizable.strings; path = fr.lproj/MAShortcutLocalizable.strings; sourceTree = "<group>"; };
-		00B79A8F2D1415AA00DAE137 /* MAShortcutLocalizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = MAShortcutLocalizable.strings; path = it.lproj/MAShortcutLocalizable.strings; sourceTree = "<group>"; };
-		00B79A902D1415AA00DAE137 /* MAShortcutLocalizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = MAShortcutLocalizable.strings; path = ja.lproj/MAShortcutLocalizable.strings; sourceTree = "<group>"; };
-		00B79A912D1415AA00DAE137 /* MAShortcutLocalizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = MAShortcutLocalizable.strings; path = ko.lproj/MAShortcutLocalizable.strings; sourceTree = "<group>"; };
-		00B79A922D1415AA00DAE137 /* MAShortcutLocalizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = MAShortcutLocalizable.strings; path = nl.lproj/MAShortcutLocalizable.strings; sourceTree = "<group>"; };
-		00B79A932D1415AA00DAE137 /* MAShortcutLocalizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = MAShortcutLocalizable.strings; path = pl.lproj/MAShortcutLocalizable.strings; sourceTree = "<group>"; };
-		00B79A942D1415AA00DAE137 /* MAShortcutLocalizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = MAShortcutLocalizable.strings; path = pt.lproj/MAShortcutLocalizable.strings; sourceTree = "<group>"; };
-		00B79A952D1415AA00DAE137 /* MAShortcutLocalizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = MAShortcutLocalizable.strings; path = ru.lproj/MAShortcutLocalizable.strings; sourceTree = "<group>"; };
-		00B79A962D1415AA00DAE137 /* MAShortcutLocalizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = MAShortcutLocalizable.strings; path = sv.lproj/MAShortcutLocalizable.strings; sourceTree = "<group>"; };
-		00B79A972D1415AA00DAE137 /* MAShortcutLocalizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = MAShortcutLocalizable.strings; path = "zh-Hans.lproj/MAShortcutLocalizable.strings"; sourceTree = "<group>"; };
-		00B79A982D1415AA00DAE137 /* MAShortcutLocalizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = MAShortcutLocalizable.strings; path = "zh-Hant.lproj/MAShortcutLocalizable.strings"; sourceTree = "<group>"; };
+		00B79A7F2D1415AA00DAE137 /* YLShortcutManager.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = YLShortcutManager.bundle; sourceTree = "<group>"; };
+		00B79A802D1415AA00DAE137 /* YLShortcutView.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = YLShortcutView.strings; path = "zh-Hans.lproj/YLShortcutManager.strings"; sourceTree = "<group>"; };
+		00B79A812D1415AA00DAE137 /* YLShortcutView.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = YLShortcutView.strings; path = en.lproj/YLShortcutManager.strings; sourceTree = "<group>"; };
+		00B79A822D1415AA00DAE137 /* YLShortcutView.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = YLShortcutView.strings; path = "zh-Hant.lproj/YLShortcutManager.strings"; sourceTree = "<group>"; };
+		00B79A832D1415AA00DAE137 /* YLShortcutView.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = YLShortcutView.strings; path = ja.lproj/YLShortcutManager.strings; sourceTree = "<group>"; };
+		00B79A842D1415AA00DAE137 /* YLShortcutView.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = YLShortcutView.strings; path = ko.lproj/YLShortcutManager.strings; sourceTree = "<group>"; };
+		00B79A852D1415AA00DAE137 /* YLShortcutView.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = YLShortcutView.strings; path = fr.lproj/YLShortcutManager.strings; sourceTree = "<group>"; };
+		00B79A862D1415AA00DAE137 /* YLShortcutView.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = YLShortcutView.strings; path = pt.lproj/YLShortcutManager.strings; sourceTree = "<group>"; };
+		00B79A872D1415AA00DAE137 /* YLShortcutView.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = YLShortcutView.strings; path = es.lproj/YLShortcutManager.strings; sourceTree = "<group>"; };
+		00B79A882D1415AA00DAE137 /* YLShortcutView.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = YLShortcutView.strings; path = de.lproj/YLShortcutManager.strings; sourceTree = "<group>"; };
 		00B79AB42D1415AA00DAE137 /* Macro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Macro.swift; sourceTree = "<group>"; };
 		00B79AB52D1415AA00DAE137 /* YLLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YLLog.swift; sourceTree = "<group>"; };
 		00B79AB62D1415AA00DAE137 /* XcodeLog.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XcodeLog.m; sourceTree = "<group>"; };
-		00B79B2E2D14789400DAE137 /* YLCategory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YLCategory.h; sourceTree = "<group>"; };
 		00B79B322D15D5BF00DAE137 /* NSView+Gesture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSView+Gesture.swift"; sourceTree = "<group>"; };
 		00B79B342D15D5D200DAE137 /* NSView+Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSView+Category.swift"; sourceTree = "<group>"; };
 		00CFDB3D2D1D369600EF4FA4 /* YLAppleReview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YLAppleReview.swift; sourceTree = "<group>"; };
@@ -287,7 +235,6 @@
 		0080A4E62D04490900EEFEA2 /* YLCategory-Swift-MacOS */ = {
 			isa = PBXGroup;
 			children = (
-				00B79B2E2D14789400DAE137 /* YLCategory.h */,
 				00B79B2A2D14181600DAE137 /* YLTextField */,
 				00B799EB2D1415AA00DAE137 /* YLFileAccess */,
 				00B799FD2D1415AA00DAE137 /* YLUpdateManager */,
@@ -507,73 +454,11 @@
 			path = YLUserDefaults;
 			sourceTree = "<group>";
 		};
-		00B79A632D1415AA00DAE137 /* User Defaults Storage */ = {
-			isa = PBXGroup;
-			children = (
-				00B79A5F2D1415AA00DAE137 /* MASDictionaryTransformer.h */,
-				00B79A602D1415AA00DAE137 /* MASDictionaryTransformer.m */,
-				00B79A612D1415AA00DAE137 /* MASShortcutBinder.h */,
-				00B79A622D1415AA00DAE137 /* MASShortcutBinder.m */,
-			);
-			path = "User Defaults Storage";
-			sourceTree = "<group>";
-		};
-		00B79A6C2D1415AA00DAE137 /* UI */ = {
-			isa = PBXGroup;
-			children = (
-				00B79A642D1415AA00DAE137 /* MASLocalization.h */,
-				00B79A652D1415AA00DAE137 /* MASLocalization.m */,
-				00B79A662D1415AA00DAE137 /* MASShortcutView.h */,
-				00B79A672D1415AA00DAE137 /* MASShortcutView.m */,
-				00B79A682D1415AA00DAE137 /* MASShortcutView+Bindings.h */,
-				00B79A692D1415AA00DAE137 /* MASShortcutView+Bindings.m */,
-				00B79A6A2D1415AA00DAE137 /* MASShortcutViewButtonCell.h */,
-				00B79A6B2D1415AA00DAE137 /* MASShortcutViewButtonCell.m */,
-			);
-			path = UI;
-			sourceTree = "<group>";
-		};
-		00B79A712D1415AA00DAE137 /* Monitoring */ = {
-			isa = PBXGroup;
-			children = (
-				00B79A6D2D1415AA00DAE137 /* MASHotKey.h */,
-				00B79A6E2D1415AA00DAE137 /* MASHotKey.m */,
-				00B79A6F2D1415AA00DAE137 /* MASShortcutMonitor.h */,
-				00B79A702D1415AA00DAE137 /* MASShortcutMonitor.m */,
-			);
-			path = Monitoring;
-			sourceTree = "<group>";
-		};
-		00B79A772D1415AA00DAE137 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				00B79A722D1415AA00DAE137 /* MASKeyCodes.h */,
-				00B79A732D1415AA00DAE137 /* MASShortcut.h */,
-				00B79A742D1415AA00DAE137 /* MASShortcut.m */,
-				00B79A752D1415AA00DAE137 /* MASShortcutValidator.h */,
-				00B79A762D1415AA00DAE137 /* MASShortcutValidator.m */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		00B79A782D1415AA00DAE137 /* MASShortcut */ = {
-			isa = PBXGroup;
-			children = (
-				00B79A5E2D1415AA00DAE137 /* Shortcut.h */,
-				00B79A632D1415AA00DAE137 /* User Defaults Storage */,
-				00B79A6C2D1415AA00DAE137 /* UI */,
-				00B79A712D1415AA00DAE137 /* Monitoring */,
-				00B79A772D1415AA00DAE137 /* Model */,
-			);
-			path = MASShortcut;
-			sourceTree = "<group>";
-		};
 		00B79A9A2D1415AA00DAE137 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				00B79A7F2D1415AA00DAE137 /* YLShortcutView.bundle */,
-				00B79A892D1415AA00DAE137 /* YLShortcutView.strings */,
-				00B79A992D1415AA00DAE137 /* MAShortcutLocalizable.strings */,
+				00B79A7F2D1415AA00DAE137 /* YLShortcutManager.bundle */,
+				00B79A892D1415AA00DAE137 /* YLShortcutManager.strings */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -581,13 +466,9 @@
 		00B79A9B2D1415AA00DAE137 /* YLShortcutView */ = {
 			isa = PBXGroup;
 			children = (
-				00B79A782D1415AA00DAE137 /* MASShortcut */,
-				00B79A792D1415AA00DAE137 /* YLShortcutManager.h */,
-				00B79A7A2D1415AA00DAE137 /* YLShortcutManager.m */,
-				00B79A7B2D1415AA00DAE137 /* YLShortcutView.h */,
-				00B79A7C2D1415AA00DAE137 /* YLShortcutView.m */,
-				00B79A7D2D1415AA00DAE137 /* YLShortcutConfig.h */,
-				00B79A7E2D1415AA00DAE137 /* YLShortcutConfig.m */,
+				0037DEC52D292E1D0061136D /* YLShortcutManager.swift */,
+				0037DEC72D292E330061136D /* YLShortcutView.swift */,
+				0037DEC92D2BA4E80061136D /* YLShortcut.swift */,
 				00B79A9A2D1415AA00DAE137 /* Resources */,
 			);
 			path = YLShortcutView;
@@ -800,14 +681,13 @@
 			files = (
 				0080A4E42D04490300EEFEA2 /* Assets.xcassets in Resources */,
 				00B79ADC2D1415AB00DAE137 /* YLLanguage.strings in Resources */,
-				00B79ADD2D1415AB00DAE137 /* MAShortcutLocalizable.strings in Resources */,
 				00B79ADE2D1415AB00DAE137 /* YLPermissionManager.bundle in Resources */,
 				00B79ADF2D1415AB00DAE137 /* YLUpdateManager.strings in Resources */,
-				00B79AE02D1415AB00DAE137 /* YLShortcutView.bundle in Resources */,
+				00B79AE02D1415AB00DAE137 /* YLShortcutManager.bundle in Resources */,
 				00B79AE12D1415AB00DAE137 /* YLAppleScript.strings in Resources */,
 				00B79AE22D1415AB00DAE137 /* YLHud.bundle in Resources */,
 				00B79AE32D1415AB00DAE137 /* YLFileAccess.strings in Resources */,
-				00B79AE42D1415AB00DAE137 /* YLShortcutView.strings in Resources */,
+				00B79AE42D1415AB00DAE137 /* YLShortcutManager.strings in Resources */,
 				00B79AE52D1415AB00DAE137 /* YLPermissionManager.strings in Resources */,
 				0080A4E52D04490300EEFEA2 /* Main.storyboard in Resources */,
 			);
@@ -823,25 +703,21 @@
 				00CFDB7F2D1EB0AF00EF4FA4 /* YLCFNotificationCenter.swift in Sources */,
 				0080A4E22D04490300EEFEA2 /* AppDelegate.swift in Sources */,
 				0080A4EC2D044A8E00EEFEA2 /* NSView+Frame.swift in Sources */,
-				00B79AE62D1415AB00DAE137 /* MASShortcutViewButtonCell.m in Sources */,
 				00B79B352D15D5D200DAE137 /* NSView+Category.swift in Sources */,
 				00CFDCAB2D214A8B00EF4FA4 /* YLPermissionManager.swift in Sources */,
 				00CFDCB32D214B3500EF4FA4 /* YLPermissionModel.swift in Sources */,
 				00A0F9CC2D1A7DB80043E075 /* String+Predicate.swift in Sources */,
 				00CFDB462D1D502E00EF4FA4 /* YLLanguage.swift in Sources */,
+				0037DEC82D292E330061136D /* YLShortcutView.swift in Sources */,
 				00CFDB3E2D1D369600EF4FA4 /* YLAppleReview.swift in Sources */,
 				00CFDB4E2D1E3AB200EF4FA4 /* YLWindowOperateView.swift in Sources */,
 				00B79AEE2D1415AB00DAE137 /* Macro.swift in Sources */,
-				00B79AEF2D1415AB00DAE137 /* MASLocalization.m in Sources */,
-				00B79AF22D1415AB00DAE137 /* YLShortcutView.m in Sources */,
 				00B79AF32D1415AB00DAE137 /* XcodeLog.m in Sources */,
 				00CFDB402D1D3AFC00EF4FA4 /* YLFlipView.swift in Sources */,
-				00B79AF42D1415AB00DAE137 /* YLShortcutManager.m in Sources */,
 				00E850622D1C529A00EBE080 /* NSObject+KVO.swift in Sources */,
-				00B79AFA2D1415AB00DAE137 /* MASShortcutMonitor.m in Sources */,
 				00CFDCE62D22AB9A00EF4FA4 /* YLUpdateWindowController.swift in Sources */,
+				0037DECA2D2BA4E80061136D /* YLShortcut.swift in Sources */,
 				00B79B332D15D5C000DAE137 /* NSView+Gesture.swift in Sources */,
-				00B79AFD2D1415AB00DAE137 /* MASShortcutBinder.m in Sources */,
 				00CFDCB12D214B1400EF4FA4 /* YLPermissionItem.swift in Sources */,
 				00CFDCEA2D22AEEC00EF4FA4 /* YLUpdateXMLParserDelegate.swift in Sources */,
 				00A0F9B32D1875980043E075 /* NSColor+Category.swift in Sources */,
@@ -853,8 +729,6 @@
 				00A0F9C12D19B9430043E075 /* NSTextField+Category.swift in Sources */,
 				00A0F9B92D19AE400043E075 /* NSImageView+Category.swift in Sources */,
 				00A0F9B52D18EC1C0043E075 /* NSButton+Category.swift in Sources */,
-				00B79B042D1415AB00DAE137 /* MASDictionaryTransformer.m in Sources */,
-				00B79B062D1415AB00DAE137 /* MASHotKey.m in Sources */,
 				00CFDB502D1E77E700EF4FA4 /* YLCollectionView.swift in Sources */,
 				0037DEB02D23D3900061136D /* YLAppleScript.swift in Sources */,
 				00CFDCAD2D214ABD00EF4FA4 /* YLPermissionWindowController.swift in Sources */,
@@ -863,12 +737,9 @@
 				00CFDCAF2D214AF500EF4FA4 /* YLPermissionViewController.swift in Sources */,
 				00E850642D1C579A00EBE080 /* NSObject+Notification.swift in Sources */,
 				00A0F9C82D1A673E0043E075 /* Async.swift in Sources */,
-				00B79B0B2D1415AB00DAE137 /* YLShortcutConfig.m in Sources */,
 				00A0F9D02D1BE9B00043E075 /* NSDate+Category.swift in Sources */,
 				00CFDB4C2D1E3A9B00EF4FA4 /* YLWindowButton.swift in Sources */,
-				00B79B142D1415AB00DAE137 /* MASShortcutValidator.m in Sources */,
-				00B79B172D1415AB00DAE137 /* MASShortcut.m in Sources */,
-				00B79B192D1415AB00DAE137 /* MASShortcutView+Bindings.m in Sources */,
+				0037DEC62D292E1D0061136D /* YLShortcutManager.swift in Sources */,
 				00A0F9BB2D19B09E0043E075 /* NSScreen+Category.swift in Sources */,
 				00CFDB482D1D504D00EF4FA4 /* YLLanguageModel.swift in Sources */,
 				00A0F9B12D1872180043E075 /* NSControl+Category.swift in Sources */,
@@ -877,7 +748,6 @@
 				00CFDCE82D22ABA600EF4FA4 /* YLUpdateViewController.swift in Sources */,
 				00A0F9BF2D19B41E0043E075 /* NSWindow+Category.swift in Sources */,
 				00E8506A2D1D1E9C00EBE080 /* YLAppRating.swift in Sources */,
-				00B79B282D1415AB00DAE137 /* MASShortcutView.m in Sources */,
 				00E850662D1C581A00EBE080 /* NSObject+Event.swift in Sources */,
 				00CFDB422D1D450C00EF4FA4 /* YLTextField.swift in Sources */,
 				0037DEB72D26DAB60061136D /* YLFileAccess.swift in Sources */,
@@ -977,7 +847,7 @@
 			name = YLAppleScript.strings;
 			sourceTree = "<group>";
 		};
-		00B79A892D1415AA00DAE137 /* YLShortcutView.strings */ = {
+		00B79A892D1415AA00DAE137 /* YLShortcutManager.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
 				00B79A802D1415AA00DAE137 /* YLShortcutView.strings */,
@@ -990,29 +860,7 @@
 				00B79A872D1415AA00DAE137 /* YLShortcutView.strings */,
 				00B79A882D1415AA00DAE137 /* YLShortcutView.strings */,
 			);
-			name = YLShortcutView.strings;
-			sourceTree = "<group>";
-		};
-		00B79A992D1415AA00DAE137 /* MAShortcutLocalizable.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				00B79A8A2D1415AA00DAE137 /* MAShortcutLocalizable.strings */,
-				00B79A8B2D1415AA00DAE137 /* MAShortcutLocalizable.strings */,
-				00B79A8C2D1415AA00DAE137 /* MAShortcutLocalizable.strings */,
-				00B79A8D2D1415AA00DAE137 /* MAShortcutLocalizable.strings */,
-				00B79A8E2D1415AA00DAE137 /* MAShortcutLocalizable.strings */,
-				00B79A8F2D1415AA00DAE137 /* MAShortcutLocalizable.strings */,
-				00B79A902D1415AA00DAE137 /* MAShortcutLocalizable.strings */,
-				00B79A912D1415AA00DAE137 /* MAShortcutLocalizable.strings */,
-				00B79A922D1415AA00DAE137 /* MAShortcutLocalizable.strings */,
-				00B79A932D1415AA00DAE137 /* MAShortcutLocalizable.strings */,
-				00B79A942D1415AA00DAE137 /* MAShortcutLocalizable.strings */,
-				00B79A952D1415AA00DAE137 /* MAShortcutLocalizable.strings */,
-				00B79A962D1415AA00DAE137 /* MAShortcutLocalizable.strings */,
-				00B79A972D1415AA00DAE137 /* MAShortcutLocalizable.strings */,
-				00B79A982D1415AA00DAE137 /* MAShortcutLocalizable.strings */,
-			);
-			name = MAShortcutLocalizable.strings;
+			name = YLShortcutManager.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -1149,7 +997,7 @@
 				CODE_SIGN_ENTITLEMENTS = "YLCategory-Swift-Demo/YLCategory_Swift_MacOS.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 2025010201;
+				CURRENT_PROJECT_VERSION = 2025011001;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 87LJF62PN6;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -1181,7 +1029,7 @@
 				CODE_SIGN_ENTITLEMENTS = "YLCategory-Swift-Demo/YLCategory_Swift_MacOS.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 2025010201;
+				CURRENT_PROJECT_VERSION = 2025011001;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 87LJF62PN6;
 				ENABLE_HARDENED_RUNTIME = YES;

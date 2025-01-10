@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import AppKit
 
 fileprivate var NSControlClickedHandlerKey = false
 
