@@ -18,8 +18,6 @@ Pod::Spec.new do |s|
     s.requires_arc = true
     s.swift_versions  = ['5.0']
     s.source          = { :git => "https://github.com/yulong000/YLCategory-Swift-MacOS.git", :tag => "#{s.version}" }
-    s.source_files    = "YLCategory-Swift-MacOS/YLCategory.h"
-    s.requires_arc    = true
     s.static_framework = true
 
     s.subspec 'Other' do |ss|
