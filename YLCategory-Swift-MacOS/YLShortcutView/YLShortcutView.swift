@@ -66,6 +66,7 @@ open class YLShortcutView: NSView {
         removeMonitors()
     }
     
+    // MARK: - 添加鼠标｜键盘监听
     private func addMonitors() {
         let keyMonitor = NSEvent.addLocalMonitorForEvents(matching: [.flagsChanged, .keyDown]) { [weak self] event in
             guard let self = self else { return event }
@@ -158,6 +159,7 @@ open class YLShortcutView: NSView {
         }
     }
     
+    // MARK: 移除鼠标｜键盘监听
     private func removeMonitors() {
         monitorArr.forEach { element in
             if let monitor = element {
@@ -169,6 +171,8 @@ open class YLShortcutView: NSView {
             YLShortcutManager.shared.continueMonitorAllShortcuts()
         }
     }
+    
+    // MARK: - 更新显示
     
     open override func updateLayer() {
         super.updateLayer()
@@ -222,6 +226,7 @@ open class YLShortcutView: NSView {
         }
     }
     
+    // MARK: - 操作
     
     @objc func beginEdit(_ button: NSButton) {
         recording = !recording
@@ -240,6 +245,8 @@ open class YLShortcutView: NSView {
         }
         recording = false
     }
+    
+    // MARK: - 内部组件
     
     lazy var shortcutBtn: NSButton = {
         let btn = NSButton(title: "", target: self, action: #selector(beginEdit(_:)))

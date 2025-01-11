@@ -99,9 +99,10 @@ public class YLShortcutManager {
         for obj in hotKeys.keys {
             if obj.carbonFlags == shortcut.carbonFlags && obj.carbonKeyCode == shortcut.carbonKeyCode {
                 hotKeys.removeValue(forKey: obj)
-                return
+                break
             }
         }
+        ignoreHotKeys.removeAll { $0.carbonFlags == shortcut.carbonFlags && $0.carbonKeyCode == shortcut.carbonKeyCode }
     }
     
     // 取消注册所有快捷键
@@ -123,9 +124,7 @@ public class YLShortcutManager {
     
     /// 恢复监听某个快捷键
     public func continueMonitor(_ shortcut: YLShortcut) {
-        if let index = ignoreHotKeys.firstIndex(where: { $0.carbonFlags == shortcut.carbonFlags && $0.carbonKeyCode == shortcut.carbonKeyCode }) {
-            ignoreHotKeys.remove(at: index)
-        }
+        ignoreHotKeys.removeAll { $0.carbonFlags == shortcut.carbonFlags && $0.carbonKeyCode == shortcut.carbonKeyCode }
     }
     
     /// 暂停监听多个快捷键

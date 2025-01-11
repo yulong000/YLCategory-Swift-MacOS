@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
 
     s.name            = "YLCategory-Swift-MacOS"
-    s.version         = "1.0.2"
+    s.version         = "1.0.3"
     s.summary         = "MacOS 开发，常用的工具类"
     s.homepage        = "https://github.com/yulong000/YLCategory-Swift-MacOS"
     s.author          = { "魏宇龙" => "weiyulong1987@163.com" }
@@ -85,7 +85,7 @@ Pod::Spec.new do |s|
     end
 
     s.subspec 'YLShortcutView' do |ss|
-    ss.source_files  =   'YLCategory-Swift-MacOS/YLShortcutView/**/*.{h,m,swift}'
+    ss.source_files  =   'YLCategory-Swift-MacOS/YLShortcutView/**/*.swift'
     ss.resource      =   'YLCategory-Swift-MacOS/YLShortcutView/Resources/*'
     ss.dependency        'YLCategory-Swift-MacOS/YLHud'
     end
