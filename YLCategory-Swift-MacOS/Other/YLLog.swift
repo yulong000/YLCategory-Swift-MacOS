@@ -6,6 +6,8 @@
 //
 
 import Foundation
+import Carbon
+import Cocoa
 
 public var YL_LOG_MORE: Bool = false // 是否可以打印更详细的信息
 public var YL_LOG_RELEASE: Bool = false // 打包时是否打印
@@ -27,8 +29,35 @@ public func YLLog(_ items: Any..., file: NSString = #file, function: String = #f
         }
     }
     if YL_LOG_MORE {
-        NSLog("%@\n【%@ 第%d行】in %@", message, function, line, file.lastPathComponent)
+        NSLog("%@\n[ %@ 第%d行 ] in %@", message, function, line, file.lastPathComponent)
     } else {
         NSLog("%@", message)
+    }
+}
+
+open class __YLLog {
+    
+    static var shared = __YLLog()
+    var monitor: Any?
+    
+    func addKeyMonitor() {
+        if monitor != nil { return }
+        monitor = NSEvent.addLocalMonitorForEvents(matching: [.keyDown, .flagsChanged]) { event in
+            let flags: NSEvent.ModifierFlags = [.control, .shift, .command, .option]
+            if event.keyCode == kVK_ANSI_P && event.modifierFlags.intersection(flags) == flags {
+                YL_LOG_RELEASE = !YL_LOG_RELEASE
+            }
+            if event.keyCode == kVK_ANSI_M && event.modifierFlags.intersection(flags) == flags {
+                YL_LOG_MORE = !YL_LOG_MORE
+            }
+            return event
+        }
+    }
+    
+    func removeKeyMonitor() {
+        if let monitor = monitor {
+            NSEvent.removeMonitor(monitor)
+            self.monitor = nil
+        }
     }
 }

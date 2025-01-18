@@ -31,6 +31,8 @@ public extension NSScreen {
     var maxX: CGFloat { NSMaxX(frame) }
     /// 最大 y 值
     var maxY: CGFloat { NSMaxY(frame) }
+    /// 是否是 main screen
+    var isMain: Bool { self == NSScreen.main }
     /// 是否是内置屏
     var isBuiltin: Bool {
         guard let number = deviceDescription[NSDeviceDescriptionKey("NSScreenNumber")] as? NSNumber else { return false }
