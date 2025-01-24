@@ -12,25 +12,25 @@ import AppKit
 public class YLShortcut: NSObject, NSSecureCoding, NSCopying {
     
     /// 按键
-    private(set) var keyCode: UInt16
+    public private(set) var keyCode: UInt16
     /// 修饰键
-    private(set) var modifierFlags: NSEvent.ModifierFlags
+    public private(set) var modifierFlags: NSEvent.ModifierFlags
     
     // MARK: - 构造方法
     
-    init(keyCode: uint16, modifierFlags: NSEvent.ModifierFlags) {
+    public init(keyCode: UInt16, modifierFlags: NSEvent.ModifierFlags) {
         self.keyCode = keyCode
         self.modifierFlags = modifierFlags.intersection([.control, .shift, .command, .option, .function])
     }
     
-    convenience init(event: NSEvent) {
+    public convenience init(event: NSEvent) {
         self.init(keyCode: event.keyCode, modifierFlags: event.modifierFlags)
     }
     
     // MARK: - 常用字符串获取
     
     // MARK: 按键字符串, eg: `5` in `⌘5`
-    var keyCodeString: String {
+    public var keyCodeString: String {
         let code = Int(keyCode)
         switch code {
         case NSNotFound:                return ""
@@ -134,7 +134,7 @@ public class YLShortcut: NSObject, NSSecureCoding, NSCopying {
     }
     
     // MARK: 修饰键字符串, eg: `⌘` in `⌘5`
-    var modifierFlagsString: String {
+    public var modifierFlagsString: String {
         var chars = [Character]()
         if modifierFlags.contains(.control) { chars.append("⌃") }
         if modifierFlags.contains(.option) { chars.append("⌥") }
@@ -155,7 +155,7 @@ public class YLShortcut: NSObject, NSSecureCoding, NSCopying {
     而 `keyCodeStringForKeyEquivalent` 返回 `U`。
     */
     /// 用于按键等效匹配的按键代码字符串。
-    var keyCodeStringForKeyEquivalent: String {
+    public var keyCodeStringForKeyEquivalent: String {
         let code = Int(keyCode)
         switch code {
         case kVK_F1:            return "F1"
@@ -197,8 +197,8 @@ public class YLShortcut: NSObject, NSSecureCoding, NSCopying {
         }
     }
     
-    var carbonKeyCode: UInt32 { keyCode == NSNotFound ? 0 : UInt32(keyCode) }
-    var carbonFlags: UInt32 {
+    public var carbonKeyCode: UInt32 { keyCode == NSNotFound ? 0 : UInt32(keyCode) }
+    public var carbonFlags: UInt32 {
         var carbonFlags: Int = 0
         if modifierFlags.contains(.command) { carbonFlags |= cmdKey }
         if modifierFlags.contains(.option) { carbonFlags |= optionKey }
@@ -226,7 +226,7 @@ public class YLShortcut: NSObject, NSSecureCoding, NSCopying {
     // MARK: - copy
     
     public func copy(with zone: NSZone? = nil) -> Any {
-        YLShortcut.init(keyCode: keyCode, modifierFlags: modifierFlags)
+        return YLShortcut(keyCode: keyCode, modifierFlags: modifierFlags)
     }
     
     // MARK: - equal
@@ -236,12 +236,17 @@ public class YLShortcut: NSObject, NSSecureCoding, NSCopying {
         return keyCode == other.keyCode && modifierFlags == other.modifierFlags
     }
     
+    static func == (lhs: YLShortcut, rhs: YLShortcut) -> Bool {
+        return lhs.isEqual(rhs)
+    }
+    
     // MARK: - hash
     
     public override var hash: Int { Int(keyCode) + modifierFlags.rawValue.hashValue }
-    
+   
+#if DEBUG
     // MARK: 打印
-    
-    public override var description: String { "\(String(describing: modifierFlagsString)) + \(String(describing: keyCodeString))" }
+    public override var description: String { "\(modifierFlagsString) + \(keyCodeString)" }
+#endif
     
 }

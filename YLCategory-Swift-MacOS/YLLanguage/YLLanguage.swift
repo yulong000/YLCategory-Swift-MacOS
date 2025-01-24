@@ -8,7 +8,7 @@
 import Cocoa
 
 // 应用语言类型枚举
-public enum LanguageType: Int {
+@objc public enum LanguageType: UInt8 {
     case system                    // 跟随系统
     case chineseSimplified         // 简体中文
     case chineseTraditional        // 繁体中文

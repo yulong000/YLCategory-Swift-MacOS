@@ -8,7 +8,7 @@
 import Foundation
 import AppKit
 
-public enum YLPermissionAuthType {
+@objc public enum YLPermissionAuthType: UInt8 {
     case none
     case accessibility      // 辅助功能权限
     case fullDisk           // 完全磁盘权限

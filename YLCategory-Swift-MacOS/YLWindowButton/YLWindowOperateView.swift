@@ -8,7 +8,7 @@
 import Foundation
 import AppKit
 
-public class YLWindowOperateView: NSView {
+open class YLWindowOperateView: NSView {
     
     // 点击按钮回调
     public var operateHandler: ((YLWindowButtonType) -> Void)?

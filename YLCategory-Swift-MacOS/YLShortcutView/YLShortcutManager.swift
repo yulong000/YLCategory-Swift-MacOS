@@ -89,7 +89,7 @@ public class YLShortcutManager {
     
     /// 快捷键是否已注册
     public func isRegisterd(_ shortcut: YLShortcut) -> Bool {
-        hotKeys.keys.contains { $0.carbonFlags == shortcut.carbonFlags && $0.carbonKeyCode == shortcut.carbonKeyCode }
+        hotKeys.keys.contains { $0 == shortcut }
     }
     
     // MARK: - 取消注册
@@ -97,12 +97,11 @@ public class YLShortcutManager {
     // 取消注册快捷键
     public func unregister(_ shortcut: YLShortcut) {
         for obj in hotKeys.keys {
-            if obj.carbonFlags == shortcut.carbonFlags && obj.carbonKeyCode == shortcut.carbonKeyCode {
+            if obj == shortcut {
                 hotKeys.removeValue(forKey: obj)
-                break
             }
         }
-        ignoreHotKeys.removeAll { $0.carbonFlags == shortcut.carbonFlags && $0.carbonKeyCode == shortcut.carbonKeyCode }
+        ignoreHotKeys.removeAll { $0 == shortcut }
     }
     
     // 取消注册所有快捷键
@@ -116,7 +115,7 @@ public class YLShortcutManager {
     
     /// 暂停监听某个快捷键
     public func pauseMonitor(_ shortcut: YLShortcut) {
-        let isIgnore = ignoreHotKeys.contains { $0.carbonFlags == shortcut.carbonFlags && $0.carbonKeyCode == shortcut.carbonKeyCode }
+        let isIgnore = ignoreHotKeys.contains { $0 == shortcut }
         if !isIgnore {
             ignoreHotKeys.append(shortcut)
         }
@@ -124,7 +123,7 @@ public class YLShortcutManager {
     
     /// 恢复监听某个快捷键
     public func continueMonitor(_ shortcut: YLShortcut) {
-        ignoreHotKeys.removeAll { $0.carbonFlags == shortcut.carbonFlags && $0.carbonKeyCode == shortcut.carbonKeyCode }
+        ignoreHotKeys.removeAll { $0 == shortcut }
     }
     
     /// 暂停监听多个快捷键
@@ -351,7 +350,7 @@ public class YLShortcutManager {
         let status = GetEventParameter(event, EventParamName(kEventParamDirectObject), EventParamType(typeEventHotKeyID), nil, MemoryLayout<EventHotKeyID>.size(ofValue: hotKeyID), nil, &hotKeyID)
         guard status == noErr, hotKeyID.signature == YLHotKeySignature else { return }
         hotKeys.forEach { shortcut, hotKey in
-            let isIgnore = ignoreHotKeys.contains { $0.carbonFlags == shortcut.carbonFlags && $0.carbonKeyCode == shortcut.carbonKeyCode }
+            let isIgnore = ignoreHotKeys.contains { $0 == shortcut }
             guard !isIgnore, hotKeyID.id == hotKey.carbonID else { return }
             DispatchQueue.main.async {
                 hotKey.action?()
@@ -364,7 +363,7 @@ public class YLShortcutManager {
         hotKeys.forEach { shortcut, hotKey in
             guard keyCode == shortcut.keyCode else { return }
             if YLModifierFlagsEqual(cgFlags: flags, nsFlags: shortcut.modifierFlags) {
-                let isIgnore = ignoreHotKeys.contains { $0.carbonFlags == shortcut.carbonFlags && $0.carbonKeyCode == shortcut.carbonKeyCode }
+                let isIgnore = ignoreHotKeys.contains { $0 == shortcut }
                 guard !isIgnore, let action = hotKey.action else { return }
                 // 关闭提示音
                 if !volumeChanged {
@@ -405,7 +404,7 @@ public class YLShortcutConfig {
 }
 
 // MARK: - 样式
-public enum YLShortcutStyle {
+@objc public enum YLShortcutStyle: UInt8 {
     case system, light, dark
 }
 

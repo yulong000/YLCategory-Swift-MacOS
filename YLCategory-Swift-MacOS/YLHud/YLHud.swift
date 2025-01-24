@@ -8,10 +8,9 @@
 import Foundation
 import AppKit
 
-public enum YLHudStyle {
+@objc public enum YLHudStyle: UInt8 {
     case auto, black, white
 }
-
 
 public class YLHudWindow: NSWindow {
  

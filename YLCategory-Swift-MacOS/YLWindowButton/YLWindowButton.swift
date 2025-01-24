@@ -8,14 +8,14 @@
 import Foundation
 import AppKit
 
-public enum YLWindowButtonType {
+@objc public enum YLWindowButtonType: UInt8 {
     case close
     case mini
     case fullScreen
     case exitFullScreen
 }
 
-public class YLWindowButton: NSControl {
+open class YLWindowButton: NSControl {
     
     // 按钮类型
     public var buttonType: YLWindowButtonType = .close {
@@ -27,7 +27,7 @@ public class YLWindowButton: NSControl {
     // 忽略鼠标划入
     public var ignoreMouseHover: Bool = false { didSet { updateTrackingAreas() } }
     // 是否是激活状态
-    public  var isActive: Bool = false { didSet { needsDisplay = true } }
+    public var isActive: Bool = false { didSet { needsDisplay = true } }
     // 是否选中
     public var isHover: Bool = false { didSet { needsDisplay = true } }
     // 窗口全屏
@@ -45,7 +45,7 @@ public class YLWindowButton: NSControl {
         super.init(frame: frameRect)
     }
     
-    required init?(coder: NSCoder) {
+    required public init?(coder: NSCoder) {
         super.init(coder: coder)
     }
     

@@ -9,7 +9,7 @@ import Foundation
 
 fileprivate var KVOHandlerKey = false
 
-public class KVO: NSObject {
+open class KVO: NSObject {
     
     // MARK: kvo回调
     var kvoHandler: ((String, Any?, Any?) -> Void)? {
