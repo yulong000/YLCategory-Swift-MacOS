@@ -12,13 +12,13 @@ fileprivate var KVOHandlerKey = false
 open class KVO: NSObject {
     
     // MARK: kvo回调
-    var kvoHandler: ((String, Any?, Any?) -> Void)? {
+    open var kvoHandler: ((String, Any?, Any?) -> Void)? {
         get { objc_getAssociatedObject(self, &KVOHandlerKey) as? (String, Any?, Any?) -> Void }
         set { objc_setAssociatedObject(self, &KVOHandlerKey, newValue, .OBJC_ASSOCIATION_COPY_NONATOMIC)}
     }
     
     // MARK: 开启｜关闭kvo
-    func kvo(_ enable: Bool) {
+    open func kvo(_ enable: Bool) {
         if enable {
             for key in getAllProperties(of: type(of: self)) {
                 addObserver(self, forKeyPath: key, options: [.new, .old], context: nil)
