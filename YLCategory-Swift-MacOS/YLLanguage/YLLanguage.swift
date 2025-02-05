@@ -53,6 +53,24 @@ public class YLLanguage {
         return type
     }
     
+    /// 根据语言类型获取code
+    public class func code(for type: LanguageType) -> String {
+        var code = ""
+        switch type {
+        case .chineseSimplified:    code = "zh-Hans"
+        case .chineseTraditional:   code = "zh-Hant"
+        case .english:              code = "en"
+        case .japanese:             code = "ja"
+        case .korean:               code = "ko"
+        case .spanish:              code = "es"
+        case .french:               code = "fr"
+        case .portuguese:           code = "pt-PT"
+        case .german:               code = "de"
+        default: break
+        }
+        return code
+    }
+    
     /// 设置app语言
     /// - Parameters:
     ///   - model: 语言模型
