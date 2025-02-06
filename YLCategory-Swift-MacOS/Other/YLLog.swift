@@ -37,10 +37,13 @@ public func YLLog(_ items: Any..., file: NSString = #file, function: String = #f
 
 open class __YLLog {
     
-    static var shared = __YLLog()
-    var monitor: Any?
+    public static var shared = __YLLog()
+    private init() {}
     
-    func addKeyMonitor() {
+    private var monitor: Any?
+    
+    // MARK: 监听按键
+    open func addKeyMonitor() {
         if monitor != nil { return }
         monitor = NSEvent.addLocalMonitorForEvents(matching: [.keyDown, .flagsChanged]) { event in
             let flags: NSEvent.ModifierFlags = [.control, .shift, .command, .option]
@@ -54,7 +57,7 @@ open class __YLLog {
         }
     }
     
-    func removeKeyMonitor() {
+    open func removeKeyMonitor() {
         if let monitor = monitor {
             NSEvent.removeMonitor(monitor)
             self.monitor = nil
