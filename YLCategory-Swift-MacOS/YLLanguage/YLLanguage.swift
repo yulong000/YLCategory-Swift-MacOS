@@ -80,7 +80,7 @@ public class YLLanguage {
         if model.languageType == type { return }
         if model.languageType == .system {
             // 跟随系统
-            UserDefaults.standard.set(nil, forKey: "AppleLanguages")
+            UserDefaults.standard.removeObject(forKey: "AppleLanguages")
         } else {
             // 指定语言
             UserDefaults.standard.set([model.code], forKey: "AppleLanguages")
@@ -98,7 +98,7 @@ public class YLLanguage {
         let model = YLLanguageModel(type: languageType)
         if model.languageType == .system {
             // 跟随系统
-            UserDefaults.standard.set(nil, forKey: "AppleLanguages")
+            UserDefaults.standard.removeObject(forKey: "AppleLanguages")
         } else {
             // 指定语言
             UserDefaults.standard.set([model.code], forKey: "AppleLanguages")

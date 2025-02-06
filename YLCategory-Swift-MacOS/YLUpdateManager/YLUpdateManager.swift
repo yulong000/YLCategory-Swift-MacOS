@@ -115,7 +115,11 @@ public class YLUpdateManager: NSObject {
                                 let alert = NSAlert()
                                 alert.alertStyle = .warning
                                 alert.messageText = YLUpdateManager.localize("Kind tips")
-                                alert.informativeText = YLUpdateManager.localize("Latest version")
+                                if let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String {
+                                    alert.informativeText = appVersion + " " + YLUpdateManager.localize("Latest version")
+                                } else {
+                                    alert.informativeText = YLUpdateManager.localize("Latest version")
+                                }
                                 alert.addButton(withTitle: YLUpdateManager.localize("Sure"))
                                 alert.runModal()
                             }
