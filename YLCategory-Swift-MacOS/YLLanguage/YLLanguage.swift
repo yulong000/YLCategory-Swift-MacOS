@@ -76,7 +76,7 @@ public class YLLanguage {
     ///   - model: 语言模型
     ///   - type: 原来的语言类型
     ///   - action: 设置完成后，重启app之前，执行的代码
-    public class func set(language model: YLLanguageModel, from type: LanguageType, beforeRestart action: (() -> Void)?) {
+    public class func set(language model: YLLanguageModel, from type: LanguageType, beforeRestart action: (() -> Void)? = nil) {
         if model.languageType == type { return }
         if model.languageType == .system {
             // 跟随系统
@@ -95,13 +95,12 @@ public class YLLanguage {
     ///   - languageType: 语言类型
     ///   - restart: 是否重启app
     public class func set(languageType: LanguageType, restart: Bool) {
-        let model = YLLanguageModel(type: languageType)
-        if model.languageType == .system {
+        if languageType == .system {
             // 跟随系统
             UserDefaults.standard.removeObject(forKey: "AppleLanguages")
         } else {
             // 指定语言
-            UserDefaults.standard.set([model.code], forKey: "AppleLanguages")
+            UserDefaults.standard.set([YLLanguage.code(for: languageType)], forKey: "AppleLanguages")
         }
         UserDefaults.standard.synchronize()
         if restart {
