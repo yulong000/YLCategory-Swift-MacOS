@@ -388,7 +388,7 @@ public class YLShortcutConfig {
     /// 样式
     public var style: YLShortcutStyle = .system
     /// 字体大小
-    public var titleFont = NSFont.systemFont(ofSize: 12)
+    public var titleFont: NSFont?
     /// 没有快捷键时显示的文字
     public var titleForEmpty: String = YLShortcutManager.localize("Set shortcut keys")
     /// 没有快捷键且编辑时显示的文字
