@@ -223,6 +223,24 @@ public class YLShortcut: NSObject, NSSecureCoding, NSCopying {
         self.modifierFlags = NSEvent.ModifierFlags(rawValue: UInt(coder.decodeInt64(forKey: "modifierFlags")))
     }
     
+    // MARK: - json <-> model
+    
+    public func toJson() -> Dictionary<String, Any> {
+        var json: [String: Any] = [:]
+        json["keyCode"] = keyCode
+        json["modifierFlags"] = modifierFlags.rawValue
+        json["keyCodeString"] = keyCodeString
+        json["modifierFlagsString"] = modifierFlagsString
+        return json
+    }
+    
+    public convenience init?(json: Dictionary<String, Any>?) {
+        guard let json = json,
+              let keyCode = json["keyCode"] as? UInt16,
+              let modifierFlags = json["modifierFlags"] as? NSEvent.ModifierFlags else { return nil }
+        self.init(keyCode: keyCode, modifierFlags: modifierFlags)
+    }
+    
     // MARK: - copy
     
     public func copy(with zone: NSZone? = nil) -> Any {
@@ -246,7 +264,7 @@ public class YLShortcut: NSObject, NSSecureCoding, NSCopying {
    
 #if DEBUG
     // MARK: 打印
-    public override var description: String { "\(modifierFlagsString) + \(keyCodeString)" }
+    public override var description: String { "[\(modifierFlagsString) + \(keyCodeString)]" + "~> [\(modifierFlags) + \(keyCode)]" }
 #endif
     
 }
