@@ -188,3 +188,17 @@ public func CGEventFlagsEqualToModifierFlags(_ cgFlags: CGEventFlags, _ nsFlags:
 
 // MARK: 事件的修饰键 == nsFlags
 public func CGEventMatchesModifierFlags(_ event: CGEvent, _ nsFlags: NSEvent.ModifierFlags) -> Bool { CGEventFlagsEqualToModifierFlags(event.flags, nsFlags) }
+
+// MARK: - 坐标系相关
+
+// MARK: 将屏幕坐标系上的点(左上角为(0,0), 向下为正）,转换为视图坐标系上的点（左下角为(0,0), 向上为正）
+public func ConvertToBottomLeftCoordinateSystem(_ topLeftCoordinateSystemPoint: NSPoint) -> NSPoint {
+    var coordinatedH = 0.0
+    for screen in NSScreen.screens {
+        if CGPointEqualToPoint(screen.frame.origin, .zero) {
+            coordinatedH = screen.frame.size.height
+            break
+        }
+    }
+    return NSPoint(x: topLeftCoordinateSystemPoint.x, y: coordinatedH - topLeftCoordinateSystemPoint.y)
+}

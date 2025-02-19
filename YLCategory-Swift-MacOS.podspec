@@ -59,6 +59,10 @@ Pod::Spec.new do |s|
     s.subspec 'NSControl' do |ss|
     ss.source_files  =   'YLCategory-Swift-MacOS/NSControl/**/*.swift'
     end
+    
+    s.subspec 'NSResponder' do |ss|
+    ss.source_files  =   'YLCategory-Swift-MacOS/NSResponder/**/*.swift'
+    end
 
     s.subspec 'NSButton' do |ss|
     ss.source_files  =   'YLCategory-Swift-MacOS/NSButton/**/*.swift'

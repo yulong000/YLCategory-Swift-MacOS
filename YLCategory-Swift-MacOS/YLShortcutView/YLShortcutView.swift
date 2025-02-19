@@ -218,7 +218,7 @@ open class YLShortcutView: NSView {
         let config = config ?? YLShortcutManager.shared.config
         var attributes: [NSAttributedString.Key : Any] = [ .foregroundColor : recording ? NSColor.placeholderTextColor : NSColor.labelColor]
         if let font = config.titleFont {
-            attributes[.font] = config.titleFont
+            attributes[.font] = font
         }
         shortcutBtn.attributedTitle = NSAttributedString(string: title, attributes: attributes)
         if toolTip != nil {
