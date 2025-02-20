@@ -258,13 +258,17 @@ public class YLShortcut: NSObject, NSSecureCoding, NSCopying {
         return lhs.isEqual(rhs)
     }
     
+    static func != (lhs: YLShortcut, rhs: YLShortcut) -> Bool {
+        return !(lhs == rhs)
+    }
+    
     // MARK: - hash
     
     public override var hash: Int { Int(keyCode) + modifierFlags.rawValue.hashValue }
    
 #if DEBUG
     // MARK: 打印
-    public override var description: String { "[\(modifierFlagsString) + \(keyCodeString)]" + "~> [\(modifierFlags) + \(keyCode)]" }
+    public override var description: String { "[\(modifierFlagsString) + \(keyCodeString)]" + " ~> [\(modifierFlags) + \(keyCode)]" }
 #endif
     
 }

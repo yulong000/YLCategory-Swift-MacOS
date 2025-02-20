@@ -116,13 +116,15 @@ open class YLShortcutView: NSView {
                                 }
                                 return nil
                             } else {
-                                if let s = self.shortcut {
+                                if let s = self.shortcut, s != shortcut {
                                     // 取消注册之前的快捷键
                                     YLShortcutManager.shared.unregister(s)
                                 }
-                                self.shortcut = shortcut
                                 self.recording = false
-                                self.changedHandler?(self, shortcut)
+                                if self.shortcut != shortcut {
+                                    self.shortcut = shortcut
+                                    self.changedHandler?(self, shortcut)
+                                }
                                 return nil
                             }
                         } else {
