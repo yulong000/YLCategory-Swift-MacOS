@@ -46,6 +46,7 @@ open class YLCollectionView: NSView, NSCollectionViewDelegate, NSCollectionViewD
         scrollView.borderType = .noBorder
         scrollView.contentInsets = NSEdgeInsetsZero
         scrollView.drawsBackground = false
+        scrollView.scrollerStyle = .overlay
         scrollView.autoresizingMask = [.width, .height]
         addSubview(scrollView)
         
