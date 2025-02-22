@@ -58,18 +58,25 @@ class YLPermissionItem: NSView {
         
         var iconFrame = NSRect(x: 0, y: 0, width: 20, height: 20)
         iconFrame.origin.y = frame.size.height / 2 - 25
-        iconView.frame = iconFrame
         
         checkBtn.sizeToFit()
-        let checkOrigin = NSPoint(x: iconFrame.maxX + 10, y: iconFrame.midY - checkBtn.frame.size.height / 2)
-        checkBtn.frame = NSRect(origin: checkOrigin, size: checkBtn.frame.size)
+        var checkOrigin = NSPoint(x: iconFrame.maxX + 10, y: iconFrame.midY - checkBtn.frame.size.height / 2)
         
         infoLabel.sizeToFit()
         let infoOrigin = NSPoint(x: checkOrigin.x, y: frame.size.height / 2 + 5)
-        infoLabel.frame = NSRect(origin: infoOrigin, size: infoLabel.frame.size)
         
         authBtn.sizeToFit()
         let authOrigin = NSPoint(x: frame.size.width - authBtn.frame.size.width, y: frame.size.height / 2 - authBtn.frame.size.height / 2)
+        
+        if infoLabel.stringValue.isEmpty {
+            // 描述字段为空，图标和勾选项垂直居中
+            iconFrame.origin.y = frame.size.height / 2 - iconFrame.size.height / 2
+            checkOrigin.y = iconFrame.origin.y
+        }
+        
+        iconView.frame = iconFrame
+        checkBtn.frame = NSRect(origin: checkOrigin, size: checkBtn.frame.size)
+        infoLabel.frame = NSRect(origin: infoOrigin, size: infoLabel.frame.size)
         authBtn.frame = NSRect(origin: authOrigin, size: authBtn.frame.size)
     }
     
@@ -81,15 +88,15 @@ class YLPermissionItem: NSView {
         switch model.authType {
         case .accessibility:
             // 辅助功能
-            iconView.image = bundleImage("Accessbility@2x.png")
+            iconView.image = YLPermissionManager.bundleImage("Accessbility@2x.png")
             checkBtn.title = YLPermissionManager.localize("Accessibility permission authorization")
         case .fullDisk:
             // 完全磁盘
-            iconView.image = bundleImage("Folder@2x.png")
+            iconView.image = YLPermissionManager.bundleImage("Folder@2x.png")
             checkBtn.title = YLPermissionManager.localize("Full disk access authorization")
         case .screenCapture:
             // 录屏
-            iconView.image = bundleImage("ScreenRecording@2x.png")
+            iconView.image = YLPermissionManager.bundleImage("ScreenRecording@2x.png")
             checkBtn.title = YLPermissionManager.localize("Screen recording permission authorization")
         default: break
         }
@@ -97,19 +104,6 @@ class YLPermissionItem: NSView {
             infoLabel.stringValue = "*" + model.desc
         }
         refreshStatus()
-    }
-    
-    private func bundleImage(_ name: String) -> NSImage {
-        var url = Bundle.main.url(forResource: "YLPermissionManager", withExtension: "bundle")
-        if url == nil {
-            url = Bundle.main.url(forResource: "Frameworks", withExtension: nil)?.appendingPathExtension("/YLCategory.framework")
-            if url != nil {
-                let bundle = Bundle(url: url!)
-                url = bundle?.url(forResource: "YLPermissionManager", withExtension: "bundle")
-            }
-        }
-        guard let url = url, let path = Bundle(url: url)?.bundlePath.appending("/\(name)") else { return NSImage() }
-        return NSImage(contentsOfFile: path) ?? NSImage()
     }
     
     // MARK: 刷新状态

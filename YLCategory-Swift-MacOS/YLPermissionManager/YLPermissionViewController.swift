@@ -48,6 +48,13 @@ class YLPermissionViewController: NSViewController {
         titleLabel.alignment = .center
         return titleLabel
     }()
+    private lazy var openBtn: NSButton = {
+        let btn = NSButton(image: YLPermissionManager.bundleImage("search_finder@2x.png"), target: self, action: #selector(displayInFinder))
+        btn.isBordered = false
+        btn.image?.isTemplate = true
+        btn.toolTip = YLPermissionManager.localize("Display in Finder")
+        return btn
+    }()
     private lazy var box: YLPermissionBoxView = {
         let box = YLPermissionBoxView()
         return box
@@ -69,6 +76,7 @@ class YLPermissionViewController: NSViewController {
         view = YLPermissionView(frame: NSRect(x: 0, y: 0, width: 600, height: 300))
         view.addSubview(effectView)
         view.addSubview(titleLabel)
+        view.addSubview(openBtn)
         view.addSubview(box)
         view.addSubview(lookBtn)
         view.addSubview(quitBtn)
@@ -78,6 +86,8 @@ class YLPermissionViewController: NSViewController {
     override func viewDidLayout() {
         super.viewDidLayout()
         effectView.frame = view.bounds
+        
+        openBtn.frame = NSRect(x: view.frame.size.width - 20, y: 5, width: 15, height: 15)
         
         let size = titleLabel.sizeThatFits(NSMakeSize(view.frame.size.width - 80, CGFloat.greatestFiniteMagnitude))
         let titleOrigin = NSMakePoint(view.frame.size.width / 2 - size.width / 2, 60)
@@ -96,13 +106,13 @@ class YLPermissionViewController: NSViewController {
         quitBtn.sizeToFit()
         skipBtn.sizeToFit()
         
-        let lookOrigin = NSMakePoint(box.frame.origin.x, box.frame.maxY + 10)
+        let lookOrigin = NSMakePoint(box.frame.origin.x - 5, box.frame.maxY + 10)
         lookBtn.frame = NSRect(origin: lookOrigin, size: lookBtn.frame.size)
         
-        let skipOrigin = NSMakePoint(box.frame.maxX - skipBtn.frame.size.width, lookOrigin.y)
+        let skipOrigin = NSMakePoint(box.frame.maxX - skipBtn.frame.size.width + 5, lookOrigin.y)
         skipBtn.frame = NSRect(origin: skipOrigin, size: skipBtn.frame.size)
         
-        let quitOrigin = NSMakePoint(skipOrigin.x - quitBtn.frame.size.width - 10, lookOrigin.y)
+        let quitOrigin = NSMakePoint(skipOrigin.x - quitBtn.frame.size.width, lookOrigin.y)
         quitBtn.frame = NSRect(origin: quitOrigin, size: quitBtn.frame.size)
     }
     
@@ -120,7 +130,15 @@ class YLPermissionViewController: NSViewController {
         }
     }
     
-    // MARK: - 观看权限设置教学
+    // MARK: -
+    
+    // MARK: 在"访达"中显示
+    
+    @objc func displayInFinder() {
+        NSWorkspace.shared.activateFileViewerSelecting([URL(fileURLWithPath: Bundle.main.bundlePath)])
+    }
+    
+    // MARK: 观看权限设置教学
     @objc func lookTutorialVideo() {
         guard let link = YLPermissionManager.shared.tutorialLink,
               let url = URL(string: link) else { return }

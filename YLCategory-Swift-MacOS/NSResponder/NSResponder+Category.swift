@@ -60,10 +60,9 @@ public extension NSResponder {
     }
     
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        super.observeValue(forKeyPath: keyPath, of: object, change: change, context: context)
         if keyPath == "effectiveAppearance" {
             appThemeChangedHandler?(self, appIsDarkTheme)
-        } else {
-            super.observeValue(forKeyPath: keyPath, of: object, change: change, context: context)
         }
     }
     

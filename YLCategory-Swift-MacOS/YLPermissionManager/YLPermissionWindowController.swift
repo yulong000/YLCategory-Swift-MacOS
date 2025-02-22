@@ -10,6 +10,9 @@ import AppKit
 
 class YLPermissionWindowController: NSWindowController {
     
+    /// 点击关闭按钮回调
+    var closeHandler: (() -> ())?
+    
     /// 控制器
     private(set) var permissionVc = YLPermissionViewController()
     
@@ -22,10 +25,18 @@ class YLPermissionWindowController: NSWindowController {
         window.isMovableByWindowBackground = true
         window.contentViewController = permissionVc
         super.init(window: window)
+        window.delegate = self
         window.center()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+}
+
+extension YLPermissionWindowController: NSWindowDelegate {
+    
+    func windowWillClose(_ notification: Notification) {
+        closeHandler?()
     }
 }

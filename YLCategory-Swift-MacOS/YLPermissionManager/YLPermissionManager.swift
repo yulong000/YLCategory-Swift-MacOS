@@ -90,6 +90,12 @@ public class YLPermissionManager: NSObject {
                         // 退出
                         self.quitHandler?()
                     }
+                    self.permissionWC?.closeHandler = {
+                        // 点击了关闭按钮
+                        self.monitorTimer?.invalidate()
+                        self.monitorTimer = nil
+                        self.permissionWC = nil
+                    }
                     self.permissionWC?.permissionVc.authTypes = authTypes
                 } else {
                     self.permissionWC?.permissionVc.refreshAllAuthState()
@@ -293,5 +299,18 @@ public class YLPermissionManager: NSObject {
                                  Bundle.main.infoDictionary?["CFBundleDisplayName"] as? String ??
                                  Bundle.main.localizedInfoDictionary?["CFBundleName"] as? String ??
                                  Bundle.main.infoDictionary?["CFBundleName"] as? String ?? ""
+    
+    static func bundleImage(_ name: String) -> NSImage {
+        var url = Bundle.main.url(forResource: "YLPermissionManager", withExtension: "bundle")
+        if url == nil {
+            url = Bundle.main.url(forResource: "Frameworks", withExtension: nil)?.appendingPathExtension("/YLCategory.framework")
+            if url != nil {
+                let bundle = Bundle(url: url!)
+                url = bundle?.url(forResource: "YLPermissionManager", withExtension: "bundle")
+            }
+        }
+        guard let url = url, let path = Bundle(url: url)?.bundlePath.appending("/\(name)") else { return NSImage() }
+        return NSImage(contentsOfFile: path) ?? NSImage()
+    }
 }
 
