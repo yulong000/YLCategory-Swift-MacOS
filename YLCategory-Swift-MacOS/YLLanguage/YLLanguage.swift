@@ -75,8 +75,8 @@ public class YLLanguage {
     /// - Parameters:
     ///   - model: 语言模型
     ///   - type: 原来的语言类型
-    ///   - action: 设置完成后，重启app之前，执行的代码
-    public class func set(language model: YLLanguageModel, from type: LanguageType, beforeRestart action: (() -> Void)? = nil) {
+    ///   - action: 设置完成后，重启app之前，执行的代码, Bool: 是否选择了重启
+    public class func set(language model: YLLanguageModel, from type: LanguageType, beforeRestart action: ((Bool) -> Void)? = nil) {
         if model.languageType == type { return }
         if model.languageType == .system {
             // 跟随系统
@@ -86,15 +86,15 @@ public class YLLanguage {
             UserDefaults.standard.set([model.code], forKey: "AppleLanguages")
         }
         UserDefaults.standard.synchronize()
-        if let action = action { action() }
-        restartApp()
+        restartApp(action)
     }
     
     /// 设置app的语言类型
     /// - Parameters:
     ///   - languageType: 语言类型
     ///   - restart: 是否重启app
-    public class func set(languageType: LanguageType, restart: Bool) {
+    ///   - action: 设置完成后，重启app之前，执行的代码, Bool: 是否选择了重启
+    public class func set(languageType: LanguageType, restart: Bool, beforeRestart action: ((Bool) -> Void)? = nil) {
         if languageType == .system {
             // 跟随系统
             UserDefaults.standard.removeObject(forKey: "AppleLanguages")
@@ -104,12 +104,12 @@ public class YLLanguage {
         }
         UserDefaults.standard.synchronize()
         if restart {
-            restartApp()
+            restartApp(action)
         }
     }
     
     // MARK: 重启app
-    private class func restartApp() {
+    private class func restartApp(_ handler: ((Bool) -> Void)? = nil) {
         let alert = NSAlert()
         alert.alertStyle = .warning
         alert.messageText = YLLanguage.localize("Kind tips")
@@ -117,6 +117,7 @@ public class YLLanguage {
         alert.addButton(withTitle: YLLanguage.localize("Restart"))
         alert.addButton(withTitle: YLLanguage.localize("Cancel"))
         let response = alert.runModal()
+        handler?(response == .alertFirstButtonReturn)
         if response == .alertFirstButtonReturn {
             // 重启
             let bundlePath = Bundle.main.bundlePath
