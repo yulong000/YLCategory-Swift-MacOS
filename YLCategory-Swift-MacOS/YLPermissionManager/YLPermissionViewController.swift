@@ -87,7 +87,7 @@ class YLPermissionViewController: NSViewController {
         super.viewDidLayout()
         effectView.frame = view.bounds
         
-        openBtn.frame = NSRect(x: view.frame.size.width - 20, y: 5, width: 15, height: 15)
+        openBtn.frame = NSRect(x: view.frame.size.width - 26, y: 8, width: 18, height: 18)
         
         let size = titleLabel.sizeThatFits(NSMakeSize(view.frame.size.width - 80, CGFloat.greatestFiniteMagnitude))
         let titleOrigin = NSMakePoint(view.frame.size.width / 2 - size.width / 2, 60)
