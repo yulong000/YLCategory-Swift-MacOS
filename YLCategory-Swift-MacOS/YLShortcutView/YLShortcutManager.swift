@@ -27,10 +27,12 @@ public class YLShortcutManager {
             print("InstallEventHandler Error")
         }
         
-        // 监听辅助功能权限
-        monitorAccessibilityPermissionDidChanged()
-        // 监听错误提示音播放
-        DistributedNotificationCenter.default().addObserver(self, selector: #selector(systemBeepNotification), name: NSNotification.Name(rawValue:"com.apple.systemBeep"), object: nil)
+        if optionModifierInvalidInCurrentSystem() {
+            // 监听辅助功能权限
+            monitorAccessibilityPermissionDidChanged()
+            // 监听错误提示音播放
+            DistributedNotificationCenter.default().addObserver(self, selector: #selector(systemBeepNotification), name: NSNotification.Name(rawValue:"com.apple.systemBeep"), object: nil)
+        }
     }
     
     deinit {
@@ -44,8 +46,10 @@ public class YLShortcutManager {
             self.timer = nil
         }
         
-        unregisterKeyDownSource()
-        DistributedNotificationCenter.default().removeObserver(self)
+        if optionModifierInvalidInCurrentSystem() {
+            unregisterKeyDownSource()
+            DistributedNotificationCenter.default().removeObserver(self)
+        }
     }
     
     // MARK: - 注册
@@ -64,8 +68,8 @@ public class YLShortcutManager {
         }
         // 注册失败，检查是否是因为含有Option键
         let flags = shortcut.modifierFlags.intersection(.deviceIndependentFlagsMask)
-        guard flags == .option || flags == [.option, .shift], #available(macOS 15.0, *) else { return false }
-        if AXIsProcessTrusted() {
+        guard flags == .option || flags == [.option, .shift], optionModifierInvalidInCurrentSystem() else { return false }
+        if accessibilityIsEnabled() {
             // 辅助功能权限已打开
             guard registerKeyDownSource() else { return false }
             let hotKey = YLHotKey(optionShortcut: shortcut)
@@ -210,14 +214,21 @@ public class YLShortcutManager {
     
     // MARK: - Option 修饰键判断
     
+    /// 含有option的快捷键在该系统版本下是否失效
+    public func optionModifierInvalidInCurrentSystem() -> Bool {
+        if #available(macOS 15.3, *) { return true }
+        if #available(macOS 15.0, *) { return false }
+        return true
+    }
+    
     /// 单个快捷键是否包含Option修饰键，且可以正常使用
     public func validWithOptionModifier(_ shortcut: YLShortcut) -> Bool {
-        if #available(macOS 15.0, *) {
+        if optionModifierInvalidInCurrentSystem() {
             let modifierFlags = shortcut.modifierFlags
             let deviceIndependentFlags = modifierFlags.intersection(.deviceIndependentFlagsMask)
             if deviceIndependentFlags == .option || deviceIndependentFlags == [.option, .shift] {
                 // Option + keyCode 或者 Option + shift + keyCode
-                if shortcut.keyCode != kVK_Space && !AXIsProcessTrusted() {
+                if shortcut.keyCode != kVK_Space && !accessibilityIsEnabled() {
                     return false
                 }
             }
@@ -238,7 +249,7 @@ public class YLShortcutManager {
     }
     
     /// 弹窗提醒，因Option无法使用，需授权辅助功能权限，点击授权，会退出app并打开授权页面，点击清空，会回调
-    public func showAuthAccessbilityOrClearAlertForOptionModifier(clear handler: () -> Void) {
+    public func showAuthAccessibilityOrClearAlertForOptionModifier(clear handler: () -> Void) {
         let alert = NSAlert()
         alert.alertStyle = .warning
         alert.messageText = YLShortcutManager.localize("Kind tips")
@@ -255,6 +266,16 @@ public class YLShortcutManager {
             // 清空 Option + 快捷键回调
             handler()
         }
+    }
+    
+    /// 判断是否开启了辅助功能权限
+    public func accessibilityIsEnabled() -> Bool {
+        if AXIsProcessTrusted() == false {
+            return false
+        }
+        // 如果是把辅助功能权限删掉了，而不是把开关关闭了，此时AXIsProcessTrusted()获取到的仍然是true，所以需要再加一步判断
+        let tap = CGEvent.tapCreate(tap: .cghidEventTap, place: .tailAppendEventTap, options: .defaultTap, eventsOfInterest: CGEventMask(1 << CGEventType.keyDown.rawValue), callback: YLKeyDownEventCallBack, userInfo: nil)
+        return tap != nil
     }
     
     /// 请求辅助功能权限
@@ -294,7 +315,7 @@ public class YLShortcutManager {
     // MARK: - 监听辅助功能权限变化
     
     private func monitorAccessibilityPermissionDidChanged() {
-        if #available(macOS 15.0, *) {
+        if optionModifierInvalidInCurrentSystem() {
             guard timer == nil else { return }
             let queue = DispatchQueue.global(qos: .default)
             timer = DispatchSource.makeTimerSource(queue: queue)
@@ -302,8 +323,7 @@ public class YLShortcutManager {
             timer?.setEventHandler(handler: { [weak self] in
                 DispatchQueue.main.async {
                     guard let self = self else { return }
-                    let trusted = AXIsProcessTrusted()
-                    if !trusted {
+                    if !self.accessibilityIsEnabled() {
                         self.unregisterKeyDownSource()
                     } else {
                         self.registerKeyDownSource()
@@ -315,7 +335,7 @@ public class YLShortcutManager {
     }
     
     @discardableResult
-    private func registerKeyDownSource() -> Bool {
+    fileprivate func registerKeyDownSource() -> Bool {
         guard runloopSource == nil else { return true }
         tap = CGEvent.tapCreate(tap: .cghidEventTap, place: .headInsertEventTap, options: .defaultTap, eventsOfInterest: CGEventMask(1 << CGEventType.keyDown.rawValue), callback: YLKeyDownEventCallBack, userInfo: Unmanaged.passUnretained(self).toOpaque())
         guard let tap = tap else { return false }
@@ -325,7 +345,7 @@ public class YLShortcutManager {
         return true
     }
     
-    private func unregisterKeyDownSource() {
+    fileprivate func unregisterKeyDownSource() {
         if let runloopSource = runloopSource {
             CFRunLoopRemoveSource(CFRunLoopGetCurrent(), runloopSource, .commonModes)
             self.runloopSource = nil
@@ -498,14 +518,22 @@ fileprivate func setSystemVolume(_ volume: Float32) {
 // MARK: - 回调事件
 
 fileprivate func YLKeyDownEventCallBack(proxy: CGEventTapProxy, type: CGEventType, event: CGEvent, refcon: UnsafeMutableRawPointer?) -> Unmanaged<CGEvent>? {
-    guard let refcon = refcon, type == .keyDown else { return Unmanaged.passUnretained(event) }
+    guard let refcon = refcon else { return Unmanaged.passUnretained(event) }
     let manager = Unmanaged<YLShortcutManager>.fromOpaque(refcon).takeUnretainedValue()
-    let flags = CGEventFlags(rawValue: (event.flags.rawValue & ~(CGEventFlags.maskNonCoalesced.rawValue | 0x20)))
-    let keyCode = CGKeyCode(event.getIntegerValueField(.keyboardEventKeycode))
-    if flags.contains(.maskAlternate) {
-        if manager.handleOptionFlags(flags: flags, keyCode: keyCode) {
-            return nil
+    switch type {
+    case .keyDown:
+        // 按下键盘
+        let flags = CGEventFlags(rawValue: (event.flags.rawValue & ~(CGEventFlags.maskNonCoalesced.rawValue | 0x20)))
+        let keyCode = CGKeyCode(event.getIntegerValueField(.keyboardEventKeycode))
+        if flags.contains(.maskAlternate) {
+            if manager.handleOptionFlags(flags: flags, keyCode: keyCode) {
+                return nil
+            }
         }
+    case .tapDisabledByTimeout:
+        // 超时
+        manager.unregisterKeyDownSource()
+    default: break
     }
     return Unmanaged.passUnretained(event)
 }

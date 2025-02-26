@@ -25,6 +25,8 @@ open class YLShortcutView: NSView {
             needsDisplay = true
         }
     }
+    /// 是否弹窗提醒授权辅助功能
+    open var requestAccessibilityWhenNeed: Bool = true
     
     public override init(frame frameRect: NSRect) {
         super.init(frame: frameRect)
@@ -100,7 +102,7 @@ open class YLShortcutView: NSView {
                                 YLHud.showError(YLShortcutManager.localize("Shortcut has been registered by system"), to: self.window)
                                 return nil
                             }
-                            if YLShortcutManager.shared.validWithOptionModifier(shortcut) == false {
+                            if YLShortcutManager.shared.validWithOptionModifier(shortcut) == false && requestAccessibilityWhenNeed {
                                 // 含有Option，且在当前系统无效，需要打开辅助功能权限
                                 self.recording = false
                                 NSApp.activate(ignoringOtherApps: true)

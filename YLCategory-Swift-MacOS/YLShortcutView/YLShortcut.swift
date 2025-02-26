@@ -225,7 +225,7 @@ public class YLShortcut: NSObject, NSSecureCoding, NSCopying {
     
     // MARK: - json <-> model
     
-    public func toJson() -> Dictionary<String, Any> {
+    public func toJson() -> [String: Any] {
         var json: [String: Any] = [:]
         json["keyCode"] = keyCode
         json["modifierFlags"] = modifierFlags.rawValue
@@ -234,11 +234,11 @@ public class YLShortcut: NSObject, NSSecureCoding, NSCopying {
         return json
     }
     
-    public convenience init?(json: Dictionary<String, Any>?) {
+    public convenience init?(json: [String: Any]?) {
         guard let json = json,
               let keyCode = json["keyCode"] as? UInt16,
-              let modifierFlags = json["modifierFlags"] as? NSEvent.ModifierFlags else { return nil }
-        self.init(keyCode: keyCode, modifierFlags: modifierFlags)
+              let modifierFlags = json["modifierFlags"] as? UInt else { return nil }
+        self.init(keyCode: keyCode, modifierFlags: NSEvent.ModifierFlags(rawValue: modifierFlags))
     }
     
     // MARK: - copy
