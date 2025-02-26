@@ -51,6 +51,7 @@ public class YLPermissionManager: NSObject {
     /// 教学视频链接，不设置则不显示 观看权限设置教学>> 的按钮
     public var tutorialLink: String?
     
+    // MARK: - 循环监听
     
     /// 一次性监听所有权限，如果有权限未授权，则会显示授权窗口，当所有权限都授权时，则自动隐藏
     /// - Parameters:
@@ -144,7 +145,62 @@ public class YLPermissionManager: NSObject {
         })
     }
     
-    // MARK: - 单个权限
+    
+    // MARK: - 一次性监听
+    
+    // MARK: 检查多个权限是否同时开启
+    public func checkPermissionAuth(_ authTypes: [YLPermissionAuthType]) -> Bool {
+        var flag = true
+        for type in authTypes {
+            switch type {
+            case .accessibility:
+                flag = flag && getPrivacyAccessibilityIsEnabled()
+            case .screenCapture:
+                flag = flag && getScreenCaptureIsEnabled()
+            case .fullDisk:
+                flag = flag && getFullDiskAccessIsEnabled()
+            default:
+                break
+            }
+            if flag == false { break }
+        }
+        return flag
+    }
+    
+    // MARK: 显示授权窗口
+    public func showPermissionAuth(_ authTypes: [YLPermissionModel]) {
+        monitorTimer?.invalidate()
+        monitorTimer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { [weak self] timer in
+            guard let self = self else { return }
+            if self.permissionWC == nil {
+                self.permissionWC = YLPermissionWindowController()
+                self.permissionWC?.permissionVc.allAuthPassedHandler = {
+                    // 已全部授权
+                    self.monitorTimer?.invalidate()
+                    self.monitorTimer = nil
+                    self.passAuth()
+                }
+                self.permissionWC?.permissionVc.skipHandler = {
+                    // 跳过
+                    self.skipAuth()
+                }
+                self.permissionWC?.permissionVc.quitHandler = {
+                    // 退出
+                    self.quitHandler?()
+                }
+                self.permissionWC?.closeHandler = {
+                    // 点击了关闭按钮
+                    self.monitorTimer?.invalidate()
+                    self.monitorTimer = nil
+                    self.permissionWC = nil
+                }
+                self.permissionWC?.permissionVc.authTypes = authTypes
+            } else {
+                self.permissionWC?.permissionVc.refreshAllAuthState()
+            }
+            self.permissionWC?.window?.orderFrontRegardless()
+        })
+    }
     
     // MARK: 检查某个权限是否开启，如果未开启，则弹出Alert，请求打开权限
     @discardableResult

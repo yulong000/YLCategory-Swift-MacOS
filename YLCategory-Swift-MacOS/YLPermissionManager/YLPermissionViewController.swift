@@ -119,7 +119,7 @@ class YLPermissionViewController: NSViewController {
     
     // MARK: 刷新所有的授权状态
     func refreshAllAuthState() {
-        var all = false
+        var all = true
         for item in box.contentView!.subviews where item.isKind(of: YLPermissionItem.self) {
             if let permissionItem = item as? YLPermissionItem {
                 all = permissionItem.refreshStatus() && all
@@ -153,6 +153,12 @@ class YLPermissionViewController: NSViewController {
     @objc func skip() {
         skipHandler?()
     }
+    
+#if DEBUG
+    deinit {
+        print("YLPermissionViewController deinit")
+    }
+#endif
     
 }
 

@@ -273,7 +273,7 @@ public class YLShortcutManager {
         if AXIsProcessTrusted() == false {
             return false
         }
-        // 如果是把辅助功能权限删掉了，而不是把开关关闭了，此时AXIsProcessTrusted()获取到的仍然是true，所以需要再加一步判断
+        // 如果是把辅助功能权限删掉了，而不是把开关关闭了，此时AXIsProcessTrusted()获取到的仍然是true，所以需要再加一步判断, 但是该方法在没有辅助功能时，会造成主线程卡顿
         let tap = CGEvent.tapCreate(tap: .cghidEventTap, place: .tailAppendEventTap, options: .defaultTap, eventsOfInterest: CGEventMask(1 << CGEventType.keyDown.rawValue), callback: YLKeyDownEventCallBack, userInfo: nil)
         return tap != nil
     }
