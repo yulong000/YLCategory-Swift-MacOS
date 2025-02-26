@@ -216,9 +216,9 @@ public class YLShortcutManager {
     
     /// 含有option的快捷键在该系统版本下是否失效
     public func optionModifierInvalidInCurrentSystem() -> Bool {
-        if #available(macOS 15.3, *) { return true }
-        if #available(macOS 15.0, *) { return false }
-        return true
+        if #available(macOS 15.3, *) { return false }
+        if #available(macOS 15.0, *) { return true }
+        return false
     }
     
     /// 单个快捷键是否包含Option修饰键，且可以正常使用
