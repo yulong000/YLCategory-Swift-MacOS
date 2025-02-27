@@ -270,12 +270,7 @@ public class YLShortcutManager {
     
     /// 判断是否开启了辅助功能权限
     public func accessibilityIsEnabled() -> Bool {
-        if AXIsProcessTrusted() == false {
-            return false
-        }
-        // 如果是把辅助功能权限删掉了，而不是把开关关闭了，此时AXIsProcessTrusted()获取到的仍然是true，所以需要再加一步判断, 但是该方法在没有辅助功能时，会造成主线程卡顿
-        let tap = CGEvent.tapCreate(tap: .cghidEventTap, place: .tailAppendEventTap, options: .defaultTap, eventsOfInterest: CGEventMask(1 << CGEventType.keyDown.rawValue), callback: YLKeyDownEventCallBack, userInfo: nil)
-        return tap != nil
+        return AXIsProcessTrusted() && canCreateEventTap
     }
     
     /// 请求辅助功能权限
@@ -311,6 +306,8 @@ public class YLShortcutManager {
     
     /// 监听辅助功能权限
     private var timer: DispatchSourceTimer?
+    /// 是否可以创建tap事件，来判断是否有辅助功能权限，因为如果是把辅助功能权限删掉了，而不是把开关关闭了，此时AXIsProcessTrusted()获取到的仍然是true
+    private var canCreateEventTap = true
     
     // MARK: - 监听辅助功能权限变化
     
@@ -321,8 +318,11 @@ public class YLShortcutManager {
             timer = DispatchSource.makeTimerSource(queue: queue)
             timer?.schedule(deadline: .now(), repeating: .seconds(1), leeway: .seconds(1))
             timer?.setEventHandler(handler: { [weak self] in
+                guard let self = self else { return }
+                if AXIsProcessTrusted() {
+                    self.canCreateEventTap = CGEvent.tapCreate(tap: .cghidEventTap, place: .tailAppendEventTap, options: .defaultTap, eventsOfInterest: CGEventMask(1 << CGEventType.keyDown.rawValue), callback: {_,_,_,_ in return nil}, userInfo: nil) != nil
+                }
                 DispatchQueue.main.async {
-                    guard let self = self else { return }
                     if !self.accessibilityIsEnabled() {
                         self.unregisterKeyDownSource()
                     } else {
@@ -341,16 +341,16 @@ public class YLShortcutManager {
         guard let tap = tap else { return false }
         runloopSource = CFMachPortCreateRunLoopSource(kCFAllocatorDefault, tap, 0)
         guard let runloopSource = runloopSource else { return false }
-        CFRunLoopAddSource(CFRunLoopGetCurrent(), runloopSource, .commonModes)
+        CFRunLoopAddSource(CFRunLoopGetCurrent(), runloopSource, .defaultMode)
         return true
     }
     
     fileprivate func unregisterKeyDownSource() {
         if let runloopSource = runloopSource {
-            CFRunLoopRemoveSource(CFRunLoopGetCurrent(), runloopSource, .commonModes)
-            self.runloopSource = nil
+            CFRunLoopRemoveSource(CFRunLoopGetCurrent(), runloopSource, .defaultMode)
         }
-        self.tap = nil
+        runloopSource = nil
+        tap = nil
     }
     
     // MARK: - 警告音

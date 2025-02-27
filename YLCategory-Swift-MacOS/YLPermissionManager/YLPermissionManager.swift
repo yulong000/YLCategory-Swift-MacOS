@@ -18,7 +18,10 @@ import AppKit
 public class YLPermissionManager: NSObject {
     
     public static let shared = YLPermissionManager()
-    private override init() {}
+    private override init() {
+        super.init()
+        self.monitorAccessibilityPermissionDelete()
+    }
     
     /// 是否所有权限都已授权
     public var allAuthPassed: Bool {
@@ -242,7 +245,7 @@ public class YLPermissionManager: NSObject {
     }
     
     // MARK: 获取辅助功能权限是否打开
-    public func getPrivacyAccessibilityIsEnabled() -> Bool { AXIsProcessTrusted() }
+    public func getPrivacyAccessibilityIsEnabled() -> Bool { AXIsProcessTrusted() && canCreateEventTap }
     
     // MARK: 获取录屏权限是否打开
     public func getScreenCaptureIsEnabled() -> Bool {
@@ -329,7 +332,9 @@ public class YLPermissionManager: NSObject {
     private var authTypes: [YLPermissionModel] = []
     private var monitorTimer: Timer? = nil
     private var skipped: Bool = false
-    
+    // 辅助功能相关
+    private var accessibilityTimer: DispatchSourceTimer?
+    private var canCreateEventTap = true
     
     // MARK: 通过授权
     private func passAuth() {
@@ -345,6 +350,21 @@ public class YLPermissionManager: NSObject {
         monitorTimer = nil
         skipped = true
         skipHandler?()
+    }
+    
+    // MARK: 监听辅助功能权限是否删除了
+    private func monitorAccessibilityPermissionDelete() {
+        guard accessibilityTimer == nil else { return }
+        let queue = DispatchQueue.global(qos: .default)
+        accessibilityTimer = DispatchSource.makeTimerSource(queue: queue)
+        accessibilityTimer?.schedule(deadline: .now(), repeating: .seconds(1), leeway: .seconds(1))
+        accessibilityTimer?.setEventHandler(handler: { [weak self] in
+            guard let self = self else { return }
+            if AXIsProcessTrusted() {
+                self.canCreateEventTap = CGEvent.tapCreate(tap: .cghidEventTap, place: .tailAppendEventTap, options: .defaultTap, eventsOfInterest: CGEventMask(1 << CGEventType.keyDown.rawValue), callback: { _,_,_,_ in return nil }, userInfo: nil) != nil
+            }
+        })
+        accessibilityTimer?.resume()
     }
     
     // MARK: - 本地化相关
