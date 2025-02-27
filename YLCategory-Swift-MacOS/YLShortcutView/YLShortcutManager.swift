@@ -320,7 +320,12 @@ public class YLShortcutManager {
             timer?.setEventHandler(handler: { [weak self] in
                 guard let self = self else { return }
                 if AXIsProcessTrusted() {
-                    self.canCreateEventTap = CGEvent.tapCreate(tap: .cghidEventTap, place: .tailAppendEventTap, options: .defaultTap, eventsOfInterest: CGEventMask(1 << CGEventType.keyDown.rawValue), callback: {_,_,_,_ in return nil}, userInfo: nil) != nil
+                    if let tap = CGEvent.tapCreate(tap: .cgAnnotatedSessionEventTap, place: .tailAppendEventTap, options: .listenOnly, eventsOfInterest: CGEventMask(1 << CGEventType.keyDown.rawValue), callback: {_,_,_,_ in return nil}, userInfo: nil) {
+                        CGEvent.tapEnable(tap: tap, enable: false)
+                        self.canCreateEventTap = true
+                    } else {
+                        self.canCreateEventTap = false
+                    }
                 }
                 DispatchQueue.main.async {
                     if !self.accessibilityIsEnabled() {
@@ -347,10 +352,13 @@ public class YLShortcutManager {
     
     fileprivate func unregisterKeyDownSource() {
         if let runloopSource = runloopSource {
-            CFRunLoopRemoveSource(CFRunLoopGetCurrent(), runloopSource, .defaultMode)
+            CFRunLoopRemoveSource(CFRunLoopGetCurrent(), runloopSource, .commonModes)
+            self.runloopSource = nil
         }
-        runloopSource = nil
-        tap = nil
+        if let tap = tap {
+            CGEvent.tapEnable(tap: tap, enable: false)
+            self.tap = nil
+        }
     }
     
     // MARK: - 警告音

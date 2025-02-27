@@ -361,7 +361,12 @@ public class YLPermissionManager: NSObject {
         accessibilityTimer?.setEventHandler(handler: { [weak self] in
             guard let self = self else { return }
             if AXIsProcessTrusted() {
-                self.canCreateEventTap = CGEvent.tapCreate(tap: .cghidEventTap, place: .tailAppendEventTap, options: .defaultTap, eventsOfInterest: CGEventMask(1 << CGEventType.keyDown.rawValue), callback: { _,_,_,_ in return nil }, userInfo: nil) != nil
+                if let tap = CGEvent.tapCreate(tap: .cgAnnotatedSessionEventTap, place: .tailAppendEventTap, options: .listenOnly, eventsOfInterest: CGEventMask(1 << CGEventType.keyDown.rawValue), callback: {_,_,_,_ in return nil}, userInfo: nil) {
+                    CGEvent.tapEnable(tap: tap, enable: false)
+                    self.canCreateEventTap = true
+                } else {
+                    self.canCreateEventTap = false
+                }
             }
         })
         accessibilityTimer?.resume()
