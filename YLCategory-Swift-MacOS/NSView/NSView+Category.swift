@@ -62,7 +62,7 @@ public extension NSView {
     
     // MARK: 移除所有的跟踪区域
     func removeAllTrackingAreas() {
-        trackingAreas.forEach { removeTrackingArea($0)}
+        trackingAreas.forEach { removeTrackingArea($0) }
     }
     
     // MARK: - 设置边框

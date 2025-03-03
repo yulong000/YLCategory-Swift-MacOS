@@ -68,6 +68,7 @@
 		00CFDCE62D22AB9A00EF4FA4 /* YLUpdateWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CFDCE52D22AB9A00EF4FA4 /* YLUpdateWindowController.swift */; };
 		00CFDCE82D22ABA600EF4FA4 /* YLUpdateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CFDCE72D22ABA600EF4FA4 /* YLUpdateViewController.swift */; };
 		00CFDCEA2D22AEEC00EF4FA4 /* YLUpdateXMLParserDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CFDCE92D22AEDA00EF4FA4 /* YLUpdateXMLParserDelegate.swift */; };
+		00D772122D75E7BE004043E6 /* YLScrollLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D772112D75E7B0004043E6 /* YLScrollLabel.swift */; };
 		00E850622D1C529A00EBE080 /* NSObject+KVO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E850612D1C529A00EBE080 /* NSObject+KVO.swift */; };
 		00E850642D1C579A00EBE080 /* NSObject+Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E850632D1C579A00EBE080 /* NSObject+Notification.swift */; };
 		00E850662D1C581A00EBE080 /* NSObject+Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E850652D1C581A00EBE080 /* NSObject+Event.swift */; };
@@ -187,6 +188,7 @@
 		00CFDCE52D22AB9A00EF4FA4 /* YLUpdateWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YLUpdateWindowController.swift; sourceTree = "<group>"; };
 		00CFDCE72D22ABA600EF4FA4 /* YLUpdateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YLUpdateViewController.swift; sourceTree = "<group>"; };
 		00CFDCE92D22AEDA00EF4FA4 /* YLUpdateXMLParserDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YLUpdateXMLParserDelegate.swift; sourceTree = "<group>"; };
+		00D772112D75E7B0004043E6 /* YLScrollLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YLScrollLabel.swift; sourceTree = "<group>"; };
 		00E850612D1C529A00EBE080 /* NSObject+KVO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+KVO.swift"; sourceTree = "<group>"; };
 		00E850632D1C579A00EBE080 /* NSObject+Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+Notification.swift"; sourceTree = "<group>"; };
 		00E850652D1C581A00EBE080 /* NSObject+Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+Event.swift"; sourceTree = "<group>"; };
@@ -237,6 +239,7 @@
 		0080A4E62D04490900EEFEA2 /* YLCategory-Swift-MacOS */ = {
 			isa = PBXGroup;
 			children = (
+				00D772132D75FCDE004043E6 /* YLScrollLabel */,
 				00B79B2A2D14181600DAE137 /* YLTextField */,
 				00B799EB2D1415AA00DAE137 /* YLFileAccess */,
 				00B799FD2D1415AA00DAE137 /* YLUpdateManager */,
@@ -614,6 +617,14 @@
 			path = YLTextField;
 			sourceTree = "<group>";
 		};
+		00D772132D75FCDE004043E6 /* YLScrollLabel */ = {
+			isa = PBXGroup;
+			children = (
+				00D772112D75E7B0004043E6 /* YLScrollLabel.swift */,
+			);
+			path = YLScrollLabel;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -716,6 +727,7 @@
 				0080A4EC2D044A8E00EEFEA2 /* NSView+Frame.swift in Sources */,
 				00B79B352D15D5D200DAE137 /* NSView+Category.swift in Sources */,
 				00CFDCAB2D214A8B00EF4FA4 /* YLPermissionManager.swift in Sources */,
+				00D772122D75E7BE004043E6 /* YLScrollLabel.swift in Sources */,
 				009F0A8F2D662FAA00569230 /* NSResponder+Category.swift in Sources */,
 				00CFDCB32D214B3500EF4FA4 /* YLPermissionModel.swift in Sources */,
 				00A0F9CC2D1A7DB80043E075 /* String+Predicate.swift in Sources */,

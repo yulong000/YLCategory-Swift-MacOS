@@ -60,4 +60,8 @@ fileprivate class YLTextFieldCell : NSTextFieldCell {
         let newRect = self.isScrollable ? self.drawingRect(forBounds: rect) : rect
         super.edit(withFrame: newRect, in: controlView, editor: textObj, delegate: delegate, event: event)
     }
+    
+    override func hitTest(for event: NSEvent, in cellFrame: NSRect, of controlView: NSView) -> NSCell.HitResult {
+        return .editableTextArea
+    }
 }
