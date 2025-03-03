@@ -12,6 +12,8 @@ public extension String {
     
     /// 获取本地化内容
     var local: String { NSLocalizedString(self, comment: "") }
+    /// 获取本地化内容，可传入comment
+    func local(_ comment: String) -> String { NSLocalizedString(self, comment: comment) }
     
     /// 获取 string 的 size
     /// - Parameters:

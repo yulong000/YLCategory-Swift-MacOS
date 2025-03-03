@@ -22,22 +22,21 @@ public let OrangeColor: NSColor = .orange
 public let YellowColor: NSColor = .yellow
 public let BlueColor: NSColor = .blue
 public let SystemBlueColor: NSColor = .systemBlue
-public var ControlAccentColor: NSColor { .controlAccentColor }
+public let ControlAccentColor: NSColor = .controlAccentColor
 public var RandomColor: NSColor { NSColor(red: CGFloat(arc4random() % 255) / 255.0, green: CGFloat(arc4random() % 255) / 255.0, blue: CGFloat(arc4random() % 255) / 255.0, alpha: 1.0) }
 
-public var RGBA:(CGFloat, CGFloat, CGFloat, CGFloat) -> NSColor  = { r, g, b, a in
-    NSColor(red: r / 255.0, green: g / 255.0, blue: b / 255.0, alpha: a)
-}
-public var RGB: (CGFloat) -> NSColor = { NSColor(red: $0 / 255.0, green: $0 / 255.0, blue: $0 / 255.0, alpha: 1.0) }
-public var Hex: (Int) -> NSColor = {
-    NSColor(red: CGFloat(($0 & 0xFF0000) >> 16) / 255.0,
-            green: CGFloat(($0 & 0x00FF00) >> 8) / 255.0,
-            blue: CGFloat($0 & 0x0000FF) / 255.0,
+public func RGBA(_ r: UInt8, _ g: UInt8, _ b: UInt8, _ a: CGFloat) -> NSColor { NSColor(red: CGFloat(r) / 255.0, green: CGFloat(g) / 255.0, blue: CGFloat(b) / 255.0, alpha: a) }
+public func RGB(_ rgb: UInt8) -> NSColor { NSColor(red: CGFloat(rgb) / 255.0, green: CGFloat(rgb) / 255.0, blue: CGFloat(rgb) / 255.0, alpha: 1) }
+public func Hex(_ hexValue: UInt) -> NSColor {
+    NSColor(red: CGFloat((hexValue & 0xFF0000) >> 16) / 255.0,
+            green: CGFloat((hexValue & 0x00FF00) >> 8) / 255.0,
+            blue: CGFloat(hexValue & 0x0000FF) / 255.0,
             alpha: 1.0)
 }
 
-public var BlackColorAlpha: (CGFloat) -> NSColor = { NSColor(white: 0, alpha: $0) }
-public var WhiteColoAlpha: (CGFloat) -> NSColor = { NSColor(white: 1, alpha: $0) }
+public func BlackColorAlpha(_ a: CGFloat) -> NSColor { NSColor(white: 0, alpha: a) }
+public func WhiteColorAlpha(_ a: CGFloat) -> NSColor { NSColor(white: 1, alpha: a) }
+public func WhiteColor(_ white: CGFloat, alpha: CGFloat) -> NSColor { NSColor(white: white, alpha: alpha) }
 
 // MARK: - 屏幕
 
@@ -48,10 +47,10 @@ public var kStatusBarHeight: CGFloat { NSApp.mainMenu?.menuBarHeight ?? 0.0 }
 
 // MARK: - 字体
 
-public var Font: (CGFloat) -> NSFont = { .systemFont(ofSize: $0) }
-public var BoldFont: (CGFloat) -> NSFont = { .boldSystemFont(ofSize: $0) }
-public var MediumFont: (CGFloat) -> NSFont = { .systemFont(ofSize: $0, weight: .medium) }
-public var ThinFont: (CGFloat) -> NSFont = { .systemFont(ofSize: $0, weight: .thin) }
+public func Font(_ size: CGFloat) -> NSFont { .systemFont(ofSize: size) }
+public func BoldFont(_ size: CGFloat) -> NSFont { .boldSystemFont(ofSize: size) }
+public func MediumFont(_ size: CGFloat) -> NSFont { .systemFont(ofSize: size, weight: .medium) }
+public func ThinFont(_ size: CGFloat) -> NSFont { .systemFont(ofSize: size, weight: .thin) }
 
 // MARK: - app相关信息
 
@@ -70,7 +69,7 @@ public var kSystemIsDarkTheme: Bool {
 
 public var kDocumentPath: String { NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).last ?? "" }
 public var kCachePath: String { NSSearchPathForDirectoriesInDomains(.cachesDirectory, .userDomainMask, true).last ?? "" }
-public var BundlePath: (String) -> String? = { Bundle.main.path(forResource: $0, ofType: nil) }
+public func BundlePath(_ fileName: String) -> String? { Bundle.main.path(forResource: fileName, ofType: nil) }
 
 public let kAPP_Version: String = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as! String
 public let kAPP_Build_Number: String = Bundle.main.infoDictionary?["CFBundleVersion"] as! String
@@ -89,7 +88,7 @@ public let kSystem_OS_Version = {
 } ()
 
 // MARK: - 判断2个CF字符串是否相等
-public var CFStringEqual: (CFString, CFString) -> Bool = { CFStringCompare($0, $1, []) == .compareEqualTo }
+public func CFStringEqual(_ str1: CFString, _ str2: CFString) -> Bool { CFStringCompare(str1, str2, []) == .compareEqualTo }
 
 // MARK: - 修饰键判断的相关方法
 

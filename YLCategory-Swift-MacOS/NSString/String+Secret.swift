@@ -52,4 +52,79 @@ public extension String {
         }
         return ""
     }
+    
+    /// AES加密
+    @available(macOS 10.15, *)
+    func aesEncrypt(_ key: SymmetricKey) -> Data? {
+        guard let data = self.data(using: .utf8) else { return nil }
+        let sealedBox = try? AES.GCM.seal(data, using: key)
+        return sealedBox?.combined
+    }
+    
+    /// AES解密
+    @available(macOS 10.15, *)
+    static func aesDecrypt(_ encrytpData: Data, _ key: SymmetricKey) -> String? {
+        guard let sealedBox = try? AES.GCM.SealedBox(combined: encrytpData),
+              let decryptedData = try? AES.GCM.open(sealedBox, using: key) else { return nil }
+        return String(data: decryptedData, encoding: .utf8)
+    }
+    
+    /// aes加密 (10.14及以下)
+    func aesCBCEncrypt(key: Data, iv: Data) -> Data? {
+        guard let data = self.data(using: .utf8) else { return nil }
+        let bufferSize = data.count + kCCBlockSizeAES128
+        var buffer = Data(count: bufferSize)
+
+        var numBytesEncrypted: size_t = 0
+        let cryptStatus = buffer.withUnsafeMutableBytes { bufferBytes in
+            data.withUnsafeBytes { dataBytes in
+                key.withUnsafeBytes { keyBytes in
+                    iv.withUnsafeBytes { ivBytes in
+                        CCCrypt(CCOperation(kCCEncrypt),
+                                CCAlgorithm(kCCAlgorithmAES),
+                                CCOptions(kCCOptionPKCS7Padding),
+                                keyBytes.baseAddress, key.count,
+                                ivBytes.baseAddress,
+                                dataBytes.baseAddress, data.count,
+                                bufferBytes.baseAddress, bufferSize,
+                                &numBytesEncrypted)
+                    }
+                }
+            }
+        }
+        
+        if cryptStatus == kCCSuccess {
+            return buffer.prefix(numBytesEncrypted)  // 截取有效加密数据
+        }
+        return nil
+    }
+    
+    /// aes解密 (10.14及以下)
+    static func aesCBCDecrypt(encryptedData: Data, key: Data, iv: Data) -> String? {
+        let bufferSize = encryptedData.count + kCCBlockSizeAES128
+        var buffer = Data(count: bufferSize)
+        
+        var numBytesDecrypted: size_t = 0
+        let cryptStatus = buffer.withUnsafeMutableBytes { bufferBytes in
+            encryptedData.withUnsafeBytes { encryptedBytes in
+                key.withUnsafeBytes { keyBytes in
+                    iv.withUnsafeBytes { ivBytes in
+                        CCCrypt(CCOperation(kCCDecrypt),
+                                CCAlgorithm(kCCAlgorithmAES),
+                                CCOptions(kCCOptionPKCS7Padding),
+                                keyBytes.baseAddress, key.count,
+                                ivBytes.baseAddress,
+                                encryptedBytes.baseAddress, encryptedData.count,
+                                bufferBytes.baseAddress, bufferSize,
+                                &numBytesDecrypted)
+                    }
+                }
+            }
+        }
+        
+        if cryptStatus == kCCSuccess {
+            return String(data: buffer.prefix(numBytesDecrypted), encoding: .utf8)
+        }
+        return nil
+    }
 }
