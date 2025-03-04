@@ -79,8 +79,25 @@ class YLScrollLabel: NSView, CAAnimationDelegate {
     }
     // 是否开启滚动
     var isScrollEnable = true
+    // 滚动速度 (数值越大，滚动越快)
+    var speed: UInt = 40 {
+        didSet {
+            if speed == 0 {
+                speed = 40
+            }
+            needsLayout = true
+        }
+    }
+    
     // 点击回调
     var clickHandler: ((YLScrollLabel) -> Void)?
+    
+    @discardableResult
+    open func sizeToFit() -> NSSize {
+        frame.size = textSize
+        needsLayout = true
+        return textSize
+    }
     
     override init(frame frameRect: NSRect) {
         super.init(frame: frameRect)
@@ -116,7 +133,7 @@ class YLScrollLabel: NSView, CAAnimationDelegate {
         originFrame = textLayer.frame
         
         canScroll = textSize.width > width
-        animationDuration = (textSize.width - width) / 50
+        animationDuration = (textSize.width - width) / CGFloat(speed)
         
         // 监听鼠标划入｜划出
         addMouseTrackingArea()
@@ -124,8 +141,8 @@ class YLScrollLabel: NSView, CAAnimationDelegate {
     
     // MARK: - 鼠标手势
     
+    private(set) var textSize: NSSize = .zero       // 文字的高度
     private var canScroll = false                   // 是否可以滚动
-    private var textSize: NSSize = .zero            // 文本的大小
     private var animationDuration: CGFloat = 0.0    // 动画需要的时长
     private var scrollOriginFrame: NSRect = .zero   // 滚动时，最初的frame
     private var originFrame: NSRect = .zero         // 静止时的frame
@@ -177,7 +194,6 @@ class YLScrollLabel: NSView, CAAnimationDelegate {
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                 self.textLayer.add(self.createScrollAnimation(), forKey: "scroll")
             }
-            return
         }
     }
     
