@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
 
     s.name            = "YLCategory-Swift-MacOS"
-    s.version         = "1.0.4"
+    s.version         = "1.0.5"
     s.summary         = "MacOS 开发，常用的工具类"
     s.homepage        = "https://github.com/yulong000/YLCategory-Swift-MacOS"
     s.author          = { "魏宇龙" => "weiyulong1987@163.com" }
