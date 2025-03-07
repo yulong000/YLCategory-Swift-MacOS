@@ -24,12 +24,26 @@ public struct Async {
         return workItem
     }
     
-    /// 回到主线程志鑫
+    /// 回到主线程执行
     /// - Parameter block: 回调block
-    public static func main(_ block: @escaping @convention(block) () -> Void) {
-        DispatchQueue.main.async {
+    @discardableResult
+    public static func main(_ block: @escaping @convention(block) () -> Void) -> DispatchQueue {
+        let queue = DispatchQueue.main
+        queue.async {
             block()
         }
+        return queue
+    }
+    
+    /// 在子线程执行
+    /// - Parameter block: 回调block
+    @discardableResult
+    public static func global(_ block: @escaping @convention(block) () -> Void) -> DispatchQueue {
+        let queue = DispatchQueue.global()
+        queue.async {
+            block()
+        }
+        return queue
     }
     
     /// 切换到子线程处理事务，完成后切换回主线程
