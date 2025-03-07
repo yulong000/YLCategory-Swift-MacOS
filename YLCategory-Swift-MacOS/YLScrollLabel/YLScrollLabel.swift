@@ -7,10 +7,10 @@
 
 import Cocoa
 
-class YLScrollLabel: NSView, CAAnimationDelegate {
+open class YLScrollLabel: NSView, CAAnimationDelegate {
     
     /// 文本内容
-    var stringValue: String? {
+    open var stringValue: String? {
         set {
             textLayer.string = newValue ?? ""
             guard let stringValue = newValue else {
@@ -35,7 +35,7 @@ class YLScrollLabel: NSView, CAAnimationDelegate {
     }
     
     /// 字体
-    var font: NSFont {
+    open var font: NSFont {
         set {
             textLayer.font = newValue
             textLayer.fontSize = newValue.pointSize
@@ -47,7 +47,7 @@ class YLScrollLabel: NSView, CAAnimationDelegate {
     }
     
     /// 文字颜色
-    var textColor: NSColor? {
+    open var textColor: NSColor? {
         set {
             textLayer.foregroundColor = newValue?.cgColor
         }
@@ -58,7 +58,7 @@ class YLScrollLabel: NSView, CAAnimationDelegate {
     }
 
     /// 显示模式
-    var lineBreakMode: NSLineBreakMode {
+    open var lineBreakMode: NSLineBreakMode {
         set {
             switch newValue {
             case .byTruncatingHead:     textLayer.truncationMode = .start
@@ -78,9 +78,9 @@ class YLScrollLabel: NSView, CAAnimationDelegate {
         }
     }
     // 是否开启滚动
-    var isScrollEnable = true
+    open var isScrollEnable = true
     // 滚动速度 (数值越大，滚动越快)
-    var speed: UInt = 40 {
+    open var speed: UInt = 40 {
         didSet {
             if speed == 0 {
                 speed = 40
@@ -90,7 +90,7 @@ class YLScrollLabel: NSView, CAAnimationDelegate {
     }
     
     // 点击回调
-    var clickHandler: ((YLScrollLabel) -> Void)?
+    open var clickHandler: ((YLScrollLabel) -> Void)?
     
     @discardableResult
     open func sizeToFit() -> NSSize {
@@ -104,7 +104,7 @@ class YLScrollLabel: NSView, CAAnimationDelegate {
         initialize()
     }
     
-    required init?(coder: NSCoder) {
+    required public init?(coder: NSCoder) {
         super.init(coder: coder)
         initialize()
     }
@@ -115,7 +115,7 @@ class YLScrollLabel: NSView, CAAnimationDelegate {
         layer?.masksToBounds = true
     }
     
-    override func layout() {
+    open override func layout() {
         super.layout()
         
         guard let _ = stringValue else {
@@ -153,7 +153,7 @@ class YLScrollLabel: NSView, CAAnimationDelegate {
         addTrackingArea(trackingArea)
     }
     
-    override func mouseEntered(with event: NSEvent) {
+    open override func mouseEntered(with event: NSEvent) {
         super.mouseEntered(with: event)
         if !canScroll || !isScrollEnable { return }
         textLayer.frame = scrollOriginFrame
@@ -161,19 +161,19 @@ class YLScrollLabel: NSView, CAAnimationDelegate {
         textLayer.add(createScrollAnimation(), forKey: "scroll")
     }
 
-    override func mouseExited(with event: NSEvent) {
+    open override func mouseExited(with event: NSEvent) {
         super.mouseExited(with: event)
         if !canScroll || !isScrollEnable { return }
         textLayer.frame = originFrame
         textLayer.removeAllAnimations()
     }
     
-    override func mouseDown(with event: NSEvent) {
+    open override func mouseDown(with event: NSEvent) {
         super.mouseDown(with: event)
         clickHandler?(self)
     }
     
-    func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
+    public func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
         if !flag {
             textLayer.frame = originFrame
             textLayer.removeAllAnimations()
