@@ -14,20 +14,16 @@ public var YL_LOG_RELEASE: Bool = false // 打包时是否打印
 
 public func YLLog(_ items: Any..., file: NSString = #file, function: String = #function, line: Int = #line) {
 #if !DEBUG
-    if(YL_LOG_RELEASE == false) { return }
+    guard YL_LOG_RELEASE else { return }
 #endif
     var message: String = ""
-    if items.count == 1 {
-        message = "\(items[0])"
-    } else {
-        for (index, item) in items.enumerated() {
-            if index < items.count - 1 {
-                message.append("\(item)👈\n")
-            } else {
-                message.append("\(item)👈")
-            }
+    let formatItems = items.map { item -> String in
+        if let dict = item as? [AnyHashable: Any] {
+            return "\(dict as NSDictionary)"
         }
+        return "\(item)"
     }
+    message = formatItems.joined(separator: "👈\n") + (formatItems.count > 1 ? "👈" : "")
     if YL_LOG_MORE {
         NSLog("%@\n[ %@ 第%d行 ] in %@", message, function, line, file.lastPathComponent)
     } else {
