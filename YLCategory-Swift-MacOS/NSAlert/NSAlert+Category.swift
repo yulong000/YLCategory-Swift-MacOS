@@ -56,7 +56,7 @@ public extension NSAlert {
     ///   - checkbox: 插入suppressionButton，复选框
     ///   - buttons: 按钮，最多3个，从右到左，或者从上到下
     ///   - handler: 回调，返回点击按钮的序号，复选框的状态
-    class func show(for modalWindow: NSWindow?, title: String, message: String?, accessoryView: NSView? = nil, checkbox: String, buttons: [String], handler: @escaping (Int, Bool) -> Void) {
+    class func show(for modalWindow: NSWindow? = nil, title: String, message: String?, accessoryView: NSView? = nil, checkbox: String, buttons: [String], handler: @escaping (Int, Bool) -> Void) {
         let alert = NSAlert()
         alert.messageText = title
         alert.alertStyle = .warning

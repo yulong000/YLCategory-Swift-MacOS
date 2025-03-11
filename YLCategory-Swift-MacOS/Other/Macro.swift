@@ -9,6 +9,9 @@
 
 import Cocoa
 import Carbon
+import SystemConfiguration
+
+// MARK: - 颜色
 
 public let WhiteColor: NSColor = .white
 public let BlackColor: NSColor = .black
@@ -66,13 +69,18 @@ public var kSystemIsDarkTheme: Bool {
     }
     return false
 }
-
+// Document 路径
 public var kDocumentPath: String { NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).last ?? "" }
+// Cache 路径
 public var kCachePath: String { NSSearchPathForDirectoriesInDomains(.cachesDirectory, .userDomainMask, true).last ?? "" }
+// app内文件的路径
 public func BundlePath(_ fileName: String) -> String? { Bundle.main.path(forResource: fileName, ofType: nil) }
 
+// app版本号
 public let kAPP_Version: String = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as! String
+// app build number
 public let kAPP_Build_Number: String = Bundle.main.infoDictionary?["CFBundleVersion"] as! String
+// app的本地化名字
 public let kApp_Name: String = {
     let localizedInfo = Bundle.main.localizedInfoDictionary ?? [:]
     let info = Bundle.main.infoDictionary ?? [:]
@@ -81,21 +89,28 @@ public let kApp_Name: String = {
             localizedInfo["CFBundleName"] as? String ??
             info["CFBundleName"] as? String ?? ""
 }()
+// 当前app的bundle ID
 public let kBundle_Id: String = Bundle.main.bundleIdentifier ?? ""
+// 当前系统版本号
 public let kSystem_OS_Version = {
     let version = ProcessInfo.processInfo.operatingSystemVersion
     return "\(version.majorVersion).\(version.minorVersion).\(version.patchVersion)"
-} ()
-
-// MARK: - 判断2个CF字符串是否相等
-public func CFStringEqual(_ str1: CFString, _ str2: CFString) -> Bool { CFStringCompare(str1, str2, []) == .compareEqualTo }
+}()
+// 当前登录的用户名, 未登录用户时，返回nil
+public let GUIUserName: String? = {
+    guard let userName = SCDynamicStoreCopyConsoleUser(nil, nil, nil) as? String,
+          userName != "loginWindow" else {
+        return nil
+    }
+    return userName
+}()
 
 // MARK: - 修饰键判断的相关方法
 
 // 修饰键掩码
 public let MODIFIER_MASK: NSEvent.ModifierFlags = [.shift, .control, .option, .command]
 
-// MARK: 判断是否是快捷键的修饰键
+// 判断是否是快捷键的修饰键
 public func isModifierFlags(_ flags: NSEvent.ModifierFlags) -> Bool {
     let allowedCombinations: [NSEvent.ModifierFlags] = [
         .shift,
@@ -122,34 +137,34 @@ public func isModifierFlags(_ flags: NSEvent.ModifierFlags) -> Bool {
     return false
 }
 
-// MARK: 是否是Contorl修饰键
+// 是否是Contorl修饰键
 public func IsControlModifierFlags(_ flags: NSEvent.ModifierFlags) -> Bool {
     MODIFIER_MASK.rawValue & flags.rawValue == NSEvent.ModifierFlags.control.rawValue
 }
 
-// MARK: 是否是Shift修饰键
+// 是否是Shift修饰键
 public func IsShiftModifierFlags(_ flags: NSEvent.ModifierFlags) -> Bool {
     MODIFIER_MASK.rawValue & flags.rawValue == NSEvent.ModifierFlags.shift.rawValue
 }
 
-// MARK: 是否是Command修饰键
+// 是否是Command修饰键
 public func IsCommandModifierFlags(_ flags: NSEvent.ModifierFlags) -> Bool {
     MODIFIER_MASK.rawValue & flags.rawValue == NSEvent.ModifierFlags.command.rawValue
 }
 
-// MARK: 是否是Option修饰键
+// 是否是Option修饰键
 public func IsOptionModifierFlags(_ flags: NSEvent.ModifierFlags) -> Bool {
     MODIFIER_MASK.rawValue & flags.rawValue == NSEvent.ModifierFlags.option.rawValue
 }
 
-// MARK: 2个修饰键是否相同
+// 2个修饰键是否相同
 public func ModifierFlagsEqual(_ flags: NSEvent.ModifierFlags, _ anotherFlags: NSEvent.ModifierFlags) -> Bool {
     (MODIFIER_MASK.rawValue & flags.rawValue) != 0 &&
     (MODIFIER_MASK.rawValue & anotherFlags.rawValue) != 0 &&
     (MODIFIER_MASK.rawValue & flags.rawValue) == (MODIFIER_MASK.rawValue & anotherFlags.rawValue)
 }
 
-// MARK: 一个修饰键是否包含另一个修饰键
+// 一个修饰键是否包含另一个修饰键
 public func ModifierFlagsContain(_ flags: NSEvent.ModifierFlags, _ containedFlags: NSEvent.ModifierFlags) -> Bool {
     flags.rawValue & containedFlags.rawValue == containedFlags.rawValue
 }
@@ -164,7 +179,7 @@ public func IsOptionKeyCode(_ keyCode: CGKeyCode) -> Bool { keyCode == kVK_Optio
 
 // MARK: - CGEventFlags 和 NSEventModifierFlags 转换
 
-// MARK: 将 CGEventFlags 转成 NSEventModifierFlags
+// 将 CGEventFlags 转成 NSEventModifierFlags
 public func NSEventModifierFlagsFromCGEventFlags(_ cgFlags: CGEventFlags) -> NSEvent.ModifierFlags {
     var nsFlags: NSEvent.ModifierFlags = []
     if cgFlags.contains(.maskShift) {
@@ -182,15 +197,15 @@ public func NSEventModifierFlagsFromCGEventFlags(_ cgFlags: CGEventFlags) -> NSE
     return nsFlags
 }
 
-// MARK: 比较 CGEventFlags 和 NSEventModifierFlags 是否相同
+// 比较 CGEventFlags 和 NSEventModifierFlags 是否相同
 public func CGEventFlagsEqualToModifierFlags(_ cgFlags: CGEventFlags, _ nsFlags: NSEvent.ModifierFlags) -> Bool { NSEventModifierFlagsFromCGEventFlags(cgFlags) == nsFlags }
 
-// MARK: 事件的修饰键 == nsFlags
+// 事件的修饰键 == nsFlags
 public func CGEventMatchesModifierFlags(_ event: CGEvent, _ nsFlags: NSEvent.ModifierFlags) -> Bool { CGEventFlagsEqualToModifierFlags(event.flags, nsFlags) }
 
 // MARK: - 坐标系相关
 
-// MARK: 将屏幕坐标系上的点(左上角为(0,0), 向下为正）,转换为视图坐标系上的点（左下角为(0,0), 向上为正）
+// 将屏幕坐标系上的点(左上角为(0,0), 向下为正）,转换为视图坐标系上的点（左下角为(0,0), 向上为正）
 public func ConvertToBottomLeftCoordinateSystem(_ topLeftCoordinateSystemPoint: NSPoint) -> NSPoint {
     var coordinatedH = 0.0
     for screen in NSScreen.screens {
