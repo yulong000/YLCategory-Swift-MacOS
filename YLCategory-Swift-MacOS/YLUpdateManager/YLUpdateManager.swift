@@ -60,6 +60,9 @@ public class YLUpdateManager: NSObject {
                            let info = dict["releaseNotes"] as? String,
                            let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String,
                            lastestVersion.compare(appVersion, options: .numeric) == .orderedDescending {
+#if DEBUG
+                            print("当前版本：\(appVersion)  app store 最新版本: \(lastestVersion)")
+#endif
                             // 有新版本
                             if let forceUpdateUrl = self.forceUpdateUrl, !forceUpdateUrl.isEmpty {
                                 // 有强制更新url
@@ -70,6 +73,9 @@ public class YLUpdateManager: NSObject {
                                             let parser = XMLParser(data: data)
                                             parser.delegate = xmlDelegate
                                             parser.parse()
+#if DEBUG
+                                            print("强制更新信息：\(xmlDelegate.update?.toJson() ?? [:])")
+#endif
                                             // 解析完成
                                             if let update = xmlDelegate.update, update.BundleId == Bundle.main.bundleIdentifier {
                                                 // 解析成功
@@ -110,6 +116,9 @@ public class YLUpdateManager: NSObject {
                             }
                         } else {
                             // 已经是最新版本
+#if DEBUG
+                            print("已经是最新版本")
+#endif
                             if !background {
                                 NSApp.activate(ignoringOtherApps: true)
                                 let alert = NSAlert()

@@ -71,6 +71,8 @@ public var kSystemIsDarkTheme: Bool {
 }
 // Document 路径
 public var kDocumentPath: String { NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).last ?? "" }
+// Library 路径
+public var kLibraryPath: String { NSSearchPathForDirectoriesInDomains(.libraryDirectory, .userDomainMask, true).last ?? "" }
 // Cache 路径
 public var kCachePath: String { NSSearchPathForDirectoriesInDomains(.cachesDirectory, .userDomainMask, true).last ?? "" }
 // app内文件的路径
@@ -97,13 +99,13 @@ public let kSystem_OS_Version = {
     return "\(version.majorVersion).\(version.minorVersion).\(version.patchVersion)"
 }()
 // 当前登录的用户名, 未登录用户时，返回nil
-public let GUIUserName: String? = {
+public var GUIUserName: String? {
     guard let userName = SCDynamicStoreCopyConsoleUser(nil, nil, nil) as? String,
           userName != "loginWindow" else {
         return nil
     }
     return userName
-}()
+}
 
 // MARK: - 修饰键判断的相关方法
 

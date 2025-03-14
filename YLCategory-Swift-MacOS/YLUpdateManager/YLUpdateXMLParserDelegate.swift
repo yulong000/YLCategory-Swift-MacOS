@@ -50,4 +50,13 @@ struct YLUpdateXMLModel {
     var MiniVersion: String?
     /// 有新版本，就强制升级
     var ForceUpdateToTheLastest: Bool = false
+    
+    func toJson() -> [String: Any] {
+        return [
+            "Name": Name ?? "",
+            "BundleId": BundleId ?? "",
+            "MiniVersion": MiniVersion ?? "",
+            "ForceUpdateToTheLastest": ForceUpdateToTheLastest
+        ]
+    }
 }
