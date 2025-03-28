@@ -32,7 +32,7 @@ public extension NSButton {
     }
     
     // MARK: 创建 富文本标题+回调 按钮
-    convenience init(title: String, font: NSFont?, titleColor: NSColor?, handler: ((NSControl) -> Void)?) {
+    convenience init(title: String, font: NSFont? = nil, titleColor: NSColor? = nil, handler: ((NSControl) -> Void)?) {
         self.init(image: nil, imagePosition: .noImage, title: title, titleColor: titleColor, font: font, handler: handler)
     }
     
