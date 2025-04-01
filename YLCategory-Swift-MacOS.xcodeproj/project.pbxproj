@@ -44,7 +44,6 @@
 		00B79AE42D1415AB00DAE137 /* YLShortcutManager.strings in Resources */ = {isa = PBXBuildFile; fileRef = 00B79A892D1415AA00DAE137 /* YLShortcutManager.strings */; };
 		00B79AE52D1415AB00DAE137 /* YLPermissionManager.strings in Resources */ = {isa = PBXBuildFile; fileRef = 00B79A352D1415AA00DAE137 /* YLPermissionManager.strings */; };
 		00B79AEE2D1415AB00DAE137 /* Macro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B79AB42D1415AA00DAE137 /* Macro.swift */; };
-		00B79AF32D1415AB00DAE137 /* XcodeLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B79AB62D1415AA00DAE137 /* XcodeLog.m */; };
 		00B79B212D1415AB00DAE137 /* YLLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B79AB52D1415AA00DAE137 /* YLLog.swift */; };
 		00B79B332D15D5C000DAE137 /* NSView+Gesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B79B322D15D5BF00DAE137 /* NSView+Gesture.swift */; };
 		00B79B352D15D5D200DAE137 /* NSView+Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B79B342D15D5D200DAE137 /* NSView+Category.swift */; };
@@ -165,7 +164,6 @@
 		00B79A882D1415AA00DAE137 /* YLShortcutView.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = YLShortcutView.strings; path = de.lproj/YLShortcutManager.strings; sourceTree = "<group>"; };
 		00B79AB42D1415AA00DAE137 /* Macro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Macro.swift; sourceTree = "<group>"; };
 		00B79AB52D1415AA00DAE137 /* YLLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YLLog.swift; sourceTree = "<group>"; };
-		00B79AB62D1415AA00DAE137 /* XcodeLog.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XcodeLog.m; sourceTree = "<group>"; };
 		00B79B322D15D5BF00DAE137 /* NSView+Gesture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSView+Gesture.swift"; sourceTree = "<group>"; };
 		00B79B342D15D5D200DAE137 /* NSView+Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSView+Category.swift"; sourceTree = "<group>"; };
 		00CFDB3D2D1D369600EF4FA4 /* YLAppleReview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YLAppleReview.swift; sourceTree = "<group>"; };
@@ -527,7 +525,6 @@
 			children = (
 				00B79AB42D1415AA00DAE137 /* Macro.swift */,
 				00B79AB52D1415AA00DAE137 /* YLLog.swift */,
-				00B79AB62D1415AA00DAE137 /* XcodeLog.m */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -736,7 +733,6 @@
 				00CFDB3E2D1D369600EF4FA4 /* YLAppleReview.swift in Sources */,
 				00CFDB4E2D1E3AB200EF4FA4 /* YLWindowOperateView.swift in Sources */,
 				00B79AEE2D1415AB00DAE137 /* Macro.swift in Sources */,
-				00B79AF32D1415AB00DAE137 /* XcodeLog.m in Sources */,
 				00CFDB402D1D3AFC00EF4FA4 /* YLFlipView.swift in Sources */,
 				00E850622D1C529A00EBE080 /* NSObject+KVO.swift in Sources */,
 				00CFDCE62D22AB9A00EF4FA4 /* YLUpdateWindowController.swift in Sources */,
@@ -1021,7 +1017,7 @@
 				CODE_SIGN_ENTITLEMENTS = "YLCategory-Swift-Demo/YLCategory_Swift_MacOS.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 2025030301;
+				CURRENT_PROJECT_VERSION = 2025040101;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 87LJF62PN6;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -1053,7 +1049,7 @@
 				CODE_SIGN_ENTITLEMENTS = "YLCategory-Swift-Demo/YLCategory_Swift_MacOS.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 2025030301;
+				CURRENT_PROJECT_VERSION = 2025040101;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 87LJF62PN6;
 				ENABLE_HARDENED_RUNTIME = YES;
