@@ -19,7 +19,13 @@ public func YLLog(_ items: Any..., file: NSString = #file, function: String = #f
     var message: String = ""
     let formatItems = items.map { item -> String in
         if let dict = item as? [AnyHashable: Any] {
-            return "\(dict as NSDictionary)"
+            return dict.format()
+        }
+        if let arr = item as? [Any] {
+            return arr.format()
+        }
+        if let data = item as? Data {
+            return data.format()
         }
         return "\(item)"
     }
@@ -58,5 +64,122 @@ open class __YLLog {
             NSEvent.removeMonitor(monitor)
             self.monitor = nil
         }
+    }
+}
+
+
+fileprivate extension Array {
+
+    func format(with indentLevel: UInt8 = 0) -> String {
+        // 最终输出的内容
+        var desc: String = "[\n"
+        // tab对齐
+        var tab: String = ""
+        for _ in 0..<indentLevel {
+            tab.append("\t")
+        }
+        for obj in self {
+            var valStr = "\(tab)\t"
+            if let temp = obj as? [AnyHashable: Any] {
+                // dict
+                valStr += temp.format(with: indentLevel + 1)
+            } else if let temp = obj as? [Any] {
+                // array
+                valStr += temp.format(with: indentLevel + 1)
+            } else if let temp = obj as? Bool {
+                // bool
+                valStr += temp ? "true" : "false"
+            } else if let temp = obj as? Data {
+                // data
+                valStr += temp.format()
+            } else {
+                valStr += "\(obj)"
+            }
+            valStr.append(",\n")
+            desc.append(valStr)
+        }
+        // 去掉最后一个,号
+        if let range = desc.range(of: ",", options: .backwards) {
+            desc.replaceSubrange(range, with: "")
+        }
+        desc.append("\(tab)]")
+        return desc
+    }
+}
+
+fileprivate extension Dictionary {
+
+    func format(with indentLevel: UInt8 = 0) -> String {
+        
+        // 最终输出的内容
+        var desc: String = "{\n"
+        // tab对齐
+        var tab: String = ""
+        for _ in 0..<indentLevel {
+            tab.append("\t")
+        }
+        
+        for k in keys {
+            let obj = self[k]
+            var key = "\(k)"
+            if key.count > 0 {
+                key = "\"\(key)\""
+            }
+            let keyStr = "\(tab)\t\(key): "
+            var valStr = ""
+            if let temp = obj as? String {
+                // 字符串
+                valStr = "\"\(temp)\""
+            } else if let temp = obj as? Bool {
+                // bool
+                valStr = temp ? "true" : "false"
+            } else if let temp = obj as? [AnyHashable: Any] {
+                // dict
+                valStr = temp.format(with: indentLevel + 1)
+            } else if let temp = obj as? [Any] {
+                // array
+                valStr = temp.format(with: indentLevel + 1)
+            } else if let temp = obj as? Data {
+                // data
+                valStr = temp.format()
+            } else if let temp = obj {
+                valStr = "\(temp)"
+            } else {
+                valStr = "nil"
+            }
+            valStr += ",\n"
+            desc.append(keyStr + valStr)
+        }
+        // 去掉最后一个,号
+        if let range = desc.range(of: ",", options: .backwards) {
+            desc.replaceSubrange(range, with: "")
+        }
+        desc.append("\(tab)}")
+        return desc
+    }
+}
+
+fileprivate extension Data {
+    func format() -> String {
+        do {
+            let result = try JSONSerialization.jsonObject(with: self, options: [])
+            if let arr = result as? Array<Any> {
+                var str = arr.format()
+                str = str.replacingOccurrences(of: "\t", with: "")
+                str = str.replacingOccurrences(of: "\n", with: " ")
+                return "DATA:【 \(str) 】"
+            }
+            if let dict = result as? [AnyHashable: Any] {
+                var str = dict.format()
+                str = str.replacingOccurrences(of: "\t", with: "")
+                str = str.replacingOccurrences(of: "\n", with: " ")
+                return "DATA:【 \(str)) 】"
+            }
+        } catch {
+            if let str = String(data: self, encoding: .utf8) {
+                return "DATA:【 \(str) 】"
+            }
+        }
+        return "\(self)"
     }
 }
