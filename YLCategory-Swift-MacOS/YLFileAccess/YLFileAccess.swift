@@ -65,13 +65,13 @@ public class YLFileAccess {
         
         let delegate = YLFileAccessOpenPanelDelegate(url: url)
         let openPanel = NSOpenPanel()
-        openPanel.message = String(format: YLFileAccess.localize("File access message"), YLFileAccess.appName)
         openPanel.canCreateDirectories = false
         openPanel.canChooseFiles = true
         openPanel.canChooseDirectories = true
         openPanel.allowsMultipleSelection = false
         openPanel.prompt = YLFileAccess.localize("File access prompt")
         openPanel.title = YLFileAccess.localize("File access title")
+        openPanel.message = String(format: YLFileAccess.localize("File access message"), YLFileAccess.appName)
         openPanel.showsHiddenFiles = false
         openPanel.isExtensionHidden = false
         openPanel.directoryURL = url
@@ -91,6 +91,10 @@ public class YLFileAccess {
     
     public func cancelAccess(_ fileUrl: URL) {
         clearBookmarkData(for: fileUrl)
+    }
+    
+    public func cancelAllAccess() {
+        clearAllBookmarkDatas()
     }
     
     // MARK: - 私有方法
@@ -146,6 +150,13 @@ public class YLFileAccess {
         var all = allBookmarksInfo()
         all.removeValue(forKey: url.absoluteString)
         UserDefaults.standard.set(all, forKey: "YLBookmarkDatas")
+        UserDefaults.standard.synchronize()
+    }
+    
+    // MARK: 清除所有授权数据
+    private func clearAllBookmarkDatas() {
+        UserDefaults.standard.removeObject(forKey: "YLBookmarkDatas")
+        UserDefaults.standard.synchronize()
     }
     
     // MARK: 保存授权数据
@@ -153,6 +164,7 @@ public class YLFileAccess {
         var all = allBookmarksInfo()
         all[url.absoluteString] = data
         UserDefaults.standard.set(all, forKey: "YLBookmarkDatas")
+        UserDefaults.standard.synchronize()
     }
     
     // MARK: - 本地化

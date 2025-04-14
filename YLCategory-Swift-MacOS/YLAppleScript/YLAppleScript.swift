@@ -9,7 +9,9 @@ import Foundation
 import Carbon
 import AppKit
 
-public class YLAppleScript {
+public class YLAppleScript: NSObject, NSOpenSavePanelDelegate {
+    
+    private static let shared = YLAppleScript()
     
     /// 获取脚本的安装路径
     public class func getScriptLocalURL() -> URL? {
@@ -185,7 +187,15 @@ public class YLAppleScript {
     /// - Parameters:
     ///   - fileNames: 多个文件名
     ///   - handler: 执行后的回调
-    private class func beginInstallScripts(_ fileNames: [String], handler: @escaping (Bool) -> Void) {
+    public class func beginInstallScript(_ fileName: String, handler: @escaping (Bool) -> Void) {
+        beginInstallScripts([fileName], handler: handler)
+    }
+    
+    /// 开始安装脚本
+    /// - Parameters:
+    ///   - fileNames: 多个文件名
+    ///   - handler: 执行后的回调
+    public class func beginInstallScripts(_ fileNames: [String], handler: @escaping (Bool) -> Void) {
         guard let scriptLocalUrl = getScriptLocalURL() else {
             handler(false)
             return
@@ -197,6 +207,7 @@ public class YLAppleScript {
         openPanel.canChooseFiles = false
         openPanel.prompt = YLAppleScript.localize("Install script")
         openPanel.message = YLAppleScript.localize("Install script in current folder")
+        openPanel.delegate = YLAppleScript.shared
         openPanel.begin { result in
             if result == .cancel {
                 print("User cancel install scripts")
@@ -243,6 +254,10 @@ public class YLAppleScript {
         }
     }
     
+    public func panel(_ sender: Any, shouldEnable url: URL) -> Bool {
+        guard let scriptUrl = YLAppleScript.getScriptLocalURL() else  { return false }
+        return url.path == scriptUrl.path
+    }
     
     // MARK: - 本地化
     
