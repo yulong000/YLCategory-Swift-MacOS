@@ -231,7 +231,7 @@ public class YLPermissionManager: NSObject {
             let alert = NSAlert()
             alert.alertStyle = .warning
             alert.messageText = YLPermissionManager.localize("Kind tips")
-            alert.informativeText = YLPermissionManager.localize(tips) + YLPermissionManager.appName
+            alert.informativeText = String(format: YLPermissionManager.localize(tips), YLPermissionManager.appName)
             alert.addButton(withTitle: YLPermissionManager.localize("To Authorize"))
             alert.addButton(withTitle: YLPermissionManager.localize("Cancel"))
             let response = alert.runModal()

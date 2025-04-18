@@ -105,6 +105,23 @@ open class YLWindowButton: NSControl {
         }
         super.mouseUp(with: event)
     }
+    
+    open override func mouseEntered(with event: NSEvent) {
+        if let superView = superview, superView.isKind(of: YLWindowOperateView.self) {
+            super.mouseEntered(with: event)
+        } else {
+            isHover = true
+        }
+    }
+    
+    open override func mouseExited(with event: NSEvent) {
+        if let superView = superview, superView.isKind(of: YLWindowOperateView.self) {
+            super.mouseExited(with: event)
+        } else {
+            isHover = false
+        }
+    }
+    
     public override var acceptsFirstResponder: Bool { true }
     public override func becomeFirstResponder() -> Bool { true }
     

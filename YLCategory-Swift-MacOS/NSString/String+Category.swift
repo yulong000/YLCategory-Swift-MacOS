@@ -81,4 +81,26 @@ public extension String {
     func rangesOf(_ string: String) -> [NSRange] {
         match(with: NSRegularExpression.escapedPattern(for: string), options: .ignoreMetacharacters)
     }
+    
+    /// 获取路径的后缀
+    /// - Returns: 后缀（文件扩展名）
+    func pathExtension() -> String { (self as NSString).pathExtension }
+    
+    /// 获取路径的最后一部分
+    /// - Returns: 文件名+后缀
+    func lastPathComponent() -> String { (self as NSString).lastPathComponent }
+    
+    /// 删除路径的后缀
+    /// - Returns: 后缀前面的内容（不包含 ‘.’ ）
+    func deletingPathExtension() -> String { (self as NSString).deletingPathExtension }
+    
+    /// 删除路径的最后一部分
+    /// - Returns: 上一级路径
+    func deletingLastPathComponent() -> String { (self as NSString).deletingLastPathComponent }
+    
+    /// 截取字符串
+    /// - Parameter range: 范围
+    /// - Returns: 新的字符串
+    func substring(with range: NSRange) -> String { (self as NSString).substring(with: range) }
+    
 }
