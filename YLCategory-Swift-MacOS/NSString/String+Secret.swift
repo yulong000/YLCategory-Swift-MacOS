@@ -61,21 +61,18 @@ public extension String {
         return sealedBox?.combined
     }
     
-    /// AES解密
-    @available(macOS 10.15, *)
-    static func aesDecrypt(_ encrytpData: Data, _ key: SymmetricKey) -> String? {
-        guard let sealedBox = try? AES.GCM.SealedBox(combined: encrytpData),
-              let decryptedData = try? AES.GCM.open(sealedBox, using: key) else { return nil }
-        return String(data: decryptedData, encoding: .utf8)
-    }
-    
-    /// aes加密 (10.14及以下)
+    /// aes cbc 加密 (10.14及以下)
     func aesCBCEncrypt(key: Data, iv: Data) -> Data? {
         guard let data = self.data(using: .utf8) else { return nil }
+        guard key.count == kCCKeySizeAES128 || key.count == kCCKeySizeAES192 || key.count == kCCKeySizeAES256 else {
+            print("aesCBCEncrypt invalid aes key size")
+            return nil
+        }
+        
         let bufferSize = data.count + kCCBlockSizeAES128
         var buffer = Data(count: bufferSize)
-
         var numBytesEncrypted: size_t = 0
+        
         let cryptStatus = buffer.withUnsafeMutableBytes { bufferBytes in
             data.withUnsafeBytes { dataBytes in
                 key.withUnsafeBytes { keyBytes in
@@ -96,15 +93,69 @@ public extension String {
         if cryptStatus == kCCSuccess {
             return buffer.prefix(numBytesEncrypted)  // 截取有效加密数据
         }
+        print("AES encryption failed with status : \(cryptStatus)")
         return nil
     }
     
+    /// aes ecb 加密 (10.14及以下)
+    func aesECBEncrypt(key: Data) -> Data? {
+        guard let data = self.data(using: .utf8) else { return nil }
+        guard key.count == kCCKeySizeAES128 || key.count == kCCKeySizeAES192 || key.count == kCCKeySizeAES256 else {
+            print("aesCBCEncrypt invalid aes key size")
+            return nil
+        }
+        let bufferSize = data.count + kCCBlockSizeAES128
+        var buffer = Data(count: bufferSize)
+        var numBytesEncrypted: size_t = 0
+        
+        let cryptStatus = buffer.withUnsafeMutableBytes { bufferBytes in
+            data.withUnsafeBytes { dataBytes in
+                key.withUnsafeBytes { keyBytes in
+                    CCCrypt(CCOperation(kCCEncrypt),
+                            CCAlgorithm(kCCAlgorithmAES128),
+                            CCOptions(kCCOptionPKCS7Padding | kCCOptionECBMode),
+                            keyBytes.baseAddress, key.count,
+                            nil,
+                            dataBytes.baseAddress, data.count,
+                            bufferBytes.baseAddress, bufferSize,
+                            &numBytesEncrypted)
+                }
+            }
+        }
+        
+        if cryptStatus == kCCSuccess {
+            return buffer.prefix(numBytesEncrypted)  // 截取有效加密数据
+        }
+        print("AES encryption failed with status : \(cryptStatus)")
+        return nil
+    }
+}
+
+public enum AESCrypt {
+    
+    /// AES解密
+    @available(macOS 10.15, *)
+    public static func decrypt(_ encrytpData: Data, _ key: SymmetricKey) -> String? {
+        guard let sealedBox = try? AES.GCM.SealedBox(combined: encrytpData),
+              let decryptedData = try? AES.GCM.open(sealedBox, using: key) else { return nil }
+        return String(data: decryptedData, encoding: .utf8)
+    }
+    
     /// aes解密 (10.14及以下)
-    static func aesCBCDecrypt(encryptedData: Data, key: Data, iv: Data) -> String? {
+    public static func cbcDecrypt(data: Data, key: Data) -> String? {
+        guard data.count >= kCCBlockSizeAES128,
+              key.count == kCCKeySizeAES128 || key.count == kCCKeySizeAES192 || key.count == kCCKeySizeAES256 else {
+            print("AESCrypt cbcDecrypt invalid params")
+            return nil
+        }
+        
+        let iv = data.prefix(kCCBlockSizeAES128)
+        let encryptedData = data.dropFirst(kCCBlockSizeAES128)
+        
         let bufferSize = encryptedData.count + kCCBlockSizeAES128
         var buffer = Data(count: bufferSize)
-        
         var numBytesDecrypted: size_t = 0
+        
         let cryptStatus = buffer.withUnsafeMutableBytes { bufferBytes in
             encryptedData.withUnsafeBytes { encryptedBytes in
                 key.withUnsafeBytes { keyBytes in
@@ -125,6 +176,40 @@ public extension String {
         if cryptStatus == kCCSuccess {
             return String(data: buffer.prefix(numBytesDecrypted), encoding: .utf8)
         }
+        print("AESCrypt cbcDecrypt failed : \(cryptStatus)")
+        return nil
+    }
+    
+    /// aes解密 (10.14及以下)
+    public static func ecbDecrypt(data: Data, key: Data) -> String? {
+        guard key.count == kCCKeySizeAES128 || key.count == kCCKeySizeAES192 || key.count == kCCKeySizeAES256 else {
+            print("AESCrypt ecbDecrypt invalid params")
+            return nil
+        }
+        
+        let bufferSize = data.count + kCCBlockSizeAES128
+        var buffer = Data(count: bufferSize)
+        var numBytesDecrypted: size_t = 0
+        
+        let cryptStatus = buffer.withUnsafeMutableBytes { bufferBytes in
+            data.withUnsafeBytes { dataBytes in
+                key.withUnsafeBytes { keyBytes in
+                    CCCrypt(CCOperation(kCCDecrypt),
+                            CCAlgorithm(kCCAlgorithmAES128),
+                            CCOptions(kCCOptionPKCS7Padding | kCCOptionECBMode),
+                            keyBytes.baseAddress, key.count,
+                            nil,
+                            dataBytes.baseAddress, dataBytes.count,
+                            bufferBytes.baseAddress, bufferSize,
+                            &numBytesDecrypted)
+                }
+            }
+        }
+        
+        if cryptStatus == kCCSuccess {
+            return String(data: buffer.prefix(numBytesDecrypted), encoding: .utf8)
+        }
+        print("AESCrypt ecbDecrypt failed : \(cryptStatus)")
         return nil
     }
 }
