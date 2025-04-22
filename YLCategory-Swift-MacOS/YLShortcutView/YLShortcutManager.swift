@@ -270,7 +270,7 @@ public class YLShortcutManager {
     
     /// 判断是否开启了辅助功能权限
     public func accessibilityIsEnabled() -> Bool {
-        return AXIsProcessTrusted() && canCreateEventTap
+        return AXIsProcessTrusted()
     }
     
     /// 请求辅助功能权限
@@ -306,8 +306,6 @@ public class YLShortcutManager {
     
     /// 监听辅助功能权限
     private var timer: DispatchSourceTimer?
-    /// 是否可以创建tap事件，来判断是否有辅助功能权限，因为如果是把辅助功能权限删掉了，而不是把开关关闭了，此时AXIsProcessTrusted()获取到的仍然是true
-    private var canCreateEventTap = true
     
     // MARK: - 监听辅助功能权限变化
     
@@ -319,14 +317,6 @@ public class YLShortcutManager {
             timer?.schedule(deadline: .now(), repeating: .seconds(1), leeway: .seconds(1))
             timer?.setEventHandler(handler: { [weak self] in
                 guard let self = self else { return }
-                if AXIsProcessTrusted() {
-                    if let tap = CGEvent.tapCreate(tap: .cgAnnotatedSessionEventTap, place: .tailAppendEventTap, options: .listenOnly, eventsOfInterest: CGEventMask(1 << CGEventType.keyDown.rawValue), callback: {_,_,_,_ in return nil}, userInfo: nil) {
-                        CGEvent.tapEnable(tap: tap, enable: false)
-                        self.canCreateEventTap = true
-                    } else {
-                        self.canCreateEventTap = false
-                    }
-                }
                 DispatchQueue.main.async {
                     if !self.accessibilityIsEnabled() {
                         self.unregisterKeyDownSource()
@@ -352,7 +342,7 @@ public class YLShortcutManager {
     
     fileprivate func unregisterKeyDownSource() {
         if let runloopSource = runloopSource {
-            CFRunLoopRemoveSource(CFRunLoopGetCurrent(), runloopSource, .commonModes)
+            CFRunLoopRemoveSource(CFRunLoopGetCurrent(), runloopSource, .defaultMode)
             self.runloopSource = nil
         }
         if let tap = tap {

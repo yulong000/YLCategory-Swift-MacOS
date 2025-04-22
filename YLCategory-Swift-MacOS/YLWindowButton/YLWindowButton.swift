@@ -49,6 +49,11 @@ open class YLWindowButton: NSControl {
         super.init(coder: coder)
     }
     
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+        trackingAreas.forEach { removeTrackingArea($0) }
+    }
+    
     // MARK: - 通知
     
     public override func viewDidMoveToWindow() {
@@ -58,10 +63,6 @@ open class YLWindowButton: NSControl {
         NotificationCenter.default.addObserver(self, selector: #selector(windowDidResignActive), name: NSWindow.didResignKeyNotification, object: window)
         NotificationCenter.default.addObserver(self, selector: #selector(windowDidFullScreen), name: NSWindow.didEnterFullScreenNotification, object: window)
         NotificationCenter.default.addObserver(self, selector: #selector(windowDidExitFullScreen), name: NSWindow.didExitFullScreenNotification, object: window)
-    }
-    
-    deinit {
-        NotificationCenter.default.removeObserver(self)
     }
     
     @objc private func windowDidBecomeActive(_ notification: Notification) {
