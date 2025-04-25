@@ -35,15 +35,15 @@ public extension NSScreen {
     var isMain: Bool { self == NSScreen.main }
     /// 是否是内置屏
     var isBuiltin: Bool {
-        guard let number = deviceDescription[NSDeviceDescriptionKey("NSScreenNumber")] as? NSNumber else { return false }
-        return CGDisplayIsBuiltin(CGDirectDisplayID(truncating: number)) != 0
+        guard let displayID = displayID else { return false }
+        return CGDisplayIsBuiltin(displayID) != 0
     }
+    /// 显示器ID
+    var displayID: CGDirectDisplayID? { deviceDescription[NSDeviceDescriptionKey("NSScreenNumber")] as? CGDirectDisplayID }
     /// 获取内置屏
     class var builtinScreen: NSScreen? {
-        for screen in NSScreen.screens {
-            if screen.isBuiltin {
-                return screen
-            }
+        for screen in NSScreen.screens where screen.isBuiltin {
+            return screen
         }
         return nil
     }

@@ -41,19 +41,13 @@ public extension String {
     }
     
     /// 去掉首部的空格
-    func trimmingPrefixWhitespace() -> String {
-        trimmingPrefixCharacters(in: .whitespaces)
-    }
+    func trimmingPrefixWhitespace() -> String { trimmingPrefixCharacters(in: .whitespaces) }
     
     /// 去掉尾部的空格
-    func trimmingSuffixWhitespace() -> String {
-        trimmingSuffixCharacters(in: .whitespaces)
-    }
+    func trimmingSuffixWhitespace() -> String { trimmingSuffixCharacters(in: .whitespaces) }
     
     /// 去掉尾部的空格和换行
-    func trimmingSuffixWhitespaceAndNewline() -> String {
-        trimmingSuffixCharacters(in: .whitespacesAndNewlines)
-    }
+    func trimmingSuffixWhitespaceAndNewline() -> String { trimmingSuffixCharacters(in: .whitespacesAndNewlines) }
     
     /// 正则匹配字符串
     /// - Parameters:
@@ -78,29 +72,33 @@ public extension String {
     /// 获取传入字符串的范围
     /// - Parameter string: 传入的字符串
     /// - Returns: 返回所有匹配的范围
-    func rangesOf(_ string: String) -> [NSRange] {
-        match(with: NSRegularExpression.escapedPattern(for: string), options: .ignoreMetacharacters)
-    }
-    
-    /// 获取路径的后缀
-    /// - Returns: 后缀（文件扩展名）
-    func pathExtension() -> String { (self as NSString).pathExtension }
-    
-    /// 获取路径的最后一部分
-    /// - Returns: 文件名+后缀
-    func lastPathComponent() -> String { (self as NSString).lastPathComponent }
-    
-    /// 删除路径的后缀
-    /// - Returns: 后缀前面的内容（不包含 ‘.’ ）
-    func deletingPathExtension() -> String { (self as NSString).deletingPathExtension }
-    
-    /// 删除路径的最后一部分
-    /// - Returns: 上一级路径
-    func deletingLastPathComponent() -> String { (self as NSString).deletingLastPathComponent }
+    func rangesOf(_ string: String) -> [NSRange] { match(with: NSRegularExpression.escapedPattern(for: string), options: .ignoreMetacharacters) }
     
     /// 截取字符串
     /// - Parameter range: 范围
     /// - Returns: 新的字符串
     func substring(with range: NSRange) -> String { (self as NSString).substring(with: range) }
+    
+    /// 获取路径的后缀
+    /// - Returns: 后缀（文件扩展名）
+    var pathExtension: String { (self as NSString).pathExtension }
+    
+    /// 获取路径的最后一部分
+    /// - Returns: 文件名+后缀
+    var lastPathComponent: String { (self as NSString).lastPathComponent }
+    
+    /// 删除路径的后缀
+    /// - Returns: 后缀前面的内容（不包含 ‘.’ ）
+    var deletingPathExtension: String { (self as NSString).deletingPathExtension }
+    
+    /// 删除路径的最后一部分
+    /// - Returns: 上一级路径
+    var deletingLastPathComponent: String { (self as NSString).deletingLastPathComponent }
+    
+    /// init(fileURLWithPath path: String)
+    var fileUrl: URL { URL(fileURLWithPath: self) }
+    
+    /// init?(string: String)
+    var url: URL? { URL(string: self) }
     
 }
