@@ -13,6 +13,9 @@ public class YLFileAccess {
     public static let shared = YLFileAccess()
     private init() {}
     
+    // 是否显示根路径授权按钮
+    var allowRootOption: Bool = true
+    
     // MARK: - 加载访问权限
     
     /// 加载访问权限
@@ -44,16 +47,85 @@ public class YLFileAccess {
     
     // MARK: - 请求授权
     
+    /// 请求对路径授权
+    /// - Parameters:
+    ///   - filePath: 路径
+    ///   - auth: 是否是临时授权
+    /// - Returns: 授权是否成功
     public func requestAccess(_ filePath: String, temp auth: Bool = false) -> Bool {
         return requestAccess(URL(fileURLWithPath: filePath), temp: auth)
     }
     
     public func requestAccess(_ fileUrl: URL, temp auth: Bool = false) -> Bool {
-        var url = fileUrl.standardizedFileURL.resolvingSymlinksInPath()
-        if let data = bookmarkData(for: url) {
-            return handleBookmarkData(data, for: url)
+        guard let model = createOpenPanel(fileUrl) else { return true }
+        NSApp.activate(ignoringOtherApps: true)
+        if model.openPanel.runModal() == .OK, let allowUrl = model.openPanel.url {
+            return startAccess(allowUrl, temp: auth)
         }
-        // 未授权
+        return false
+    }
+    
+    /// 请求对路径授权，附带根路径授权功能
+    /// - Parameters:
+    ///   - filePath: 路径
+    ///   - auth: 是否是临时授权
+    ///   - completion: 授权后的回调
+    public func requestAccess(_ filePath: String, temp auth: Bool = false, completion: @escaping (Bool) -> Void) {
+        requestAccess(URL(fileURLWithPath: filePath), temp: auth, completion: completion)
+    }
+    
+    public func requestAccess(_ fileUrl: URL, temp auth: Bool = false, completion: @escaping (Bool) -> Void) {
+        guard let model = createOpenPanel(fileUrl) else {
+            completion(true)
+            return
+        }
+        openPanelModel = model
+        openPanelModel?.completionHandler = completion
+        openPanelModel?.tempAuth = auth
+        if openPanelModel?.delegate.url.path != "/" && allowRootOption {
+            // 授权根目录
+            let btn = NSButton(title: YLFileAccess.localize("Authorization root directory"), target: self, action: #selector(authRootPath))
+            btn.bezelColor = .controlAccentColor
+            let message = NSTextField(wrappingLabelWithString: String(format: YLFileAccess.localize("Authorization root directory message"), YLFileAccess.appName))
+            
+            btn.sizeToFit()
+            message.sizeToFit()
+            
+            let accessoryView = NSView()
+            accessoryView.frame = NSMakeRect(0, 0, btn.bounds.width + message.bounds.width + 150, message.bounds.height + 30)
+            
+            btn.frame = NSMakeRect(5, (accessoryView.bounds.height - btn.bounds.height) / 2 - 2, btn.bounds.width, btn.bounds.height)
+            message.frame = NSMakeRect(CGRectGetMaxX(btn.frame) + 10, (accessoryView.bounds.height - message.bounds.height) / 2, message.bounds.width, message.bounds.height)
+            
+            accessoryView.addSubview(btn)
+            accessoryView.addSubview(message)
+            
+            openPanelModel?.openPanel.accessoryView = accessoryView
+            openPanelModel?.openPanel.isAccessoryViewDisclosed = true
+        }
+        NSApp.activate(ignoringOtherApps: true)
+        openPanelModel?.openPanel.begin { [self] result in
+            if result == .OK, let allowUrl = openPanelModel?.openPanel.url {
+                let success = startAccess(allowUrl, temp: openPanelModel?.tempAuth ?? false)
+                completion(success)
+            } else {
+                completion(false)
+            }
+            self.openPanelModel = nil
+        }
+    }
+    
+    // MARK: - private
+    
+    private var openPanelModel: YLFileAccessOpenPanelModel?
+    
+    // MARK: 创建一个openPanel，如果已经授权，返回nil
+    private func createOpenPanel(_ fileUrl: URL) -> YLFileAccessOpenPanelModel? {
+        var url = fileUrl.standardizedFileURL.resolvingSymlinksInPath()
+        if let data = bookmarkData(for: url), handleBookmarkData(data, for: url) {
+            // 已经授权
+            return nil
+        }
         var path = url.path as NSString
         while path.length > 1 {
             if FileManager.default.fileExists(atPath: path as String) {
@@ -76,11 +148,17 @@ public class YLFileAccess {
         openPanel.isExtensionHidden = false
         openPanel.directoryURL = url
         openPanel.delegate = delegate
-        NSApp.activate(ignoringOtherApps: true)
-        if openPanel.runModal() == .OK, let allowUrl = openPanel.url {
-            return startAccess(allowUrl, temp: auth)
+        return YLFileAccessOpenPanelModel(openPanel: openPanel, delegate: delegate)
+    }
+    
+    // MARK: 点击了授权根目录按钮
+    @objc private func authRootPath(_ btn: NSButton) {
+        btn.isEnabled = false
+        openPanelModel?.openPanel.close()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) { [self] in
+            guard let model = openPanelModel, let completionHandler = model.completionHandler else { return }
+            requestAccess(URL(fileURLWithPath: "/"), temp: model.tempAuth, completion: completionHandler)
         }
-        return false
     }
     
     // MARK: - 取消授权
@@ -142,7 +220,14 @@ public class YLFileAccess {
     // MARK: 获取授权数据
     private func bookmarkData(for url: URL) -> Data? {
         let all = allBookmarksInfo()
-        return all[url.absoluteString] as? Data
+        var fileUrl = url
+        while fileUrl.path.count > 1 {
+            if let data = all[fileUrl.absoluteString] as? Data {
+                return data
+            }
+            fileUrl = fileUrl.deletingLastPathComponent()
+        }
+        return all[fileUrl.absoluteString] as? Data
     }
     
     // MARK: 清除授权数据
@@ -177,13 +262,17 @@ public class YLFileAccess {
                                  Bundle.main.infoDictionary?["CFBundleName"] as? String ?? ""
 }
 
+// MARK: - 选择路径的delegate
 
 fileprivate class YLFileAccessOpenPanelDelegate: NSObject, NSOpenSavePanelDelegate {
     
-    var paths: [String]
     init(url: URL) {
+        self.url = url
         self.paths = url.pathComponents
     }
+    
+    var url: URL
+    private(set) var paths: [String]
     
     public func panel(_ sender: Any, shouldEnable url: URL) -> Bool {
         let urlPaths = url.pathComponents
@@ -198,4 +287,18 @@ fileprivate class YLFileAccessOpenPanelDelegate: NSObject, NSOpenSavePanelDelega
         }
         return true
     }
+}
+
+
+// MARK: - 保存授权窗口的数据
+
+fileprivate struct YLFileAccessOpenPanelModel {
+    // 授权窗口
+    var openPanel: NSOpenPanel
+    // 代理，如果不强引用，会被释放，造成点击其他目录后卡住
+    var delegate: YLFileAccessOpenPanelDelegate
+    // 授权回调
+    var completionHandler: ((Bool) -> Void)?
+    // 是否是临时权限
+    var tempAuth: Bool = false
 }

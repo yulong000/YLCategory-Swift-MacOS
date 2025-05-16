@@ -10,3 +10,5 @@
 "File access title" = "Permitir acceso a la ruta de archivos";
 "File access message" = "Autorice a %@ acceder a esta ruta";
 "File access prompt" = "Autorizar";
+"Authorization root directory" = "Autorización del directorio raíz";
+"Authorization root directory message" = "1. %@ no tiene permisos para leer o escribir en esta carpeta. Haz clic en \"Autorizar\".\n2. Se recomienda autorizar el directorio raíz para evitar futuras solicitudes de autorización.";
