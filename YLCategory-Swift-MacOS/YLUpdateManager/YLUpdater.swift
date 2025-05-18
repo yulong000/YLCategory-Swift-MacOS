@@ -10,6 +10,9 @@ import Sparkle
 
 class YLUpdater: NSObject {
     
+    /// 更新内容地址
+    var updateUrl: String?
+    
     /// 检测更新
     /// - Parameter background: 是否后台检测, background = true时，无新版本，则不弹窗提醒
     func checkForUpdates(background: Bool = true) {}
@@ -19,6 +22,59 @@ class YLUpdater: NSObject {
     ///   - date: 过期日期 yyyy-MM-dd
     ///   - osVersion: 过期系统版本号 6.0.0
     func judgeAppExpire(date: String? = nil, osVersion: String? = nil) {}
+    
+    
+    /// 显示日期过期的alert弹窗
+    /// - Parameter updateUrl: 更新地址
+    func showDateExpiredAlert(date: String, updateUrl: String?) {
+        let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: "en_US_POSIX")
+        formatter.dateFormat = "yyyy-MM-dd"
+        if let d = formatter.date(from: date), Date().timeIntervalSince(d) > 0 {
+            // 过期了
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                NSApp.activate(ignoringOtherApps: true)
+                let alert = NSAlert()
+                alert.alertStyle = .warning
+                alert.messageText = YLUpdateManager.localize("Kind tips")
+                alert.informativeText = String(format: YLUpdateManager.localize("Expire Tips"), YLUpdateManager.appName)
+                alert.addButton(withTitle: YLUpdateManager.localize("Click to download"))
+                alert.addButton(withTitle: YLUpdateManager.localize("Quit"))
+                if alert.runModal() == .alertFirstButtonReturn {
+                    if let updateUrl = updateUrl {
+                        NSWorkspace.shared.open(URL(string: updateUrl)!)
+                    }
+                }
+                NSApp.terminate(nil)
+            }
+        }
+    }
+    
+    
+    /// 显示系统版本过期的alert弹窗
+    /// - Parameter updateUrl: 更新地址
+    func showOSVersionExpiredAlert(osVersion: String, updateUrl: String?) {
+        let sv = ProcessInfo.processInfo.operatingSystemVersion
+        let sysVersion: String = String(format: "%ld.%ld.%ld", sv.majorVersion, sv.minorVersion, sv.patchVersion)
+        if sysVersion.compare(osVersion, options: .numeric) != .orderedAscending {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                // 大于等于设置的系统版本号
+                NSApp.activate(ignoringOtherApps: true)
+                let alert = NSAlert()
+                alert.alertStyle = .warning
+                alert.messageText = YLUpdateManager.localize("Kind tips")
+                alert.informativeText = String(format: YLUpdateManager.localize("OS Expire Tips"), YLUpdateManager.appName)
+                alert.addButton(withTitle: YLUpdateManager.localize("Click to update"))
+                alert.addButton(withTitle: YLUpdateManager.localize("Quit"))
+                if alert.runModal() == .alertFirstButtonReturn {
+                    if let updateUrl = updateUrl {
+                        NSWorkspace.shared.open(URL(string: updateUrl)!)
+                    }
+                }
+                NSApp.terminate(nil)
+            }
+        }
+    }
 }
 
 class YLAppStoreUpdater: YLUpdater {
@@ -32,8 +88,6 @@ class YLAppStoreUpdater: YLUpdater {
             appIntroduceUrl = "https://apps.apple.com/cn/app/id" + appID
         }
     }
-    /// 强制更新地址
-    var forceUpdateUrl: String?
     
     // MARK: - app store 版本，根据app ID生成的链接
     
@@ -66,9 +120,9 @@ class YLAppStoreUpdater: YLUpdater {
                             print("当前版本：\(appVersion)  app store 最新版本: \(lastestVersion)")
 #endif
                             // 有新版本
-                            if let forceUpdateUrl = self.forceUpdateUrl, !forceUpdateUrl.isEmpty {
+                            if let updateUrl = self.updateUrl, !updateUrl.isEmpty {
                                 // 有强制更新url
-                                let dataTask = URLSession.shared.dataTask(with: URL(string: forceUpdateUrl)!) { data, response, error in
+                                let dataTask = URLSession.shared.dataTask(with: URL(string: updateUrl)!) { data, response, error in
                                     DispatchQueue.main.async { [self] in
                                         if let data = data, error == nil  {
                                             // xml 解析
@@ -150,57 +204,18 @@ class YLAppStoreUpdater: YLUpdater {
         guard let _ = appID else { return }
         if let date = date, !date.isEmpty {
             // 传的有日期
-            let formatter = DateFormatter()
-            formatter.locale = Locale(identifier: "en_US_POSIX")
-            formatter.dateFormat = "yyyy-MM-dd"
-            if let d = formatter.date(from: date), Date().timeIntervalSince(d) > 0 {
-                // 过期了
-                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                    NSApp.activate(ignoringOtherApps: true)
-                    let alert = NSAlert()
-                    alert.alertStyle = .warning
-                    alert.messageText = YLUpdateManager.localize("Kind tips")
-                    alert.informativeText = String(format: YLUpdateManager.localize("Expire Tips"), YLUpdateManager.appName)
-                    alert.addButton(withTitle: YLUpdateManager.localize("Click to download"))
-                    alert.addButton(withTitle: YLUpdateManager.localize("Quit"))
-                    let response = alert.runModal()
-                    if response == .alertFirstButtonReturn {
-                        NSWorkspace.shared.open(URL(string: self.appStoreUrl!)!)
-                    }
-                    NSApp.terminate(nil)
-                }
-                return
-            }
+            showDateExpiredAlert(date: date, updateUrl: appStoreUrl)
+            return
         }
         if let osVersion = osVersion, !osVersion.isEmpty {
             // 传的有版本号
-            let sv = ProcessInfo.processInfo.operatingSystemVersion
-            let sysVersion: String = String(format: "%ld.%ld.%ld", sv.majorVersion, sv.minorVersion, sv.patchVersion)
-            if sysVersion.compare(osVersion, options: .numeric) != .orderedAscending {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                    // 大于等于设置的系统版本号
-                    NSApp.activate(ignoringOtherApps: true)
-                    let alert = NSAlert()
-                    alert.alertStyle = .warning
-                    alert.messageText = YLUpdateManager.localize("Kind tips")
-                    alert.informativeText = String(format: YLUpdateManager.localize("OS Expire Tips"), YLUpdateManager.appName)
-                    alert.addButton(withTitle: YLUpdateManager.localize("Click to update"))
-                    alert.addButton(withTitle: YLUpdateManager.localize("Quit"))
-                    let response = alert.runModal()
-                    if response == .alertFirstButtonReturn {
-                        NSWorkspace.shared.open(URL(string: self.appStoreUrl!)!)
-                    }
-                    NSApp.terminate(nil)
-                }
-            }
+            showOSVersionExpiredAlert(osVersion: osVersion, updateUrl: appStoreUrl)
         }
     }
 }
 
 class YLSparkleUpdater: YLUpdater, SPUUpdaterDelegate, SPUStandardUserDriverDelegate {
     
-    /// 下载地址
-    var downloadUrl: String?
     /// 检测更新控制器
     private lazy var updateController: SPUStandardUpdaterController = {
         let controller = SPUStandardUpdaterController(startingUpdater: true, updaterDelegate: self, userDriverDelegate: self)
@@ -217,54 +232,39 @@ class YLSparkleUpdater: YLUpdater, SPUUpdaterDelegate, SPUStandardUserDriverDele
         }
     }
     
+    // MARK: sparkle delegate
+    
+    func updater(_ updater: SPUUpdater, didFinishLoading appcast: SUAppcast) {
+        print("Sparkle 获取xml文件成功: \(appcast.items.first?.propertiesDictionary ?? [:])")
+    }
+    
+    func updaterDidNotFindUpdate(_ updater: SPUUpdater) {
+        print("Sparkle 暂无更新");
+    }
+    
+    func updater(_ updater: SPUUpdater, didFindValidUpdate item: SUAppcastItem) {
+        print("Sparkle 有可用升级:\nVersion: \(item.displayVersionString)\nBuild number: \(item.versionString)\nUrl:\(item.fileURL?.absoluteString ?? "")\nNote: \(item.itemDescriptionFormat ?? "")")
+    }
+    
+    func updater(_ updater: SPUUpdater, userDidMake choice: SPUUserUpdateChoice, forUpdate updateItem: SUAppcastItem, state: SPUUserUpdateState) {
+        switch (choice) {
+        case .skip:     print("Sparkle 用户点击 跳过这个版本");
+        case .install:  print("Sparkle 用户点击 安装更新");
+        case .dismiss:  print("Sparkle 用户点击 稍后提醒");
+        default: break;
+        }
+    }
+    
     // MARK: - 过期判断
     override func judgeAppExpire(date: String? = nil, osVersion: String? = nil) {
-        guard let downloadUrl = downloadUrl else { return }
         if let date = date, !date.isEmpty {
             // 传的有日期
-            let formatter = DateFormatter()
-            formatter.locale = Locale(identifier: "en_US_POSIX")
-            formatter.dateFormat = "yyyy-MM-dd"
-            if let d = formatter.date(from: date), Date().timeIntervalSince(d) > 0 {
-                // 过期了
-                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                    NSApp.activate(ignoringOtherApps: true)
-                    let alert = NSAlert()
-                    alert.alertStyle = .warning
-                    alert.messageText = YLUpdateManager.localize("Kind tips")
-                    alert.informativeText = String(format: YLUpdateManager.localize("Expire Tips"), YLUpdateManager.appName)
-                    alert.addButton(withTitle: YLUpdateManager.localize("Click to download"))
-                    alert.addButton(withTitle: YLUpdateManager.localize("Quit"))
-                    let response = alert.runModal()
-                    if response == .alertFirstButtonReturn {
-                        NSWorkspace.shared.open(URL(string: downloadUrl)!)
-                    }
-                    NSApp.terminate(nil)
-                }
-                return
-            }
+            showDateExpiredAlert(date: date, updateUrl: updateUrl)
+            return
         }
         if let osVersion = osVersion, !osVersion.isEmpty {
             // 传的有版本号
-            let sv = ProcessInfo.processInfo.operatingSystemVersion
-            let sysVersion: String = String(format: "%ld.%ld.%ld", sv.majorVersion, sv.minorVersion, sv.patchVersion)
-            if sysVersion.compare(osVersion, options: .numeric) != .orderedAscending {
-                // 大于等于设置的系统版本号
-                DispatchQueue.main.asyncAfter(wallDeadline: .now() + 2) {
-                    NSApp.activate(ignoringOtherApps: true)
-                    let alert = NSAlert()
-                    alert.alertStyle = .warning
-                    alert.messageText = YLUpdateManager.localize("Kind tips")
-                    alert.informativeText = String(format: YLUpdateManager.localize("OS Expire Tips"), YLUpdateManager.appName)
-                    alert.addButton(withTitle: YLUpdateManager.localize("Click to update"))
-                    alert.addButton(withTitle: YLUpdateManager.localize("Quit"))
-                    let response = alert.runModal()
-                    if response == .alertFirstButtonReturn {
-                        NSWorkspace.shared.open(URL(string: downloadUrl)!)
-                    }
-                    NSApp.terminate(nil)
-                }
-            }
+            showOSVersionExpiredAlert(osVersion: osVersion, updateUrl: updateUrl)
         }
     }
 }
