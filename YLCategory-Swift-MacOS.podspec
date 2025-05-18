@@ -121,6 +121,7 @@ Pod::Spec.new do |s|
     s.subspec 'YLUpdateManager' do |ss|
     ss.source_files  =   'YLCategory-Swift-MacOS/YLUpdateManager/**/*.swift'
     ss.resource      =   'YLCategory-Swift-MacOS/YLUpdateManager/Resources/*'
+    ss.dependency    =   'Sparkle'
     end
 
     s.subspec 'YLAppRating' do |ss|

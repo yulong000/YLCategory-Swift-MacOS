@@ -1,0 +1,572 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXAggregateTarget section */
+		ED77B4B88587C894E85C361023D67C53 /* Sparkle */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 2C8D06A2289713323892B3638F08AC0B /* Build configuration list for PBXAggregateTarget "Sparkle" */;
+			buildPhases = (
+			);
+			dependencies = (
+			);
+			name = Sparkle;
+		};
+/* End PBXAggregateTarget section */
+
+/* Begin PBXBuildFile section */
+		2AA49346E4ABE2ACF026680159EE2280 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1430F003D39D9906881A6AC724B7931 /* Cocoa.framework */; };
+		485D8CAE6C743F0DB5EDEF7361521B7A /* Pods-YLCategory-Swift-MacOS-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = F71BEC9A89CCA8544FD1099351A90A55 /* Pods-YLCategory-Swift-MacOS-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A1F7B57FBA8EBD6D0EC2D02C94B25A53 /* Pods-YLCategory-Swift-MacOS-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F25B076C9E46216CFFBF9AC89F9FEFE /* Pods-YLCategory-Swift-MacOS-dummy.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		1935D960CAB5596108510A4FC1241009 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = ED77B4B88587C894E85C361023D67C53;
+			remoteInfo = Sparkle;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0AF2B6D31B0D2FB98CC0C958AB406127 /* Pods-YLCategory-Swift-MacOS */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-YLCategory-Swift-MacOS"; path = Pods_YLCategory_Swift_MacOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2ACBDBF8FD1223391BE2DB9C04C830CF /* Pods-YLCategory-Swift-MacOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-YLCategory-Swift-MacOS.release.xcconfig"; sourceTree = "<group>"; };
+		2B08644E5662381A038EE8579D628192 /* SUExport.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SUExport.h; path = Sparkle.framework/Versions/B/Headers/SUExport.h; sourceTree = "<group>"; };
+		3692921BFEAB2E428E88A828CF1A5698 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = "<group>"; };
+		40444A702CEECD24DA3B5A910B1EA1E2 /* SPUUpdateCheck.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SPUUpdateCheck.h; path = Sparkle.framework/Versions/B/Headers/SPUUpdateCheck.h; sourceTree = "<group>"; };
+		447754C2DD0B83ED4B89F50C40589D3A /* SUVersionComparisonProtocol.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SUVersionComparisonProtocol.h; path = Sparkle.framework/Versions/B/Headers/SUVersionComparisonProtocol.h; sourceTree = "<group>"; };
+		496013A14354CB263EA6BB40CBFA781B /* SUUpdater.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SUUpdater.h; path = Sparkle.framework/Versions/B/Headers/SUUpdater.h; sourceTree = "<group>"; };
+		523A70236BA4668557B9267534B3D200 /* Sparkle.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Sparkle.h; path = Sparkle.framework/Versions/B/Headers/Sparkle.h; sourceTree = "<group>"; };
+		53B4C2215E1D558217FFD909893A3168 /* SUErrors.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SUErrors.h; path = Sparkle.framework/Versions/B/Headers/SUErrors.h; sourceTree = "<group>"; };
+		5B47D0F746CDF97B9630790CAE7717DB /* SPUUserDriver.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SPUUserDriver.h; path = Sparkle.framework/Versions/B/Headers/SPUUserDriver.h; sourceTree = "<group>"; };
+		69F937330231DC32508EB19C460AD933 /* SUUpdaterDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SUUpdaterDelegate.h; path = Sparkle.framework/Versions/B/Headers/SUUpdaterDelegate.h; sourceTree = "<group>"; };
+		6F25B076C9E46216CFFBF9AC89F9FEFE /* Pods-YLCategory-Swift-MacOS-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-YLCategory-Swift-MacOS-dummy.m"; sourceTree = "<group>"; };
+		72051CD7F00EBA3F22AC304EEC165DA6 /* Pods-YLCategory-Swift-MacOS-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-YLCategory-Swift-MacOS-Info.plist"; sourceTree = "<group>"; };
+		8121F45D8CC2452921E603E4E8F5E14F /* SPUStandardUpdaterController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SPUStandardUpdaterController.h; path = Sparkle.framework/Versions/B/Headers/SPUStandardUpdaterController.h; sourceTree = "<group>"; };
+		8366390C55D2D0ED2EFDD341E514EA54 /* SPUUserUpdateState.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SPUUserUpdateState.h; path = Sparkle.framework/Versions/B/Headers/SPUUserUpdateState.h; sourceTree = "<group>"; };
+		88C19C93AD90AF30BDE99B6CBA0C736B /* SUAppcastItem.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SUAppcastItem.h; path = Sparkle.framework/Versions/B/Headers/SUAppcastItem.h; sourceTree = "<group>"; };
+		8ECFF48D1BC8806097F14C93E00F2146 /* Pods-YLCategory-Swift-MacOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-YLCategory-Swift-MacOS.debug.xcconfig"; sourceTree = "<group>"; };
+		955B05AC39A1896570AECE78FB5D6ACC /* Pods-YLCategory-Swift-MacOS-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-YLCategory-Swift-MacOS-acknowledgements.markdown"; sourceTree = "<group>"; };
+		99A2775BA6C64DD8BF05EBD8BDF29615 /* SPUUpdatePermissionRequest.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SPUUpdatePermissionRequest.h; path = Sparkle.framework/Versions/B/Headers/SPUUpdatePermissionRequest.h; sourceTree = "<group>"; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		A7805BEEFA98FA8E6671BE2432C03864 /* SUVersionDisplayProtocol.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SUVersionDisplayProtocol.h; path = Sparkle.framework/Versions/B/Headers/SUVersionDisplayProtocol.h; sourceTree = "<group>"; };
+		C1430F003D39D9906881A6AC724B7931 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
+		C4AA89F433D92260C7728AD4465CC687 /* SPUUpdaterSettings.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SPUUpdaterSettings.h; path = Sparkle.framework/Versions/B/Headers/SPUUpdaterSettings.h; sourceTree = "<group>"; };
+		D226446C0D0388DF545256BA990DB153 /* SUUpdatePermissionResponse.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SUUpdatePermissionResponse.h; path = Sparkle.framework/Versions/B/Headers/SUUpdatePermissionResponse.h; sourceTree = "<group>"; };
+		D992A85877C0B020BCAE3921C74E4AED /* Sparkle.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Sparkle.debug.xcconfig; sourceTree = "<group>"; };
+		D9BF534E3D665C3B882EE658A3B152DF /* SPUStandardUserDriver.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SPUStandardUserDriver.h; path = Sparkle.framework/Versions/B/Headers/SPUStandardUserDriver.h; sourceTree = "<group>"; };
+		DB928E0B9078208EA713CA1F863C65F4 /* SPUStandardUserDriverDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SPUStandardUserDriverDelegate.h; path = Sparkle.framework/Versions/B/Headers/SPUStandardUserDriverDelegate.h; sourceTree = "<group>"; };
+		DC1C9427A0865BB40CBB21735CC925FF /* SPUUpdater.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SPUUpdater.h; path = Sparkle.framework/Versions/B/Headers/SPUUpdater.h; sourceTree = "<group>"; };
+		DD2EAA2E50F78B414F01A8CFAFF2BC26 /* Pods-YLCategory-Swift-MacOS-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-YLCategory-Swift-MacOS-frameworks.sh"; sourceTree = "<group>"; };
+		DE20EC12C8593CC50DF203694C494031 /* Pods-YLCategory-Swift-MacOS-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-YLCategory-Swift-MacOS-acknowledgements.plist"; sourceTree = "<group>"; };
+		E2D53785B42BEAFEE860FA5A11CD5B23 /* SPUUpdaterDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SPUUpdaterDelegate.h; path = Sparkle.framework/Versions/B/Headers/SPUUpdaterDelegate.h; sourceTree = "<group>"; };
+		E9F3841320FEBEF95833418704C82CEE /* SUAppcast.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SUAppcast.h; path = Sparkle.framework/Versions/B/Headers/SUAppcast.h; sourceTree = "<group>"; };
+		EAE5479FE16BAFC7761EF5115C2650DF /* Pods-YLCategory-Swift-MacOS.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-YLCategory-Swift-MacOS.modulemap"; sourceTree = "<group>"; };
+		EE39C930CFA5A34F152A069D35749012 /* SPUDownloadData.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SPUDownloadData.h; path = Sparkle.framework/Versions/B/Headers/SPUDownloadData.h; sourceTree = "<group>"; };
+		F656722E25E4BACECA58FDD05371B859 /* Sparkle.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Sparkle.release.xcconfig; sourceTree = "<group>"; };
+		F71BEC9A89CCA8544FD1099351A90A55 /* Pods-YLCategory-Swift-MacOS-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-YLCategory-Swift-MacOS-umbrella.h"; sourceTree = "<group>"; };
+		F9AA62F41867FC037EE7C04444A4577C /* SUStandardVersionComparator.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SUStandardVersionComparator.h; path = Sparkle.framework/Versions/B/Headers/SUStandardVersionComparator.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		12500265B18F00C4122C2B8ACCC01833 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2AA49346E4ABE2ACF026680159EE2280 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2A915B166BB7857929410A967B196A86 /* Sparkle */ = {
+			isa = PBXGroup;
+			children = (
+				523A70236BA4668557B9267534B3D200 /* Sparkle.h */,
+				EE39C930CFA5A34F152A069D35749012 /* SPUDownloadData.h */,
+				8121F45D8CC2452921E603E4E8F5E14F /* SPUStandardUpdaterController.h */,
+				D9BF534E3D665C3B882EE658A3B152DF /* SPUStandardUserDriver.h */,
+				DB928E0B9078208EA713CA1F863C65F4 /* SPUStandardUserDriverDelegate.h */,
+				40444A702CEECD24DA3B5A910B1EA1E2 /* SPUUpdateCheck.h */,
+				99A2775BA6C64DD8BF05EBD8BDF29615 /* SPUUpdatePermissionRequest.h */,
+				DC1C9427A0865BB40CBB21735CC925FF /* SPUUpdater.h */,
+				E2D53785B42BEAFEE860FA5A11CD5B23 /* SPUUpdaterDelegate.h */,
+				C4AA89F433D92260C7728AD4465CC687 /* SPUUpdaterSettings.h */,
+				5B47D0F746CDF97B9630790CAE7717DB /* SPUUserDriver.h */,
+				8366390C55D2D0ED2EFDD341E514EA54 /* SPUUserUpdateState.h */,
+				E9F3841320FEBEF95833418704C82CEE /* SUAppcast.h */,
+				88C19C93AD90AF30BDE99B6CBA0C736B /* SUAppcastItem.h */,
+				53B4C2215E1D558217FFD909893A3168 /* SUErrors.h */,
+				2B08644E5662381A038EE8579D628192 /* SUExport.h */,
+				F9AA62F41867FC037EE7C04444A4577C /* SUStandardVersionComparator.h */,
+				D226446C0D0388DF545256BA990DB153 /* SUUpdatePermissionResponse.h */,
+				496013A14354CB263EA6BB40CBFA781B /* SUUpdater.h */,
+				69F937330231DC32508EB19C460AD933 /* SUUpdaterDelegate.h */,
+				447754C2DD0B83ED4B89F50C40589D3A /* SUVersionComparisonProtocol.h */,
+				A7805BEEFA98FA8E6671BE2432C03864 /* SUVersionDisplayProtocol.h */,
+				9ABB2D7703A25AFE8B702EE13D49971F /* Frameworks */,
+				63C846F39CE550B12A5F919CC401FF49 /* Support Files */,
+			);
+			name = Sparkle;
+			path = Sparkle;
+			sourceTree = "<group>";
+		};
+		38FFA89FB117277CD8F96AB75257199B /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				75AC7865FE40B2A5EA8528ED745CE600 /* Pods-YLCategory-Swift-MacOS */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		538D7938013D0440118FE4FDBCE913A7 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2A915B166BB7857929410A967B196A86 /* Sparkle */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		63C846F39CE550B12A5F919CC401FF49 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				D992A85877C0B020BCAE3921C74E4AED /* Sparkle.debug.xcconfig */,
+				F656722E25E4BACECA58FDD05371B859 /* Sparkle.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Sparkle";
+			sourceTree = "<group>";
+		};
+		6D45F293258579EDA5E4FA84455F7C1D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0AF2B6D31B0D2FB98CC0C958AB406127 /* Pods-YLCategory-Swift-MacOS */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		75AC7865FE40B2A5EA8528ED745CE600 /* Pods-YLCategory-Swift-MacOS */ = {
+			isa = PBXGroup;
+			children = (
+				EAE5479FE16BAFC7761EF5115C2650DF /* Pods-YLCategory-Swift-MacOS.modulemap */,
+				955B05AC39A1896570AECE78FB5D6ACC /* Pods-YLCategory-Swift-MacOS-acknowledgements.markdown */,
+				DE20EC12C8593CC50DF203694C494031 /* Pods-YLCategory-Swift-MacOS-acknowledgements.plist */,
+				6F25B076C9E46216CFFBF9AC89F9FEFE /* Pods-YLCategory-Swift-MacOS-dummy.m */,
+				DD2EAA2E50F78B414F01A8CFAFF2BC26 /* Pods-YLCategory-Swift-MacOS-frameworks.sh */,
+				72051CD7F00EBA3F22AC304EEC165DA6 /* Pods-YLCategory-Swift-MacOS-Info.plist */,
+				F71BEC9A89CCA8544FD1099351A90A55 /* Pods-YLCategory-Swift-MacOS-umbrella.h */,
+				8ECFF48D1BC8806097F14C93E00F2146 /* Pods-YLCategory-Swift-MacOS.debug.xcconfig */,
+				2ACBDBF8FD1223391BE2DB9C04C830CF /* Pods-YLCategory-Swift-MacOS.release.xcconfig */,
+			);
+			name = "Pods-YLCategory-Swift-MacOS";
+			path = "Target Support Files/Pods-YLCategory-Swift-MacOS";
+			sourceTree = "<group>";
+		};
+		9ABB2D7703A25AFE8B702EE13D49971F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3692921BFEAB2E428E88A828CF1A5698 /* Sparkle.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CF1408CF629C7361332E53B88F7BD30C = {
+			isa = PBXGroup;
+			children = (
+				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
+				E0A1E60606E0BF6E2E10F1F01350DFE8 /* Frameworks */,
+				538D7938013D0440118FE4FDBCE913A7 /* Pods */,
+				6D45F293258579EDA5E4FA84455F7C1D /* Products */,
+				38FFA89FB117277CD8F96AB75257199B /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		E0A1E60606E0BF6E2E10F1F01350DFE8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E2A8756CA1FF5258A0344D53C5C60EC1 /* OS X */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E2A8756CA1FF5258A0344D53C5C60EC1 /* OS X */ = {
+			isa = PBXGroup;
+			children = (
+				C1430F003D39D9906881A6AC724B7931 /* Cocoa.framework */,
+			);
+			name = "OS X";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		33911B229A86DDD1FD081C125DDC12F6 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				485D8CAE6C743F0DB5EDEF7361521B7A /* Pods-YLCategory-Swift-MacOS-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		806DDD7AB291DC02180B7794B51B8CE5 /* Pods-YLCategory-Swift-MacOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C9D2553BF3A5563ACB511D70EC11E0F6 /* Build configuration list for PBXNativeTarget "Pods-YLCategory-Swift-MacOS" */;
+			buildPhases = (
+				33911B229A86DDD1FD081C125DDC12F6 /* Headers */,
+				DD43AF9E922E5A4841767DCB1242FB79 /* Sources */,
+				12500265B18F00C4122C2B8ACCC01833 /* Frameworks */,
+				2F1E2D82845F5B6D548B7AE31CB876AF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1F02E6B823A2724B5AA565710EAD09DF /* PBXTargetDependency */,
+			);
+			name = "Pods-YLCategory-Swift-MacOS";
+			productName = Pods_YLCategory_Swift_MacOS;
+			productReference = 0AF2B6D31B0D2FB98CC0C958AB406127 /* Pods-YLCategory-Swift-MacOS */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BFDFE7DC352907FC980B868725387E98 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
+			};
+			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
+			productRefGroup = 6D45F293258579EDA5E4FA84455F7C1D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				806DDD7AB291DC02180B7794B51B8CE5 /* Pods-YLCategory-Swift-MacOS */,
+				ED77B4B88587C894E85C361023D67C53 /* Sparkle */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2F1E2D82845F5B6D548B7AE31CB876AF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DD43AF9E922E5A4841767DCB1242FB79 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A1F7B57FBA8EBD6D0EC2D02C94B25A53 /* Pods-YLCategory-Swift-MacOS-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		1F02E6B823A2724B5AA565710EAD09DF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Sparkle;
+			target = ED77B4B88587C894E85C361023D67C53 /* Sparkle */;
+			targetProxy = 1935D960CAB5596108510A4FC1241009 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		34DA5AFD3D145C2F3399C6FB9B8A282A /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2ACBDBF8FD1223391BE2DB9C04C830CF /* Pods-YLCategory-Swift-MacOS.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-YLCategory-Swift-MacOS/Pods-YLCategory-Swift-MacOS-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MODULEMAP_FILE = "Target Support Files/Pods-YLCategory-Swift-MacOS/Pods-YLCategory-Swift-MacOS.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		89EEAA3D4B5AE73BC396E346297A72CC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D992A85877C0B020BCAE3921C74E4AED /* Sparkle.debug.xcconfig */;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				COMBINE_HIDPI_IMAGES = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		A734648D21C485124F4CA7866CB7B37C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		A942265E7027F239A3D0EB8401940DA6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F656722E25E4BACECA58FDD05371B859 /* Sparkle.release.xcconfig */;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				COMBINE_HIDPI_IMAGES = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		C230D46C47534BD1A296F6FB241DD362 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8ECFF48D1BC8806097F14C93E00F2146 /* Pods-YLCategory-Swift-MacOS.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-YLCategory-Swift-MacOS/Pods-YLCategory-Swift-MacOS-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MODULEMAP_FILE = "Target Support Files/Pods-YLCategory-Swift-MacOS/Pods-YLCategory-Swift-MacOS.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		D7C18A4BB3A23E3E9BD431BC6F0C4001 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2C8D06A2289713323892B3638F08AC0B /* Build configuration list for PBXAggregateTarget "Sparkle" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				89EEAA3D4B5AE73BC396E346297A72CC /* Debug */,
+				A942265E7027F239A3D0EB8401940DA6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A734648D21C485124F4CA7866CB7B37C /* Debug */,
+				D7C18A4BB3A23E3E9BD431BC6F0C4001 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C9D2553BF3A5563ACB511D70EC11E0F6 /* Build configuration list for PBXNativeTarget "Pods-YLCategory-Swift-MacOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C230D46C47534BD1A296F6FB241DD362 /* Debug */,
+				34DA5AFD3D145C2F3399C6FB9B8A282A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+}

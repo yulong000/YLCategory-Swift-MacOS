@@ -1,5 +1,5 @@
 //
-//  YLUpdate.swift
+//  YLUpdater.swift
 //  YLCategory-Swift-MacOS
 //
 //  Created by 魏宇龙 on 2025/5/18.
@@ -8,20 +8,20 @@
 import AppKit
 import Sparkle
 
-class YLUpdate: NSObject {
+class YLUpdater: NSObject {
     
     /// 检测更新
     /// - Parameter background: 是否后台检测, background = true时，无新版本，则不弹窗提醒
-    open func checkForUpdates(background: Bool = true) {}
+    func checkForUpdates(background: Bool = true) {}
     
     /// 根据日期和系统版本，判断试用到期
     /// - Parameters:
     ///   - date: 过期日期 yyyy-MM-dd
     ///   - osVersion: 过期系统版本号 6.0.0
-    open func judgeAppExpire(date: String? = nil, osVersion: String? = nil) {}
+    func judgeAppExpire(date: String? = nil, osVersion: String? = nil) {}
 }
 
-class YLAppStoreUpdate: YLUpdate {
+class YLAppStoreUpdater: YLUpdater {
     /// app ID
     var appID: String? {
         didSet {
@@ -197,7 +197,7 @@ class YLAppStoreUpdate: YLUpdate {
     }
 }
 
-class YLSparkleUpdate: YLUpdate, SPUUpdaterDelegate, SPUStandardUserDriverDelegate {
+class YLSparkleUpdater: YLUpdater, SPUUpdaterDelegate, SPUStandardUserDriverDelegate {
     
     /// 下载地址
     var downloadUrl: String?

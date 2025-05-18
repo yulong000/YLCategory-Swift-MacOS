@@ -107,6 +107,15 @@ public var GUIUserName: String? {
     return userName
 }
 
+// 重启app
+public func RestartApp() {
+    let task = Process()
+    task.launchPath = "/usr/bin/open"
+    task.arguments = ["-n", Bundle.main.bundlePath]
+    task.launch()
+    NSApp.terminate(nil)
+}
+
 // MARK: - 修饰键判断的相关方法
 
 // 修饰键掩码
