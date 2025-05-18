@@ -40,7 +40,7 @@ public class YLUpdateManager: NSObject {
     }
     
     /// 更新器
-    private lazy var updater: YLUpdater = isSandbox ? YLAppStoreUpdater() : YLSparkleUpdater()
+    lazy var updater: YLUpdater = isSandbox ? YLAppStoreUpdater() : YLSparkleUpdater()
     /// 是否是沙盒
     private let isSandbox: Bool = ProcessInfo.processInfo.environment["APP_SANDBOX_CONTAINER_ID"] != nil
 

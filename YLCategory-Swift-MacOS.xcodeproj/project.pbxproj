@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0006A0732DDA177A002D2807 /* YLUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0006A0722DDA173B002D2807 /* YLUpdater.swift */; };
+		0006A07E2DDA35B2002D2807 /* Sparkle in Frameworks */ = {isa = PBXBuildFile; productRef = 0006A07D2DDA35B2002D2807 /* Sparkle */; };
 		0037DEB02D23D3900061136D /* YLAppleScript.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0037DEAF2D23D3900061136D /* YLAppleScript.swift */; };
 		0037DEB22D2575E70061136D /* YLHud.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0037DEB12D2575E70061136D /* YLHud.swift */; };
 		0037DEB72D26DAB60061136D /* YLFileAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0037DEB62D26DAB60061136D /* YLFileAccess.swift */; };
@@ -73,8 +74,20 @@
 		00E850642D1C579A00EBE080 /* NSObject+Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E850632D1C579A00EBE080 /* NSObject+Notification.swift */; };
 		00E850662D1C581A00EBE080 /* NSObject+Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E850652D1C581A00EBE080 /* NSObject+Event.swift */; };
 		00E8506A2D1D1E9C00EBE080 /* YLAppRating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E850692D1D1E9C00EBE080 /* YLAppRating.swift */; };
-		336EBFA7D17FD453843F436E /* Pods_YLCategory_Swift_MacOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E837E37BDBE35226E9A5C29 /* Pods_YLCategory_Swift_MacOS.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		0006A07B2DDA2F32002D2807 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		0006A0722DDA173B002D2807 /* YLUpdater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YLUpdater.swift; sourceTree = "<group>"; };
@@ -194,9 +207,6 @@
 		00E850632D1C579A00EBE080 /* NSObject+Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+Notification.swift"; sourceTree = "<group>"; };
 		00E850652D1C581A00EBE080 /* NSObject+Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+Event.swift"; sourceTree = "<group>"; };
 		00E850692D1D1E9C00EBE080 /* YLAppRating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YLAppRating.swift; sourceTree = "<group>"; };
-		21153F7377C4BC2E5350B8D1 /* Pods-YLCategory-Swift-MacOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YLCategory-Swift-MacOS.debug.xcconfig"; path = "Target Support Files/Pods-YLCategory-Swift-MacOS/Pods-YLCategory-Swift-MacOS.debug.xcconfig"; sourceTree = "<group>"; };
-		370FCC293E85D24F69587552 /* Pods-YLCategory-Swift-MacOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YLCategory-Swift-MacOS.release.xcconfig"; path = "Target Support Files/Pods-YLCategory-Swift-MacOS/Pods-YLCategory-Swift-MacOS.release.xcconfig"; sourceTree = "<group>"; };
-		3E837E37BDBE35226E9A5C29 /* Pods_YLCategory_Swift_MacOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YLCategory_Swift_MacOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -204,7 +214,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				336EBFA7D17FD453843F436E /* Pods_YLCategory_Swift_MacOS.framework in Frameworks */,
+				0006A07E2DDA35B2002D2807 /* Sparkle in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -217,7 +227,6 @@
 				0080A4E12D04490300EEFEA2 /* YLCategory-Swift-Demo */,
 				0080A4E62D04490900EEFEA2 /* YLCategory-Swift-MacOS */,
 				0080A4CA2D0448EA00EEFEA2 /* Products */,
-				3007D05D0FEB57DCFC19C36C /* Pods */,
 				2D32439DE15DA262860A24DD /* Frameworks */,
 			);
 			sourceTree = "<group>";
@@ -635,18 +644,8 @@
 		2D32439DE15DA262860A24DD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				3E837E37BDBE35226E9A5C29 /* Pods_YLCategory_Swift_MacOS.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		3007D05D0FEB57DCFC19C36C /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				21153F7377C4BC2E5350B8D1 /* Pods-YLCategory-Swift-MacOS.debug.xcconfig */,
-				370FCC293E85D24F69587552 /* Pods-YLCategory-Swift-MacOS.release.xcconfig */,
-			);
-			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -656,11 +655,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0080A4D82D0448EB00EEFEA2 /* Build configuration list for PBXNativeTarget "YLCategory-Swift-MacOS" */;
 			buildPhases = (
-				51B4B91CB1FC709AB2D4F422 /* [CP] Check Pods Manifest.lock */,
 				0080A4C52D0448EA00EEFEA2 /* Sources */,
 				0080A4C62D0448EA00EEFEA2 /* Frameworks */,
 				0080A4C72D0448EA00EEFEA2 /* Resources */,
-				92F30A53F3745518A45167AD /* [CP] Embed Pods Frameworks */,
+				0006A07B2DDA2F32002D2807 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -710,6 +708,9 @@
 				sv,
 			);
 			mainGroup = 0080A4C02D0448EA00EEFEA2;
+			packageReferences = (
+				0006A07C2DDA3540002D2807 /* XCRemoteSwiftPackageReference "Sparkle" */,
+			);
 			productRefGroup = 0080A4CA2D0448EA00EEFEA2 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -739,52 +740,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		51B4B91CB1FC709AB2D4F422 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-YLCategory-Swift-MacOS-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		92F30A53F3745518A45167AD /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-YLCategory-Swift-MacOS/Pods-YLCategory-Swift-MacOS-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-YLCategory-Swift-MacOS/Pods-YLCategory-Swift-MacOS-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-YLCategory-Swift-MacOS/Pods-YLCategory-Swift-MacOS-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		0080A4C52D0448EA00EEFEA2 /* Sources */ = {
@@ -1083,7 +1038,6 @@
 		};
 		0080A4D92D0448EB00EEFEA2 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 21153F7377C4BC2E5350B8D1 /* Pods-YLCategory-Swift-MacOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -1095,7 +1049,12 @@
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 87LJF62PN6;
 				ENABLE_HARDENED_RUNTIME = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/YLCategory-Swift-Demo",
+				);
 				GENERATE_INFOPLIST_FILE = YES;
+				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_NSMainStoryboardFile = Main;
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
@@ -1116,7 +1075,6 @@
 		};
 		0080A4DA2D0448EB00EEFEA2 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 370FCC293E85D24F69587552 /* Pods-YLCategory-Swift-MacOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -1128,7 +1086,12 @@
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 87LJF62PN6;
 				ENABLE_HARDENED_RUNTIME = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/YLCategory-Swift-Demo",
+				);
 				GENERATE_INFOPLIST_FILE = YES;
+				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_NSMainStoryboardFile = Main;
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
@@ -1168,6 +1131,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		0006A07C2DDA3540002D2807 /* XCRemoteSwiftPackageReference "Sparkle" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sparkle-project/Sparkle";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.7.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		0006A07D2DDA35B2002D2807 /* Sparkle */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0006A07C2DDA3540002D2807 /* XCRemoteSwiftPackageReference "Sparkle" */;
+			productName = Sparkle;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 0080A4C12D0448EA00EEFEA2 /* Project object */;
 }
