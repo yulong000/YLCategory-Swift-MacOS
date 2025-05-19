@@ -9,10 +9,11 @@ import Foundation
 import StoreKit
 
 public class YLAppRating {
+    
+    private static let YLAppRatingKey = "YLAppRating"
     private static let AppRateFirstLaunchTimeKey = "AppRateFirstLaunchTime"
     private static let AppRateExecCountKey = "AppRateExecCount"
     private static let AppRateLastShowTimeKey = "AppRateLastShowTime"
-    
     
     /// App评分弹窗
     /// - Parameters:
@@ -33,20 +34,22 @@ public class YLAppRating {
         }
         
         let userDefaults = UserDefaults.standard
+        var info = userDefaults.object(forKey: YLAppRatingKey) as? [String: Any] ?? [:]
         
         // 第一次执行时间
-        var firstLaunchTime = userDefaults.double(forKey: AppRateFirstLaunchTimeKey)
+        var firstLaunchTime = info[AppRateFirstLaunchTimeKey] as? Double ?? 0
         if firstLaunchTime == 0 {
             firstLaunchTime = Date().timeIntervalSince1970
-            userDefaults.set(firstLaunchTime, forKey: AppRateFirstLaunchTimeKey)
+            info[AppRateFirstLaunchTimeKey] = firstLaunchTime
         }
         
         // 执行次数
-        var execCount = userDefaults.integer(forKey: AppRateExecCountKey)
+        var execCount = info[AppRateExecCountKey] as? Int ?? 0
         execCount += 1
-        userDefaults.set(execCount, forKey: AppRateExecCountKey)
+        info[AppRateExecCountKey] = execCount
+        userDefaults.set(info, forKey: YLAppRatingKey)
+        userDefaults.synchronize()
         if execCount < minExecCount {
-            userDefaults.synchronize()
             print("App评分 - 当前执行次数：\(execCount) 未达到 \(minExecCount) 次, 直接返回")
             return
         }
@@ -55,16 +58,14 @@ public class YLAppRating {
         
         // 判断与第一次执行的时间间隔
         if currentTime - firstLaunchTime < 60 * 60 * 24 * Double(daysSinceFirstLaunch) {
-            userDefaults.synchronize()
             let daysSinceFirst = (currentTime - firstLaunchTime) / (24.0 * 60 * 60)
             print("App评分 - 从第一次执行至今，已经 \(daysSinceFirst) 天，未超过 \(daysSinceFirstLaunch) 天，直接返回")
             return
         }
         
         // 判断与上一次弹窗的时间间隔
-        let lastShowTime = userDefaults.double(forKey: AppRateLastShowTimeKey)
+        let lastShowTime = info[AppRateLastShowTimeKey] as? Double ?? 0
         if lastShowTime > 0 && currentTime - lastShowTime < 60 * 60 * 24 * Double(daysSinceLastPrompt) {
-            userDefaults.synchronize()
             let daysSinceLast = (currentTime - lastShowTime) / (24.0 * 60 * 60)
             print("App评分 - 从上一次执行评分弹窗至今，已经 \(daysSinceLast) 天，未超过 \(daysSinceLastPrompt) 天，直接返回")
             return
@@ -72,8 +73,9 @@ public class YLAppRating {
         
         // 延迟后执行评分弹窗
         DispatchQueue.main.asyncAfter(deadline: .now() + delayInSeconds) {
-            userDefaults.set(currentTime + Double(delayInSeconds), forKey: AppRateLastShowTimeKey)
-            userDefaults.set(0, forKey: AppRateExecCountKey)
+            info[AppRateLastShowTimeKey] = currentTime + Double(delayInSeconds)
+            info[AppRateExecCountKey] = 0
+            userDefaults.set(info, forKey: YLAppRatingKey)
             userDefaults.synchronize()
             if #available(macOS 15.0, *) {
                 // macOS 15 及以上支持输入中文
