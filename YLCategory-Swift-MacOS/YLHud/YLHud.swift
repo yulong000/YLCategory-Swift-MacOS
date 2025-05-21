@@ -161,13 +161,16 @@ public class YLHud: YLHudWindow {
     /// 隐藏指定的hud
     /// - Parameter hud: 只隐藏该hud
     public class func hideHUD(_ hud: YLHud) {
-        if let handler = hud.completionHandler {
-            handler()
+        guard let parent = hud.parent else {
+            hud.close()
+            hud.completionHandler?()
+            return
         }
-        hud.parent!.parent?.removeChildWindow(hud.parent!)
-        hud.parent?.close()
-        hud.parent?.removeChildWindow(hud)
+        parent.parent?.removeChildWindow(parent)
+        parent.removeChildWindow(hud)
+        parent.close()
         hud.close()
+        hud.completionHandler?()
     }
     
     // MARK: - 实例方法

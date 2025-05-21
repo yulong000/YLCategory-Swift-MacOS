@@ -20,7 +20,7 @@ open class YLCollectionView: NSView, NSCollectionViewDelegate, NSCollectionViewD
     
     // MARK: - 构造方法
     
-    convenience public init(layout: NSCollectionViewLayout) {
+    public convenience init(layout: NSCollectionViewLayout) {
         self.init(frame: .zero)
         setupCollectionView()
         collectionView.collectionViewLayout = layout
