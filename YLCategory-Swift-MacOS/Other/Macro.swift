@@ -10,6 +10,7 @@
 import Cocoa
 import Carbon
 import SystemConfiguration
+import AVFoundation
 
 // MARK: - 颜色
 
@@ -106,6 +107,15 @@ public var GUIUserName: String? {
     }
     return userName
 }
+// app的owner account ID, 从app store下载的一般是0，其他方式安装的是501，也有可能是其他值
+public let OwnerAccountID: Int? = {
+    guard let path = Bundle.main.executablePath,
+          let attr = try? FileManager.default.attributesOfItem(atPath: path),
+          let accountID = attr[.ownerAccountID] as? Int else {
+        return nil
+    }
+    return accountID
+}()
 
 // 重启app
 public func RestartApp() {
@@ -226,4 +236,112 @@ public func ConvertToBottomLeftCoordinateSystem(_ topLeftCoordinateSystemPoint: 
         }
     }
     return NSPoint(x: topLeftCoordinateSystemPoint.x, y: coordinatedH - topLeftCoordinateSystemPoint.y)
+}
+
+
+// MARK: - 系统警告音音量
+
+// 提示音音量
+private var beepVolumeValue: Float?
+private let kAudioServicesPropertySystemAlertVolume: AudioServicesPropertyID = OSType("ssvl".utf8.reduce(0) { ($0 << 8) | FourCharCode($1)})
+
+// MARK: 添加监听系统警告音的通知，可以提前修改警告音音量到最小，并在收到通知后，恢复警告音音量，以实现静音效果
+public func RegisterSystemBeepNotification(_ observer: Any, selector: Selector) {
+    DistributedNotificationCenter.default().addObserver(observer, selector: selector, name: NSNotification.Name(rawValue:"com.apple.systemBeep"), object: nil)
+}
+
+// MARK: 移除监听系统警告音的通知
+public func UnregisterSystemBeepNotification(_ observer: Any) {
+    DistributedNotificationCenter.default().removeObserver(observer, name: NSNotification.Name(rawValue:"com.apple.systemBeep"), object: nil)
+}
+
+// MARK: 获取当前警告音的音量
+public func GetSystemBeepVolume() -> Float {
+    var volume: Float = 0
+    var volSize = UInt32(MemoryLayout.size(ofValue: volume))
+    let err = AudioServicesGetProperty(kAudioServicesPropertySystemAlertVolume, 0, nil, &volSize, &volume)
+    if err != noErr {
+        print("Error getting alert volume: \(err)")
+        return .nan
+    }
+    return volume
+}
+// MARK: 设置警告音音量，并保存当前的值
+public func SetSystemBeepVolume(_ volume: Float32) {
+    beepVolumeValue = GetSystemBeepVolume()
+    var v = volume
+    AudioServicesSetProperty(kAudioServicesPropertySystemAlertVolume, 0, nil, UInt32(MemoryLayout.size(ofValue: volume)), &v)
+}
+// MARK: 恢复原来的警告音音量
+public func RecoverSystemBeepVolume() {
+    if let beepVolumeValue = beepVolumeValue {
+        SetSystemBeepVolume(beepVolumeValue)
+    }
+}
+
+// MARK: - app 相关
+
+// MARK: app是否安装
+public func AppIsInstalled(_ bundleId: String) -> Bool {
+    NSWorkspace.shared.urlForApplication(withBundleIdentifier: bundleId) != nil
+}
+// MARK: app是否在运行
+public func AppIsRunning(_ bundleId: String) -> Bool {
+    !NSRunningApplication.runningApplications(withBundleIdentifier: bundleId).isEmpty
+}
+// MARK: 根据名字打开app
+public func RunAppWithName(_ name: String, delay second: TimeInterval = 0, success handler: (() -> Void)? = nil) {
+    if NSWorkspace.shared.launchApplication(name) {
+        if second > 0 {
+            DispatchQueue.main.asyncAfter(deadline: .now() + second) {
+                handler?()
+            }
+        } else {
+            handler?()
+        }
+    }
+}
+// MARK: 根据 bundle id 打开app
+public func RunAppWithBundleID(_ bundleID: String, arguments: [String]? = nil, activates: Bool = true, completion handler: ((Bool) -> Void)? = nil) {
+    if #available(macOS 11.0, *) {
+        guard let appURL = NSWorkspace.shared.urlForApplication(withBundleIdentifier: bundleID) else {
+            handler?(false)
+            return
+        }
+        let config = NSWorkspace.OpenConfiguration()
+        config.activates = activates
+        config.arguments = arguments ?? []
+        NSWorkspace.shared.openApplication(at: appURL, configuration: config) { app, error in
+            if let _ = app, error == nil {
+                handler?(true)
+            } else {
+                handler?(false)
+            }
+        }
+    } else {
+        let success = NSWorkspace.shared.launchApplication(withBundleIdentifier: bundleID, options: activates ? .default : .withoutActivation, additionalEventParamDescriptor: nil, launchIdentifier: nil)
+        handler?(success)
+    }
+}
+
+// MARK: - event 相关
+
+// MARK: 模拟键盘按下&抬起
+public func Press(key: CGKeyCode, flags: CGEventFlags? = nil) {
+    var modiferFlags = flags ?? []
+    // 上下左右键，在某些环境中，需要添加Fn才能被识别为物理按键
+    if key == kVK_LeftArrow || key == kVK_RightArrow || key == kVK_UpArrow || key == kVK_DownArrow {
+        if !modiferFlags.contains(.maskSecondaryFn) {
+            modiferFlags.insert(.maskSecondaryFn)
+        }
+    }
+    if let down = CGEvent(keyboardEventSource: nil, virtualKey: key, keyDown: true) {
+        down.flags = modiferFlags
+        down.post(tap: .cgSessionEventTap)
+    }
+    
+    if let up = CGEvent(keyboardEventSource: nil, virtualKey: key, keyDown: false) {
+        up.flags = modiferFlags
+        up.post(tap: .cgSessionEventTap)
+    }
 }

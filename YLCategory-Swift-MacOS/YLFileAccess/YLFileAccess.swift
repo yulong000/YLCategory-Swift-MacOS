@@ -14,7 +14,7 @@ public class YLFileAccess {
     private init() {}
     
     // 是否显示根路径授权按钮
-    var allowRootOption: Bool = true
+    public var allowRootOption: Bool = true
     
     // MARK: - 加载访问权限
     
