@@ -20,10 +20,15 @@ class YLUpdateXMLParserDelegate: NSObject, XMLParserDelegate {
     // MARK: 读取元素内容
     func parser(_ parser: XMLParser, foundCharacters string: String) {
         guard let currentElement = currentElement else { return }
-        if currentElement == "Name" { update?.Name = string }
-        if currentElement == "BundleId" { update?.BundleId = string }
-        if currentElement == "MiniVersion" { update?.MiniVersion = string }
-        if currentElement == "ForceUpdateToTheLastest" { update?.ForceUpdateToTheLastest = Bool(string) ?? false }
+        switch currentElement {
+        case "Name":                    update?.Name = string
+        case "BundleId":                update?.BundleId = string
+        case "ForceUpdateToTheLatest":  update?.ForceUpdateToTheLatest = Bool(string) ?? Bool(Int(string) == 0 ? "false" : "true")
+        case "MiniVersion":             update?.MiniVersion = string
+        case "ExpiredDate":             update?.ExpiredDate = string
+        case "ExpiredOSVersion":        update?.ExpiredOSVersion = string
+        default: break
+        }
     }
     
     // MARK: 结束某个元素的解析
@@ -48,15 +53,21 @@ struct YLUpdateXMLModel {
     var BundleId: String?
     /// 支持最小版本号，小于该版本号的，强制升级
     var MiniVersion: String?
+    /// 失效的系统版本号
+    var ExpiredOSVersion: String?
+    /// 失效的日期, 格式： yyyy-MM-dd
+    var ExpiredDate: String?
     /// 有新版本，就强制升级
-    var ForceUpdateToTheLastest: Bool = false
+    var ForceUpdateToTheLatest: Bool?
     
     func toJson() -> [String: Any] {
         return [
             "Name": Name ?? "",
             "BundleId": BundleId ?? "",
             "MiniVersion": MiniVersion ?? "",
-            "ForceUpdateToTheLastest": ForceUpdateToTheLastest
+            "ExpiredOSVersion": ExpiredOSVersion ?? "",
+            "ExpiredDate": ExpiredDate ?? "",
+            "ForceUpdateToTheLatest": ForceUpdateToTheLatest ?? false
         ]
     }
 }
