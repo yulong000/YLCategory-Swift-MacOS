@@ -706,7 +706,6 @@
 			);
 			mainGroup = 0080A4C02D0448EA00EEFEA2;
 			packageReferences = (
-				0006A07C2DDA3540002D2807 /* XCRemoteSwiftPackageReference "Sparkle" */,
 			);
 			productRefGroup = 0080A4CA2D0448EA00EEFEA2 /* Products */;
 			projectDirPath = "";
