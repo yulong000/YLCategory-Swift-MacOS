@@ -26,8 +26,7 @@ class YLUpdateViewController: NSViewController {
     
 
     @objc private func update() {
-        if let appStoreUpdater = YLUpdateManager.shared.updater as? YLAppStoreUpdater,
-           let appStoreUrl = appStoreUpdater.appStoreUrl {
+        if let appStoreUrl = YLUpdateManager.shared.appStoreUrl {
             NSWorkspace.shared.open(URL(string: appStoreUrl)!)
         }
         view.window?.close()

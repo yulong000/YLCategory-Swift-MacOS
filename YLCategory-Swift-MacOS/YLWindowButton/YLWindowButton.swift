@@ -58,6 +58,7 @@ open class YLWindowButton: NSControl {
     
     public override func viewDidMoveToWindow() {
         super.viewDidMoveToWindow()
+        NotificationCenter.default.removeObserver(self)
         guard let window = window else { return }
         NotificationCenter.default.addObserver(self, selector: #selector(windowDidBecomeActive), name: NSWindow.didBecomeKeyNotification, object: window)
         NotificationCenter.default.addObserver(self, selector: #selector(windowDidResignActive), name: NSWindow.didResignKeyNotification, object: window)

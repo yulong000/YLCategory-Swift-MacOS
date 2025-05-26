@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0006A0732DDA177A002D2807 /* YLUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0006A0722DDA173B002D2807 /* YLUpdater.swift */; };
 		0006A07E2DDA35B2002D2807 /* Sparkle in Frameworks */ = {isa = PBXBuildFile; productRef = 0006A07D2DDA35B2002D2807 /* Sparkle */; };
 		0037DEB02D23D3900061136D /* YLAppleScript.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0037DEAF2D23D3900061136D /* YLAppleScript.swift */; };
 		0037DEB22D2575E70061136D /* YLHud.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0037DEB12D2575E70061136D /* YLHud.swift */; };
@@ -90,7 +89,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		0006A0722DDA173B002D2807 /* YLUpdater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YLUpdater.swift; sourceTree = "<group>"; };
 		0037DEAF2D23D3900061136D /* YLAppleScript.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YLAppleScript.swift; sourceTree = "<group>"; };
 		0037DEB12D2575E70061136D /* YLHud.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YLHud.swift; sourceTree = "<group>"; };
 		0037DEB62D26DAB60061136D /* YLFileAccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YLFileAccess.swift; sourceTree = "<group>"; };
@@ -337,7 +335,6 @@
 			isa = PBXGroup;
 			children = (
 				00CFDCE32D22AB7800EF4FA4 /* YLUpdateManager.swift */,
-				0006A0722DDA173B002D2807 /* YLUpdater.swift */,
 				00CFDCE52D22AB9A00EF4FA4 /* YLUpdateWindowController.swift */,
 				00CFDCE72D22ABA600EF4FA4 /* YLUpdateViewController.swift */,
 				00CFDCE92D22AEDA00EF4FA4 /* YLUpdateXMLParserDelegate.swift */,
@@ -797,7 +794,6 @@
 				00E8506A2D1D1E9C00EBE080 /* YLAppRating.swift in Sources */,
 				00E850662D1C581A00EBE080 /* NSObject+Event.swift in Sources */,
 				00CFDB422D1D450C00EF4FA4 /* YLTextField.swift in Sources */,
-				0006A0732DDA177A002D2807 /* YLUpdater.swift in Sources */,
 				0037DEB72D26DAB60061136D /* YLFileAccess.swift in Sources */,
 				0080A4E32D04490300EEFEA2 /* ViewController.swift in Sources */,
 				00A0F9C52D1A489F0043E075 /* NSAlert+Category.swift in Sources */,
@@ -1045,7 +1041,7 @@
 				CODE_SIGN_ENTITLEMENTS = "YLCategory-Swift-Demo/YLCategory_Swift_MacOS.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 2025052301;
+				CURRENT_PROJECT_VERSION = 2025052601;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 87LJF62PN6;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -1082,7 +1078,7 @@
 				CODE_SIGN_ENTITLEMENTS = "YLCategory-Swift-Demo/YLCategory_Swift_MacOS.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 2025052301;
+				CURRENT_PROJECT_VERSION = 2025052601;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 87LJF62PN6;
 				ENABLE_HARDENED_RUNTIME = YES;
