@@ -158,6 +158,10 @@ Pod::Spec.new do |s|
     ss.source_files  =   'YLCategory-Swift-MacOS/YLScrollLabel/**/*.swift'
     end
     
+    s.subspec 'YLAppEnvironment' do |ss|
+    ss.source_files  =   'YLCategory-Swift-MacOS/YLAppEnvironment/**/*.swift'
+    end
+    
     s.subspec 'Async' do |ss|
     ss.source_files  =   'YLCategory-Swift-MacOS/Async/**/*.swift'
     end
