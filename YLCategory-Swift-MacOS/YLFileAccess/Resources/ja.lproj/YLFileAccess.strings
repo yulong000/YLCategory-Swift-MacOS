@@ -11,4 +11,4 @@
 "File access message" = "%@ がこのパスにアクセスすることを許可してください";
 "File access prompt" = "許可";
 "Authorization root directory" = "ルートディレクトリの認証";
-"Authorization root directory message" = "1. %@にはこのフォルダの読み書き権限がありません。「許可」をクリックしてください。\n2. 今後認証を省略するために、ルートディレクトリの認証を推奨します。";
+"Authorization root directory message" = "1. %@ はこのフォルダへの読み書き権限がありません。「許可」をクリックしてください。\n2. 今後の許可を省略するために、ルートディレクトリへの許可をおすすめします。";

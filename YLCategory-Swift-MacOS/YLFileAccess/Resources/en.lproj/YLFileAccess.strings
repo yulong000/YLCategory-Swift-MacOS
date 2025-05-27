@@ -11,4 +11,4 @@
 "File access message" = "Please authorize %@ to access this path";
 "File access prompt" = "Authorize";
 "Authorization root directory" = "Authorization Root Directory";
-"Authorization root directory message" = "1. %@ does not have permission to read or write this folder. Please click 'Authorize'.\n2. It is recommended to authorize the root directory so you don't have to authorize again in the future.";
+"Authorization root directory message" = "1. %@ does not have read/write access to this folder. Please click “Authorize”.\n2. It is recommended to authorize the root directory to avoid future prompts.";

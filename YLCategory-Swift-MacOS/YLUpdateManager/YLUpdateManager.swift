@@ -156,6 +156,7 @@ public class YLUpdateManager: NSObject {
     private func showNew(version: String, info: String) {
         let wc = YLUpdateWindowController()
         wc.showNew(version: version, info: info)
+        wc.window?.center()
         wc.window?.makeKeyAndOrderFront(nil)
         NSApp.activate(ignoringOtherApps: true)
     }

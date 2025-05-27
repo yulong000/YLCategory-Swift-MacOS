@@ -11,4 +11,4 @@
 "File access message" = "Bitte autorisieren Sie %@, auf diesen Pfad zuzugreifen";
 "File access prompt" = "Autorisieren";
 "Authorization root directory" = "Autorisierung des Stammverzeichnisses";
-"Authorization root directory message" = "1. %@ hat keine Lese-/Schreibrechte für diesen Ordner. Bitte klicken Sie auf „Autorisieren“.\n2. Es wird empfohlen, das Stammverzeichnis zu autorisieren, um zukünftige Anfragen zu vermeiden.";
+"Authorization root directory message" = "1. %@ hat keine Lese-/Schreibrechte für diesen Ordner. Bitte klicken Sie auf „Autorisieren“.\n2. Es wird empfohlen, das Stammverzeichnis zu autorisieren, um zukünftige Aufforderungen zu vermeiden.";

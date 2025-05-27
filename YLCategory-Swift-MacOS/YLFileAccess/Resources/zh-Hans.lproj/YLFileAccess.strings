@@ -11,4 +11,4 @@
 "File access message" = "请授权%@访问该路径";
 "File access prompt" = "授权";
 "Authorization root directory" = "授权根目录";
-"Authorization root directory message" = "1. %@没有读写此文件夹的全新啊，请点击“授权”。\n2. 建议授权根目录，以后就不再需要授权了。";
+"Authorization root directory message" = "1. %@没有读写此文件夹的权限，请点击“授权”。\n2. 建议授权根目录，以后就不再需要授权了。";

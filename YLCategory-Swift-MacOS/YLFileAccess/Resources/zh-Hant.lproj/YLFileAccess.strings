@@ -11,4 +11,4 @@
 "File access message" = "請授權 %@ 訪問該路徑";
 "File access prompt" = "授權";
 "Authorization root directory" = "授權根目錄";
-"Authorization root directory message" = "1. %@沒有讀寫此資料夾的全新啊，請點選“授權”。\n2. 建議授權根目錄，以後就不再需要授權了。";
+"Authorization root directory message" = "1. %@沒有讀寫此資料夾的權限，請點選“授權”。\n2. 建議授權根目錄，以後就不再需要授權了。";
