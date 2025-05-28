@@ -49,9 +49,9 @@ public class YLUpdateManager: NSObject {
 #endif
                         DispatchQueue.main.async {
                             // 有新版本
-                            if let updateUrl = self.appUpdateUrl, !updateUrl.isEmpty {
+                            if let forceUpdateUrl = self.forceUpdateUrl, !forceUpdateUrl.isEmpty {
                                 // 有强制更新url
-                                self.requestServerForUpdateWay(URL(string: updateUrl)!, currentVersion: appVersion, appStoreVersion: latestVersion, updateInfo: info)
+                                self.requestServerForUpdateWay(URL(string: forceUpdateUrl)!, currentVersion: appVersion, appStoreVersion: latestVersion, updateInfo: info)
                             } else {
                                 self.showNew(version: latestVersion, info: info)
                             }
@@ -109,7 +109,8 @@ public class YLUpdateManager: NSObject {
                     parser.delegate = xmlDelegate
                     parser.parse()
 #if DEBUG
-                    print("强制更新信息：\(xmlDelegate.update?.toJson() ?? [:])")
+                    print("xml 内容:\n\(String(data: data, encoding: .utf8) ?? "")")
+                    print("强制更新信息:\n\(xmlDelegate.update?.toJson() ?? [:])")
 #endif
                     // 解析完成
                     if let update = xmlDelegate.update, update.BundleId == Bundle.main.bundleIdentifier {
