@@ -126,6 +126,48 @@ public func RestartApp() {
     NSApp.terminate(nil)
 }
 
+// 打开链接
+@discardableResult
+public func OpenUrl(_ path: String) -> Bool {
+    YLLog("Open url: \(path)")
+    if let url = URL(string: path) {
+        return NSWorkspace.shared.open(url)
+    }
+    return false
+}
+
+// 执行命令
+@discardableResult
+public func ExecuteCMD(_ cmd: String, argus: [String]? = nil) -> String? {
+    let process = Process()
+    process.executableURL = URL(fileURLWithPath: "/bin/bash")
+    process.arguments = ["-c", cmd] + (argus ?? [])
+    
+    let outputPipe = Pipe()
+    let errorPipe = Pipe()
+    process.standardOutput = outputPipe
+    process.standardError = errorPipe
+    do {
+        try process.run()
+    } catch {
+        YLLog("cmd '/bin/bash -c \(cmd)' 发生错误: \(error)")
+        return nil
+    }
+    process.waitUntilExit()
+    
+    let outputData = outputPipe.fileHandleForReading.readDataToEndOfFile()
+    let errorData = errorPipe.fileHandleForReading.readDataToEndOfFile()
+    
+    let output = String(data: outputData, encoding: .utf8)?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
+    if let errorOutput = String(data: errorData, encoding: .utf8)?.trimmingCharacters(in: .whitespacesAndNewlines),
+       !errorOutput.isEmpty {
+        YLLog("cmd '/bin/bash -c \(cmd)' 执行失败: \(errorOutput)")
+        return nil
+    }
+    YLLog("cmd '\(cmd)' 执行成功:\n\(output)")
+    return process.terminationStatus == 0 ? output : nil
+}
+
 // MARK: - 修饰键判断的相关方法
 
 // 修饰键掩码

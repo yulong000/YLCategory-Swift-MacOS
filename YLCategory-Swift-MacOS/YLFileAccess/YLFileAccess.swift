@@ -115,7 +115,22 @@ public class YLFileAccess {
         }
     }
     
-    // MARK: - private
+    // MARK: - 取消授权
+    
+    public func cancelAccess(_ filePath: String) {
+        cancelAccess(URL(fileURLWithPath: filePath))
+    }
+    
+    public func cancelAccess(_ fileUrl: URL) {
+        clearBookmarkData(for: fileUrl)
+    }
+    
+    public func cancelAllAccess() {
+        clearAllBookmarkDatas()
+    }
+    
+    
+    // MARK: - 私有方法
     
     private var openPanelModel: YLFileAccessOpenPanelModel?
     
@@ -160,22 +175,6 @@ public class YLFileAccess {
             requestAccess(URL(fileURLWithPath: "/"), temp: model.tempAuth, completion: completionHandler)
         }
     }
-    
-    // MARK: - 取消授权
-    
-    public func cancelAccess(_ filePath: String) {
-        cancelAccess(URL(fileURLWithPath: filePath))
-    }
-    
-    public func cancelAccess(_ fileUrl: URL) {
-        clearBookmarkData(for: fileUrl)
-    }
-    
-    public func cancelAllAccess() {
-        clearAllBookmarkDatas()
-    }
-    
-    // MARK: - 私有方法
     
     // MARK: 处理已存储的授权数据
     private func handleBookmarkData(_ data: Data, for url: URL) -> Bool {
