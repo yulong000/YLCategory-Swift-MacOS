@@ -11,6 +11,7 @@ import Cocoa
 import Carbon
 import SystemConfiguration
 import AVFoundation
+import UniformTypeIdentifiers
 
 // MARK: - 颜色
 
@@ -386,4 +387,130 @@ public func Press(key: CGKeyCode, flags: CGEventFlags? = nil) {
         up.flags = modiferFlags
         up.post(tap: .cgSessionEventTap)
     }
+}
+
+
+// MARK: - 文件类型
+
+// MARK: url是否是文件夹
+public func IsDirectory(_ url: URL) -> Bool {
+    return IsDirectory(url.path)
+}
+
+// MARK: path是否是文件夹
+public func IsDirectory(_ path: String) -> Bool {
+    var isDir: ObjCBool = false
+    if FileManager.default.fileExists(atPath: path, isDirectory: &isDir) {
+        return isDir.boolValue
+    }
+    return false
+}
+
+// MARK: 判断文件的类型
+public func File(_ url: URL, isType type: CFString) -> Bool {
+    return File(url.path, isType: type)
+}
+
+// MARK: 判断文件的类型，eg: File("/Users/xxx/test.zip", isType: kUTTypeArchive)
+public func File(_ path: String, isType type: CFString) -> Bool {
+    return File(path, isAnyOfTypes: [type])
+}
+
+// MARK: 判断文件是否符合任一指定类型
+public func File(_ path: String, isAnyOfTypes types: [CFString]) -> Bool {
+    // 判断是否是目录
+    var isDir: ObjCBool = false
+    guard FileManager.default.fileExists(atPath: path, isDirectory: &isDir), !isDir.boolValue else {
+        return false
+    }
+
+    let ext = (path as NSString).pathExtension.lowercased()
+    if #available(macOS 11.0, *) {
+        if let utType = UTType(filenameExtension: ext) {
+            for cfType in types {
+                let targetType = UTType(importedAs: cfType as String)
+                if utType.conforms(to: targetType) {
+                    return true
+                }
+            }
+            return false
+        }
+    }
+
+    // 兼容旧系统
+    if let cfUTI = UTTypeCreatePreferredIdentifierForTag(kUTTagClassFilenameExtension, ext as CFString, nil)?.takeRetainedValue() {
+        for cfType in types {
+            if UTTypeConformsTo(cfUTI, cfType) {
+                return true
+            }
+        }
+    }
+
+    return false
+}
+
+// MARK: macOS11以后，可以调用这个方法
+@available(macOS 11.0, *)
+public func File(_ path: String, isType type: UTType) -> Bool {
+    return File(path, isAnyOfTypes: [type])
+}
+
+// MARK: 判断文件是否符合任一指定类型(macOS 11.0 及以后)
+@available(macOS 11.0, *)
+public func File(_ path: String, isAnyOfTypes types: [UTType]) -> Bool {
+    var isDir: ObjCBool = false
+    guard FileManager.default.fileExists(atPath: path, isDirectory: &isDir), !isDir.boolValue else {
+        return false
+    }
+
+    let ext = (path as NSString).pathExtension.lowercased()
+    guard let fileType = UTType(filenameExtension: ext) else {
+        return false
+    }
+
+    for type in types {
+        if fileType.conforms(to: type) {
+            return true
+        }
+    }
+
+    return false
+}
+
+// MARK: 判断文件是否符合任一指定类型（自动适配 macOS 版本）
+public func File(_ path: String, conformsTo types: [String]) -> Bool {
+    // 判断是否是目录
+    var isDir: ObjCBool = false
+    guard FileManager.default.fileExists(atPath: path, isDirectory: &isDir), !isDir.boolValue else {
+        return false
+    }
+
+    // 获取文件扩展名（小写）
+    let ext = (path as NSString).pathExtension.lowercased()
+    guard !ext.isEmpty else { return false }
+
+    // macOS 11 及以上使用新 API
+    if #available(macOS 11.0, *) {
+        guard let fileType = UTType(filenameExtension: ext) else { return false }
+        for typeStr in types {
+            let ut = UTType(importedAs: typeStr)
+            if fileType.conforms(to: ut) {
+                return true
+            }
+        }
+        return false
+    }
+
+    // macOS 10.x 使用旧 API
+    guard let fileUTI = UTTypeCreatePreferredIdentifierForTag(kUTTagClassFilenameExtension, ext as CFString, nil)?.takeRetainedValue() else {
+        return false
+    }
+
+    for typeStr in types {
+        if UTTypeConformsTo(fileUTI, typeStr as CFString) {
+            return true
+        }
+    }
+
+    return false
 }
