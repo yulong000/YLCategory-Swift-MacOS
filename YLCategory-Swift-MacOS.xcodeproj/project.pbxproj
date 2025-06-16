@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0006A07E2DDA35B2002D2807 /* Sparkle in Frameworks */ = {isa = PBXBuildFile; productRef = 0006A07D2DDA35B2002D2807 /* Sparkle */; };
 		0037DEB02D23D3900061136D /* YLAppleScript.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0037DEAF2D23D3900061136D /* YLAppleScript.swift */; };
 		0037DEB22D2575E70061136D /* YLHud.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0037DEB12D2575E70061136D /* YLHud.swift */; };
 		0037DEB72D26DAB60061136D /* YLFileAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0037DEB62D26DAB60061136D /* YLFileAccess.swift */; };
@@ -214,7 +213,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0006A07E2DDA35B2002D2807 /* Sparkle in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1052,7 +1050,7 @@
 				CODE_SIGN_ENTITLEMENTS = "YLCategory-Swift-Demo/YLCategory_Swift_MacOS.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 2025052601;
+				CURRENT_PROJECT_VERSION = 2025061601;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 87LJF62PN6;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -1089,7 +1087,7 @@
 				CODE_SIGN_ENTITLEMENTS = "YLCategory-Swift-Demo/YLCategory_Swift_MacOS.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 2025052601;
+				CURRENT_PROJECT_VERSION = 2025061601;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 87LJF62PN6;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -1138,25 +1136,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		0006A07C2DDA3540002D2807 /* XCRemoteSwiftPackageReference "Sparkle" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/sparkle-project/Sparkle";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.7.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		0006A07D2DDA35B2002D2807 /* Sparkle */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 0006A07C2DDA3540002D2807 /* XCRemoteSwiftPackageReference "Sparkle" */;
-			productName = Sparkle;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 0080A4C12D0448EA00EEFEA2 /* Project object */;
 }

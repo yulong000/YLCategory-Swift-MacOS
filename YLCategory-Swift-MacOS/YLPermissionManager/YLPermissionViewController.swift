@@ -171,14 +171,19 @@ fileprivate class YLPermissionBoxView: NSBox {
         cornerRadius = 15
         borderWidth = 0
         contentViewMargins = .zero
+        adjustBackground()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func updateLayer() {
-        super.updateLayer()
+    override func viewDidChangeEffectiveAppearance() {
+        super.viewDidChangeEffectiveAppearance()
+        adjustBackground()
+    }
+    
+    func adjustBackground() {
         if NSApp.effectiveAppearance.bestMatch(from: [.darkAqua, .aqua]) == .darkAqua {
             fillColor = NSColor(white: 0, alpha: 0.15)
         } else {
