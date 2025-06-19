@@ -489,3 +489,52 @@ public func File(_ path: String, isAnyOfTypes types: [UTType]) -> Bool {
 
     return false
 }
+
+
+// MARK: - app 环境
+
+public enum AppEnvironment {
+    case appStore       // app store 线上
+    case testFlight     // testFlight 测试
+    case development    // 开发/企业证书等
+    case nonSandbox     // 非沙盒
+}
+
+public let AppRunningEnvironment: AppEnvironment = {
+    guard let _ = ProcessInfo.processInfo.environment["APP_SANDBOX_CONTAINER_ID"] else {
+        print("当前App环境: Non-sandbox")
+        return .nonSandbox
+    }
+    guard let receiptUrl = Bundle.main.appStoreReceiptURL,
+          FileManager.default.fileExists(atPath: receiptUrl.path) else {
+        print("当前App环境: Development (receipt not exist)")
+        return .development
+    }
+    var staticCode: SecStaticCode?
+    guard SecStaticCodeCreateWithPath(receiptUrl as CFURL, [], &staticCode) == errSecSuccess,
+          let code = staticCode else {
+        print("当前App环境: Development (static code not exist)")
+        return .development
+    }
+    if staticCodeHasOID(code, oid: "1.2.840.113635.100.6.11.1") {
+        print("当前App环境: App store")
+        return .appStore
+    }
+    
+    if staticCodeHasOID(code, oid: "1.2.840.113635.100.6.1.25") {
+        print("当前App环境: TestFlight")
+        return .testFlight
+    }
+    print("当前App环境: Development (unknown)")
+    return .development
+}()
+
+fileprivate func staticCodeHasOID(_ code: SecStaticCode, oid: String) -> Bool {
+    var requirement: SecRequirement?
+    let reqStr = "certificate leaf[\(oid)] exists" as CFString
+    guard SecRequirementCreateWithString(reqStr, [], &requirement) == errSecSuccess,
+          let req = requirement else {
+        return false
+    }
+    return SecStaticCodeCheckValidity(code, [], req) == errSecSuccess
+}
