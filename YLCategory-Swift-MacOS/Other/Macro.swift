@@ -493,11 +493,11 @@ public func File(_ path: String, isAnyOfTypes types: [UTType]) -> Bool {
 
 // MARK: - app 环境
 
-public enum AppEnvironment {
-    case appStore       // app store 线上
-    case testFlight     // testFlight 测试
-    case development    // 开发/企业证书等
-    case nonSandbox     // 非沙盒
+public enum AppEnvironment: String {
+    case appStore       = "App store"       // app store 线上
+    case testFlight     = "TestFlight"      // testFlight 测试
+    case development    = "Development"     // 开发/企业证书等
+    case nonSandbox     = "Non-Sandbox"     // 非沙盒
 }
 
 public let AppRunningEnvironment: AppEnvironment = {

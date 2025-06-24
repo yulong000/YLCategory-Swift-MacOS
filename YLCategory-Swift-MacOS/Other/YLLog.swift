@@ -8,6 +8,7 @@
 import Foundation
 import Carbon
 import Cocoa
+import os
 
 public var YL_LOG_MORE: Bool = false // 是否可以打印更详细的信息
 public var YL_LOG_RELEASE: Bool = false // 打包时是否打印
@@ -30,10 +31,19 @@ public func YLLog(_ items: Any..., file: NSString = #file, function: String = #f
         return "\(item)"
     }
     message = formatItems.joined(separator: "👈\n") + (formatItems.count > 1 ? "👈" : "")
-    if YL_LOG_MORE {
-        NSLog("%@\n[ %@ 第%d行 ] in %@", message, function, line, file.lastPathComponent)
+    if #available(macOS 26.0, *) {
+        let log = OSLog(subsystem: Bundle.main.bundleIdentifier ?? kApp_Name, category: "YLLog")
+        if YL_LOG_MORE {
+            os_log("%{public}@\n[ %{public}@ 第%{public}d行 ] in %{public}@",log: log, type: .default, message, function, line, file.lastPathComponent)
+        } else {
+            os_log("%{public}@", log: log, type: .default, message)
+        }
     } else {
-        NSLog("%@", message)
+        if YL_LOG_MORE {
+            NSLog("%@\n[ %@ 第%d行 ] in %@", message, function, line, file.lastPathComponent)
+        } else {
+            NSLog("%@", message)
+        }
     }
 }
 
