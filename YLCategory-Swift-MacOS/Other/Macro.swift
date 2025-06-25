@@ -334,6 +334,18 @@ public func AppIsRunning(_ bundleId: String) -> Bool {
 }
 // MARK: 根据名字打开app
 public func RunAppWithName(_ name: String, delay second: TimeInterval = 0, success handler: (() -> Void)? = nil) {
+    for runningApp in NSWorkspace.shared.runningApplications {
+        if let appName = runningApp.localizedName, name == appName {
+            if second > 0 {
+                DispatchQueue.main.asyncAfter(deadline: .now() + second) {
+                    handler?()
+                }
+            } else {
+                handler?()
+            }
+            return
+        }
+    }
     if NSWorkspace.shared.launchApplication(name) {
         if second > 0 {
             DispatchQueue.main.asyncAfter(deadline: .now() + second) {
@@ -346,6 +358,11 @@ public func RunAppWithName(_ name: String, delay second: TimeInterval = 0, succe
 }
 // MARK: 根据 bundle id 打开app
 public func RunAppWithBundleID(_ bundleID: String, arguments: [String]? = nil, activates: Bool = true, completion handler: ((Bool) -> Void)? = nil) {
+    if !NSRunningApplication.runningApplications(withBundleIdentifier: bundleID).isEmpty {
+        // 已经在运行
+        handler?(true)
+        return
+    }
     if #available(macOS 11.0, *) {
         guard let appURL = NSWorkspace.shared.urlForApplication(withBundleIdentifier: bundleID) else {
             handler?(false)

@@ -52,27 +52,48 @@ open class __YLLog {
     public static var shared = __YLLog()
     private init() {}
     
-    private var monitor: Any?
+    private var localMonitor: Any?
+    private var globalMonitor: Any?
     
     // MARK: 监听按键
     open func addKeyMonitor() {
-        if monitor != nil { return }
-        monitor = NSEvent.addLocalMonitorForEvents(matching: [.keyDown, .flagsChanged]) { event in
-            let flags: NSEvent.ModifierFlags = [.control, .shift, .command, .option]
-            if event.keyCode == kVK_ANSI_P && event.modifierFlags.intersection(flags) == flags {
-                YL_LOG_RELEASE = !YL_LOG_RELEASE
+        if localMonitor == nil {
+            localMonitor = NSEvent.addLocalMonitorForEvents(matching: [.keyDown, .flagsChanged]) { event in
+                let flags: NSEvent.ModifierFlags = [.control, .shift, .command, .option]
+                if event.keyCode == kVK_ANSI_P && event.modifierFlags.intersection(flags) == flags {
+                    YL_LOG_RELEASE.toggle()
+                }
+                if event.keyCode == kVK_ANSI_M && event.modifierFlags.intersection(flags) == flags {
+                    YL_LOG_MORE.toggle()
+                }
+                return event
             }
-            if event.keyCode == kVK_ANSI_M && event.modifierFlags.intersection(flags) == flags {
-                YL_LOG_MORE = !YL_LOG_MORE
+        }
+        if globalMonitor == nil {
+            globalMonitor = NSEvent.addGlobalMonitorForEvents(matching: [.keyDown, .flagsChanged]) { event in
+                let flags: NSEvent.ModifierFlags = [.control, .shift, .command, .option]
+                if event.keyCode == kVK_ANSI_P && event.modifierFlags.intersection(flags) == flags {
+                    YL_LOG_RELEASE.toggle()
+                }
+                if event.keyCode == kVK_ANSI_M && event.modifierFlags.intersection(flags) == flags {
+                    YL_LOG_MORE.toggle()
+                }
             }
-            return event
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 15) { [self] in
+            removeKeyMonitor()
         }
     }
     
-    open func removeKeyMonitor() {
-        if let monitor = monitor {
-            NSEvent.removeMonitor(monitor)
-            self.monitor = nil
+    private func removeKeyMonitor() {
+        if let localMonitor = localMonitor {
+            NSEvent.removeMonitor(localMonitor)
+            self.localMonitor = nil
+        }
+        if let globalMonitor = globalMonitor {
+            NSEvent.removeMonitor(globalMonitor)
+            self.globalMonitor = nil
         }
     }
 }
