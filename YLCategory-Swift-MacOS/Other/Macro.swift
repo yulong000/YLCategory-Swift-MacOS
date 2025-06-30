@@ -151,7 +151,7 @@ public func ExecuteCMD(_ cmd: String, argus: [String]? = nil) -> String? {
     do {
         try process.run()
     } catch {
-        YLLog("cmd '/bin/bash -c \(cmd)' 发生错误: \(error)")
+        YLLog("❌ cmd '/bin/bash -c \(cmd)' 发生错误: \(error)")
         return nil
     }
     process.waitUntilExit()
@@ -160,13 +160,47 @@ public func ExecuteCMD(_ cmd: String, argus: [String]? = nil) -> String? {
     let errorData = errorPipe.fileHandleForReading.readDataToEndOfFile()
     
     let output = String(data: outputData, encoding: .utf8)?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
-    if let errorOutput = String(data: errorData, encoding: .utf8)?.trimmingCharacters(in: .whitespacesAndNewlines),
-       !errorOutput.isEmpty {
-        YLLog("cmd '/bin/bash -c \(cmd)' 执行失败: \(errorOutput)")
+    let errorOutput = String(data: errorData, encoding: .utf8)?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
+    
+    if process.terminationStatus != 0 {
+        YLLog("❌ cmd '/bin/bash -c \(cmd)' 执行失败: \(errorOutput)")
         return nil
     }
-    YLLog("cmd '\(cmd)' 执行成功:\n\(output)")
-    return process.terminationStatus == 0 ? output : nil
+    YLLog("✅ cmd '/bin/bash -c \(cmd)' 执行成功:\n\(output)")
+    return output
+}
+
+// 执行自定义命令
+@discardableResult
+public func ExecuteCustomCMD(_ url: String, argus: [String]) -> String? {
+    let process = Process()
+    process.executableURL = URL(fileURLWithPath: url)
+    process.arguments = argus
+    
+    let outputPipe = Pipe()
+    let errorPipe = Pipe()
+    process.standardOutput = outputPipe
+    process.standardError = errorPipe
+    do {
+        try process.run()
+    } catch {
+        YLLog("❌ custom cmd '\(([url] + argus).joined(separator: " "))' 发生错误: \(error)")
+        return nil
+    }
+    process.waitUntilExit()
+    
+    let outputData = outputPipe.fileHandleForReading.readDataToEndOfFile()
+    let errorData = errorPipe.fileHandleForReading.readDataToEndOfFile()
+    
+    let output = String(data: outputData, encoding: .utf8)?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
+    let errorOutput = String(data: errorData, encoding: .utf8)?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
+    
+    if process.terminationStatus != 0 {
+        YLLog("❌ custom cmd '\(([url] + argus).joined(separator: " "))' 执行失败: \(errorOutput)")
+        return nil
+    }
+    YLLog("✅ custom cmd '\(([url] + argus).joined(separator: " "))' 执行成功:\n\(output)")
+    return output
 }
 
 // MARK: - 修饰键判断的相关方法
@@ -326,7 +360,8 @@ public func RecoverSystemBeepVolume() {
 
 // MARK: app是否安装
 public func AppIsInstalled(_ bundleId: String) -> Bool {
-    NSWorkspace.shared.urlForApplication(withBundleIdentifier: bundleId) != nil
+    guard let appUrl = NSWorkspace.shared.urlForApplication(withBundleIdentifier: bundleId) else { return false }
+    return FileManager.default.fileExists(atPath: appUrl.path)
 }
 // MARK: app是否在运行
 public func AppIsRunning(_ bundleId: String) -> Bool {

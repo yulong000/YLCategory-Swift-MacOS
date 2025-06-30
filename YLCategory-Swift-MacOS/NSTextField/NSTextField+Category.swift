@@ -19,4 +19,14 @@ public extension NSTextField {
         self.frame = frame
         return size
     }
+    
+    // MARK: 固定最大宽度，高度自适应
+    @discardableResult
+    func sizeToFit(maxWidth: CGFloat) -> Self {
+        let size = sizeThatFits(NSMakeSize(maxWidth, CGFloat.greatestFiniteMagnitude))
+        var frame = self.frame
+        frame.size = size
+        self.frame = frame
+        return self
+    }
 }
