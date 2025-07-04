@@ -559,24 +559,21 @@ public let AppRunningEnvironment: AppEnvironment = {
     process.executableURL = URL(fileURLWithPath: "/usr/bin/codesign")
     process.arguments = ["-dv", "--verbose=4", Bundle.main.bundlePath]
     
-    let outputPipe = Pipe()
-    let errorPipe = Pipe()
-    process.standardOutput = outputPipe
-    process.standardError = errorPipe
+    let pipe = Pipe()
+    // 输出内容在error里
+    process.standardOutput = pipe
+    process.standardError = pipe
     
     do {
         try process.run()
         process.waitUntilExit()
         
-        let outputData = outputPipe.fileHandleForReading.readDataToEndOfFile()
-        let errorData = errorPipe.fileHandleForReading.readDataToEndOfFile()
-        
+        let outputData = pipe.fileHandleForReading.readDataToEndOfFile()
         let output = String(data: outputData, encoding: .utf8)?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
-        let errorOutput = String(data: errorData, encoding: .utf8)?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
         
         guard process.terminationStatus == 0 else {
-            YLLog("Get AppRunningEnvironment error: \(errorOutput)")
-            return .development
+            YLLog("Get AppRunningEnvironment error: \(output)")
+            return .unknown
         }
         
         let list = output.components(separatedBy: "\n").compactMap { $0.hasPrefix("Authority") ? $0 : nil }
