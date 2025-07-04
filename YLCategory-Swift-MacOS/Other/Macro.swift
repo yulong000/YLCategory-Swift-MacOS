@@ -572,9 +572,12 @@ public let AppRunningEnvironment: AppEnvironment = {
         print("当前App环境: App store")
         return .appStore
     }
-    
-    if staticCodeHasOID(code, oid: "1.2.840.113635.100.6.1.25") {
-        print("当前App环境: TestFlight")
+    if staticCodeHasOID(code, oid: "1.2.840.113635.100.6.1.25.1") {
+        print("当前App环境: TestFlight (.1)")
+        return .testFlight
+    }
+    if staticCodeHasOID(code, oid: "1.2.840.113635.100.6.1.25.2") {
+        print("当前App环境: TestFlight (.2)")
         return .testFlight
     }
     print("当前App环境: Development (unknown)")
@@ -583,7 +586,7 @@ public let AppRunningEnvironment: AppEnvironment = {
 
 fileprivate func staticCodeHasOID(_ code: SecStaticCode, oid: String) -> Bool {
     var requirement: SecRequirement?
-    let reqStr = "certificate leaf[\(oid)] exists" as CFString
+    let reqStr = "certificate leaf[field.\(oid)] exists" as CFString
     guard SecRequirementCreateWithString(reqStr, [], &requirement) == errSecSuccess,
           let req = requirement else {
         return false

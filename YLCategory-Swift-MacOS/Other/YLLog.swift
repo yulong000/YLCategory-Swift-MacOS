@@ -81,7 +81,7 @@ open class __YLLog {
             }
         }
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 15) { [self] in
+        DispatchQueue.main.asyncAfter(deadline: .now() + 10) { [self] in
             removeKeyMonitor()
         }
     }
