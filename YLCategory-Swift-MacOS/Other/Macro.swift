@@ -563,7 +563,7 @@ public let AppRunningEnvironment: AppEnvironment = {
         return .development
     }
     var staticCode: SecStaticCode?
-    guard SecStaticCodeCreateWithPath(receiptUrl as CFURL, [], &staticCode) == errSecSuccess,
+    guard SecStaticCodeCreateWithPath(Bundle.main.bundleURL as CFURL, [], &staticCode) == errSecSuccess,
           let code = staticCode else {
         print("当前App环境: Development (static code not exist)")
         return .development
