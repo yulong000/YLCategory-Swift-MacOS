@@ -548,48 +548,51 @@ public func File(_ path: String, isAnyOfTypes types: [UTType]) -> Bool {
 public enum AppEnvironment: String {
     case appStore       = "App store"       // app store 线上
     case testFlight     = "TestFlight"      // testFlight 测试
-    case development    = "Development"     // 开发/企业证书等
-    case nonSandbox     = "Non-Sandbox"     // 非沙盒
+    case developerID    = "Developer ID"    // 线下分发的Apple公证过的app
+    case adHoc          = "Ad Hoc"          // 特定人群的测试版本
+    case development    = "Development"     // 开发调试
+    case unknown        = "Unknown"         // 未知版本
 }
 
 public let AppRunningEnvironment: AppEnvironment = {
-    guard let _ = ProcessInfo.processInfo.environment["APP_SANDBOX_CONTAINER_ID"] else {
-        print("当前App环境: Non-sandbox")
-        return .nonSandbox
+    let process = Process()
+    process.executableURL = URL(fileURLWithPath: "/usr/bin/codesign")
+    process.arguments = ["-dv", "--verbose=4", Bundle.main.bundlePath]
+    
+    let outputPipe = Pipe()
+    let errorPipe = Pipe()
+    process.standardOutput = outputPipe
+    process.standardError = errorPipe
+    
+    do {
+        try process.run()
+        process.waitUntilExit()
+        
+        let outputData = outputPipe.fileHandleForReading.readDataToEndOfFile()
+        let errorData = errorPipe.fileHandleForReading.readDataToEndOfFile()
+        
+        let output = String(data: outputData, encoding: .utf8)?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
+        let errorOutput = String(data: errorData, encoding: .utf8)?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
+        
+        guard process.terminationStatus == 0 else {
+            YLLog("Get AppRunningEnvironment error: \(errorOutput)")
+            return .development
+        }
+        
+        let list = output.components(separatedBy: "\n").compactMap { $0.hasPrefix("Authority") ? $0 : nil }
+        for str in list {
+            guard let evn = str.components(separatedBy: "=").last else { continue }
+            switch evn {
+            case "Apple Mac OS Application Signing":                    return .appStore
+            case "TestFlight Beta Distribution":                        return .testFlight
+            case let id where id.hasPrefix("Developer ID Application"): return .developerID
+            case let id where id.hasPrefix("Apple Distribution"):       return .adHoc
+            case let id where id.hasPrefix("Apple Development"):        return .development
+            default: break
+            }
+        }
+    } catch {
+        YLLog("Get AppRunningEnvironment error: \(error)")
     }
-    guard let receiptUrl = Bundle.main.appStoreReceiptURL,
-          FileManager.default.fileExists(atPath: receiptUrl.path) else {
-        print("当前App环境: Development (receipt not exist)")
-        return .development
-    }
-    var staticCode: SecStaticCode?
-    guard SecStaticCodeCreateWithPath(Bundle.main.bundleURL as CFURL, [], &staticCode) == errSecSuccess,
-          let code = staticCode else {
-        print("当前App环境: Development (static code not exist)")
-        return .development
-    }
-    if staticCodeHasOID(code, oid: "1.2.840.113635.100.6.11.1") {
-        print("当前App环境: App store")
-        return .appStore
-    }
-    if staticCodeHasOID(code, oid: "1.2.840.113635.100.6.1.25.1") {
-        print("当前App环境: TestFlight (.1)")
-        return .testFlight
-    }
-    if staticCodeHasOID(code, oid: "1.2.840.113635.100.6.1.25.2") {
-        print("当前App环境: TestFlight (.2)")
-        return .testFlight
-    }
-    print("当前App环境: Development (unknown)")
-    return .development
+    return .unknown
 }()
-
-fileprivate func staticCodeHasOID(_ code: SecStaticCode, oid: String) -> Bool {
-    var requirement: SecRequirement?
-    let reqStr = "certificate leaf[field.\(oid)] exists" as CFString
-    guard SecRequirementCreateWithString(reqStr, [], &requirement) == errSecSuccess,
-          let req = requirement else {
-        return false
-    }
-    return SecStaticCodeCheckValidity(code, [], req) == errSecSuccess
-}
