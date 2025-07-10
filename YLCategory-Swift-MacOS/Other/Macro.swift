@@ -28,8 +28,8 @@ public let YellowColor: NSColor = .yellow
 public let BlueColor: NSColor = .blue
 public let SystemBlueColor: NSColor = .systemBlue
 public let ControlAccentColor: NSColor = .controlAccentColor
-public var RandomColor: NSColor { NSColor(red: CGFloat(arc4random() % 255) / 255.0, green: CGFloat(arc4random() % 255) / 255.0, blue: CGFloat(arc4random() % 255) / 255.0, alpha: 1.0) }
 
+public func RandomColor() -> NSColor { NSColor(red: CGFloat(arc4random() % 255) / 255.0, green: CGFloat(arc4random() % 255) / 255.0, blue: CGFloat(arc4random() % 255) / 255.0, alpha: 1.0) }
 public func RGBA(_ r: UInt8, _ g: UInt8, _ b: UInt8, _ a: CGFloat) -> NSColor { NSColor(red: CGFloat(r) / 255.0, green: CGFloat(g) / 255.0, blue: CGFloat(b) / 255.0, alpha: a) }
 public func RGB(_ rgb: UInt8) -> NSColor { NSColor(red: CGFloat(rgb) / 255.0, green: CGFloat(rgb) / 255.0, blue: CGFloat(rgb) / 255.0, alpha: 1) }
 public func Hex(_ hexValue: UInt) -> NSColor {
@@ -546,15 +546,18 @@ public func File(_ path: String, isAnyOfTypes types: [UTType]) -> Bool {
 // MARK: - app 环境
 
 public enum AppEnvironment: String {
-    case appStore       = "App store"       // app store 线上
-    case testFlight     = "TestFlight"      // testFlight 测试
+    case appStore       = "App store"       // App store 线上
+    case testFlight     = "TestFlight"      // TestFlight 测试
     case developerID    = "Developer ID"    // 线下分发的Apple公证过的app
     case adHoc          = "Ad Hoc"          // 特定人群的测试版本
     case development    = "Development"     // 开发调试
-    case unknown        = "Unknown"         // 未知版本
+    case other          = "Other"           // 未知版本或苹果审核
 }
 
 public let AppRunningEnvironment: AppEnvironment = {
+    
+    var environment: AppEnvironment = .other
+    
     let process = Process()
     process.executableURL = URL(fileURLWithPath: "/usr/bin/codesign")
     process.arguments = ["-dv", "--verbose=4", Bundle.main.bundlePath]
@@ -573,23 +576,24 @@ public let AppRunningEnvironment: AppEnvironment = {
         
         guard process.terminationStatus == 0 else {
             YLLog("Get AppRunningEnvironment error: \(output)")
-            return .unknown
+            return environment
         }
         
         let list = output.components(separatedBy: "\n").compactMap { $0.hasPrefix("Authority") ? $0 : nil }
         for str in list {
             guard let evn = str.components(separatedBy: "=").last else { continue }
             switch evn {
-            case "Apple Mac OS Application Signing":                    return .appStore
-            case "TestFlight Beta Distribution":                        return .testFlight
-            case let id where id.hasPrefix("Developer ID Application"): return .developerID
-            case let id where id.hasPrefix("Apple Distribution"):       return .adHoc
-            case let id where id.hasPrefix("Apple Development"):        return .development
+            case "Apple Mac OS Application Signing":                    environment = .appStore
+            case "TestFlight Beta Distribution":                        environment = .testFlight
+            case let id where id.hasPrefix("Developer ID Application"): environment = .developerID
+            case let id where id.hasPrefix("Apple Distribution"):       environment = .adHoc
+            case let id where id.hasPrefix("Apple Development"):        environment = .development
             default: break
             }
         }
     } catch {
         YLLog("Get AppRunningEnvironment error: \(error)")
     }
-    return .unknown
+    YLLog("当前App的运行环境为：\(environment.rawValue)")
+    return environment
 }()
