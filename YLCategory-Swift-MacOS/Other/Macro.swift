@@ -597,3 +597,6 @@ public let AppRunningEnvironment: AppEnvironment = {
     YLLog("当前App的运行环境为：\(environment.rawValue)")
     return environment
 }()
+
+// 审核中
+public var IsReviewing: Bool { AppRunningEnvironment == .other }
