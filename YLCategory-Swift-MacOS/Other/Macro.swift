@@ -600,3 +600,5 @@ public let AppRunningEnvironment: AppEnvironment = {
 
 // 审核中
 public var IsReviewing: Bool { AppRunningEnvironment == .other }
+// 测试中
+public var IsTest: Bool { AppRunningEnvironment == .testFlight || AppRunningEnvironment == .development }
