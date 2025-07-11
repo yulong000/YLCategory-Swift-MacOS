@@ -137,6 +137,35 @@ public func OpenUrl(_ path: String) -> Bool {
     return false
 }
 
+// 打开文件（夹）
+@discardableResult
+public func OpenFilePath(_ path: String) -> Bool {
+    let task = Process()
+    task.executableURL = URL(fileURLWithPath: "/usr/bin/open")
+    task.arguments = [path]
+    
+    let pipe = Pipe()
+    task.standardOutput = pipe
+    task.standardError = pipe
+    
+    do {
+        try task.run()
+        task.waitUntilExit()
+    } catch {
+        YLLog("OpenFilePath: \(path) run error: \(error)")
+        return false
+    }
+    
+    if task.terminationStatus != 0 {
+        let data = pipe.fileHandleForReading.readDataToEndOfFile()
+        let msg = String(data: data, encoding: .utf8)
+        YLLog("OpenFilePath: \(path) error: \(msg ?? "Unknown")")
+        return false
+    }
+    
+    return true
+}
+
 // 执行命令
 @discardableResult
 public func ExecuteCMD(_ cmd: String, argus: [String]? = nil) -> String? {

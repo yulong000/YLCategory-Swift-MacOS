@@ -79,6 +79,42 @@ public extension String {
     /// - Returns: 新的字符串
     func substring(with range: NSRange) -> String { (self as NSString).substring(with: range) }
     
+    
+    /// 将多个文件拼成的字符串转换成路径列表，多用于拷贝多个文件路径时，从pasteboard上获取到的是一个字符串，对其进行解析
+    /// - Returns: 多个文件路径
+    func parseFilePaths() -> [String] {
+        let task = Process()
+        let pipe = Pipe()
+        
+        task.executableURL = URL(fileURLWithPath: "/bin/zsh")
+        task.arguments = ["-c", "print -rl -- \(self)"]
+        task.standardInput = nil
+        task.standardOutput = pipe
+        task.standardError = nil
+        
+        do {
+            try task.run()
+            task.waitUntilExit()
+        } catch {
+            print("parseFilePaths error: \(error)")
+            return []
+        }
+        
+        if task.terminationStatus == 0 {
+            let data = pipe.fileHandleForReading.readDataToEndOfFile()
+            let output = String(data: data, encoding: .utf8) ?? ""
+            return output.components(separatedBy: "\n").filter { !$0.isEmpty }
+        }
+        
+        return []
+    }
+    
+    /// 如果是文件路径，获取命令行里转义过的路径，方便在命令里直接使用，比如  打开 /Users/xxx/Desktop/I'm (测试).txt ：  open '/Users/xxx/Desktop/I'\''m (测试).txt'
+    var shellFilePath: String {
+        guard !self.isEmpty else { return "''" }
+        return "'" + self.replacingOccurrences(of: "'", with: "'\\''") + "'"
+    }
+    
     /// 获取路径的后缀
     /// - Returns: 后缀（文件扩展名）
     var pathExtension: String { (self as NSString).pathExtension }
