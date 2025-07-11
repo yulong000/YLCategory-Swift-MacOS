@@ -599,6 +599,6 @@ public let AppRunningEnvironment: AppEnvironment = {
 }()
 
 // 审核中
-public var IsReviewing: Bool { AppRunningEnvironment == .other }
+public let IsReviewing = AppRunningEnvironment == .other
 // 测试中
-public var IsTest: Bool { AppRunningEnvironment == .testFlight || AppRunningEnvironment == .development }
+public let IsTest = AppRunningEnvironment == .testFlight || AppRunningEnvironment == .development
