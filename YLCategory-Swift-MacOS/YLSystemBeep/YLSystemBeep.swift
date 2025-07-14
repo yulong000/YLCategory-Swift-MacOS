@@ -10,9 +10,9 @@ import AudioToolbox
 
 public class YLSystemBeep {
     
-    static let shared = YLSystemBeep()
+    public static let shared = YLSystemBeep()
     // 提示音音量
-    var beepVolumeValue: Float = 0
+    public private(set) var beepVolumeValue: Float = 0
     // 收到提示音回调
     public var receivedBeepHandler: (() -> Void)?
     
