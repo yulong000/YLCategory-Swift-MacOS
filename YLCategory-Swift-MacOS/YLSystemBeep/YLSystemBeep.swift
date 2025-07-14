@@ -97,10 +97,10 @@ public class YLSystemBeep {
                     let errorOutput = String(data: errorData, encoding: .utf8)?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
                     
                     if process.terminationStatus != 0 {
-                        YLLog("❌ refreshSystemBeepVolume 执行失败: \(errorOutput)")
+                        print("❌ refreshSystemBeepVolume 执行失败: \(errorOutput)")
                         return
                     }
-                    YLLog("✅ refreshSystemBeepVolume 执行成功: \(output)")
+                    print("✅ refreshSystemBeepVolume 执行成功: \(output)")
                     
                     if let value = Float(output) {
                         YLSystemBeep.shared.beepVolumeValue = value
