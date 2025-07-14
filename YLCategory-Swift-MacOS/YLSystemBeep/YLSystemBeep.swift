@@ -71,10 +71,40 @@ public class YLSystemBeep {
             index = currentIndex
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                 if currentIndex == index {
-                    if let str = ExecuteCMD("defaults read -g com.apple.sound.beep.volume"), let value = Float(str) {
+                    defer {
+                        index = 0
+                    }
+                    let process = Process()
+                    process.executableURL = URL(fileURLWithPath: "/bin/bash")
+                    process.arguments = ["-c", "defaults read -g com.apple.sound.beep.volume"]
+                    
+                    let outputPipe = Pipe()
+                    let errorPipe = Pipe()
+                    process.standardOutput = outputPipe
+                    process.standardError = errorPipe
+                    do {
+                        try process.run()
+                    } catch {
+                        print("❌ refreshSystemBeepVolume' 发生错误: \(error)")
+                        return
+                    }
+                    process.waitUntilExit()
+                    
+                    let outputData = outputPipe.fileHandleForReading.readDataToEndOfFile()
+                    let errorData = errorPipe.fileHandleForReading.readDataToEndOfFile()
+                    
+                    let output = String(data: outputData, encoding: .utf8)?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
+                    let errorOutput = String(data: errorData, encoding: .utf8)?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
+                    
+                    if process.terminationStatus != 0 {
+                        YLLog("❌ refreshSystemBeepVolume 执行失败: \(errorOutput)")
+                        return
+                    }
+                    YLLog("✅ refreshSystemBeepVolume 执行成功: \(output)")
+                    
+                    if let value = Float(output) {
                         YLSystemBeep.shared.beepVolumeValue = value
                     }
-                    index = 0
                 }
             }
         }
