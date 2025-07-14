@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		000A53072E24CA4700C58A6C /* YLSystemBeep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000A53062E24CA4200C58A6C /* YLSystemBeep.swift */; };
 		0037DEB02D23D3900061136D /* YLAppleScript.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0037DEAF2D23D3900061136D /* YLAppleScript.swift */; };
 		0037DEB22D2575E70061136D /* YLHud.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0037DEB12D2575E70061136D /* YLHud.swift */; };
 		0037DEB72D26DAB60061136D /* YLFileAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0037DEB62D26DAB60061136D /* YLFileAccess.swift */; };
@@ -88,6 +89,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		000A53062E24CA4200C58A6C /* YLSystemBeep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YLSystemBeep.swift; sourceTree = "<group>"; };
 		0037DEAF2D23D3900061136D /* YLAppleScript.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YLAppleScript.swift; sourceTree = "<group>"; };
 		0037DEB12D2575E70061136D /* YLHud.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YLHud.swift; sourceTree = "<group>"; };
 		0037DEB62D26DAB60061136D /* YLFileAccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YLFileAccess.swift; sourceTree = "<group>"; };
@@ -217,6 +219,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		000A53052E24CA3800C58A6C /* YLSystemBeep */ = {
+			isa = PBXGroup;
+			children = (
+				000A53062E24CA4200C58A6C /* YLSystemBeep.swift */,
+			);
+			path = YLSystemBeep;
+			sourceTree = "<group>";
+		};
 		0080A4C02D0448EA00EEFEA2 = {
 			isa = PBXGroup;
 			children = (
@@ -251,6 +261,7 @@
 		0080A4E62D04490900EEFEA2 /* YLCategory-Swift-MacOS */ = {
 			isa = PBXGroup;
 			children = (
+				000A53052E24CA3800C58A6C /* YLSystemBeep */,
 				00D772132D75FCDE004043E6 /* YLScrollLabel */,
 				00B79B2A2D14181600DAE137 /* YLTextField */,
 				00B799EB2D1415AA00DAE137 /* YLFileAccess */,
@@ -766,6 +777,7 @@
 				00A0F9CE2D1A7DC80043E075 /* String+Category.swift in Sources */,
 				00CFDCE42D22AB7800EF4FA4 /* YLUpdateManager.swift in Sources */,
 				00A0F9C32D19BB870043E075 /* NSImage+Category.swift in Sources */,
+				000A53072E24CA4700C58A6C /* YLSystemBeep.swift in Sources */,
 				00CFDB4A2D1D8E5200EF4FA4 /* YLUserDefaults.swift in Sources */,
 				00A0F9C12D19B9430043E075 /* NSTextField+Category.swift in Sources */,
 				00A0F9B92D19AE400043E075 /* NSImageView+Category.swift in Sources */,
@@ -1038,7 +1050,7 @@
 				CODE_SIGN_ENTITLEMENTS = "YLCategory-Swift-Demo/YLCategory_Swift_MacOS.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 2025071101;
+				CURRENT_PROJECT_VERSION = 2025071401;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 87LJF62PN6;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -1076,7 +1088,7 @@
 				CODE_SIGN_ENTITLEMENTS = "YLCategory-Swift-Demo/YLCategory_Swift_MacOS.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 2025071101;
+				CURRENT_PROJECT_VERSION = 2025071401;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 87LJF62PN6;
 				ENABLE_HARDENED_RUNTIME = YES;

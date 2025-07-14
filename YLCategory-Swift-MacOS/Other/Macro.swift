@@ -344,47 +344,6 @@ public func ConvertToBottomLeftCoordinateSystem(_ topLeftCoordinateSystemPoint: 
     return NSPoint(x: topLeftCoordinateSystemPoint.x, y: coordinatedH - topLeftCoordinateSystemPoint.y)
 }
 
-
-// MARK: - 系统警告音音量
-
-// 提示音音量
-private var beepVolumeValue: Float?
-private let kAudioServicesPropertySystemAlertVolume: AudioServicesPropertyID = OSType("ssvl".utf8.reduce(0) { ($0 << 8) | FourCharCode($1)})
-
-// MARK: 添加监听系统警告音的通知，可以提前修改警告音音量到最小，并在收到通知后，恢复警告音音量，以实现静音效果
-public func RegisterSystemBeepNotification(_ observer: Any, selector: Selector) {
-    DistributedNotificationCenter.default().addObserver(observer, selector: selector, name: NSNotification.Name(rawValue:"com.apple.systemBeep"), object: nil)
-}
-
-// MARK: 移除监听系统警告音的通知
-public func UnregisterSystemBeepNotification(_ observer: Any) {
-    DistributedNotificationCenter.default().removeObserver(observer, name: NSNotification.Name(rawValue:"com.apple.systemBeep"), object: nil)
-}
-
-// MARK: 获取当前警告音的音量
-public func GetSystemBeepVolume() -> Float {
-    var volume: Float = 0
-    var volSize = UInt32(MemoryLayout.size(ofValue: volume))
-    let err = AudioServicesGetProperty(kAudioServicesPropertySystemAlertVolume, 0, nil, &volSize, &volume)
-    if err != noErr {
-        print("Error getting alert volume: \(err)")
-        return .nan
-    }
-    return volume
-}
-// MARK: 设置警告音音量，并保存当前的值
-public func SetSystemBeepVolume(_ volume: Float32) {
-    beepVolumeValue = GetSystemBeepVolume()
-    var v = volume
-    AudioServicesSetProperty(kAudioServicesPropertySystemAlertVolume, 0, nil, UInt32(MemoryLayout.size(ofValue: volume)), &v)
-}
-// MARK: 恢复原来的警告音音量
-public func RecoverSystemBeepVolume() {
-    if let beepVolumeValue = beepVolumeValue {
-        SetSystemBeepVolume(beepVolumeValue)
-    }
-}
-
 // MARK: - app 相关
 
 // MARK: app是否安装
@@ -630,4 +589,4 @@ public let AppRunningEnvironment: AppEnvironment = {
 // 审核中
 public let IsReviewing = AppRunningEnvironment == .other
 // 测试中
-public let IsTest = AppRunningEnvironment == .testFlight || AppRunningEnvironment == .development
+public let IsTesting = AppRunningEnvironment == .testFlight || AppRunningEnvironment == .development

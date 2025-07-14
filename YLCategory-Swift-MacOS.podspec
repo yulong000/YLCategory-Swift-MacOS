@@ -158,6 +158,10 @@ Pod::Spec.new do |s|
     ss.source_files  =   'YLCategory-Swift-MacOS/YLScrollLabel/**/*.swift'
     end
     
+    s.subspec 'YLSystemBeep' do |ss|
+    ss.source_files  =   'YLCategory-Swift-MacOS/YLSystemBeep/**/*.swift'
+    end
+    
     s.subspec 'Async' do |ss|
     ss.source_files  =   'YLCategory-Swift-MacOS/Async/**/*.swift'
     end
