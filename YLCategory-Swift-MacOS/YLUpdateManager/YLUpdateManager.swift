@@ -16,6 +16,7 @@ public class YLUpdateManager: NSObject {
     /// - Parameters:
     ///   - appID: app 的唯一标识
     ///   - xml: 强制更新配置链接（下载XML配置文件，根据配置参数判断）
+    ///   - skipEnable: 是否可以跳过当前更新版本
     ///   当有新版本时，从该链接获取配置信息，来判断是否强制更新
     ///         "Name" :  "xxx"                                      app名字,
     ///         "BundleId": "com.xxxx.xxxx"                  app的bundle Id,
@@ -24,9 +25,10 @@ public class YLUpdateManager: NSObject {
     ///         "ExpiredDate":  "2025-10-30"                过期时间
     ///         "ExpiredOSVersion":  "17.0"                  过期的系统版本号
     ///         4个判断条件，优先级从上往下递减
-    public func set(appID: String, forceUpdate xml: String? = nil) {
+    public func set(appID: String, forceUpdate xml: String? = nil, isSkipEnable: Bool = false) {
         self.appID = appID
         self.forceUpdateUrl = xml
+        self.isSkipEnable = isSkipEnable
     }
     
     /// 检测更新
@@ -51,9 +53,9 @@ public class YLUpdateManager: NSObject {
                             // 有新版本
                             if let forceUpdateUrl = self.forceUpdateUrl, !forceUpdateUrl.isEmpty {
                                 // 有强制更新url
-                                self.requestServerForUpdateWay(URL(string: forceUpdateUrl)!, currentVersion: appVersion, appStoreVersion: latestVersion, updateInfo: info)
+                                self.requestServerForUpdateWay(URL(string: forceUpdateUrl)!, currentVersion: appVersion, appStoreVersion: latestVersion, updateInfo: info, background: background)
                             } else {
-                                self.showNew(version: latestVersion, info: info)
+                                self.showNew(version: latestVersion, info: info, background: background)
                             }
                         }
                     } else {
@@ -87,6 +89,8 @@ public class YLUpdateManager: NSObject {
             appIntroduceUrl = "https://apps.apple.com/cn/app/id" + appID
         }
     }
+    /// 是否可以跳过当前更新版本
+    private var isSkipEnable: Bool = false
     /// 强制更新xml文件地址
     private(set) var forceUpdateUrl: String?
     
@@ -100,7 +104,7 @@ public class YLUpdateManager: NSObject {
     private var xmlDelegate = YLUpdateXMLParserDelegate()
     
     // MARK: 请求服务器，判断如何升级
-    private func requestServerForUpdateWay(_ url: URL, currentVersion: String, appStoreVersion: String, updateInfo: String) {
+    private func requestServerForUpdateWay(_ url: URL, currentVersion: String, appStoreVersion: String, updateInfo: String, background: Bool) {
         URLSession.shared.dataTask(with: url) { data, response, error in
             DispatchQueue.main.async { [self] in
                 if let data = data, error == nil  {
@@ -148,15 +152,24 @@ public class YLUpdateManager: NSObject {
                     }
                 }
                 // 普通升级
-                showNew(version: appStoreVersion, info: updateInfo)
+                showNew(version: appStoreVersion, info: updateInfo, background: background)
             }
         }.resume()
     }
     
     // MARK: 显示有新版本提示
-    private func showNew(version: String, info: String) {
+    private func showNew(version: String, info: String, background: Bool) {
+        if background,
+           let skipVersion = UserDefaults.standard.string(forKey: "YLUpdateSkipVersion"),
+           skipVersion == version {
+            // 跳过
+#if DEBUG
+            print("设置了跳过该更新版本： \(version)")
+#endif
+            return
+        }
         let wc = YLUpdateWindowController()
-        wc.showNew(version: version, info: info)
+        wc.showNew(version: version, info: info, isSkipEnable: isSkipEnable && background)
         wc.window?.center()
         wc.window?.makeKeyAndOrderFront(nil)
         NSApp.activate(ignoringOtherApps: true)

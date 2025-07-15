@@ -28,8 +28,10 @@ class YLUpdateWindowController: NSWindowController {
     }
     
     // MARK: 显示新版本
-    func showNew(version: String, info: String) {
+    func showNew(version: String, info: String, isSkipEnable: Bool) {
         window?.title = YLUpdateManager.localize("New version found") + ": " + version
         vc.info = info
+        vc.newVersion = version
+        vc.showSkipButton = isSkipEnable
     }
 }

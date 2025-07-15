@@ -19,11 +19,24 @@ class YLUpdateViewController: NSViewController {
             view.window?.center()
         }
     }
+    // 新的版本号
+    var newVersion: String?
+    // 是否显示跳过按钮
+    var showSkipButton: Bool = true {
+        didSet {
+            skipBtn.isHidden = !showSkipButton
+        }
+    }
     
     @objc private func skip() {
         view.window?.close()
+        UserDefaults.standard.set(newVersion, forKey: "YLUpdateSkipVersion")
+        UserDefaults.standard.synchronize()
     }
     
+    @objc private func cancel() {
+        view.window?.close()
+    }
 
     @objc private func update() {
         if let appStoreUrl = YLUpdateManager.shared.appStoreUrl {
@@ -43,6 +56,7 @@ class YLUpdateViewController: NSViewController {
         view.addSubview(effectView)
         view.addSubview(infoLabel)
         view.addSubview(skipBtn)
+        view.addSubview(cancelBtn)
         view.addSubview(updateBtn)
     }
     
@@ -51,14 +65,19 @@ class YLUpdateViewController: NSViewController {
         effectView.frame = view.bounds
         
         updateBtn.sizeToFit()
+        cancelBtn.sizeToFit()
         skipBtn.sizeToFit()
         
         var updateFrame = updateBtn.frame
         updateFrame.origin = NSPoint(x: view.frame.size.width - 20 - updateFrame.size.width, y: 10)
         updateBtn.frame = updateFrame
         
+        var cancelFrame = cancelBtn.frame
+        cancelFrame.origin = NSPoint(x: updateFrame.minX - cancelFrame.size.width, y: 10)
+        cancelBtn.frame = cancelFrame
+        
         var skipFrame = skipBtn.frame
-        skipFrame.origin = NSPoint(x: updateFrame.minX - skipFrame.size.width, y: 10)
+        skipFrame.origin = NSPoint(x: 20, y: 10)
         skipBtn.frame = skipFrame
         
         let infoY = updateFrame.maxY + 10
@@ -77,7 +96,10 @@ class YLUpdateViewController: NSViewController {
         return infoLabel
     }()
     private lazy var skipBtn: NSButton = {
-        NSButton(title: YLUpdateManager.localize("Skip"), target: self, action: #selector(skip))
+        NSButton(title: YLUpdateManager.localize("Skip This Version"), target: self, action: #selector(skip))
+    }()
+    private lazy var cancelBtn: NSButton = {
+        NSButton(title: YLUpdateManager.localize("Cancel"), target: self, action: #selector(cancel))
     }()
     private lazy var updateBtn: NSButton = {
         let btn = NSButton(title: YLUpdateManager.localize("Update"), target: self, action: #selector(update))
