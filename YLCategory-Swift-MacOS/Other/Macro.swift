@@ -566,7 +566,7 @@ public let AppRunningEnvironment: AppEnvironment = {
             YLLog("Get AppRunningEnvironment error: \(output)")
             return environment
         }
-        
+        // 审核中，返回的字符串是 /Applications/xxx.app: No such file or directory
         let list = output.components(separatedBy: "\n").compactMap { $0.hasPrefix("Authority") ? $0 : nil }
         for str in list {
             guard let evn = str.components(separatedBy: "=").last else { continue }

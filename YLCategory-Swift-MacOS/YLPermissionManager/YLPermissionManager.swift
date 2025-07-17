@@ -249,7 +249,7 @@ public class YLPermissionManager: NSObject {
         guard #available(macOS 10.15, *) else { return true }
         let currentPid = NSRunningApplication.current.processIdentifier
         // 获取当前屏幕上的窗口信息
-        guard let windowList = CGWindowListCopyWindowInfo(.optionOnScreenOnly, kCGNullWindowID) as? [[CFString: Any]] else { return false }
+        guard let windowList = CGWindowListCopyWindowInfo(.excludeDesktopElements, kCGNullWindowID) as? [[CFString: Any]] else { return false }
         for dict in windowList {
             if let name = dict[kCGWindowName] as? String,
                !name.isEmpty,
