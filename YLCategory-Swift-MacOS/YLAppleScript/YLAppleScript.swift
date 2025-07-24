@@ -160,7 +160,7 @@ public class YLAppleScript: NSObject, NSOpenSavePanelDelegate {
     ///   - fileNames: 多个文件名
     ///   - handler: 执行后的回调
     public class func installScripts(_ fileNames: [String], handler: @escaping ((Bool) -> Void)) {
-        guard fileNames.isEmpty else {
+        guard !fileNames.isEmpty else {
             assert(false, "fileNames must not be empty")
             handler(false)
             return

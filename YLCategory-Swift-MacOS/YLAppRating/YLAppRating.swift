@@ -23,10 +23,10 @@ public class YLAppRating {
     ///   - daysSinceLastPrompt: 从上次一执行弹窗代码，到下一次执行弹窗代码，中间最少间隔的天数，需与minExecCount同时满足
     ///   - delayInSeconds: 执行弹窗代码的延时操作，防止一打开app就弹窗
     public class func showWith(appID: String,
-                         minExecCount: Int = 10,
-                         daysSinceFirstLaunch: Int = 3,
-                         daysSinceLastPrompt: Int = 365,
-                         delayInSeconds: TimeInterval = 10) {
+                               minExecCount: Int = 10,
+                               daysSinceFirstLaunch: Int = 3,
+                               daysSinceLastPrompt: Int = 365,
+                               delayInSeconds: TimeInterval = 10) {
         // 检查是否从 App Store 下载
         guard let receiptURL = Bundle.main.appStoreReceiptURL,
               FileManager.default.fileExists(atPath: receiptURL.path) else {
@@ -50,7 +50,9 @@ public class YLAppRating {
         userDefaults.set(info, forKey: YLAppRatingKey)
         userDefaults.synchronize()
         if execCount < minExecCount {
+#if DEBUG
             print("App评分 - 当前执行次数：\(execCount) 未达到 \(minExecCount) 次, 直接返回")
+#endif
             return
         }
         
@@ -59,7 +61,9 @@ public class YLAppRating {
         // 判断与第一次执行的时间间隔
         if currentTime - firstLaunchTime < 60 * 60 * 24 * Double(daysSinceFirstLaunch) {
             let daysSinceFirst = (currentTime - firstLaunchTime) / (24.0 * 60 * 60)
+#if DEBUG
             print("App评分 - 从第一次执行至今，已经 \(daysSinceFirst) 天，未超过 \(daysSinceFirstLaunch) 天，直接返回")
+#endif
             return
         }
         
@@ -67,7 +71,9 @@ public class YLAppRating {
         let lastShowTime = info[AppRateLastShowTimeKey] as? Double ?? 0
         if lastShowTime > 0 && currentTime - lastShowTime < 60 * 60 * 24 * Double(daysSinceLastPrompt) {
             let daysSinceLast = (currentTime - lastShowTime) / (24.0 * 60 * 60)
+#if DEBUG
             print("App评分 - 从上一次执行评分弹窗至今，已经 \(daysSinceLast) 天，未超过 \(daysSinceLastPrompt) 天，直接返回")
+#endif
             return
         }
         
@@ -87,7 +93,9 @@ public class YLAppRating {
                     NSWorkspace.shared.open(url)
                 }
             }
+#if DEBUG
             print("App评分 - 执行了弹窗评分")
+#endif
         }
     }
 }
