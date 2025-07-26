@@ -10,10 +10,35 @@ import Carbon
 import Cocoa
 import os
 
+public enum __YLLogStyle {
+    
+    case `default`
+    case success
+    case failure
+    case warning
+    case flag
+    case number(Int)
+    case emoji(String)
+    
+    var symbol: String {
+        switch self {
+        case .`default`:        return ""
+        case .success:          return "✅"
+        case .failure:          return "❌"
+        case .warning:          return "⚠️"
+        case .flag:             return "🚩"
+        case .emoji(let e):     return e
+        case .number(let n):
+            let numbers = ["0️⃣", "1️⃣", "2️⃣", "3️⃣", "4️⃣", "5️⃣", "6️⃣", "7️⃣", "8️⃣", "9️⃣", "🔟"]
+            return (0...10).contains(n) ? numbers[n] : "🔢"
+        }
+    }
+}
+
 public var YL_LOG_MORE: Bool = false // 是否可以打印更详细的信息
 public var YL_LOG_RELEASE: Bool = false // 打包时是否打印
 
-public func YLLog(_ items: Any..., file: NSString = #file, function: String = #function, line: Int = #line) {
+public func YLLog(_ items: Any..., style: __YLLogStyle = .default, file: NSString = #file, function: String = #function, line: Int = #line) {
 #if !DEBUG
     guard YL_LOG_RELEASE else { return }
 #endif
@@ -31,10 +56,13 @@ public func YLLog(_ items: Any..., file: NSString = #file, function: String = #f
         return "\(item)"
     }
     message = formatItems.joined(separator: "👈\n") + (formatItems.count > 1 ? "👈" : "")
+    if !style.symbol.isEmpty {
+        message = "\(style.symbol) \(message)"
+    }
     if #available(macOS 26.0, *) {
         let log = OSLog(subsystem: Bundle.main.bundleIdentifier ?? kApp_Name, category: "YLLog")
         if YL_LOG_MORE {
-            os_log("%{public}@\n[ %{public}@ 第%{public}d行 ] in %{public}@",log: log, type: .default, message, function, line, file.lastPathComponent)
+            os_log("%{public}@\n[ %{public}@ 第%{public}d行 ] in %{public}@", log: log, type: .default, message, function, line, file.lastPathComponent)
         } else {
             os_log("%{public}@", log: log, type: .default, message)
         }

@@ -586,7 +586,5 @@ public let AppRunningEnvironment: AppEnvironment = {
     return environment
 }()
 
-// 审核中
-public let IsReviewing = AppRunningEnvironment == .other
 // 测试中
 public let IsTesting = AppRunningEnvironment == .testFlight || AppRunningEnvironment == .development

@@ -79,6 +79,15 @@ public extension String {
     /// - Returns: 新的字符串
     func substring(with range: NSRange) -> String { (self as NSString).substring(with: range) }
     
+    /// 截取字符串
+    /// - Parameter from: 开始索引
+    /// - Returns: 新的字符串
+    func substring(from: Int) -> String { (self as NSString).substring(from: from) }
+    
+    /// 截取字符串
+    /// - Parameter from: 结束索引
+    /// - Returns: 新的字符串
+    func substring(to: Int) -> String { (self as NSString).substring(to: to) }
     
     /// 将多个文件拼成的字符串转换成路径列表，多用于拷贝多个文件路径时，从pasteboard上获取到的是一个字符串，对其进行解析
     /// - Returns: 多个文件路径
