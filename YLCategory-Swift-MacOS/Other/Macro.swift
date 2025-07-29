@@ -108,6 +108,19 @@ public var GUIUserName: String? {
     }
     return userName
 }
+// 当前登录的用户名(例如/Users/xxx/中的xxx，有可能跟 GUIUserName 不一样), 未登录用户时，返回nil
+public var GUIUserDisplayName: String? {
+    var uid: uid_t = 0
+    guard let userName = SCDynamicStoreCopyConsoleUser(nil, &uid, nil) as? String,
+          userName != "loginWindow" else {
+        return nil
+    }
+    guard let pwd = getpwuid(uid),
+          let name = pwd.pointee.pw_name else {
+        return nil
+    }
+    return String(cString: name)
+}
 // app的owner account ID, 从app store下载的一般是0，其他方式安装的是501，也有可能是其他值
 public let OwnerAccountID: Int? = {
     guard let path = Bundle.main.executablePath,
