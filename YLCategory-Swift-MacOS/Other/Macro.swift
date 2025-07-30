@@ -116,10 +116,10 @@ public var GUIUserDisplayName: String? {
         return nil
     }
     guard let pwd = getpwuid(uid),
-          let name = pwd.pointee.pw_name else {
+          let home = pwd.pointee.pw_dir else {
         return nil
     }
-    return String(cString: name)
+    return String(cString: home).components(separatedBy: "/").last
 }
 // app的owner account ID, 从app store下载的一般是0，其他方式安装的是501，也有可能是其他值
 public let OwnerAccountID: Int? = {
