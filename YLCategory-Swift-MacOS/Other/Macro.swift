@@ -547,12 +547,12 @@ public func File(_ path: String, isAnyOfTypes types: [UTType]) -> Bool {
 // MARK: - app 环境
 
 public enum AppEnvironment: String {
-    case appStore       = "App store"       // App store 线上
+    case appStore       = "App store"       // App store 线上，或苹果审核
     case testFlight     = "TestFlight"      // TestFlight 测试
     case developerID    = "Developer ID"    // 线下分发的Apple公证过的app
     case adHoc          = "Ad Hoc"          // 特定人群的测试版本
     case development    = "Development"     // 开发调试
-    case other          = "Other"           // 未知版本或苹果审核
+    case other          = "Other"           // 未知版本
 }
 
 public let AppRunningEnvironment: AppEnvironment = {
@@ -579,7 +579,8 @@ public let AppRunningEnvironment: AppEnvironment = {
             YLLog("Get AppRunningEnvironment error: \(output)")
             return environment
         }
-        // 审核中，返回的字符串是 /Applications/xxx.app: No such file or directory
+        // 审核中，正常应该是跟app store下载的一样
+        // 有时返回的字符串是 /Applications/xxx.app: No such file or directory
         let list = output.components(separatedBy: "\n").compactMap { $0.hasPrefix("Authority") ? $0 : nil }
         for str in list {
             guard let evn = str.components(separatedBy: "=").last else { continue }

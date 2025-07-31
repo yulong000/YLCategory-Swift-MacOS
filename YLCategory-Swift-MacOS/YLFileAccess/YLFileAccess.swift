@@ -86,19 +86,25 @@ public class YLFileAccess {
             // 授权根目录
             let btn = NSButton(title: YLFileAccess.localize("Authorization root directory"), target: self, action: #selector(authRootPath))
             btn.bezelColor = .controlAccentColor
-            let message = NSTextField(wrappingLabelWithString: String(format: YLFileAccess.localize("Authorization root directory message"), YLFileAccess.appName))
+            btn.translatesAutoresizingMaskIntoConstraints = false
             
-            btn.sizeToFit()
-            message.sizeToFit()
+            let message = NSTextField(wrappingLabelWithString: String(format: YLFileAccess.localize("Authorization root directory message"), YLFileAccess.appName))
+            message.translatesAutoresizingMaskIntoConstraints = false
             
             let accessoryView = NSView()
-            accessoryView.frame = NSMakeRect(0, 0, btn.bounds.width + message.bounds.width + 150, message.bounds.height + 30)
-            
-            btn.frame = NSMakeRect(5, (accessoryView.bounds.height - btn.bounds.height) / 2 - 2, btn.bounds.width, btn.bounds.height)
-            message.frame = NSMakeRect(CGRectGetMaxX(btn.frame) + 10, (accessoryView.bounds.height - message.bounds.height) / 2, message.bounds.width, message.bounds.height)
-            
+            accessoryView.translatesAutoresizingMaskIntoConstraints = false
             accessoryView.addSubview(btn)
             accessoryView.addSubview(message)
+            
+            NSLayoutConstraint.activate([
+                accessoryView.heightAnchor.constraint(equalToConstant: message.bounds.height + 30),
+                
+                btn.leadingAnchor.constraint(equalTo: accessoryView.leadingAnchor, constant: 20),
+                btn.centerYAnchor.constraint(equalTo: accessoryView.centerYAnchor, constant: 0),
+                
+                message.leadingAnchor.constraint(equalTo: btn.trailingAnchor, constant: 10),
+                message.centerYAnchor.constraint(equalTo: btn.centerYAnchor),
+            ])
             
             openPanelModel?.openPanel.accessoryView = accessoryView
             openPanelModel?.openPanel.isAccessoryViewDisclosed = true
