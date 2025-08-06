@@ -173,7 +173,7 @@ open class YLScrollLabel: NSView, CAAnimationDelegate {
         clickHandler?(self)
     }
     
-    public func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
+    open func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
         if !flag {
             textLayer.frame = originFrame
             textLayer.removeAllAnimations()

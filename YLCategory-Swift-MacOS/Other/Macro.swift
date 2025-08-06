@@ -486,8 +486,8 @@ public func File(_ path: String, isAnyOfTypes types: [CFString]) -> Bool {
     if #available(macOS 11.0, *) {
         if let utType = UTType(filenameExtension: ext) {
             for cfType in types {
-                let targetType = UTType(importedAs: cfType as String)
-                if utType.conforms(to: targetType) {
+                if let targetType = UTType(cfType as String),
+                    utType.conforms(to: targetType) {
                     return true
                 }
             }

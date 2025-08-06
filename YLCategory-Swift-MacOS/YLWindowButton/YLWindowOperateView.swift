@@ -11,15 +11,15 @@ import AppKit
 open class YLWindowOperateView: NSView {
     
     // 点击按钮回调
-    public var operateHandler: ((YLWindowButtonType) -> Void)?
+    open var operateHandler: ((YLWindowButtonType) -> Void)?
     // 所有的按钮
-    public var buttonTypes: [YLWindowButtonType]? {
+    open var buttonTypes: [YLWindowButtonType]? {
         didSet {
             addBtns()
         }
     }
     // 获取对应类型的按钮
-    public func button(withType buttonType: YLWindowButtonType) -> YLWindowButton? {
+    open func button(withType buttonType: YLWindowButtonType) -> YLWindowButton? {
         subviews.compactMap { $0 as? YLWindowButton }.first { $0.buttonType == buttonType }
     }
     
@@ -48,7 +48,7 @@ open class YLWindowOperateView: NSView {
         self.frame = frame
     }
     
-    public override func viewDidMoveToWindow() {
+    open override func viewDidMoveToWindow() {
         super.viewDidMoveToWindow()
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [self] in
             if let window = window, window.styleMask.contains(.fullScreen) {
@@ -59,10 +59,10 @@ open class YLWindowOperateView: NSView {
         }
     }
     
-    public override var isFlipped: Bool { true }
+    open override var isFlipped: Bool { true }
     
     private let buttonWH = 13.0
-    public override func layout() {
+    open override func layout() {
         super.layout()
         var left = 0.0
         let height = bounds.size.height
@@ -99,20 +99,20 @@ open class YLWindowOperateView: NSView {
         operateHandler?(btn.buttonType)
     }
     
-    public override func updateTrackingAreas() {
+    open override func updateTrackingAreas() {
         super.updateTrackingAreas()
         trackingAreas.forEach { removeTrackingArea($0) }
         let trackingArea = NSTrackingArea(rect: bounds, options: [.activeAlways, .mouseEnteredAndExited], owner: self)
         addTrackingArea(trackingArea)
     }
     
-    public override func mouseEntered(with event: NSEvent) {
+    open override func mouseEntered(with event: NSEvent) {
         for btn in subviews where btn.isKind(of: YLWindowButton.self) {
             (btn as! YLWindowButton).isHover = true
         }
     }
     
-    public override func mouseExited(with event: NSEvent) {
+    open override func mouseExited(with event: NSEvent) {
         for btn in subviews where btn.isKind(of: YLWindowButton.self) {
             (btn as! YLWindowButton).isHover = false
         }

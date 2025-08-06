@@ -66,7 +66,7 @@ open class YLCollectionView: NSView, NSCollectionViewDelegate, NSCollectionViewD
         }
     }
     
-    public override func layout() {
+    open override func layout() {
         super.layout()
         scrollView.frame = bounds
     }
@@ -74,32 +74,32 @@ open class YLCollectionView: NSView, NSCollectionViewDelegate, NSCollectionViewD
     // MARK: - 注册
     
     // MARK: 注册item
-    public func registerItem(_ itemClass: AnyClass?, withIdentifier identifier: NSUserInterfaceItemIdentifier) {
+    open func registerItem(_ itemClass: AnyClass?, withIdentifier identifier: NSUserInterfaceItemIdentifier) {
         collectionView.register(itemClass, forItemWithIdentifier: identifier)
     }
     
     // MARK: 注册header，footer
-    public func registerSupplementary(_ viewClass: AnyClass?, kind: NSCollectionView.SupplementaryElementKind, withIdentifier identifier: NSUserInterfaceItemIdentifier) {
+    open func registerSupplementary(_ viewClass: AnyClass?, kind: NSCollectionView.SupplementaryElementKind, withIdentifier identifier: NSUserInterfaceItemIdentifier) {
         collectionView.register(viewClass, forSupplementaryViewOfKind: kind, withIdentifier: identifier)
     }
     
     // MARK: 注册 NIB item
-    public func registerItemNib(_ nib: NSNib?, withIdentifier identifier: NSUserInterfaceItemIdentifier) {
+    open func registerItemNib(_ nib: NSNib?, withIdentifier identifier: NSUserInterfaceItemIdentifier) {
         collectionView.register(nib, forItemWithIdentifier: identifier)
     }
     
     // MARK: 注册 NIB header，footer
-    public func registerSupplementaryNib(_ nib: NSNib?, kind: NSCollectionView.SupplementaryElementKind, withIdentifier identifier: NSUserInterfaceItemIdentifier) {
+    open func registerSupplementaryNib(_ nib: NSNib?, kind: NSCollectionView.SupplementaryElementKind, withIdentifier identifier: NSUserInterfaceItemIdentifier) {
         collectionView.register(nib, forSupplementaryViewOfKind: kind, withIdentifier: identifier)
     }
     
     // MARK: 注册拖拽类型
-    public override func registerForDraggedTypes(_ types: [NSPasteboard.PasteboardType]) {
+    open override func registerForDraggedTypes(_ types: [NSPasteboard.PasteboardType]) {
         collectionView.registerForDraggedTypes(types)
     }
     
     // MARK: 重新加载数据
-    public func reloadData() {
+    open func reloadData() {
         collectionView.reloadData()
     }
     
@@ -107,111 +107,111 @@ open class YLCollectionView: NSView, NSCollectionViewDelegate, NSCollectionViewD
     // MARK: - dataSource
     
     /// 返回分组个数，默认1
-    public var numberOfSectionsHandler: ((NSCollectionView) -> Int)?
+    open var numberOfSectionsHandler: ((NSCollectionView) -> Int)?
     /// 返回每个分组item的个数
-    public var numberOfItemsHandler: ((NSCollectionView, Int) -> Int)?
+    open var numberOfItemsHandler: ((NSCollectionView, Int) -> Int)?
     /// 返回item对象
-    public var itemHandler: ((NSCollectionView, IndexPath) -> NSCollectionViewItem)?
+    open var itemHandler: ((NSCollectionView, IndexPath) -> NSCollectionViewItem)?
     /// 返回header & footer
-    public var supplementaryViewHandler: ((NSCollectionView, NSCollectionView.SupplementaryElementKind, IndexPath) -> NSView?)?
+    open var supplementaryViewHandler: ((NSCollectionView, NSCollectionView.SupplementaryElementKind, IndexPath) -> NSView?)?
     
     
     // MARK: - delegate
     
     /// 将要选中回调
-    public var shouldSelectHandler: ((NSCollectionView, Set<IndexPath>) -> Set<IndexPath>)?
+    open var shouldSelectHandler: ((NSCollectionView, Set<IndexPath>) -> Set<IndexPath>)?
     /// 选中回调
-    public var selectHandler: ((NSCollectionView, Set<IndexPath>) -> Void)?
+    open var selectHandler: ((NSCollectionView, Set<IndexPath>) -> Void)?
     /// 将要取消选中回调
-    public var shouldDeselectHandler: ((NSCollectionView, Set<IndexPath>) -> Set<IndexPath>)?
+    open var shouldDeselectHandler: ((NSCollectionView, Set<IndexPath>) -> Set<IndexPath>)?
     /// 取消选中回调
-    public var deselectHandler: ((NSCollectionView, Set<IndexPath>) -> Void)?
+    open var deselectHandler: ((NSCollectionView, Set<IndexPath>) -> Void)?
     /// 滚动回调
-    public var scrollHandler: ((NSScrollView, NSCollectionView) -> Void)?
+    open var scrollHandler: ((NSScrollView, NSCollectionView) -> Void)?
     
     // MARK: - 拖拽
     
     /// 是否可以拖拽
-    public var canDragHandler: ((NSCollectionView, Set<IndexPath>, NSEvent) -> Bool)?
+    open var canDragHandler: ((NSCollectionView, Set<IndexPath>, NSEvent) -> Bool)?
     /// 写入数据到剪切版
-    public var pasteboardWriterForItemHandler: ((NSCollectionView, IndexPath) -> NSPasteboardWriting?)?
+    open var pasteboardWriterForItemHandler: ((NSCollectionView, IndexPath) -> NSPasteboardWriting?)?
     /// 拖拽的操作类型
-    public var validateDropHandler: ((NSCollectionView, NSDraggingInfo, AutoreleasingUnsafeMutablePointer<NSIndexPath>, UnsafeMutablePointer<NSCollectionView.DropOperation>) -> NSDragOperation)?
+    open var validateDropHandler: ((NSCollectionView, NSDraggingInfo, AutoreleasingUnsafeMutablePointer<NSIndexPath>, UnsafeMutablePointer<NSCollectionView.DropOperation>) -> NSDragOperation)?
     /// 接收拖拽数据
-    public var acceptDropHandler: ((NSCollectionView, NSDraggingInfo, IndexPath, NSCollectionView.DropOperation) -> Bool)?
+    open var acceptDropHandler: ((NSCollectionView, NSDraggingInfo, IndexPath, NSCollectionView.DropOperation) -> Bool)?
     
     // MARK: - layout
     
     /// item 大小
-    public var itemSizeHandler: ((NSCollectionView, IndexPath) -> NSSize)?
+    open var itemSizeHandler: ((NSCollectionView, IndexPath) -> NSSize)?
     /// 分组 edgeInsets
-    public var sectionInsetHandler: ((NSCollectionView, Int) -> NSEdgeInsets)?
+    open var sectionInsetHandler: ((NSCollectionView, Int) -> NSEdgeInsets)?
     /// 行间距最小值
-    public var lineSpacingHandler: ((NSCollectionView, Int) -> CGFloat)?
+    open var lineSpacingHandler: ((NSCollectionView, Int) -> CGFloat)?
     /// item间距最小值
-    public var itemSpacingHandler: ((NSCollectionView, Int) -> CGFloat)?
+    open var itemSpacingHandler: ((NSCollectionView, Int) -> CGFloat)?
     /// header 大小
-    public var headerSizeHandler: ((NSCollectionView, Int) -> NSSize)?
+    open var headerSizeHandler: ((NSCollectionView, Int) -> NSSize)?
     /// footer 大小
-    public var footerSizeHandler: ((NSCollectionView, Int) -> NSSize)?
+    open var footerSizeHandler: ((NSCollectionView, Int) -> NSSize)?
     
     // MARK: - collectionView dataSource
     
-    public func numberOfSections(in collectionView: NSCollectionView) -> Int {
+    open func numberOfSections(in collectionView: NSCollectionView) -> Int {
         numberOfSectionsHandler?(collectionView) ?? 1
     }
     
-    public func collectionView(_ collectionView: NSCollectionView, numberOfItemsInSection section: Int) -> Int {
+    open func collectionView(_ collectionView: NSCollectionView, numberOfItemsInSection section: Int) -> Int {
         numberOfItemsHandler?(collectionView, section) ?? 0
     }
     
-    public func collectionView(_ collectionView: NSCollectionView, itemForRepresentedObjectAt indexPath: IndexPath) -> NSCollectionViewItem {
+    open func collectionView(_ collectionView: NSCollectionView, itemForRepresentedObjectAt indexPath: IndexPath) -> NSCollectionViewItem {
         itemHandler?(collectionView, indexPath) ?? NSCollectionViewItem()
     }
     
-    public func collectionView(_ collectionView: NSCollectionView, viewForSupplementaryElementOfKind kind: NSCollectionView.SupplementaryElementKind, at indexPath: IndexPath) -> NSView {
+    open func collectionView(_ collectionView: NSCollectionView, viewForSupplementaryElementOfKind kind: NSCollectionView.SupplementaryElementKind, at indexPath: IndexPath) -> NSView {
         supplementaryViewHandler?(collectionView, kind, indexPath) ?? NSView()
     }
     
     // MARK: - collectionView delegate
     
-    public func collectionView(_ collectionView: NSCollectionView, shouldSelectItemsAt indexPaths: Set<IndexPath>) -> Set<IndexPath> {
+    open func collectionView(_ collectionView: NSCollectionView, shouldSelectItemsAt indexPaths: Set<IndexPath>) -> Set<IndexPath> {
         shouldSelectHandler?(collectionView, indexPaths) ?? indexPaths
     }
     
-    public func collectionView(_ collectionView: NSCollectionView, didSelectItemsAt indexPaths: Set<IndexPath>) {
+    open func collectionView(_ collectionView: NSCollectionView, didSelectItemsAt indexPaths: Set<IndexPath>) {
         selectHandler?(collectionView, indexPaths)
     }
     
-    public func collectionView(_ collectionView: NSCollectionView, shouldDeselectItemsAt indexPaths: Set<IndexPath>) -> Set<IndexPath> {
+    open func collectionView(_ collectionView: NSCollectionView, shouldDeselectItemsAt indexPaths: Set<IndexPath>) -> Set<IndexPath> {
         shouldDeselectHandler?(collectionView, indexPaths) ?? indexPaths
     }
     
-    public func collectionView(_ collectionView: NSCollectionView, didDeselectItemsAt indexPaths: Set<IndexPath>) {
+    open func collectionView(_ collectionView: NSCollectionView, didDeselectItemsAt indexPaths: Set<IndexPath>) {
         deselectHandler?(collectionView, indexPaths)
     }
     
     // MARK: - collectionView drag
     
-    public func collectionView(_ collectionView: NSCollectionView, canDragItemsAt indexPaths: Set<IndexPath>, with event: NSEvent) -> Bool {
+    open func collectionView(_ collectionView: NSCollectionView, canDragItemsAt indexPaths: Set<IndexPath>, with event: NSEvent) -> Bool {
         canDragHandler?(collectionView, indexPaths, event) ?? true
     }
     
-    public func collectionView(_ collectionView: NSCollectionView, pasteboardWriterForItemAt indexPath: IndexPath) -> (any NSPasteboardWriting)? {
+    open func collectionView(_ collectionView: NSCollectionView, pasteboardWriterForItemAt indexPath: IndexPath) -> (any NSPasteboardWriting)? {
         pasteboardWriterForItemHandler?(collectionView, indexPath)
     }
     
-    public func collectionView(_ collectionView: NSCollectionView, validateDrop draggingInfo: any NSDraggingInfo, proposedIndexPath proposedDropIndexPath: AutoreleasingUnsafeMutablePointer<NSIndexPath>, dropOperation proposedDropOperation: UnsafeMutablePointer<NSCollectionView.DropOperation>) -> NSDragOperation {
+    open func collectionView(_ collectionView: NSCollectionView, validateDrop draggingInfo: any NSDraggingInfo, proposedIndexPath proposedDropIndexPath: AutoreleasingUnsafeMutablePointer<NSIndexPath>, dropOperation proposedDropOperation: UnsafeMutablePointer<NSCollectionView.DropOperation>) -> NSDragOperation {
         validateDropHandler?(collectionView, draggingInfo, proposedDropIndexPath, proposedDropOperation) ?? []
     }
 
-    public func collectionView(_ collectionView: NSCollectionView, acceptDrop draggingInfo: any NSDraggingInfo, indexPath: IndexPath, dropOperation: NSCollectionView.DropOperation) -> Bool {
+    open func collectionView(_ collectionView: NSCollectionView, acceptDrop draggingInfo: any NSDraggingInfo, indexPath: IndexPath, dropOperation: NSCollectionView.DropOperation) -> Bool {
         acceptDropHandler?(collectionView, draggingInfo, indexPath, dropOperation) ?? false
     }
     
     // MARK: - flow layout
     
-    public func collectionView(_ collectionView: NSCollectionView, layout collectionViewLayout: NSCollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> NSSize {
+    open func collectionView(_ collectionView: NSCollectionView, layout collectionViewLayout: NSCollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> NSSize {
         if let itemSizeHandler = itemSizeHandler {
             return itemSizeHandler(collectionView, indexPath)
         }
@@ -221,7 +221,7 @@ open class YLCollectionView: NSView, NSCollectionViewDelegate, NSCollectionViewD
         return .zero
     }
     
-    public func collectionView(_ collectionView: NSCollectionView, layout collectionViewLayout: NSCollectionViewLayout, insetForSectionAt section: Int) -> NSEdgeInsets {
+    open func collectionView(_ collectionView: NSCollectionView, layout collectionViewLayout: NSCollectionViewLayout, insetForSectionAt section: Int) -> NSEdgeInsets {
         if let sectionInsetHandler = sectionInsetHandler {
             return sectionInsetHandler(collectionView, section)
         }
@@ -231,7 +231,7 @@ open class YLCollectionView: NSView, NSCollectionViewDelegate, NSCollectionViewD
         return NSEdgeInsetsZero
     }
     
-    public func collectionView(_ collectionView: NSCollectionView, layout collectionViewLayout: NSCollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+    open func collectionView(_ collectionView: NSCollectionView, layout collectionViewLayout: NSCollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         if let lineSpacingHandler = lineSpacingHandler {
             return lineSpacingHandler(collectionView, section)
         }
@@ -241,7 +241,7 @@ open class YLCollectionView: NSView, NSCollectionViewDelegate, NSCollectionViewD
         return 0
     }
     
-    public func collectionView(_ collectionView: NSCollectionView, layout collectionViewLayout: NSCollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+    open func collectionView(_ collectionView: NSCollectionView, layout collectionViewLayout: NSCollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         if let itemSpacingHandler = itemSpacingHandler {
             return itemSpacingHandler(collectionView, section)
         }
@@ -251,7 +251,7 @@ open class YLCollectionView: NSView, NSCollectionViewDelegate, NSCollectionViewD
         return 0
     }
     
-    public func collectionView(_ collectionView: NSCollectionView, layout collectionViewLayout: NSCollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> NSSize {
+    open func collectionView(_ collectionView: NSCollectionView, layout collectionViewLayout: NSCollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> NSSize {
         if let headerSizeHandler = headerSizeHandler {
             return headerSizeHandler(collectionView, section)
         }
@@ -261,7 +261,7 @@ open class YLCollectionView: NSView, NSCollectionViewDelegate, NSCollectionViewD
         return .zero
     }
     
-    public func collectionView(_ collectionView: NSCollectionView, layout collectionViewLayout: NSCollectionViewLayout, referenceSizeForFooterInSection section: Int) -> NSSize {
+    open func collectionView(_ collectionView: NSCollectionView, layout collectionViewLayout: NSCollectionViewLayout, referenceSizeForFooterInSection section: Int) -> NSSize {
         if let footerSizeHandler = footerSizeHandler {
             return footerSizeHandler(collectionView, section)
         }

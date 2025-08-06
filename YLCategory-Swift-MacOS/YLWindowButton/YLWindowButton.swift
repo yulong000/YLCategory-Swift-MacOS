@@ -18,18 +18,18 @@ import AppKit
 open class YLWindowButton: NSControl {
     
     // 按钮类型
-    public var buttonType: YLWindowButtonType = .close {
+    open var buttonType: YLWindowButtonType = .close {
         didSet {
             isHover = false
             needsDisplay = true
         }
     }
     // 忽略鼠标划入
-    public var ignoreMouseHover: Bool = false { didSet { updateTrackingAreas() } }
+    open var ignoreMouseHover: Bool = false { didSet { updateTrackingAreas() } }
     // 是否是激活状态
-    public var isActive: Bool = false { didSet { needsDisplay = true } }
+    open var isActive: Bool = false { didSet { needsDisplay = true } }
     // 是否选中
-    public var isHover: Bool = false { didSet { needsDisplay = true } }
+    open var isHover: Bool = false { didSet { needsDisplay = true } }
     // 窗口全屏
     private(set) var isWindowFullScreen: Bool = false { didSet { needsDisplay = true } }
     
@@ -56,7 +56,7 @@ open class YLWindowButton: NSControl {
     
     // MARK: - 通知
     
-    public override func viewDidMoveToWindow() {
+    open override func viewDidMoveToWindow() {
         super.viewDidMoveToWindow()
         NotificationCenter.default.removeObserver(self)
         guard let window = window else { return }
@@ -87,7 +87,7 @@ open class YLWindowButton: NSControl {
     
     // MARK: - Mouse Tracking
     
-    public override func updateTrackingAreas() {
+    open override func updateTrackingAreas() {
         super.updateTrackingAreas()
         trackingAreas.forEach { removeTrackingArea($0) }
         guard !ignoreMouseHover else { return }
@@ -95,13 +95,13 @@ open class YLWindowButton: NSControl {
         addTrackingArea(trackingArea)
     }
     
-    public override func mouseDown(with event: NSEvent) {
+    open override func mouseDown(with event: NSEvent) {
         if isEnabled {
             window?.makeFirstResponder(self)
         }
         super.mouseDown(with: event)
     }
-    public override func mouseUp(with event: NSEvent) {
+    open override func mouseUp(with event: NSEvent) {
         if isEnabled, let action = action {
             NSApp.sendAction(action, to: target, from: self)
         }
@@ -124,8 +124,8 @@ open class YLWindowButton: NSControl {
         }
     }
     
-    public override var acceptsFirstResponder: Bool { true }
-    public override func becomeFirstResponder() -> Bool { true }
+    open override var acceptsFirstResponder: Bool { true }
+    open override func becomeFirstResponder() -> Bool { true }
     
     
     // MARK: - 绘制内容
@@ -134,7 +134,7 @@ open class YLWindowButton: NSControl {
         NSColor(red: r / 255.0, green: g / 255.0, blue: b / 255.0, alpha: a)
     }
     
-    public override func draw(_ dirtyRect: NSRect) {
+    open override func draw(_ dirtyRect: NSRect) {
         super.draw(dirtyRect)
         
         let width = bounds.size.width
