@@ -7,11 +7,6 @@
 
 import AppKit
 
-public struct YLSavePanelResponse {
-    var response: NSApplication.ModalResponse
-    var url: URL?
-}
-
 public extension NSSavePanel {
     
     
@@ -46,7 +41,7 @@ public extension NSSavePanel {
                     isExtensionHidden: Bool = true,
                     accessoryView: NSView? = nil,
                     identifier: NSUserInterfaceItemIdentifier? = nil,
-                    handler: @escaping (YLSavePanelResponse) -> Void) -> NSSavePanel {
+                    handler: @escaping (NSApplication.ModalResponse, URL?) -> Void) -> NSSavePanel {
         let savePanel = NSSavePanel()
         if let title = title { savePanel.title = title }
         if let message = message { savePanel.message = message }
@@ -62,11 +57,11 @@ public extension NSSavePanel {
         savePanel.identifier = identifier
         if let modalWindow = modalWindow {
             savePanel.beginSheetModal(for: modalWindow) { response in
-                handler(YLSavePanelResponse(response: response, url: savePanel.url))
+                handler(response, savePanel.url)
             }
         } else {
             savePanel.begin { response in
-                handler(YLSavePanelResponse(response: response, url: savePanel.url))
+                handler(response, savePanel.url)
             }
         }
         return savePanel
@@ -74,7 +69,6 @@ public extension NSSavePanel {
     
     /// 选择保存路径
     /// - Parameters:
-    ///   - modalWindow: 要显示到的window
     ///   - title: 标题
     ///   - message: 显示的信息
     ///   - prompt: 保存按钮
@@ -89,8 +83,7 @@ public extension NSSavePanel {
     ///   - identifier: 标识符
     /// - Returns: 返回选择的结果
     @discardableResult
-    class func show(for modalWindow: NSWindow? = nil,
-                    title: String? = nil,
+    class func show(title: String? = nil,
                     message: String? = nil,
                     prompt: String? = nil,
                     nameFieldLabel: String? = nil,
@@ -101,7 +94,7 @@ public extension NSSavePanel {
                     showsHiddenFiles: Bool = false,
                     isExtensionHidden: Bool = true,
                     accessoryView: NSView? = nil,
-                    identifier: NSUserInterfaceItemIdentifier? = nil) -> YLSavePanelResponse {
+                    identifier: NSUserInterfaceItemIdentifier? = nil) -> (NSApplication.ModalResponse, URL?) {
         let savePanel = NSSavePanel()
         if let title = title { savePanel.title = title }
         if let message = message { savePanel.message = message }
@@ -116,6 +109,6 @@ public extension NSSavePanel {
         savePanel.accessoryView = accessoryView
         savePanel.identifier = identifier
         let response = savePanel.runModal()
-        return YLSavePanelResponse(response: response, url: savePanel.url)
+        return (response, savePanel.url)
     }
 }

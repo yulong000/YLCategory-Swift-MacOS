@@ -7,11 +7,6 @@
 
 import AppKit
 
-public struct YLOpenPanelResponse {
-    var response: NSApplication.ModalResponse
-    var urls: [URL]?
-}
-
 public extension NSOpenPanel {
     
     
@@ -44,7 +39,7 @@ public extension NSOpenPanel {
                     allowedFileTypes: [String]? = nil,
                     accessoryView: NSView? = nil,
                     identifier: NSUserInterfaceItemIdentifier? = nil,
-                    handler: @escaping (YLOpenPanelResponse) -> Void) -> NSOpenPanel {
+                    handler: @escaping ((NSApplication.ModalResponse, [URL]?)) -> Void) -> NSOpenPanel {
         let openPanel = NSOpenPanel()
         if let title = title { openPanel.title = title }
         if let message = message { openPanel.message = message }
@@ -60,17 +55,17 @@ public extension NSOpenPanel {
         if let modalWindow = modalWindow {
             openPanel.beginSheetModal(for: modalWindow) { response in
                 if response == .OK, !openPanel.urls.isEmpty {
-                    handler(YLOpenPanelResponse(response: response, urls: openPanel.urls))
+                    handler((response, openPanel.urls))
                 } else {
-                    handler(YLOpenPanelResponse(response: response, urls: nil))
+                    handler((response, nil))
                 }
             }
         } else {
             openPanel.begin { response in
                 if response == .OK, !openPanel.urls.isEmpty {
-                    handler(YLOpenPanelResponse(response: response, urls: openPanel.urls))
+                    handler((response, openPanel.urls))
                 } else {
-                    handler(YLOpenPanelResponse(response: response, urls: nil))
+                    handler((response, nil))
                 }
             }
         }
@@ -79,7 +74,6 @@ public extension NSOpenPanel {
     
     /// 选择文件（夹）路径
     /// - Parameters:
-    ///   - modalWindow: 要显示到的window
     ///   - title: 标题
     ///   - message: 显示的信息
     ///   - prompt: 选择按钮
@@ -93,8 +87,7 @@ public extension NSOpenPanel {
     ///   - identifier: 标识符
     /// - Returns: 返回选择的结果
     @discardableResult
-    class func show(for modalWindow: NSWindow? = nil,
-                    title: String? = nil,
+    class func show(title: String? = nil,
                     message: String? = nil,
                     prompt: String? = nil,
                     directoryURL: URL? = nil,
@@ -104,7 +97,7 @@ public extension NSOpenPanel {
                     canCreateDirectories: Bool = true,
                     allowedFileTypes: [String]? = nil,
                     accessoryView: NSView? = nil,
-                    identifier: NSUserInterfaceItemIdentifier? = nil) -> YLOpenPanelResponse {
+                    identifier: NSUserInterfaceItemIdentifier? = nil) -> (NSApplication.ModalResponse, [URL]?) {
         let openPanel = NSOpenPanel()
         if let title = title { openPanel.title = title }
         if let message = message { openPanel.message = message }
@@ -119,8 +112,8 @@ public extension NSOpenPanel {
         openPanel.identifier = identifier
         let response = openPanel.runModal()
         if response == .OK {
-            return YLOpenPanelResponse(response: response, urls: openPanel.urls)
+            return (response, openPanel.urls)
         }
-        return YLOpenPanelResponse(response: response, urls: nil)
+        return (response, nil)
     }
 }
