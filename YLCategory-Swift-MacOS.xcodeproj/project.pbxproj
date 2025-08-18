@@ -14,6 +14,8 @@
 		0037DEC62D292E1D0061136D /* YLShortcutManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0037DEC52D292E1D0061136D /* YLShortcutManager.swift */; };
 		0037DEC82D292E330061136D /* YLShortcutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0037DEC72D292E330061136D /* YLShortcutView.swift */; };
 		0037DECA2D2BA4E80061136D /* YLShortcut.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0037DEC92D2BA4E80061136D /* YLShortcut.swift */; };
+		0052FC8F2E42EF49006562CA /* NSSavePanel+Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0052FC8E2E42EF3D006562CA /* NSSavePanel+Category.swift */; };
+		0052FC912E42EF59006562CA /* NSOpenPanel+Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0052FC902E42EF4E006562CA /* NSOpenPanel+Category.swift */; };
 		0080A4E22D04490300EEFEA2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0080A4DB2D04490300EEFEA2 /* AppDelegate.swift */; };
 		0080A4E32D04490300EEFEA2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0080A4DF2D04490300EEFEA2 /* ViewController.swift */; };
 		0080A4E42D04490300EEFEA2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0080A4DC2D04490300EEFEA2 /* Assets.xcassets */; };
@@ -96,6 +98,8 @@
 		0037DEC52D292E1D0061136D /* YLShortcutManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YLShortcutManager.swift; sourceTree = "<group>"; };
 		0037DEC72D292E330061136D /* YLShortcutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YLShortcutView.swift; sourceTree = "<group>"; };
 		0037DEC92D2BA4E80061136D /* YLShortcut.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YLShortcut.swift; sourceTree = "<group>"; };
+		0052FC8E2E42EF3D006562CA /* NSSavePanel+Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSSavePanel+Category.swift"; sourceTree = "<group>"; };
+		0052FC902E42EF4E006562CA /* NSOpenPanel+Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSOpenPanel+Category.swift"; sourceTree = "<group>"; };
 		0080A4C92D0448EA00EEFEA2 /* YLCategory-Swift-MacOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "YLCategory-Swift-MacOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0080A4DB2D04490300EEFEA2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0080A4DC2D04490300EEFEA2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -227,6 +231,22 @@
 			path = YLSystemBeep;
 			sourceTree = "<group>";
 		};
+		0052FC8C2E42EF17006562CA /* NSOpenPanel */ = {
+			isa = PBXGroup;
+			children = (
+				0052FC902E42EF4E006562CA /* NSOpenPanel+Category.swift */,
+			);
+			path = NSOpenPanel;
+			sourceTree = "<group>";
+		};
+		0052FC8D2E42EF24006562CA /* NSSavePanel */ = {
+			isa = PBXGroup;
+			children = (
+				0052FC8E2E42EF3D006562CA /* NSSavePanel+Category.swift */,
+			);
+			path = NSSavePanel;
+			sourceTree = "<group>";
+		};
 		0080A4C02D0448EA00EEFEA2 = {
 			isa = PBXGroup;
 			children = (
@@ -289,6 +309,8 @@
 				00B79AC12D1415AA00DAE137 /* NSString */,
 				00B79AC42D1415AA00DAE137 /* NSButton */,
 				00B79AC72D1415AA00DAE137 /* NSAlert */,
+				0052FC8D2E42EF24006562CA /* NSSavePanel */,
+				0052FC8C2E42EF17006562CA /* NSOpenPanel */,
 				00B79ACA2D1415AA00DAE137 /* NSObject */,
 				00B79ACD2D1415AA00DAE137 /* NSTextField */,
 				00B79AD02D1415AA00DAE137 /* NSImage */,
@@ -787,6 +809,7 @@
 				00CFDCAD2D214ABD00EF4FA4 /* YLPermissionWindowController.swift in Sources */,
 				0037DEB22D2575E70061136D /* YLHud.swift in Sources */,
 				00CFDB442D1D486400EF4FA4 /* YLControl.swift in Sources */,
+				0052FC912E42EF59006562CA /* NSOpenPanel+Category.swift in Sources */,
 				00CFDCAF2D214AF500EF4FA4 /* YLPermissionViewController.swift in Sources */,
 				00E850642D1C579A00EBE080 /* NSObject+Notification.swift in Sources */,
 				00A0F9C82D1A673E0043E075 /* Async.swift in Sources */,
@@ -797,6 +820,7 @@
 				00CFDB482D1D504D00EF4FA4 /* YLLanguageModel.swift in Sources */,
 				00A0F9B12D1872180043E075 /* NSControl+Category.swift in Sources */,
 				00A0F9CA2D1A7DA10043E075 /* String+Secret.swift in Sources */,
+				0052FC8F2E42EF49006562CA /* NSSavePanel+Category.swift in Sources */,
 				00B79B212D1415AB00DAE137 /* YLLog.swift in Sources */,
 				00CFDCE82D22ABA600EF4FA4 /* YLUpdateViewController.swift in Sources */,
 				00A0F9BF2D19B41E0043E075 /* NSWindow+Category.swift in Sources */,

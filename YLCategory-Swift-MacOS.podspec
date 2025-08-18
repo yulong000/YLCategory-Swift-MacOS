@@ -72,6 +72,14 @@ Pod::Spec.new do |s|
     s.subspec 'NSAlert' do |ss|
     ss.source_files  =   'YLCategory-Swift-MacOS/NSAlert/**/*.swift'
     end
+    
+    s.subspec 'NSSavePanel' do |ss|
+    ss.source_files  =   'YLCategory-Swift-MacOS/NSSavePanel/**/*.swift'
+    end
+    
+    s.subspec 'NSOpenPanel' do |ss|
+    ss.source_files  =   'YLCategory-Swift-MacOS/NSOpenPanel/**/*.swift'
+    end
 
     s.subspec 'NSColor' do |ss|
     ss.source_files  =   'YLCategory-Swift-MacOS/NSColor/**/*.swift'

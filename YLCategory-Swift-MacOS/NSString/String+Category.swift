@@ -140,10 +140,22 @@ public extension String {
     /// - Returns: 上一级路径
     var deletingLastPathComponent: String { (self as NSString).deletingLastPathComponent }
     
+    /// 获取路径分段后的数组
+    var pathComponents: [String] { (self as NSString).pathComponents }
+    
+    /// 解析符号链接为真实路径
+    var resolvingSymlinksInPath: String { (self as NSString).resolvingSymlinksInPath }
+    
     /// init(fileURLWithPath path: String)
     var fileUrl: URL { URL(fileURLWithPath: self) }
     
     /// init?(string: String)
     var url: URL? { URL(string: self) }
+    
+    /// 拼接路径
+    func appendingPathComponent(_ str: String) -> String { (self as NSString).appendingPathComponent(str) }
+    
+    /// 拼接扩展名
+    func appendingPathExtension(_ str: String) -> String? { (self as NSString).appendingPathExtension(str) }
     
 }

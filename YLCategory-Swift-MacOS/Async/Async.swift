@@ -38,8 +38,8 @@ public struct Async {
     /// 在子线程执行
     /// - Parameter block: 回调block
     @discardableResult
-    public static func global(_ block: @escaping @convention(block) () -> Void) -> DispatchQueue {
-        let queue = DispatchQueue.global()
+    public static func global(qos: DispatchQoS.QoSClass = .default, _ block: @escaping @convention(block) () -> Void) -> DispatchQueue {
+        let queue = DispatchQueue.global(qos: qos)
         queue.async {
             block()
         }
@@ -50,8 +50,8 @@ public struct Async {
     /// - Parameters:
     ///   - globalBlock: 子线程内执行
     ///   - block: 主线程内执行
-    public static func global(_ globalBlock: @escaping @convention(block) () -> Void, main block: @escaping @convention(block) () -> Void) {
-        DispatchQueue.global().async {
+    public static func global(qos: DispatchQoS.QoSClass = .default, _ globalBlock: @escaping @convention(block) () -> Void, main block: @escaping @convention(block) () -> Void) {
+        DispatchQueue.global(qos: qos).async {
             globalBlock()
             DispatchQueue.main.async {
                 block()
