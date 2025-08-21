@@ -86,6 +86,7 @@ public extension NSView {
     
     // MARK: 设置圆角
     func setCornerRadius(_ cornerRadius: CGFloat) {
+        clipsToBounds = true
         wantsLayer = true
         layer?.masksToBounds = true
         layer?.cornerRadius = cornerRadius
@@ -99,6 +100,7 @@ public extension NSView {
     
     // MARK: 设置指定位置的圆角
     func setCornerRadius(_ cornerRadius: CGFloat, mask: CACornerMask) {
+        clipsToBounds = true
         wantsLayer = true
         layer?.masksToBounds = true
         layer?.maskedCorners = mask

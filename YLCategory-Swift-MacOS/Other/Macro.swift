@@ -362,7 +362,8 @@ public func ConvertToBottomLeftCoordinateSystem(_ topLeftCoordinateSystemPoint: 
 // MARK: app是否安装
 public func AppIsInstalled(_ bundleId: String) -> Bool {
     guard let appUrl = NSWorkspace.shared.urlForApplication(withBundleIdentifier: bundleId) else { return false }
-    return FileManager.default.fileExists(atPath: appUrl.path)
+    // 忽略xcode的项目缓存路径
+    return FileManager.default.fileExists(atPath: appUrl.path) && !appUrl.path.contains("/Library/Developer/Xcode/DerivedData")
 }
 // MARK: app是否在运行
 public func AppIsRunning(_ bundleId: String) -> Bool {
