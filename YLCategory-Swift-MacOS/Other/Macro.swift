@@ -361,9 +361,61 @@ public func ConvertToBottomLeftCoordinateSystem(_ topLeftCoordinateSystemPoint: 
 
 // MARK: app是否安装
 public func AppIsInstalled(_ bundleId: String) -> Bool {
-    guard let appUrl = NSWorkspace.shared.urlForApplication(withBundleIdentifier: bundleId) else { return false }
-    // 忽略xcode的项目缓存路径
-    return FileManager.default.fileExists(atPath: appUrl.path) && !appUrl.path.contains("/Library/Developer/Xcode/DerivedData")
+    guard let url = AppUrl(bundleId) else { return false }
+    return FileManager.default.fileExists(atPath: url.path)
+}
+// MARK: 获取app的安装路径
+public func AppUrl(_ bundleId: String) -> URL? {
+    if #available(macOS 12.0, *) {
+        // 获取所有匹配 App 的 URL
+        let urls = NSWorkspace.shared.urlsForApplications(withBundleIdentifier: bundleId)
+        guard !urls.isEmpty else { return nil }
+        
+        // 过滤掉xcode下的app
+        let filtered = urls.filter { !$0.path.contains("/Library/Developer/Xcode/") }
+        
+        // 按版本号排序（最新版本优先）
+        let sortedByVersion = filtered.sorted { url1, url2 in
+            let version1 = Bundle(url: url1)?.infoDictionary?["CFBundleShortVersionString"] as? String ?? "0"
+            let version2 = Bundle(url: url2)?.infoDictionary?["CFBundleShortVersionString"] as? String ?? "0"
+            return version1.compare(version2, options: .numeric) == .orderedDescending
+        }
+        
+        // 优先 /Applications 下
+        if let appInSystem = sortedByVersion.first(where: { $0.path.hasPrefix("/Applications") }) {
+            return appInSystem
+        }
+        
+        // 如果 /Applications 没有，则返回最新的其他路径
+        return sortedByVersion.first
+    } else {
+        guard let appUrl = NSWorkspace.shared.urlForApplication(withBundleIdentifier: bundleId),
+              !appUrl.path.contains("/Library/Developer/Xcode/") else {
+            return nil
+        }
+        return appUrl
+    }
+}
+// MARK: 获取某个app的版本号
+public func AppVersion(_ bundleId: String) -> String? {
+    return AppInfoValue(for: "CFBundleShortVersionString", bundleId: bundleId)
+}
+// MARK: 获取某个app的版本号
+public func AppInfoValue(for key: String, bundleId: String) -> String? {
+    guard let appUrl = AppUrl(bundleId) else { return nil }
+    return AppInfoValue(for: key, appUrl: appUrl)
+}
+// MARK: 获取某个app的版本号
+public func AppVersion(_ appUrl: URL) -> String? {
+    return AppInfoValue(for: "CFBundleShortVersionString", appUrl: appUrl)
+}
+// MARK: 获取某个app的版本号
+public func AppInfoValue(for key: String, appUrl: URL) -> String? {
+    guard let bundle = Bundle(url: appUrl),
+          let info = bundle.infoDictionary else {
+        return nil
+    }
+    return info[key] as? String
 }
 // MARK: app是否在运行
 public func AppIsRunning(_ bundleId: String) -> Bool {
@@ -480,7 +532,7 @@ public func File(_ path: String, isAnyOfTypes types: [CFString]) -> Bool {
     guard FileManager.default.fileExists(atPath: path, isDirectory: &isDir), !isDir.boolValue else {
         return false
     }
-
+    
     let ext = (path as NSString).pathExtension.lowercased()
     guard !ext.isEmpty else { return false }
     
@@ -488,14 +540,14 @@ public func File(_ path: String, isAnyOfTypes types: [CFString]) -> Bool {
         if let utType = UTType(filenameExtension: ext) {
             for cfType in types {
                 if let targetType = UTType(cfType as String),
-                    utType.conforms(to: targetType) {
+                   utType.conforms(to: targetType) {
                     return true
                 }
             }
             return false
         }
     }
-
+    
     // 兼容旧系统
     if let cfUTI = UTTypeCreatePreferredIdentifierForTag(kUTTagClassFilenameExtension, ext as CFString, nil)?.takeRetainedValue() {
         for cfType in types {
@@ -504,7 +556,7 @@ public func File(_ path: String, isAnyOfTypes types: [CFString]) -> Bool {
             }
         }
     }
-
+    
     return false
 }
 
@@ -527,20 +579,20 @@ public func File(_ path: String, isAnyOfTypes types: [UTType]) -> Bool {
     guard FileManager.default.fileExists(atPath: path, isDirectory: &isDir), !isDir.boolValue else {
         return false
     }
-
+    
     let ext = (path as NSString).pathExtension.lowercased()
     guard !ext.isEmpty else { return false }
     
     guard let fileType = UTType(filenameExtension: ext) else {
         return false
     }
-
+    
     for type in types {
         if fileType.conforms(to: type) {
             return true
         }
     }
-
+    
     return false
 }
 
