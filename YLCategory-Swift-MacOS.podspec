@@ -19,6 +19,7 @@ Pod::Spec.new do |s|
     s.swift_versions  = ['5.0']
     s.source          = { :git => "https://github.com/yulong000/YLCategory-Swift-MacOS.git", :tag => "#{s.version}" }
     s.static_framework = true
+    s.weak_frameworks = "AppIntents"
 
     s.subspec 'Other' do |ss|
     ss.source_files  =   'YLCategory-Swift-MacOS/Other/**/*.{h,m,swift}'
