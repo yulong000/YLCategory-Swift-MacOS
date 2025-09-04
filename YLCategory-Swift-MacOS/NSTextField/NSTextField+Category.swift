@@ -8,8 +8,6 @@
 import Foundation
 import AppKit
 
-fileprivate var IgnoresMouseEventsKey: Bool = false
-
 extension NSTextField {
     
     // MARK: 固定最大宽度，高度自适应
@@ -30,19 +28,5 @@ extension NSTextField {
         frame.size = size
         self.frame = frame
         return self
-    }
-    
-    // MARK: 忽略鼠标点击事件
-    @IBInspectable
-    open var ignoresMouseEvents: Bool {
-        get { return objc_getAssociatedObject(self, &IgnoresMouseEventsKey) as? Bool ?? false }
-        set { objc_setAssociatedObject(self, &IgnoresMouseEventsKey, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC) }
-    }
-    
-    open override func hitTest(_ point: NSPoint) -> NSView? {
-        if ignoresMouseEvents {
-            return nil
-        }
-        return super.hitTest(point)
     }
 }
