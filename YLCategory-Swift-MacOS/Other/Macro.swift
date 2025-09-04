@@ -461,10 +461,12 @@ public func RunAppWithBundleID(_ bundleID: String, arguments: [String]? = nil, a
         config.activates = activates
         config.arguments = arguments ?? []
         NSWorkspace.shared.openApplication(at: appURL, configuration: config) { app, error in
-            if let _ = app, error == nil {
-                handler?(true)
-            } else {
-                handler?(false)
+            DispatchQueue.main.async {
+                if let _ = app, error == nil {
+                    handler?(true)
+                } else {
+                    handler?(false)
+                }
             }
         }
     } else {
