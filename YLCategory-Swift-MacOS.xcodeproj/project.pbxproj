@@ -21,6 +21,8 @@
 		0080A4E42D04490300EEFEA2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0080A4DC2D04490300EEFEA2 /* Assets.xcassets */; };
 		0080A4E52D04490300EEFEA2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0080A4DE2D04490300EEFEA2 /* Main.storyboard */; };
 		0080A4EC2D044A8E00EEFEA2 /* NSView+Frame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0080A4E92D04493500EEFEA2 /* NSView+Frame.swift */; };
+		0097297C2E6AC6AC0021A5D4 /* NSView+SmoothCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0097297B2E6AC6A00021A5D4 /* NSView+SmoothCorner.swift */; };
+		0097297E2E6ACB830021A5D4 /* YLCategory-Swift-MacOS.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 0097297D2E6ACB830021A5D4 /* YLCategory-Swift-MacOS.podspec */; };
 		009F0A8F2D662FAA00569230 /* NSResponder+Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 009F0A8E2D662F8F00569230 /* NSResponder+Category.swift */; };
 		00A0F9B12D1872180043E075 /* NSControl+Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A0F9B02D1872180043E075 /* NSControl+Category.swift */; };
 		00A0F9B32D1875980043E075 /* NSColor+Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A0F9B22D1875980043E075 /* NSColor+Category.swift */; };
@@ -107,6 +109,8 @@
 		0080A4DF2D04490300EEFEA2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		0080A4E02D04490300EEFEA2 /* YLCategory_Swift_MacOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = YLCategory_Swift_MacOS.entitlements; sourceTree = "<group>"; };
 		0080A4E92D04493500EEFEA2 /* NSView+Frame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSView+Frame.swift"; sourceTree = "<group>"; };
+		0097297B2E6AC6A00021A5D4 /* NSView+SmoothCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSView+SmoothCorner.swift"; sourceTree = "<group>"; };
+		0097297D2E6ACB830021A5D4 /* YLCategory-Swift-MacOS.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = "YLCategory-Swift-MacOS.podspec"; sourceTree = "<group>"; };
 		009F0A8E2D662F8F00569230 /* NSResponder+Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSResponder+Category.swift"; sourceTree = "<group>"; };
 		00A0F9B02D1872180043E075 /* NSControl+Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSControl+Category.swift"; sourceTree = "<group>"; };
 		00A0F9B22D1875980043E075 /* NSColor+Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSColor+Category.swift"; sourceTree = "<group>"; };
@@ -272,6 +276,7 @@
 				0080A4DF2D04490300EEFEA2 /* ViewController.swift */,
 				0080A4DC2D04490300EEFEA2 /* Assets.xcassets */,
 				0080A4DE2D04490300EEFEA2 /* Main.storyboard */,
+				0097297D2E6ACB830021A5D4 /* YLCategory-Swift-MacOS.podspec */,
 				00B799D32D1414E200DAE137 /* YLCategory-Swift-MacOS-Bridging-Header.h */,
 				0080A4E02D04490300EEFEA2 /* YLCategory_Swift_MacOS.entitlements */,
 			);
@@ -555,6 +560,7 @@
 				0080A4E92D04493500EEFEA2 /* NSView+Frame.swift */,
 				00B79B322D15D5BF00DAE137 /* NSView+Gesture.swift */,
 				00B79B342D15D5D200DAE137 /* NSView+Category.swift */,
+				0097297B2E6AC6A00021A5D4 /* NSView+SmoothCorner.swift */,
 			);
 			path = NSView;
 			sourceTree = "<group>";
@@ -763,6 +769,7 @@
 				00B79AE42D1415AB00DAE137 /* YLShortcutManager.strings in Resources */,
 				00B79AE52D1415AB00DAE137 /* YLPermissionManager.strings in Resources */,
 				0080A4E52D04490300EEFEA2 /* Main.storyboard in Resources */,
+				0097297E2E6ACB830021A5D4 /* YLCategory-Swift-MacOS.podspec in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -809,6 +816,7 @@
 				00CFDCAD2D214ABD00EF4FA4 /* YLPermissionWindowController.swift in Sources */,
 				0037DEB22D2575E70061136D /* YLHud.swift in Sources */,
 				00CFDB442D1D486400EF4FA4 /* YLControl.swift in Sources */,
+				0097297C2E6AC6AC0021A5D4 /* NSView+SmoothCorner.swift in Sources */,
 				0052FC912E42EF59006562CA /* NSOpenPanel+Category.swift in Sources */,
 				00CFDCAF2D214AF500EF4FA4 /* YLPermissionViewController.swift in Sources */,
 				00E850642D1C579A00EBE080 /* NSObject+Notification.swift in Sources */,
