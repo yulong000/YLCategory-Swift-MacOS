@@ -6,6 +6,7 @@
 //
 
 import AppKit
+import ObjectiveC.runtime
 
 fileprivate var NSViewSmoothCornerMaskLayerKey: UInt8 = 0
 fileprivate var NSViewSmoothCornerMaskCornerKey: UInt8 = 0
@@ -88,7 +89,49 @@ public extension NSView {
         get { return (objc_getAssociatedObject(self, &NSViewSmoothCornerBorderWidthKey) as? NSNumber).map { CGFloat(truncating: $0) } }
         set { objc_setAssociatedObject(self, &NSViewSmoothCornerBorderWidthKey, newValue.map { NSNumber(value: Double($0)) }, .OBJC_ASSOCIATION_RETAIN_NONATOMIC) }
     }
-
+    
+    // MARK: - Method Swizzling
+    
+    /// 开启自动绘制平滑圆角，用自定义的draw(_:)方法替换原来的方法
+    static func enableSmoothCornerSwizzling() {
+        _ = self.swizzleDrawImplementation
+    }
+    
+    private static let swizzleDrawImplementation: Void = {
+        swizzleDraw()
+    }()
+    
+    private static func swizzleDraw() {
+        let cls = NSView.self
+        let originalSelector = #selector(draw(_:))
+        let swizzledSelector = #selector(swizzled_draw(_:))
+        
+        guard let originalMethod = class_getInstanceMethod(cls, originalSelector),
+              let swizzledMethod = class_getInstanceMethod(cls, swizzledSelector) else {
+            return
+        }
+        
+        let didAddMethod = class_addMethod(cls,
+                                           originalSelector,
+                                           method_getImplementation(swizzledMethod),
+                                           method_getTypeEncoding(swizzledMethod))
+        
+        if didAddMethod {
+            class_replaceMethod(cls,
+                                swizzledSelector,
+                                method_getImplementation(originalMethod),
+                                method_getTypeEncoding(originalMethod))
+        } else {
+            method_exchangeImplementations(originalMethod, swizzledMethod)
+        }
+    }
+    
+    @objc private func swizzled_draw(_ dirtyRect: NSRect) {
+        // Call original draw(_:) (which is now swizzled_draw due to method_exchangeImplementations)
+        swizzled_draw(dirtyRect)
+        // Then draw smooth corner
+        drawSmoothCorner()
+    }
 }
 
 

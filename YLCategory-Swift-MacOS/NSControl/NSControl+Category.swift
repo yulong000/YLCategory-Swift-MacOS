@@ -11,11 +11,6 @@ import AppKit
 fileprivate var NSControlClickedHandlerKey = false
 fileprivate var IgnoresMouseEventsKey: Bool = false
 
-fileprivate var SmoothCornerMaskLayerKey: UInt8 = 0
-fileprivate var SmoothCornerMaskCornerKey: UInt8 = 0
-fileprivate var SmoothCornerBorderColor: UInt8 = 0
-fileprivate var SmoothCornerBorderWidth: UInt8 = 0
-
 extension NSControl {
     
     // MARK: - 点击回调
@@ -47,11 +42,5 @@ extension NSControl {
         }
         return super.hitTest(point)
     }
-    
-    // MARK: - 设置平滑圆角
-    
-    open override func draw(_ dirtyRect: NSRect) {
-        super.draw(dirtyRect)
-        drawSmoothCorner()
-    }
+
 }

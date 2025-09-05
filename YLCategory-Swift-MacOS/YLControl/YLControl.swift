@@ -29,4 +29,10 @@ open class YLControl: NSControl {
     open override var acceptsFirstResponder: Bool { true }
     open override func becomeFirstResponder() -> Bool { true }
     open override var isFlipped: Bool { true }
+    
+    // MARK: - 设置平滑圆角
+    open override func draw(_ dirtyRect: NSRect) {
+        super.draw(dirtyRect)
+        drawSmoothCorner()
+    }
 }
