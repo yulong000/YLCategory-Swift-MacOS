@@ -16,6 +16,7 @@
 		0037DECA2D2BA4E80061136D /* YLShortcut.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0037DEC92D2BA4E80061136D /* YLShortcut.swift */; };
 		0052FC8F2E42EF49006562CA /* NSSavePanel+Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0052FC8E2E42EF3D006562CA /* NSSavePanel+Category.swift */; };
 		0052FC912E42EF59006562CA /* NSOpenPanel+Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0052FC902E42EF4E006562CA /* NSOpenPanel+Category.swift */; };
+		007E5D662E6AF0FF00AB6B27 /* YLCategory-Swift-MacOS.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 007E5D652E6AF0FF00AB6B27 /* YLCategory-Swift-MacOS.podspec */; };
 		0080A4E22D04490300EEFEA2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0080A4DB2D04490300EEFEA2 /* AppDelegate.swift */; };
 		0080A4E32D04490300EEFEA2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0080A4DF2D04490300EEFEA2 /* ViewController.swift */; };
 		0080A4E42D04490300EEFEA2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0080A4DC2D04490300EEFEA2 /* Assets.xcassets */; };
@@ -101,6 +102,7 @@
 		0037DEC92D2BA4E80061136D /* YLShortcut.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YLShortcut.swift; sourceTree = "<group>"; };
 		0052FC8E2E42EF3D006562CA /* NSSavePanel+Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSSavePanel+Category.swift"; sourceTree = "<group>"; };
 		0052FC902E42EF4E006562CA /* NSOpenPanel+Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSOpenPanel+Category.swift"; sourceTree = "<group>"; };
+		007E5D652E6AF0FF00AB6B27 /* YLCategory-Swift-MacOS.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = "YLCategory-Swift-MacOS.podspec"; sourceTree = SOURCE_ROOT; };
 		0080A4C92D0448EA00EEFEA2 /* YLCategory-Swift-MacOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "YLCategory-Swift-MacOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0080A4DB2D04490300EEFEA2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0080A4DC2D04490300EEFEA2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -274,6 +276,7 @@
 				0080A4DF2D04490300EEFEA2 /* ViewController.swift */,
 				0080A4DC2D04490300EEFEA2 /* Assets.xcassets */,
 				0080A4DE2D04490300EEFEA2 /* Main.storyboard */,
+				007E5D652E6AF0FF00AB6B27 /* YLCategory-Swift-MacOS.podspec */,
 				00B799D32D1414E200DAE137 /* YLCategory-Swift-MacOS-Bridging-Header.h */,
 				0080A4E02D04490300EEFEA2 /* YLCategory_Swift_MacOS.entitlements */,
 			);
@@ -766,6 +769,7 @@
 				00B79AE42D1415AB00DAE137 /* YLShortcutManager.strings in Resources */,
 				00B79AE52D1415AB00DAE137 /* YLPermissionManager.strings in Resources */,
 				0080A4E52D04490300EEFEA2 /* Main.storyboard in Resources */,
+				007E5D662E6AF0FF00AB6B27 /* YLCategory-Swift-MacOS.podspec in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1078,7 +1082,7 @@
 				CODE_SIGN_ENTITLEMENTS = "YLCategory-Swift-Demo/YLCategory_Swift_MacOS.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 2025071401;
+				CURRENT_PROJECT_VERSION = 2025090501;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 87LJF62PN6;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -1116,7 +1120,7 @@
 				CODE_SIGN_ENTITLEMENTS = "YLCategory-Swift-Demo/YLCategory_Swift_MacOS.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 2025071401;
+				CURRENT_PROJECT_VERSION = 2025090501;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 87LJF62PN6;
 				ENABLE_HARDENED_RUNTIME = YES;
