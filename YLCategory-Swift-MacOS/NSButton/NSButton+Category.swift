@@ -45,20 +45,9 @@ public extension NSButton {
                      handler: ((NSControl) -> Void)?) {
         self.init()
         self.isBordered = false
-        if let title = title {
-            var params: [NSAttributedString.Key : Any] = [:]
-            if let font = font {
-                params[NSAttributedString.Key.font] = font
-            }
-            if let titleColor = titleColor {
-                params[NSAttributedString.Key.foregroundColor] = titleColor
-            }
-            if params.keys.count > 0 {
-                self.attributedTitle = NSAttributedString(string: title, attributes: params)
-            } else {
-                self.title = title
-            }
-        }
+        self.title = title ?? ""
+        self.font = font
+        self.contentTintColor = titleColor
         if let image = image {
             self.image = image
             self.imageScaling = .scaleProportionallyUpOrDown

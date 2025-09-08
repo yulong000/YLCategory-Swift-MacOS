@@ -7,6 +7,9 @@
 
 import Foundation
 import AppKit
+import ObjectiveC.runtime
+
+fileprivate var NSViewThemeChangedHandlerKey: UInt8 = 0
 
 public extension NSView {
     
@@ -124,6 +127,43 @@ public extension NSView {
     
     // MARK: 获取所在屏幕
     var screen: NSScreen? { window?.screen }
+    
+    // MARK: - 主题
+    
+    // 是否是暗色模式
+    var isDark: Bool { effectiveAppearance.bestMatch(from: [.aqua, .darkAqua]) == .darkAqua }
+    
+    // 监听自己主题色的变化
+    var themeChangedHandler: ((NSView, Bool) -> Void)? {
+        get { objc_getAssociatedObject(self, &NSViewThemeChangedHandlerKey) as? ((NSView, Bool) -> Void) }
+        set {
+            objc_setAssociatedObject(self, &NSViewThemeChangedHandlerKey, newValue, .OBJC_ASSOCIATION_COPY_NONATOMIC)
+            // 首次设置时，触发一次
+            newValue?(self, isDark)
+            // 交换系统的回调方法
+            swizzleViewDidChangeEffectiveAppearance()
+        }
+    }
+    
+    // 交换方法
+    private static var themeChangeDidSwizzle = false
+    private func swizzleViewDidChangeEffectiveAppearance() {
+        guard !NSView.themeChangeDidSwizzle else { return }
+        guard let originalMethod = class_getInstanceMethod(NSView.self, #selector(viewDidChangeEffectiveAppearance)),
+              let swizzledMethod = class_getInstanceMethod(NSView.self, #selector(themeChange_viewDidChangeEffectiveAppearance)) else {
+            return
+        }
+        method_exchangeImplementations(originalMethod, swizzledMethod)
+        NSView.themeChangeDidSwizzle = true
+    }
+    
+    // view的主题发生变化时回调
+    @objc private func themeChange_viewDidChangeEffectiveAppearance() {
+        // 调用原始实现
+        themeChange_viewDidChangeEffectiveAppearance()
+        // 回调
+        themeChangedHandler?(self, isDark)
+    }
     
     // MARK: - 创建制定背景色的视图
     class func view(withColor backgroundColor: NSColor) -> Self {

@@ -20,10 +20,4 @@ open class YLFlipView: NSView {
         set { _tag = newValue }
     }
     
-    // MARK: - 设置平滑圆角
- 
-    open override func draw(_ dirtyRect: NSRect) {
-        super.draw(dirtyRect)
-        drawSmoothCorner()
-    }
 }

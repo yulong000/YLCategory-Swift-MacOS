@@ -9,28 +9,20 @@ import AppKit
 import ObjectiveC.runtime
 
 fileprivate var NSViewSmoothCornerMaskLayerKey: UInt8 = 0
+fileprivate var NSViewSmoothCornerBorderLayerKey: UInt8 = 0
 fileprivate var NSViewSmoothCornerMaskCornerKey: UInt8 = 0
-fileprivate var NSViewSmoothCornerBorderColorKey: UInt8 = 0
-fileprivate var NSViewSmoothCornerBorderWidthKey: UInt8 = 0
 
 public extension NSView {
+    
     /// 设置平滑圆角
     func setSmoothCorner(_ value: CGFloat) {
-        if value > 0 {
-            smoothCornerMaskCorner = NSViewMaskCorner(value)
-            smoothCornerMaskLayer = CAShapeLayer()
-            wantsLayer = true
-        } else {
-            smoothCornerMaskCorner = nil
-            smoothCornerMaskLayer = nil
-            layer?.mask = nil
-        }
-        needsDisplay = true
+        setSmoothCorner(topLeft: value, topRight: value, bottomRight: value, bottomLeft: value)
     }
 
     /// 分别设置4个角的半径
     func setSmoothCorner(topLeft: CGFloat = 0, topRight: CGFloat = 0, bottomRight: CGFloat = 0, bottomLeft: CGFloat = 0) {
         if topLeft > 0 || topRight > 0 || bottomRight > 0 || bottomLeft > 0 {
+            NSView.smoothCornerSwizzleLayout()
             smoothCornerMaskCorner = NSViewMaskCorner(topLeft: topLeft, topRight: topRight, bottomRight: bottomRight, bottomLeft: bottomLeft)
             smoothCornerMaskLayer = CAShapeLayer()
             wantsLayer = true
@@ -39,21 +31,33 @@ public extension NSView {
             smoothCornerMaskLayer = nil
             layer?.mask = nil
         }
-        needsDisplay = true
+        needsLayout = true
     }
 
     /// 设置圆角边框颜色和宽度
     func setSmoothCornerBorder(color: NSColor, width: CGFloat = 1) {
-        smoothCornerBorderColor = color
-        smoothCornerBorderWidth = width
-        needsDisplay = true
+        if width > 0 {
+            NSView.smoothCornerSwizzleLayout()
+            if smoothCornerBorderLayer == nil {
+                smoothCornerBorderLayer = CAShapeLayer()
+                wantsLayer = true
+                layer?.insertSublayer(smoothCornerBorderLayer!, at: 0)
+            }
+            smoothCornerBorderLayer?.lineWidth = width * 2
+            smoothCornerBorderLayer?.strokeColor = color.cgColor
+        } else {
+            smoothCornerMaskLayer?.removeFromSuperlayer()
+            smoothCornerMaskLayer = nil
+        }
+        needsLayout = true
     }
 
     /// 在 draw(_:) 中调用，绘制平滑圆角及边框 ，在 layout() 中调用，只会绘制平滑圆角
-    func drawSmoothCorner() {
+    private func drawSmoothCorner() {
         guard let layer = self.layer,
               let maskLayer = self.smoothCornerMaskLayer,
               let maskCorner = self.smoothCornerMaskCorner else { return }
+        // 圆角
         maskLayer.frame = layer.bounds
         let bezierPath = NSViewCornerBezierPath(rect: maskLayer.bounds, corner: maskCorner)
         if #available(macOS 14.0, *) {
@@ -63,67 +67,42 @@ public extension NSView {
         }
         layer.mask = maskLayer
         
-        // 绘制边框
-        if let borderColor = smoothCornerBorderColor, let borderWidth = smoothCornerBorderWidth {
-            bezierPath.lineWidth = borderWidth
-            borderColor.setStroke()
-            bezierPath.stroke()
+        // 边框
+        if let borderLayer = smoothCornerBorderLayer {
+            borderLayer.frame = layer.bounds
+            borderLayer.fillColor = .clear
+            borderLayer.path = maskLayer.path
+            layer.insertSublayer(borderLayer, at: 0)
         }
     }
     
     // MARK: - 增加的属性
     
     private var smoothCornerMaskLayer: CAShapeLayer? {
-        get { return objc_getAssociatedObject(self, &NSViewSmoothCornerMaskLayerKey) as? CAShapeLayer }
+        get { objc_getAssociatedObject(self, &NSViewSmoothCornerMaskLayerKey) as? CAShapeLayer }
         set { objc_setAssociatedObject(self, &NSViewSmoothCornerMaskLayerKey, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC) }
     }
     private var smoothCornerMaskCorner: NSViewMaskCorner? {
-        get { return objc_getAssociatedObject(self, &NSViewSmoothCornerMaskCornerKey) as? NSViewMaskCorner }
+        get { objc_getAssociatedObject(self, &NSViewSmoothCornerMaskCornerKey) as? NSViewMaskCorner }
         set { objc_setAssociatedObject(self, &NSViewSmoothCornerMaskCornerKey, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC) }
     }
-    private var smoothCornerBorderColor: NSColor? {
-        get { return objc_getAssociatedObject(self, &NSViewSmoothCornerBorderColorKey) as? NSColor }
-        set { objc_setAssociatedObject(self, &NSViewSmoothCornerBorderColorKey, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC) }
-    }
-    private var smoothCornerBorderWidth: CGFloat? {
-        get { return (objc_getAssociatedObject(self, &NSViewSmoothCornerBorderWidthKey) as? NSNumber).map { CGFloat(truncating: $0) } }
-        set { objc_setAssociatedObject(self, &NSViewSmoothCornerBorderWidthKey, newValue.map { NSNumber(value: Double($0)) }, .OBJC_ASSOCIATION_RETAIN_NONATOMIC) }
+    private var smoothCornerBorderLayer: CAShapeLayer? {
+        get { objc_getAssociatedObject(self, &NSViewSmoothCornerBorderLayerKey) as? CAShapeLayer }
+        set { objc_setAssociatedObject(self, &NSViewSmoothCornerBorderLayerKey, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC) }
     }
     
     // MARK: - Method Swizzling
     
-    /// 开启自动绘制平滑圆角
-    /// 用自定义的draw(_:) layout() 方法替换原来的方法
-    static func enableSmoothCornerSwizzling() {
-        _ = self.swizzleImplementation
-    }
-    
     /// 可以保证替换方法只执行一次
-    private static let swizzleImplementation: Void = {
-        swizzleDrawAndLayout()
-    }()
-    
-    /// 交换
-    private static func swizzleDrawAndLayout() {
-        
-        // 交换 draw(_:)
-        guard let originalMethod = class_getInstanceMethod(NSView.self, #selector(draw(_:))),
-              let swizzledMethod = class_getInstanceMethod(NSView.self, #selector(swizzled_draw(_:))) else {
-            return
+    private static var smoothCornerLayoutDidSwizzle = false
+    // 交换 layout()
+    private static func smoothCornerSwizzleLayout() {
+        guard !smoothCornerLayoutDidSwizzle else { return }
+        if let originalMethod = class_getInstanceMethod(NSView.self, #selector(layout)),
+           let swizzledMethod = class_getInstanceMethod(NSView.self, #selector(swizzled_layout)) {
+            method_exchangeImplementations(originalMethod, swizzledMethod)
+            smoothCornerLayoutDidSwizzle = true
         }
-        method_exchangeImplementations(originalMethod, swizzledMethod)
-        
-        // 交换 layout()
-        guard let originalMethod = class_getInstanceMethod(NSView.self, #selector(layout)),
-              let swizzledMethod = class_getInstanceMethod(NSView.self, #selector(swizzled_layout)) else {
-            return
-        }
-        method_exchangeImplementations(originalMethod, swizzledMethod)
-    }
-    
-    @objc private func swizzled_draw(_ dirtyRect: NSRect) {
-        swizzled_draw(dirtyRect)
-        drawSmoothCorner()
     }
     
     @objc private func swizzled_layout() {

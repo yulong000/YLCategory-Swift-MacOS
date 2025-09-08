@@ -117,7 +117,6 @@ Pod::Spec.new do |s|
 
     s.subspec 'YLFlipView' do |ss|
     ss.source_files  =   'YLCategory-Swift-MacOS/YLFlipView/**/*.swift'
-    ss.dependency        'YLCategory-Swift-MacOS/NSView'
     end
 
     s.subspec 'YLCFNotificationManager' do |ss|
@@ -126,7 +125,6 @@ Pod::Spec.new do |s|
 
     s.subspec 'YLControl' do |ss|
     ss.source_files  =   'YLCategory-Swift-MacOS/YLControl/**/*.swift'
-    ss.dependency        'YLCategory-Swift-MacOS/NSView'
     end
 
     s.subspec 'YLUpdateManager' do |ss|

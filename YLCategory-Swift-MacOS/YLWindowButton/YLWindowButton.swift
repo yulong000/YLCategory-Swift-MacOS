@@ -126,7 +126,7 @@ open class YLWindowButton: NSControl {
     
     open override var acceptsFirstResponder: Bool { true }
     open override func becomeFirstResponder() -> Bool { true }
-    
+    open override func acceptsFirstMouse(for event: NSEvent?) -> Bool { true }
     
     // MARK: - 绘制内容
     
