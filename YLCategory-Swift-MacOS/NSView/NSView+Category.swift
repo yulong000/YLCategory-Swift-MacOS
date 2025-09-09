@@ -141,13 +141,13 @@ public extension NSView {
             // 首次设置时，触发一次
             newValue?(self, isDark)
             // 交换系统的回调方法
-            swizzleViewDidChangeEffectiveAppearance()
+            NSView.swizzleViewDidChangeEffectiveAppearance()
         }
     }
     
     // 交换方法
     private static var themeChangeDidSwizzle = false
-    private func swizzleViewDidChangeEffectiveAppearance() {
+    private static func swizzleViewDidChangeEffectiveAppearance() {
         guard !NSView.themeChangeDidSwizzle else { return }
         guard let originalMethod = class_getInstanceMethod(NSView.self, #selector(viewDidChangeEffectiveAppearance)),
               let swizzledMethod = class_getInstanceMethod(NSView.self, #selector(themeChange_viewDidChangeEffectiveAppearance)) else {

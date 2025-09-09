@@ -22,10 +22,12 @@ public extension NSView {
     /// 分别设置4个角的半径
     func setSmoothCorner(topLeft: CGFloat = 0, topRight: CGFloat = 0, bottomRight: CGFloat = 0, bottomLeft: CGFloat = 0) {
         if topLeft > 0 || topRight > 0 || bottomRight > 0 || bottomLeft > 0 {
-            NSView.smoothCornerSwizzleLayout()
-            smoothCornerMaskCorner = NSViewMaskCorner(topLeft: topLeft, topRight: topRight, bottomRight: bottomRight, bottomLeft: bottomLeft)
-            smoothCornerMaskLayer = CAShapeLayer()
+            NSView.smoothCornerSwizzleViewWillDraw()
             wantsLayer = true
+            smoothCornerMaskCorner = NSViewMaskCorner(topLeft: topLeft, topRight: topRight, bottomRight: bottomRight, bottomLeft: bottomLeft)
+            if smoothCornerMaskLayer == nil {
+                smoothCornerMaskLayer = CAShapeLayer()
+            }
         } else {
             smoothCornerMaskCorner = nil
             smoothCornerMaskLayer = nil
@@ -37,11 +39,10 @@ public extension NSView {
     /// 设置圆角边框颜色和宽度
     func setSmoothCornerBorder(color: NSColor, width: CGFloat = 1) {
         if width > 0 {
-            NSView.smoothCornerSwizzleLayout()
+            NSView.smoothCornerSwizzleViewWillDraw()
+            wantsLayer = true
             if smoothCornerBorderLayer == nil {
                 smoothCornerBorderLayer = CAShapeLayer()
-                wantsLayer = true
-                layer?.insertSublayer(smoothCornerBorderLayer!, at: 0)
             }
             smoothCornerBorderLayer?.lineWidth = width * 2
             smoothCornerBorderLayer?.strokeColor = color.cgColor
@@ -52,8 +53,8 @@ public extension NSView {
         needsLayout = true
     }
 
-    /// 在 draw(_:) 中调用，绘制平滑圆角及边框 ，在 layout() 中调用，只会绘制平滑圆角
-    private func drawSmoothCorner() {
+    /// 绘制平滑圆角及边框
+    private func drawSmoothCornerAndBorder() {
         guard let layer = self.layer,
               let maskLayer = self.smoothCornerMaskLayer,
               let maskCorner = self.smoothCornerMaskCorner else { return }
@@ -94,20 +95,20 @@ public extension NSView {
     // MARK: - Method Swizzling
     
     /// 可以保证替换方法只执行一次
-    private static var smoothCornerLayoutDidSwizzle = false
+    private static var smoothCornerViewWillDrawDidSwizzle = false
     // 交换 layout()
-    private static func smoothCornerSwizzleLayout() {
-        guard !smoothCornerLayoutDidSwizzle else { return }
-        if let originalMethod = class_getInstanceMethod(NSView.self, #selector(layout)),
-           let swizzledMethod = class_getInstanceMethod(NSView.self, #selector(swizzled_layout)) {
+    private static func smoothCornerSwizzleViewWillDraw() {
+        guard !smoothCornerViewWillDrawDidSwizzle else { return }
+        if let originalMethod = class_getInstanceMethod(NSView.self, #selector(viewWillDraw)),
+           let swizzledMethod = class_getInstanceMethod(NSView.self, #selector(smoothCorner_viewWillDraw)) {
             method_exchangeImplementations(originalMethod, swizzledMethod)
-            smoothCornerLayoutDidSwizzle = true
+            smoothCornerViewWillDrawDidSwizzle = true
         }
     }
     
-    @objc private func swizzled_layout() {
-        swizzled_layout()
-        drawSmoothCorner()
+    @objc private func smoothCorner_viewWillDraw() {
+        smoothCorner_viewWillDraw()
+        drawSmoothCornerAndBorder()
     }
 
 }
