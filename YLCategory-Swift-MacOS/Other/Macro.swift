@@ -5,13 +5,14 @@
 //  Created by 魏宇龙 on 2024/12/3.
 //
 
-// MARK: - 颜色
 
 import Cocoa
 import Carbon
 import SystemConfiguration
 import AVFoundation
+#if canImport(UniformTypeIdentifiers)
 import UniformTypeIdentifiers
+#endif
 
 // MARK: - 颜色
 
@@ -515,19 +516,19 @@ public func IsDirectory(_ path: String) -> Bool {
 }
 
 // MARK: 判断文件的类型, 传入URL
-@available(macOS, introduced: 10.3, obsoleted: 11.0, message: "请改用 File(_:isType:) 方法，支持基于 UTType 的类型判断")
+@available(macOS, introduced: 10.3, deprecated: 11.0, message: "请改用 File(_:isType:) 方法，支持基于 UTType 的类型判断")
 public func File(_ url: URL, isType type: CFString) -> Bool {
     return File(url.path, isType: type)
 }
 
 // MARK: 判断文件的类型, 传入path, eg: File("/Users/xxx/test.zip", isType: kUTTypeArchive)
-@available(macOS, introduced: 10.3, obsoleted: 11.0, message: "请改用 File(_:isType:) 方法，支持基于 UTType 的类型判断")
+@available(macOS, introduced: 10.3, deprecated: 11.0, message: "请改用 File(_:isType:) 方法，支持基于 UTType 的类型判断")
 public func File(_ path: String, isType type: CFString) -> Bool {
     return File(path, isAnyOfTypes: [type])
 }
 
 // MARK: 判断文件是否符合任一指定类型
-@available(macOS, introduced: 10.3, obsoleted: 11.0, message: "请改用 File(_:isAnyOfTypes:) 方法，支持基于 UTType 的类型判断")
+@available(macOS, introduced: 10.3, deprecated: 11.0, message: "请改用 File(_:isAnyOfTypes:) 方法，支持基于 UTType 的类型判断")
 public func File(_ path: String, isAnyOfTypes types: [CFString]) -> Bool {
     // 判断是否是目录
     var isDir: ObjCBool = false

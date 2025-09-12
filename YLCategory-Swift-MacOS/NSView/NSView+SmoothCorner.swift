@@ -267,7 +267,6 @@ open class NSViewCornerBezierPath: NSBezierPath {
                 break
             }
         }
-        
         return path
     }
 
