@@ -82,32 +82,34 @@ public class YLFileAccess {
         openPanelModel = model
         openPanelModel?.completionHandler = completion
         openPanelModel?.tempAuth = auth
-        if openPanelModel?.delegate.url.path != "/" && allowRootOption {
-            // 授权根目录
-            let btn = NSButton(title: YLFileAccess.localize("Authorization root directory"), target: self, action: #selector(authRootPath))
-            btn.bezelColor = .controlAccentColor
-            btn.translatesAutoresizingMaskIntoConstraints = false
-            
-            let message = NSTextField(wrappingLabelWithString: String(format: YLFileAccess.localize("Authorization root directory message"), YLFileAccess.appName))
-            message.translatesAutoresizingMaskIntoConstraints = false
-            
-            let accessoryView = NSView()
-            accessoryView.translatesAutoresizingMaskIntoConstraints = false
-            accessoryView.addSubview(btn)
-            accessoryView.addSubview(message)
-            
-            NSLayoutConstraint.activate([
-                accessoryView.heightAnchor.constraint(equalToConstant: message.bounds.height + 30),
+        if #available(macOS 26.0, *) { /* 26及以上系统，根目录授权实效，不显示根目录授权按钮 */ } else {
+            if openPanelModel?.delegate.url.path != "/" && allowRootOption {
+                // 授权根目录
+                let btn = NSButton(title: YLFileAccess.localize("Authorization root directory"), target: self, action: #selector(authRootPath))
+                btn.bezelColor = .controlAccentColor
+                btn.translatesAutoresizingMaskIntoConstraints = false
                 
-                btn.leadingAnchor.constraint(equalTo: accessoryView.leadingAnchor, constant: 20),
-                btn.centerYAnchor.constraint(equalTo: accessoryView.centerYAnchor, constant: 0),
+                let message = NSTextField(wrappingLabelWithString: String(format: YLFileAccess.localize("Authorization root directory message"), YLFileAccess.appName))
+                message.translatesAutoresizingMaskIntoConstraints = false
                 
-                message.leadingAnchor.constraint(equalTo: btn.trailingAnchor, constant: 10),
-                message.centerYAnchor.constraint(equalTo: btn.centerYAnchor),
-            ])
-            
-            openPanelModel?.openPanel.accessoryView = accessoryView
-            openPanelModel?.openPanel.isAccessoryViewDisclosed = true
+                let accessoryView = NSView()
+                accessoryView.translatesAutoresizingMaskIntoConstraints = false
+                accessoryView.addSubview(btn)
+                accessoryView.addSubview(message)
+                
+                NSLayoutConstraint.activate([
+                    accessoryView.heightAnchor.constraint(equalToConstant: message.bounds.height + 30),
+                    
+                    btn.leadingAnchor.constraint(equalTo: accessoryView.leadingAnchor, constant: 20),
+                    btn.centerYAnchor.constraint(equalTo: accessoryView.centerYAnchor, constant: 0),
+                    
+                    message.leadingAnchor.constraint(equalTo: btn.trailingAnchor, constant: 10),
+                    message.centerYAnchor.constraint(equalTo: btn.centerYAnchor),
+                ])
+                
+                openPanelModel?.openPanel.accessoryView = accessoryView
+                openPanelModel?.openPanel.isAccessoryViewDisclosed = true
+            }
         }
         NSApp.activate(ignoringOtherApps: true)
         openPanelModel?.openPanel.begin { [self] result in
@@ -154,6 +156,20 @@ public class YLFileAccess {
             }
             path = path.deletingLastPathComponent as NSString
         }
+        
+        if #available(macOS 26.0, *) {
+            // macos 26以上，直接定位到顶层的文件夹进行授权
+            let components = path.components(separatedBy: "/").filter { $0 != "/" && !$0.isEmpty}
+            if components.first == "Users", components.count > 1 {
+                path = "/" + components[0] + "/" + components[1] as NSString
+            } else if let first = components.first {
+                path = "/" + first as NSString
+            } else {
+                // 根目录
+                path = "/Users"
+            }
+        }
+        
         url = URL(fileURLWithPath: path as String)
         
         let delegate = YLFileAccessOpenPanelDelegate(url: url)
