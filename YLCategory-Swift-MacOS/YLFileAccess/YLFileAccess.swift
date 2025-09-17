@@ -159,7 +159,7 @@ public class YLFileAccess {
         
         if #available(macOS 26.0, *) {
             // macos 26以上，直接定位到顶层的文件夹进行授权
-            let components = path.components(separatedBy: "/").filter { $0 != "/" && !$0.isEmpty}
+            let components = path.pathComponents.filter { $0 != "/" }
             if components.first == "Users", components.count > 1 {
                 path = "/" + components[0] + "/" + components[1] as NSString
             } else if let first = components.first {
