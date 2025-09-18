@@ -82,7 +82,7 @@ public class YLFileAccess {
         openPanelModel = model
         openPanelModel?.completionHandler = completion
         openPanelModel?.tempAuth = auth
-        if #available(macOS 26.0, *) { /* 26及以上系统，根目录授权实效，不显示根目录授权按钮 */ } else {
+        if #available(macOS 15.7, *) { /* 15.7及以上系统，根目录授权失效，不显示根目录授权按钮 */ } else {
             if openPanelModel?.delegate.url.path != "/" && allowRootOption {
                 // 授权根目录
                 let btn = NSButton(title: YLFileAccess.localize("Authorization root directory"), target: self, action: #selector(authRootPath))
@@ -157,8 +157,8 @@ public class YLFileAccess {
             path = path.deletingLastPathComponent as NSString
         }
         
-        if #available(macOS 26.0, *) {
-            // macos 26以上，直接定位到顶层的文件夹进行授权
+        if #available(macOS 15.7, *) {
+            // macos 15.7及以上，直接定位到顶层的文件夹进行授权
             let components = path.pathComponents.filter { $0 != "/" }
             if components.first == "Users", components.count > 1 {
                 path = "/" + components[0] + "/" + components[1] as NSString
