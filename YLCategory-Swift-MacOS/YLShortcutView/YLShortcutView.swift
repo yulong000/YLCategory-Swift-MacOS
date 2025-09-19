@@ -59,7 +59,11 @@ open class YLShortcutView: NSView {
         recoverBtn.frame = recoverFrame
         clearBtn.frame = clearFrame
         shortcutBtn.sizeToFit()
-        shortcutBtn.frame = NSRect(x: -7, y: (height - shortcutBtn.frame.size.height) / 2, width: width + 14, height: shortcutBtn.frame.size.height)
+        if #available(macOS 26.0, *) {
+            shortcutBtn.frame = NSRect(x: 0, y: (height - shortcutBtn.frame.size.height) / 2, width: width, height: shortcutBtn.frame.size.height)
+        } else {
+            shortcutBtn.frame = NSRect(x: -6, y: (height - shortcutBtn.frame.size.height) / 2, width: width + 12, height: shortcutBtn.frame.size.height)
+        }
     }
     
     deinit {
