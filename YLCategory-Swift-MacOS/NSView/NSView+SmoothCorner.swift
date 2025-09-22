@@ -102,6 +102,11 @@ public extension NSView {
     private static func swizzleSmoothCornerMethods() {
         guard !smoothCornerMethodsDidSwizzle else { return }
         
+        if let originalMethod = class_getInstanceMethod(NSView.self, #selector(setFrameSize(_:))),
+           let swizzledMethod = class_getInstanceMethod(NSView.self, #selector(smoothCorner_setFrameSize(_:))) {
+            method_exchangeImplementations(originalMethod, swizzledMethod)
+        }
+        
         if let originalMethod = class_getInstanceMethod(NSView.self, #selector(layout)),
            let swizzledMethod = class_getInstanceMethod(NSView.self, #selector(smoothCorner_layout)) {
             method_exchangeImplementations(originalMethod, swizzledMethod)
@@ -113,6 +118,11 @@ public extension NSView {
         }
         
         smoothCornerMethodsDidSwizzle = true
+    }
+    
+    @objc func smoothCorner_setFrameSize(_ size: NSSize) {
+        smoothCorner_setFrameSize(size)
+        drawSmoothCornerAndBorder()
     }
     
     @objc private func smoothCorner_viewWillDraw() {
