@@ -13,8 +13,13 @@ class YLUpdateViewController: NSViewController {
     ///  升级信息
     var info: String? {
         didSet {
-            infoLabel.stringValue = info ?? ""
-            let height: CGFloat = infoLabel.stringValue.boundingRect(with: NSSize(width: 460, height: CGFloat.greatestFiniteMagnitude), options: .usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font : infoLabel.font!]).size.height + 100
+            infoView.string = info ?? ""
+            var height: CGFloat = infoView.string.boundingRect(with: NSSize(width: 460, height: CGFloat.greatestFiniteMagnitude), options: .usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font : infoView.font!]).size.height
+            if #available(macOS 26.0, *) {
+                height = min(600, height + 85)
+            } else {
+                height = min(600, height + 100)
+            }
             view.window?.setFrame(NSRect(x: 0, y: 0, width: 500, height: height), display: true)
             view.window?.center()
         }
@@ -45,7 +50,7 @@ class YLUpdateViewController: NSViewController {
         view.window?.close()
     }
     
-    // MARK: - UI
+    // MARK: - 布局
     
     override func loadView() {
         view = NSView()
@@ -54,7 +59,7 @@ class YLUpdateViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(effectView)
-        view.addSubview(infoLabel)
+        view.addSubview(scrollView)
         view.addSubview(skipBtn)
         view.addSubview(cancelBtn)
         view.addSubview(updateBtn)
@@ -73,28 +78,42 @@ class YLUpdateViewController: NSViewController {
         updateBtn.frame = updateFrame
         
         var cancelFrame = cancelBtn.frame
-        cancelFrame.origin = NSPoint(x: updateFrame.minX - cancelFrame.size.width, y: 10)
+        cancelFrame.origin = NSPoint(x: updateFrame.minX - cancelFrame.size.width - 5, y: 10)
         cancelBtn.frame = cancelFrame
         
         var skipFrame = skipBtn.frame
         skipFrame.origin = NSPoint(x: 20, y: 10)
         skipBtn.frame = skipFrame
         
-        let infoY = updateFrame.maxY + 10
-        infoLabel.frame = NSRect(x: 20, y: infoY, width: view.frame.size.width - 40, height: view.frame.size.height - infoY - 40)
+        let scrollY = updateFrame.maxY + 10
+        scrollView.frame = NSRect(x: 20, y: scrollY, width: view.frame.size.width - 40, height: view.frame.size.height - scrollY - 40)
+        
     }
+    
+    // MARK: - UI
     
     private lazy var effectView: NSVisualEffectView = {
         let effectView = NSVisualEffectView()
         effectView.blendingMode = .behindWindow
         return effectView
     }()
-    private lazy var infoLabel: NSTextField = {
-        let infoLabel = NSTextField(wrappingLabelWithString: "")
-        infoLabel.font = .systemFont(ofSize: 13)
-        infoLabel.controlSize = .regular
-        return infoLabel
+    private lazy var scrollView: NSScrollView = {
+        let scrollView = NSScrollView()
+        scrollView.hasHorizontalScroller = false
+        scrollView.hasVerticalScroller = false
+        scrollView.drawsBackground = false
+        scrollView.contentInsets = NSEdgeInsetsZero
+        scrollView.documentView = infoView
+        return scrollView
     }()
+    private lazy var infoView: NSTextView = {
+        let infoView = NSTextView()
+        infoView.font = .systemFont(ofSize: 13)
+        infoView.isEditable = false
+        infoView.drawsBackground = false
+        return infoView
+    }()
+    
     private lazy var skipBtn: NSButton = {
         NSButton(title: YLUpdateManager.localize("Skip This Version"), target: self, action: #selector(skip))
     }()

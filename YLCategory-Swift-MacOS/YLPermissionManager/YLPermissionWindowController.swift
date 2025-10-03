@@ -11,7 +11,7 @@ import AppKit
 class YLPermissionWindowController: NSWindowController {
     
     /// 点击关闭按钮回调
-    var closeHandler: (() -> ())?
+    var closeHandler: (() -> Void)?
     
     /// 控制器
     private(set) var permissionVc = YLPermissionViewController()
