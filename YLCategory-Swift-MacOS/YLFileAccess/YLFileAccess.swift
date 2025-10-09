@@ -157,8 +157,22 @@ public class YLFileAccess {
             path = path.deletingLastPathComponent as NSString
         }
         
-        if #available(macOS 15.7, *) {
-            // macos 15.7及以上，直接定位到顶层的文件夹进行授权
+        let unusable: Bool = {
+            if #available(macOS 14.8, *) {
+                if #available(macOS 15.0, *) {
+                    if #available(macOS 15.7, *) {
+                        return true
+                    }
+                    return false
+                }
+                return true
+            } else {
+                return false
+            }
+        }()
+        
+        if unusable {
+            // macos 15.7及以上，14.8+,直接定位到顶层的文件夹进行授权
             let components = path.pathComponents.filter { $0 != "/" }
             if components.first == "Users", components.count > 1 {
                 path = "/" + components[0] + "/" + components[1] as NSString
