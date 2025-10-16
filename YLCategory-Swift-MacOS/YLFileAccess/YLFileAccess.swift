@@ -16,6 +16,14 @@ public class YLFileAccess {
     // 是否显示根路径授权按钮
     public var allowRootOption: Bool = false
     
+    // 当前系统是否允许授权根目录
+    public let rootPathAuthIsAvailable = {
+        if #available(macOS 15.7, *) { return false }
+        if #available(macOS 15.0, *) { return true }
+        if #available(macOS 14.8, *) { return false }
+        return true
+    }()
+    
     // MARK: - 加载访问权限
     
     /// 加载访问权限
@@ -82,7 +90,7 @@ public class YLFileAccess {
         openPanelModel = model
         openPanelModel?.completionHandler = completion
         openPanelModel?.tempAuth = auth
-        if #available(macOS 15.7, *) { /* 15.7及以上系统，根目录授权失效，不显示根目录授权按钮 */ } else {
+        if rootPathAuthIsAvailable {
             if openPanelModel?.delegate.url.path != "/" && allowRootOption {
                 // 授权根目录
                 let btn = NSButton(title: YLFileAccess.localize("Authorization root directory"), target: self, action: #selector(authRootPath))
@@ -156,22 +164,8 @@ public class YLFileAccess {
             }
             path = path.deletingLastPathComponent as NSString
         }
-        
-        let unusable: Bool = {
-            if #available(macOS 14.8, *) {
-                if #available(macOS 15.0, *) {
-                    if #available(macOS 15.7, *) {
-                        return true
-                    }
-                    return false
-                }
-                return true
-            } else {
-                return false
-            }
-        }()
-        
-        if unusable {
+    
+        if !rootPathAuthIsAvailable {
             // macos 15.7及以上，14.8+,直接定位到顶层的文件夹进行授权
             let components = path.pathComponents.filter { $0 != "/" }
             if components.first == "Users", components.count > 1 {

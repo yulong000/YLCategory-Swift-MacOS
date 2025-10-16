@@ -28,17 +28,17 @@ public extension NSSavePanel {
     ///   - handler: 异步回调
     /// - Returns: 返回 savePanel
     @discardableResult
-    class func show(for modalWindow: NSWindow? = nil,
-                    title: String? = nil,
-                    message: String? = nil,
+    class func save(for modalWindow: NSWindow? = nil,
+                    title: String?,
+                    message: String?,
                     prompt: String? = nil,
                     nameFieldLabel: String? = nil,
                     directoryURL: URL? = nil,
-                    nameFieldStringValue: String? = nil,
+                    nameFieldStringValue: String,
                     canCreateDirectories: Bool = true,
                     canSelectHiddenExtension: Bool = false,
                     showsHiddenFiles: Bool = false,
-                    isExtensionHidden: Bool = true,
+                    isExtensionHidden: Bool = false,
                     accessoryView: NSView? = nil,
                     identifier: NSUserInterfaceItemIdentifier? = nil,
                     handler: @escaping (NSApplication.ModalResponse, URL?) -> Void) -> NSSavePanel {
@@ -47,7 +47,7 @@ public extension NSSavePanel {
         if let message = message { savePanel.message = message }
         if let prompt = prompt { savePanel.prompt = prompt }
         if let nameFieldLabel = nameFieldLabel { savePanel.nameFieldLabel = nameFieldLabel }
-        if let nameFieldStringValue = nameFieldStringValue { savePanel.nameFieldStringValue = nameFieldStringValue }
+        savePanel.nameFieldStringValue = nameFieldStringValue
         savePanel.directoryURL = directoryURL
         savePanel.canCreateDirectories = canCreateDirectories
         savePanel.canSelectHiddenExtension = canSelectHiddenExtension
@@ -83,16 +83,16 @@ public extension NSSavePanel {
     ///   - identifier: 标识符
     /// - Returns: 返回选择的结果
     @discardableResult
-    class func show(title: String? = nil,
-                    message: String? = nil,
+    class func save(title: String?,
+                    message: String?,
                     prompt: String? = nil,
                     nameFieldLabel: String? = nil,
                     directoryURL: URL? = nil,
-                    nameFieldStringValue: String? = nil,
+                    nameFieldStringValue: String,
                     canCreateDirectories: Bool = true,
                     canSelectHiddenExtension: Bool = false,
                     showsHiddenFiles: Bool = false,
-                    isExtensionHidden: Bool = true,
+                    isExtensionHidden: Bool = false,
                     accessoryView: NSView? = nil,
                     identifier: NSUserInterfaceItemIdentifier? = nil) -> (NSApplication.ModalResponse, URL?) {
         let savePanel = NSSavePanel()
@@ -100,7 +100,7 @@ public extension NSSavePanel {
         if let message = message { savePanel.message = message }
         if let prompt = prompt { savePanel.prompt = prompt }
         if let nameFieldLabel = nameFieldLabel { savePanel.nameFieldLabel = nameFieldLabel }
-        if let nameFieldStringValue = nameFieldStringValue { savePanel.nameFieldStringValue = nameFieldStringValue }
+        savePanel.nameFieldStringValue = nameFieldStringValue
         savePanel.directoryURL = directoryURL
         savePanel.canCreateDirectories = canCreateDirectories
         savePanel.canSelectHiddenExtension = canSelectHiddenExtension

@@ -515,6 +515,20 @@ public func IsDirectory(_ path: String) -> Bool {
     return false
 }
 
+// MARK: url是否是普通文件夹，而不是包
+public func IsDirectoryNotPackage(_ url: URL) -> Bool {
+    return IsDirectoryNotPackage(url.path)
+}
+
+// MARK: path是否是普通文件夹,而不是包
+public func IsDirectoryNotPackage(_ path: String) -> Bool {
+    var isDir: ObjCBool = false
+    if FileManager.default.fileExists(atPath: path, isDirectory: &isDir) {
+        return isDir.boolValue
+    }
+    return false
+}
+
 // MARK: 判断文件的类型, 传入URL
 @available(macOS, introduced: 10.3, deprecated: 11.0, message: "请改用 File(_:isType:) 方法，支持基于 UTType 的类型判断")
 public func File(_ url: URL, isType type: CFString) -> Bool {

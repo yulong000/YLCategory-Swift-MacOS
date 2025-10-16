@@ -27,13 +27,13 @@ public extension NSOpenPanel {
     ///   - handler: 异步回调
     /// - Returns: 返回 openPanel
     @discardableResult
-    class func show(for modalWindow: NSWindow? = nil,
-                    title: String? = nil,
-                    message: String? = nil,
+    class func open(for modalWindow: NSWindow? = nil,
+                    title: String?,
+                    message: String?,
                     prompt: String? = nil,
                     directoryURL: URL? = nil,
-                    canChooseFiles: Bool = true,
-                    canChooseDirectories: Bool = false,
+                    canChooseFiles: Bool,
+                    canChooseDirectories: Bool,
                     allowsMultipleSelection: Bool = false,
                     canCreateDirectories: Bool = true,
                     allowedFileTypes: [String]? = nil,
@@ -87,12 +87,12 @@ public extension NSOpenPanel {
     ///   - identifier: 标识符
     /// - Returns: 返回选择的结果
     @discardableResult
-    class func show(title: String? = nil,
-                    message: String? = nil,
+    class func open(title: String? = nil,
+                    message: String?,
                     prompt: String? = nil,
                     directoryURL: URL? = nil,
-                    canChooseFiles: Bool = true,
-                    canChooseDirectories: Bool = false,
+                    canChooseFiles: Bool,
+                    canChooseDirectories: Bool,
                     allowsMultipleSelection: Bool = false,
                     canCreateDirectories: Bool = true,
                     allowedFileTypes: [String]? = nil,
