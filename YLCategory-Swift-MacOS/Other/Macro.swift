@@ -365,7 +365,7 @@ public func AppIsInstalled(_ bundleId: String) -> Bool {
     guard let url = AppUrl(bundleId) else { return false }
     return FileManager.default.fileExists(atPath: url.path)
 }
-// MARK: 获取app的安装路径
+// MARK: 根据bundle ID获取app的安装路径
 public func AppUrl(_ bundleId: String) -> URL? {
     if #available(macOS 12.0, *) {
         // 获取所有匹配 App 的 URL
@@ -401,16 +401,16 @@ public func AppUrl(_ bundleId: String) -> URL? {
 public func AppVersion(_ bundleId: String) -> String? {
     return AppInfoValue(for: "CFBundleShortVersionString", bundleId: bundleId)
 }
-// MARK: 获取某个app的版本号
+// MARK: 根据bundle ID获取某个app的Info中的某个值
 public func AppInfoValue(for key: String, bundleId: String) -> String? {
     guard let appUrl = AppUrl(bundleId) else { return nil }
     return AppInfoValue(for: key, appUrl: appUrl)
 }
-// MARK: 获取某个app的版本号
+// MARK: 根据app路径获取app的版本号
 public func AppVersion(_ appUrl: URL) -> String? {
     return AppInfoValue(for: "CFBundleShortVersionString", appUrl: appUrl)
 }
-// MARK: 获取某个app的版本号
+// MARK: 根据app路径获取app的Info中的某个值
 public func AppInfoValue(for key: String, appUrl: URL) -> String? {
     guard let bundle = Bundle(url: appUrl),
           let info = bundle.infoDictionary else {
@@ -611,6 +611,68 @@ public func File(_ path: String, isAnyOfTypes types: [UTType]) -> Bool {
     }
     
     return false
+}
+
+// MARK: 找出多个文件路径的公共部分，有可能是其中一个，有可能是共同的父目录(PATH)
+public func TopPath(of paths: [String]) -> String {
+    let urls = paths.map { URL(fileURLWithPath: ($0.isEmpty || $0 == "." ? "/" : $0)) }
+    return TopUrl(of: urls).path
+}
+
+// MARK: 找出多个文件路径的公共部分，有可能是其中一个，有可能是共同的父目录(URL)
+public func TopUrl(of urls: [URL]) -> URL {
+    guard !urls.isEmpty else { return URL(fileURLWithPath: "/") }
+
+    // 把所有 URL 统一成目录路径（如果是文件则取它的父目录）
+    let dirUrls = urls.map { url -> URL in
+        var current = url.standardizedFileURL
+        var isDir: ObjCBool = false
+        while !FileManager.default.fileExists(atPath: current.path, isDirectory: &isDir) {
+            let parent = current.deletingLastPathComponent()
+            if parent.path == current.path {
+                break
+            }
+            current = parent
+        }
+        if isDir.boolValue {
+            return current
+        } else {
+            return current.deletingLastPathComponent()
+        }
+    }
+
+    // 拆分路径组件
+    let componentsList = dirUrls.map { $0.pathComponents }
+    // 找出最短路径
+    let shortest = componentsList.min(by: { $0.count < $1.count }) ?? []
+
+    var commonComponents: [String] = []
+    // 逐层比较组件
+    for (i, component) in shortest.enumerated() {
+        if componentsList.allSatisfy({ $0[i] == component }) {
+            commonComponents.append(component)
+        } else {
+            break
+        }
+    }
+
+    guard !commonComponents.isEmpty else { return URL(fileURLWithPath: "/") }
+
+    // 拼接成共同父目录
+    let commonPath = NSString.path(withComponents: commonComponents)
+    return URL(fileURLWithPath: commonPath, isDirectory: true)
+}
+
+// MARK: 找出多个文件路径的父目录的公共部分，一定是父目录(PATH)
+public func ParentPath(of paths: [String]) -> URL {
+    let urls = paths.map { URL(fileURLWithPath: ($0.isEmpty || $0 == "." ? "/" : $0)) }
+    return ParentUrl(of: urls)
+}
+
+// MARK: 找出多个文件路径的父目录的公共部分，一定是父目录(URL)
+public func ParentUrl(of urls: [URL]) -> URL {
+    let urls = urls.map { $0.deletingLastPathComponent() }
+    return TopUrl(of: urls)
 }
 
 
