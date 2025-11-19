@@ -85,7 +85,7 @@ public class YLUpdateManager: NSObject {
             guard let appID = appID, !appID.isEmpty else { return }
             let countryCode = Locale.current.regionCode?.lowercased() ?? ""
             appStoreUrl = "itms-apps://itunes.apple.com/cn/app/id" + appID
-            appUpdateUrl = String(format: "http://itunes.apple.com/lookup?id=%@&country=%@", appID, countryCode)
+            appUpdateUrl = "http://itunes.apple.com/lookup?id=\(appID)&country=\(countryCode)&entity=desktopSoftware"
             appIntroduceUrl = "https://apps.apple.com/cn/app/id" + appID
         }
     }
