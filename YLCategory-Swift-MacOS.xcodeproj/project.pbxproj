@@ -17,6 +17,17 @@
 		0052FC8F2E42EF49006562CA /* NSSavePanel+Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0052FC8E2E42EF3D006562CA /* NSSavePanel+Category.swift */; };
 		0052FC912E42EF59006562CA /* NSOpenPanel+Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0052FC902E42EF4E006562CA /* NSOpenPanel+Category.swift */; };
 		007E5D662E6AF0FF00AB6B27 /* YLCategory-Swift-MacOS.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 007E5D652E6AF0FF00AB6B27 /* YLCategory-Swift-MacOS.podspec */; };
+		008059972ED1681D004D0218 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008059962ED1681A004D0218 /* Color.swift */; };
+		008059992ED1686D004D0218 /* Screen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008059982ED16868004D0218 /* Screen.swift */; };
+		0080599B2ED168A1004D0218 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0080599A2ED168A0004D0218 /* Font.swift */; };
+		0080599D2ED16905004D0218 /* KeyCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0080599C2ED168FD004D0218 /* KeyCode.swift */; };
+		0080599F2ED1696B004D0218 /* Process.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0080599E2ED16966004D0218 /* Process.swift */; };
+		008059A12ED169E9004D0218 /* CoordinateSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008059A02ED169E6004D0218 /* CoordinateSystem.swift */; };
+		008059A32ED16A3B004D0218 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008059A22ED16A38004D0218 /* File.swift */; };
+		008059A52ED16A76004D0218 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008059A42ED16A74004D0218 /* Event.swift */; };
+		008059A72ED16AB0004D0218 /* OS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008059A62ED16AAD004D0218 /* OS.swift */; };
+		008059A92ED16AEC004D0218 /* AppEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008059A82ED16AE6004D0218 /* AppEnvironment.swift */; };
+		008059AB2ED16BBB004D0218 /* AppInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008059AA2ED16BB9004D0218 /* AppInfo.swift */; };
 		0080A4E22D04490300EEFEA2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0080A4DB2D04490300EEFEA2 /* AppDelegate.swift */; };
 		0080A4E32D04490300EEFEA2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0080A4DF2D04490300EEFEA2 /* ViewController.swift */; };
 		0080A4E42D04490300EEFEA2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0080A4DC2D04490300EEFEA2 /* Assets.xcassets */; };
@@ -48,7 +59,6 @@
 		00B79AE32D1415AB00DAE137 /* YLFileAccess.strings in Resources */ = {isa = PBXBuildFile; fileRef = 00B799E92D1415AA00DAE137 /* YLFileAccess.strings */; };
 		00B79AE42D1415AB00DAE137 /* YLShortcutManager.strings in Resources */ = {isa = PBXBuildFile; fileRef = 00B79A892D1415AA00DAE137 /* YLShortcutManager.strings */; };
 		00B79AE52D1415AB00DAE137 /* YLPermissionManager.strings in Resources */ = {isa = PBXBuildFile; fileRef = 00B79A352D1415AA00DAE137 /* YLPermissionManager.strings */; };
-		00B79AEE2D1415AB00DAE137 /* Macro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B79AB42D1415AA00DAE137 /* Macro.swift */; };
 		00B79B212D1415AB00DAE137 /* YLLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B79AB52D1415AA00DAE137 /* YLLog.swift */; };
 		00B79B332D15D5C000DAE137 /* NSView+Gesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B79B322D15D5BF00DAE137 /* NSView+Gesture.swift */; };
 		00B79B352D15D5D200DAE137 /* NSView+Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B79B342D15D5D200DAE137 /* NSView+Category.swift */; };
@@ -103,6 +113,17 @@
 		0052FC8E2E42EF3D006562CA /* NSSavePanel+Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSSavePanel+Category.swift"; sourceTree = "<group>"; };
 		0052FC902E42EF4E006562CA /* NSOpenPanel+Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSOpenPanel+Category.swift"; sourceTree = "<group>"; };
 		007E5D652E6AF0FF00AB6B27 /* YLCategory-Swift-MacOS.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = "YLCategory-Swift-MacOS.podspec"; sourceTree = SOURCE_ROOT; };
+		008059962ED1681A004D0218 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		008059982ED16868004D0218 /* Screen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Screen.swift; sourceTree = "<group>"; };
+		0080599A2ED168A0004D0218 /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
+		0080599C2ED168FD004D0218 /* KeyCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyCode.swift; sourceTree = "<group>"; };
+		0080599E2ED16966004D0218 /* Process.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Process.swift; sourceTree = "<group>"; };
+		008059A02ED169E6004D0218 /* CoordinateSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinateSystem.swift; sourceTree = "<group>"; };
+		008059A22ED16A38004D0218 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
+		008059A42ED16A74004D0218 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		008059A62ED16AAD004D0218 /* OS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OS.swift; sourceTree = "<group>"; };
+		008059A82ED16AE6004D0218 /* AppEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEnvironment.swift; sourceTree = "<group>"; };
+		008059AA2ED16BB9004D0218 /* AppInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInfo.swift; sourceTree = "<group>"; };
 		0080A4C92D0448EA00EEFEA2 /* YLCategory-Swift-MacOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "YLCategory-Swift-MacOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0080A4DB2D04490300EEFEA2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0080A4DC2D04490300EEFEA2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -185,7 +206,6 @@
 		00B79A862D1415AA00DAE137 /* YLShortcutView.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = YLShortcutView.strings; path = pt.lproj/YLShortcutManager.strings; sourceTree = "<group>"; };
 		00B79A872D1415AA00DAE137 /* YLShortcutView.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = YLShortcutView.strings; path = es.lproj/YLShortcutManager.strings; sourceTree = "<group>"; };
 		00B79A882D1415AA00DAE137 /* YLShortcutView.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = YLShortcutView.strings; path = de.lproj/YLShortcutManager.strings; sourceTree = "<group>"; };
-		00B79AB42D1415AA00DAE137 /* Macro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Macro.swift; sourceTree = "<group>"; };
 		00B79AB52D1415AA00DAE137 /* YLLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YLLog.swift; sourceTree = "<group>"; };
 		00B79B322D15D5BF00DAE137 /* NSView+Gesture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSView+Gesture.swift"; sourceTree = "<group>"; };
 		00B79B342D15D5D200DAE137 /* NSView+Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSView+Category.swift"; sourceTree = "<group>"; };
@@ -304,7 +324,7 @@
 				00B79A572D1415AA00DAE137 /* YLCollectionView */,
 				00B79A5D2D1415AA00DAE137 /* YLUserDefaults */,
 				00B79A9B2D1415AA00DAE137 /* YLShortcutView */,
-				00B79AB82D1415AA00DAE137 /* Other */,
+				00B79AB82D1415AA00DAE137 /* YLKit */,
 				00A0F9C62D1A67300043E075 /* Async */,
 				00B79A9E2D1415AA00DAE137 /* NSImageView */,
 				00B79AA72D1415AA00DAE137 /* NSColor */,
@@ -573,13 +593,23 @@
 			path = NSControl;
 			sourceTree = "<group>";
 		};
-		00B79AB82D1415AA00DAE137 /* Other */ = {
+		00B79AB82D1415AA00DAE137 /* YLKit */ = {
 			isa = PBXGroup;
 			children = (
-				00B79AB42D1415AA00DAE137 /* Macro.swift */,
+				008059962ED1681A004D0218 /* Color.swift */,
+				008059982ED16868004D0218 /* Screen.swift */,
+				0080599A2ED168A0004D0218 /* Font.swift */,
+				0080599C2ED168FD004D0218 /* KeyCode.swift */,
+				0080599E2ED16966004D0218 /* Process.swift */,
+				008059A02ED169E6004D0218 /* CoordinateSystem.swift */,
+				008059A22ED16A38004D0218 /* File.swift */,
+				008059A42ED16A74004D0218 /* Event.swift */,
+				008059A62ED16AAD004D0218 /* OS.swift */,
+				008059A82ED16AE6004D0218 /* AppEnvironment.swift */,
+				008059AA2ED16BB9004D0218 /* AppInfo.swift */,
 				00B79AB52D1415AA00DAE137 /* YLLog.swift */,
 			);
-			path = Other;
+			path = YLKit;
 			sourceTree = "<group>";
 		};
 		00B79AC12D1415AA00DAE137 /* NSString */ = {
@@ -790,13 +820,15 @@
 				00CFDCB32D214B3500EF4FA4 /* YLPermissionModel.swift in Sources */,
 				00A0F9CC2D1A7DB80043E075 /* String+Predicate.swift in Sources */,
 				00CFDB462D1D502E00EF4FA4 /* YLLanguage.swift in Sources */,
+				008059A72ED16AB0004D0218 /* OS.swift in Sources */,
+				008059A32ED16A3B004D0218 /* File.swift in Sources */,
 				0037DEC82D292E330061136D /* YLShortcutView.swift in Sources */,
 				00CFDB3E2D1D369600EF4FA4 /* YLAppleReview.swift in Sources */,
 				00CFDB4E2D1E3AB200EF4FA4 /* YLWindowOperateView.swift in Sources */,
-				00B79AEE2D1415AB00DAE137 /* Macro.swift in Sources */,
 				00CFDB402D1D3AFC00EF4FA4 /* YLFlipView.swift in Sources */,
 				00E850622D1C529A00EBE080 /* NSObject+KVO.swift in Sources */,
 				00CFDCE62D22AB9A00EF4FA4 /* YLUpdateWindowController.swift in Sources */,
+				0080599B2ED168A1004D0218 /* Font.swift in Sources */,
 				0037DECA2D2BA4E80061136D /* YLShortcut.swift in Sources */,
 				00B79B332D15D5C000DAE137 /* NSView+Gesture.swift in Sources */,
 				00CFDCB12D214B1400EF4FA4 /* YLPermissionItem.swift in Sources */,
@@ -810,17 +842,24 @@
 				00CFDB4A2D1D8E5200EF4FA4 /* YLUserDefaults.swift in Sources */,
 				00A0F9C12D19B9430043E075 /* NSTextField+Category.swift in Sources */,
 				00A0F9B92D19AE400043E075 /* NSImageView+Category.swift in Sources */,
+				008059A92ED16AEC004D0218 /* AppEnvironment.swift in Sources */,
 				00A0F9B52D18EC1C0043E075 /* NSButton+Category.swift in Sources */,
 				00CFDB502D1E77E700EF4FA4 /* YLCollectionView.swift in Sources */,
+				008059A52ED16A76004D0218 /* Event.swift in Sources */,
 				0037DEB02D23D3900061136D /* YLAppleScript.swift in Sources */,
 				00CFDCAD2D214ABD00EF4FA4 /* YLPermissionWindowController.swift in Sources */,
+				008059972ED1681D004D0218 /* Color.swift in Sources */,
+				008059992ED1686D004D0218 /* Screen.swift in Sources */,
+				008059AB2ED16BBB004D0218 /* AppInfo.swift in Sources */,
 				0037DEB22D2575E70061136D /* YLHud.swift in Sources */,
 				00CFDB442D1D486400EF4FA4 /* YLControl.swift in Sources */,
 				0097297C2E6AC6AC0021A5D4 /* NSView+SmoothCorner.swift in Sources */,
 				0052FC912E42EF59006562CA /* NSOpenPanel+Category.swift in Sources */,
+				0080599F2ED1696B004D0218 /* Process.swift in Sources */,
 				00CFDCAF2D214AF500EF4FA4 /* YLPermissionViewController.swift in Sources */,
 				00E850642D1C579A00EBE080 /* NSObject+Notification.swift in Sources */,
 				00A0F9C82D1A673E0043E075 /* Async.swift in Sources */,
+				0080599D2ED16905004D0218 /* KeyCode.swift in Sources */,
 				00A0F9D02D1BE9B00043E075 /* NSDate+Category.swift in Sources */,
 				00CFDB4C2D1E3A9B00EF4FA4 /* YLWindowButton.swift in Sources */,
 				0037DEC62D292E1D0061136D /* YLShortcutManager.swift in Sources */,
@@ -837,6 +876,7 @@
 				00CFDB422D1D450C00EF4FA4 /* YLTextField.swift in Sources */,
 				0037DEB72D26DAB60061136D /* YLFileAccess.swift in Sources */,
 				0080A4E32D04490300EEFEA2 /* ViewController.swift in Sources */,
+				008059A12ED169E9004D0218 /* CoordinateSystem.swift in Sources */,
 				00A0F9C52D1A489F0043E075 /* NSAlert+Category.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

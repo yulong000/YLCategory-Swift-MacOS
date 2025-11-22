@@ -21,8 +21,8 @@ Pod::Spec.new do |s|
     s.static_framework = true
     s.weak_frameworks = "AppIntents"
 
-    s.subspec 'Other' do |ss|
-    ss.source_files  =   'YLCategory-Swift-MacOS/Other/**/*.{h,m,swift}'
+    s.subspec 'YLKit' do |ss|
+    ss.source_files  =   'YLCategory-Swift-MacOS/YLKit/**/*.{h,m,swift}'
     end
 
     s.subspec 'NSWindow' do |ss|
