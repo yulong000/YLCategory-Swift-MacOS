@@ -148,7 +148,7 @@ open class YLWindowButton: NSControl {
         case .close:
             bgGradient = NSGradient(starting: RGBA(255, 95, 86, 1), ending: RGBA(255, 99, 91, 1))
             strokeColor = RGBA(226, 62, 55, 1)
-            symbolColor = RGBA(77, 0, 0, 1)
+            symbolColor = RGBA(118, 52, 51, 1)
             
         case .mini:
             bgGradient = NSGradient(starting: RGBA(255, 189, 46, 1), ending: RGBA(255, 197, 47, 1))
@@ -190,15 +190,15 @@ open class YLWindowButton: NSControl {
                 path.line(to: NSPoint(x: width * 0.7, y: height * 0.7))
                 path.move(to: NSPoint(x: width * 0.7, y: height * 0.3))
                 path.line(to: NSPoint(x: width * 0.3, y: height * 0.7))
-                path.lineWidth = 1
+                path.lineWidth = 2
                 symbolColor?.setStroke()
                 path.stroke()
                 
             case .mini:
                 NSGraphicsContext.current?.shouldAntialias = false
                 let path = NSBezierPath()
-                path.move(to: NSPoint(x: width * 0.2, y: height * 0.5))
-                path.line(to: NSPoint(x: width * 0.8, y: height * 0.5))
+                path.move(to: NSPoint(x: width * 0.25, y: height * 0.5))
+                path.line(to: NSPoint(x: width * 0.75, y: height * 0.5))
                 path.lineWidth = 2
                 symbolColor?.setStroke()
                 path.stroke()

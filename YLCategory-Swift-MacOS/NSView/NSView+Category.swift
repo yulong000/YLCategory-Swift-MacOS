@@ -14,15 +14,15 @@ fileprivate var NSViewThemeChangedHandlerKey: UInt8 = 0
 public extension NSView {
     
     // MARK: 设置背景色
-    var backgroundColor: NSColor? {
+    var bgColor: NSColor? {
         get {
             guard let cgColor = layer?.backgroundColor else { return nil}
             return NSColor(cgColor: cgColor)
         }
         set {
-            if let bgColor = newValue {
+            if let color = newValue {
                 wantsLayer = true
-                layer?.backgroundColor = bgColor.cgColor
+                layer?.backgroundColor = color.cgColor
             } else {
                 wantsLayer = false
                 layer?.backgroundColor = nil

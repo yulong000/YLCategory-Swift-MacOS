@@ -43,7 +43,7 @@ open class YLWindowOperateView: NSView {
             addSubview(btn)
         }
         var frame = self.frame
-        frame.size.width = CGFloat(buttonTypes.count) * (buttonWH + 7.5) - 7.5
+        frame.size.width = CGFloat(buttonTypes.count) * (buttonWH + buttonMargin) - buttonMargin
         frame.size.height = 15
         self.frame = frame
     }
@@ -61,7 +61,14 @@ open class YLWindowOperateView: NSView {
     
     open override var isFlipped: Bool { true }
     
-    private let buttonWH = 13.0
+    private let buttonWH = {
+        if #available(macOS 26.0, *) { return 14.5 }
+        return 13.0
+    }()
+    private let buttonMargin = {
+        if #available(macOS 26.0, *) { return 9.0 }
+        return 7.5
+    }()
     open override func layout() {
         super.layout()
         var left = 0.0
@@ -70,7 +77,7 @@ open class YLWindowOperateView: NSView {
         for subview in subviews where subview.isKind(of: YLWindowButton.self) {
             buttonFrame.origin.x = left
             subview.frame = buttonFrame
-            left = buttonFrame.maxX + 7.5
+            left = buttonFrame.maxX + buttonMargin
         }
     }
     
