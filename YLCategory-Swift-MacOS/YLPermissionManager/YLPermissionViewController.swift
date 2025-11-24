@@ -109,10 +109,10 @@ class YLPermissionViewController: NSViewController {
         let lookOrigin = NSMakePoint(box.frame.origin.x, box.frame.maxY + 10)
         lookBtn.frame = NSRect(origin: lookOrigin, size: lookBtn.frame.size)
         
-        let skipOrigin = NSMakePoint(box.frame.maxX - skipBtn.frame.size.width + 5, lookOrigin.y)
+        let skipOrigin = NSMakePoint(box.frame.maxX - skipBtn.frame.size.width, lookOrigin.y)
         skipBtn.frame = NSRect(origin: skipOrigin, size: skipBtn.frame.size)
         
-        let quitOrigin = NSMakePoint(skipOrigin.x - quitBtn.frame.size.width + 5, lookOrigin.y)
+        let quitOrigin = NSMakePoint(skipOrigin.x - quitBtn.frame.size.width - 5, lookOrigin.y)
         quitBtn.frame = NSRect(origin: quitOrigin, size: quitBtn.frame.size)
     }
     

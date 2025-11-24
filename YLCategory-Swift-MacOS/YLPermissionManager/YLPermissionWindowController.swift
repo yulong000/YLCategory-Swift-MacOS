@@ -22,6 +22,7 @@ class YLPermissionWindowController: NSWindowController {
         window.title = String(format: YLPermissionManager.localize("Permission Title"), YLPermissionManager.appName)
         window.standardWindowButton(.zoomButton)?.isHidden = true
         window.isOpaque = false
+        window.level = .floating
         window.isMovableByWindowBackground = true
         window.contentViewController = permissionVc
         super.init(window: window)
