@@ -27,16 +27,21 @@ public func IsDirectory(_ path: String) -> Bool {
 
 /// url是否是普通文件夹，而不是包
 public func IsDirectoryNotPackage(_ url: URL) -> Bool {
-    return IsDirectoryNotPackage(url.path)
+    var isDir: ObjCBool = false
+    if FileManager.default.fileExists(atPath: url.path, isDirectory: &isDir),
+       isDir.boolValue {
+        if let resource = try? url.resourceValues(forKeys: [.isPackageKey]),
+           resource.isPackage == true {
+            return false
+        }
+        return true
+    }
+    return false
 }
 
 /// path是否是普通文件夹,而不是包
 public func IsDirectoryNotPackage(_ path: String) -> Bool {
-    var isDir: ObjCBool = false
-    if FileManager.default.fileExists(atPath: path, isDirectory: &isDir) {
-        return isDir.boolValue
-    }
-    return false
+    return IsDirectoryNotPackage(URL(fileURLWithPath: path))
 }
 
 /// 判断文件的类型, 传入URL
