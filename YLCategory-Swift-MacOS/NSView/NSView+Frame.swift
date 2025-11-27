@@ -212,6 +212,13 @@ public extension NSView {
         return self
     }
     
+    /// 设置origin
+    @discardableResult
+    func originIs(_ origin: NSPoint) -> Self {
+        self.origin = origin
+        return self
+    }
+    
     /// 设置大小
     @discardableResult
     func sizeIs(_ width: CGFloat, _ height: CGFloat) -> Self {
@@ -219,10 +226,24 @@ public extension NSView {
         return self
     }
     
+    /// 设置大小
+    @discardableResult
+    func sizeIs(_ size: NSSize) -> Self {
+        self.size = size
+        return self
+    }
+    
     /// 设置中心位置
     @discardableResult
     func centerIs(_ x: CGFloat, _ y: CGFloat) -> Self {
         center = NSMakePoint(x, y)
+        return self
+    }
+    
+    /// 设置中心位置
+    @discardableResult
+    func centerIs(_ center: NSPoint) -> Self {
+        self.center = center
         return self
     }
     
@@ -251,6 +272,13 @@ public extension NSView {
     @discardableResult
     func offset(_ x: CGFloat, _ y: CGFloat) -> Self {
         origin = NSMakePoint(self.x + x, self.y + y)
+        return self
+    }
+    
+    /// 设置偏移量，x, y会增加
+    @discardableResult
+    func offset(_ offset: NSPoint) -> Self {
+        origin = NSMakePoint(self.x + offset.x, self.y + offset.y)
         return self
     }
     
