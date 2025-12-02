@@ -15,6 +15,7 @@ class YLUpdateViewController: NSViewController {
         didSet {
             infoView.string = info ?? ""
             var height: CGFloat = infoView.string.boundingRect(with: NSSize(width: 460, height: CGFloat.greatestFiniteMagnitude), options: .usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font : infoView.font!]).size.height
+            infoView.frame = NSMakeRect(0, 0, 460, height)
             if #available(macOS 26.0, *) {
                 height = min(600, height + 85)
             } else {

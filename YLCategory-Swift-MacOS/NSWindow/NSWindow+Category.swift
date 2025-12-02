@@ -17,6 +17,7 @@ public extension NSWindow {
             defer: true
         )
         window.titlebarAppearsTransparent = true
+        window.titleVisibility = .hidden
         window.standardWindowButton(.miniaturizeButton)?.isHidden = true
         window.standardWindowButton(.closeButton)?.isHidden = true
         window.standardWindowButton(.zoomButton)?.isHidden = true
