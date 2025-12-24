@@ -171,6 +171,10 @@ Pod::Spec.new do |s|
     ss.source_files  =   'YLCategory-Swift-MacOS/YLSystemBeep/**/*.swift'
     end
     
+    s.subspec 'YLTipButton' do |ss|
+    ss.source_files  =   'YLCategory-Swift-MacOS/YLTipButton/**/*.swift'
+    end
+    
     s.subspec 'Async' do |ss|
     ss.source_files  =   'YLCategory-Swift-MacOS/Async/**/*.swift'
     end
