@@ -63,7 +63,7 @@ public func OpenFilePath(_ path: String) -> Bool {
 ///   - argus: 参数
 /// - Returns: 返回结果
 @discardableResult
-public func ExecuteCMD(_ cmd: String, argus: [String]? = nil) -> String? {
+public func ExecuteCMD(_ cmd: String, argus: [String]? = nil, logEnable: Bool = true) -> String? {
     let process = Process()
     process.executableURL = URL(fileURLWithPath: "/bin/bash")
     process.arguments = ["-c", cmd] + (argus ?? [])
@@ -75,7 +75,9 @@ public func ExecuteCMD(_ cmd: String, argus: [String]? = nil) -> String? {
     do {
         try process.run()
     } catch {
-        YLLog("❌ cmd '/bin/bash -c \(cmd)' 发生错误: \(error)")
+        if logEnable {
+            YLLog("❌ cmd '/bin/bash -c \(cmd)' 发生错误: \(error)")
+        }
         return nil
     }
     process.waitUntilExit()
@@ -87,10 +89,14 @@ public func ExecuteCMD(_ cmd: String, argus: [String]? = nil) -> String? {
     let errorOutput = String(data: errorData, encoding: .utf8)?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
     
     if process.terminationStatus != 0 {
-        YLLog("❌ cmd '/bin/bash -c \(cmd)' 执行失败: \(errorOutput)")
+        if logEnable {
+            YLLog("❌ cmd '/bin/bash -c \(cmd)' 执行失败: \(errorOutput)")
+        }
         return nil
     }
-    YLLog("✅ cmd '/bin/bash -c \(cmd)' 执行成功:\n\(output)")
+    if logEnable {
+        YLLog("✅ cmd '/bin/bash -c \(cmd)' 执行成功:\n\(output)")
+    }
     return output
 }
 
@@ -99,9 +105,10 @@ public func ExecuteCMD(_ cmd: String, argus: [String]? = nil) -> String? {
 /// - Parameters:
 ///   - url: 执行命令路径
 ///   - argus: 参数
+///   - logEnable: 是否打印执行结果
 /// - Returns: 执行结果
 @discardableResult
-public func ExecuteCustomCMD(_ url: String, argus: [String]) -> String? {
+public func ExecuteCustomCMD(_ url: String, argus: [String], logEnable: Bool = true) -> String? {
     let process = Process()
     process.executableURL = URL(fileURLWithPath: url)
     process.arguments = argus
@@ -113,7 +120,9 @@ public func ExecuteCustomCMD(_ url: String, argus: [String]) -> String? {
     do {
         try process.run()
     } catch {
-        YLLog("❌ custom cmd '\(([url] + argus).joined(separator: " "))' 发生错误: \(error)")
+        if logEnable {
+            YLLog("❌ custom cmd '\(([url] + argus).joined(separator: " "))' 发生错误: \(error)")
+        }
         return nil
     }
     process.waitUntilExit()
@@ -125,9 +134,13 @@ public func ExecuteCustomCMD(_ url: String, argus: [String]) -> String? {
     let errorOutput = String(data: errorData, encoding: .utf8)?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
     
     if process.terminationStatus != 0 {
-        YLLog("❌ custom cmd '\(([url] + argus).joined(separator: " "))' 执行失败: \(errorOutput)")
+        if logEnable {
+            YLLog("❌ custom cmd '\(([url] + argus).joined(separator: " "))' 执行失败: \(errorOutput)")
+        }
         return nil
     }
-    YLLog("✅ custom cmd '\(([url] + argus).joined(separator: " "))' 执行成功:\n\(output)")
+    if logEnable {
+        YLLog("✅ custom cmd '\(([url] + argus).joined(separator: " "))' 执行成功:\n\(output)")
+    }
     return output
 }

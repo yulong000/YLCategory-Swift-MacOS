@@ -87,6 +87,7 @@
 		00E850642D1C579A00EBE080 /* NSObject+Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E850632D1C579A00EBE080 /* NSObject+Notification.swift */; };
 		00E850662D1C581A00EBE080 /* NSObject+Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E850652D1C581A00EBE080 /* NSObject+Event.swift */; };
 		00E8506A2D1D1E9C00EBE080 /* YLAppRating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E850692D1D1E9C00EBE080 /* YLAppRating.swift */; };
+		00FABB482EF686BC002E9CD4 /* YLTipButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00FABB472EF686B5002E9CD4 /* YLTipButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -234,6 +235,7 @@
 		00E850632D1C579A00EBE080 /* NSObject+Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+Notification.swift"; sourceTree = "<group>"; };
 		00E850652D1C581A00EBE080 /* NSObject+Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+Event.swift"; sourceTree = "<group>"; };
 		00E850692D1D1E9C00EBE080 /* YLAppRating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YLAppRating.swift; sourceTree = "<group>"; };
+		00FABB472EF686B5002E9CD4 /* YLTipButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YLTipButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -306,6 +308,7 @@
 		0080A4E62D04490900EEFEA2 /* YLCategory-Swift-MacOS */ = {
 			isa = PBXGroup;
 			children = (
+				00FABB462EF6829E002E9CD4 /* YLTipButton */,
 				000A53052E24CA3800C58A6C /* YLSystemBeep */,
 				00D772132D75FCDE004043E6 /* YLScrollLabel */,
 				00B79B2A2D14181600DAE137 /* YLTextField */,
@@ -705,6 +708,14 @@
 			path = YLScrollLabel;
 			sourceTree = "<group>";
 		};
+		00FABB462EF6829E002E9CD4 /* YLTipButton */ = {
+			isa = PBXGroup;
+			children = (
+				00FABB472EF686B5002E9CD4 /* YLTipButton.swift */,
+			);
+			path = YLTipButton;
+			sourceTree = "<group>";
+		};
 		2D32439DE15DA262860A24DD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -835,6 +846,7 @@
 				00CFDCEA2D22AEEC00EF4FA4 /* YLUpdateXMLParserDelegate.swift in Sources */,
 				00A0F9B32D1875980043E075 /* NSColor+Category.swift in Sources */,
 				00A0F9BD2D19B40F0043E075 /* NSWindow+Frame.swift in Sources */,
+				00FABB482EF686BC002E9CD4 /* YLTipButton.swift in Sources */,
 				00A0F9CE2D1A7DC80043E075 /* String+Category.swift in Sources */,
 				00CFDCE42D22AB7800EF4FA4 /* YLUpdateManager.swift in Sources */,
 				00A0F9C32D19BB870043E075 /* NSImage+Category.swift in Sources */,
@@ -1122,7 +1134,7 @@
 				CODE_SIGN_ENTITLEMENTS = "YLCategory-Swift-Demo/YLCategory_Swift_MacOS.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 2025112401;
+				CURRENT_PROJECT_VERSION = 2025122401;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 87LJF62PN6;
 				ENABLE_APP_SANDBOX = YES;
@@ -1172,7 +1184,7 @@
 				CODE_SIGN_ENTITLEMENTS = "YLCategory-Swift-Demo/YLCategory_Swift_MacOS.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 2025112401;
+				CURRENT_PROJECT_VERSION = 2025122401;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 87LJF62PN6;
 				ENABLE_APP_SANDBOX = YES;

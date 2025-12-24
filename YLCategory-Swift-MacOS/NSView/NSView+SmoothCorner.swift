@@ -47,8 +47,8 @@ public extension NSView {
             smoothCornerBorderLayer?.lineWidth = width * 2
             smoothCornerBorderLayer?.strokeColor = color.cgColor
         } else {
-            smoothCornerMaskLayer?.removeFromSuperlayer()
-            smoothCornerMaskLayer = nil
+            smoothCornerBorderLayer?.removeFromSuperlayer()
+            smoothCornerBorderLayer = nil
         }
         needsLayout = true
     }
