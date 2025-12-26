@@ -17,7 +17,7 @@ public func RestartApp() {
     NSApp.terminate(nil)
 }
 
-/// 打开链接
+/// 打开链接(path)
 @discardableResult
 public func OpenUrl(_ path: String) -> Bool {
     YLLog("Open url: \(path)")
@@ -25,6 +25,13 @@ public func OpenUrl(_ path: String) -> Bool {
         return NSWorkspace.shared.open(url)
     }
     return false
+}
+
+/// 打开链接（url）
+@discardableResult
+public func OpenUrl(_ url: URL) -> Bool {
+    YLLog("Open url: \(url.path)")
+    return NSWorkspace.shared.open(url)
 }
 
 /// 打开文件（夹）
@@ -94,10 +101,15 @@ public func ExecuteCMD(_ cmd: String, argus: [String]? = nil, logEnable: Bool = 
         }
         return nil
     }
+    let result = output.count > 0 ? output : errorOutput
     if logEnable {
-        YLLog("✅ cmd '/bin/bash -c \(cmd)' 执行成功:\n\(output)")
+        if errorOutput.isEmpty {
+            YLLog("✅ cmd '/bin/bash -c \(cmd)' 执行成功:\n\(result)")
+        } else {
+            YLLog("⚠️ cmd '/bin/bash -c \(cmd)' 执行成功:\n\(result)")
+        }
     }
-    return output
+    return result
 }
 
 
@@ -139,8 +151,13 @@ public func ExecuteCustomCMD(_ url: String, argus: [String], logEnable: Bool = t
         }
         return nil
     }
+    let result = output.count > 0 ? output : errorOutput
     if logEnable {
-        YLLog("✅ custom cmd '\(([url] + argus).joined(separator: " "))' 执行成功:\n\(output)")
+        if errorOutput.isEmpty {
+            YLLog("✅ custom cmd '\(([url] + argus).joined(separator: " "))' 执行成功:\n\(result)")
+        } else {
+            YLLog("⚠️ custom cmd '\(([url] + argus).joined(separator: " "))' 执行成功:\n\(result)")
+        }
     }
-    return output
+    return result
 }
