@@ -17,13 +17,13 @@ public extension NSObject {
     // MARK: - 普通通知
     
     // MARK: 发送通知
-    func postNotification(name: Notification.Name, userInfo: [AnyHashable : Any]? = nil) {
-        NotificationCenter.default.post(name: name, object: self, userInfo: userInfo)
+    func postNotification(name: Notification.Name, object: Any?, userInfo: [AnyHashable : Any]? = nil) {
+        NotificationCenter.default.post(name: name, object: object, userInfo: userInfo)
     }
     
     // MARK: 接收通知
-    func addNotification(name: Notification.Name, handler: @escaping (Notification) -> Void) {
-        NotificationCenter.default.addObserver(self, selector: #selector(received(_:)), name: name, object: nil)
+    func addNotification(name: Notification.Name, object: Any? = nil, handler: @escaping (Notification) -> Void) {
+        NotificationCenter.default.addObserver(self, selector: #selector(received(_:)), name: name, object: object)
         if NotificationDict == nil {
             NotificationDict = [:]
         }
@@ -57,13 +57,13 @@ public extension NSObject {
     // MARK: - 分布式通知
     
     // MARK: 发送通知
-    func postDistributedNotification(name: Notification.Name, userInfo: [AnyHashable : Any]? = nil) {
-        DistributedNotificationCenter.default().postNotificationName(name, object: nil, userInfo: userInfo, deliverImmediately: true)
+    func postDistributedNotification(name: Notification.Name, object: String? = nil, userInfo: [AnyHashable : Any]? = nil) {
+        DistributedNotificationCenter.default().postNotificationName(name, object: object, userInfo: userInfo, deliverImmediately: true)
     }
     
     // MARK: 接收通知
-    func addDistributedNotification(name: Notification.Name, handler: @escaping (Notification) -> Void) {
-        DistributedNotificationCenter.default().addObserver(self, selector: #selector(receivedDistributed(_:)), name: name, object: nil, suspensionBehavior: .deliverImmediately)
+    func addDistributedNotification(name: Notification.Name, object: String? = nil, handler: @escaping (Notification) -> Void) {
+        DistributedNotificationCenter.default().addObserver(self, selector: #selector(receivedDistributed(_:)), name: name, object: object, suspensionBehavior: .deliverImmediately)
         if DistributedNotificationDict == nil {
             DistributedNotificationDict = [:]
         }
@@ -97,13 +97,13 @@ public extension NSObject {
     // MARK: - 系统通知
     
     // MARK: 发送通知
-    func postWorkspaceNotification(name: Notification.Name, userInfo: [AnyHashable : Any]? = nil) {
-        NSWorkspace.shared.notificationCenter.post(name: name, object: self, userInfo: userInfo)
+    func postWorkspaceNotification(name: Notification.Name, object: Any? = nil, userInfo: [AnyHashable : Any]? = nil) {
+        NSWorkspace.shared.notificationCenter.post(name: name, object: object, userInfo: userInfo)
     }
     
     // MARK: 接收通知
-    func addWorkspaceNotification(name: Notification.Name, handler: @escaping (Notification) -> Void) {
-        NSWorkspace.shared.notificationCenter.addObserver(self, selector: #selector(receivedWorkspace(_:)), name: name, object: nil)
+    func addWorkspaceNotification(name: Notification.Name, object: Any? = nil, handler: @escaping (Notification) -> Void) {
+        NSWorkspace.shared.notificationCenter.addObserver(self, selector: #selector(receivedWorkspace(_:)), name: name, object: object)
         if WorkspaceNotificationDict == nil {
             WorkspaceNotificationDict = [:]
         }

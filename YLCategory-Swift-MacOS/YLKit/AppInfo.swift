@@ -69,6 +69,19 @@ public var GUIUserDisplayName: String? {
     }
     return String(cString: home).components(separatedBy: "/").last
 }
+/// 当前用户的名字 （/Users/xxx中的xxx）
+public var UserName: String { GUIUserDisplayName ?? NSUserName() }
+/// 当前用户的目录 （/Users/xxx）
+public var UserHome: String {
+    var uid: uid_t = 0
+    guard let userName = SCDynamicStoreCopyConsoleUser(nil, &uid, nil) as? String,
+          userName != "loginWindow",
+          let pwd = getpwuid(uid),
+          let home = pwd.pointee.pw_dir else {
+        return "/Users/\(NSUserName())"
+    }
+    return String(cString: home)
+}
 /// app的owner account ID, 从app store下载的一般是0，其他方式安装的是501，也有可能是其他值
 public let OwnerAccountID: Int? = {
     guard let path = Bundle.main.executablePath,
