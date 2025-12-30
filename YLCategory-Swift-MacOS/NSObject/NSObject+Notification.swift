@@ -17,8 +17,8 @@ public extension NSObject {
     // MARK: - 普通通知
     
     // MARK: 发送通知
-    func postNotification(name: Notification.Name, object: Any?, userInfo: [AnyHashable : Any]? = nil) {
-        NotificationCenter.default.post(name: name, object: object, userInfo: userInfo)
+    func postNotification(name: Notification.Name, object: Any? = nil, userInfo: [AnyHashable : Any]? = nil) {
+        NotificationCenter.default.post(name: name, object: object ?? self, userInfo: userInfo)
     }
     
     // MARK: 接收通知
