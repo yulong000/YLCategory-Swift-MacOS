@@ -87,6 +87,7 @@
 		00E850642D1C579A00EBE080 /* NSObject+Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E850632D1C579A00EBE080 /* NSObject+Notification.swift */; };
 		00E850662D1C581A00EBE080 /* NSObject+Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E850652D1C581A00EBE080 /* NSObject+Event.swift */; };
 		00E8506A2D1D1E9C00EBE080 /* YLAppRating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E850692D1D1E9C00EBE080 /* YLAppRating.swift */; };
+		00EC0BB72F052F9A005BC3B3 /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00EC0BB62F052F97005BC3B3 /* Device.swift */; };
 		00FABB482EF686BC002E9CD4 /* YLTipButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00FABB472EF686B5002E9CD4 /* YLTipButton.swift */; };
 /* End PBXBuildFile section */
 
@@ -235,6 +236,7 @@
 		00E850632D1C579A00EBE080 /* NSObject+Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+Notification.swift"; sourceTree = "<group>"; };
 		00E850652D1C581A00EBE080 /* NSObject+Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+Event.swift"; sourceTree = "<group>"; };
 		00E850692D1D1E9C00EBE080 /* YLAppRating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YLAppRating.swift; sourceTree = "<group>"; };
+		00EC0BB62F052F97005BC3B3 /* Device.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
 		00FABB472EF686B5002E9CD4 /* YLTipButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YLTipButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -599,6 +601,7 @@
 		00B79AB82D1415AA00DAE137 /* YLKit */ = {
 			isa = PBXGroup;
 			children = (
+				00EC0BB62F052F97005BC3B3 /* Device.swift */,
 				008059962ED1681A004D0218 /* Color.swift */,
 				008059982ED16868004D0218 /* Screen.swift */,
 				0080599A2ED168A0004D0218 /* Font.swift */,
@@ -840,6 +843,7 @@
 				00E850622D1C529A00EBE080 /* NSObject+KVO.swift in Sources */,
 				00CFDCE62D22AB9A00EF4FA4 /* YLUpdateWindowController.swift in Sources */,
 				0080599B2ED168A1004D0218 /* Font.swift in Sources */,
+				00EC0BB72F052F9A005BC3B3 /* Device.swift in Sources */,
 				0037DECA2D2BA4E80061136D /* YLShortcut.swift in Sources */,
 				00B79B332D15D5C000DAE137 /* NSView+Gesture.swift in Sources */,
 				00CFDCB12D214B1400EF4FA4 /* YLPermissionItem.swift in Sources */,
