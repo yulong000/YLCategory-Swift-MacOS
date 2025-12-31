@@ -18,14 +18,3 @@ public func GetUUID() -> String {
     }
     return str
 }
-
-/// 获取aes加密时的key
-public func GetAESKey() -> Data {
-    let uuid = GetUUID().replacingOccurrences(of: "-", with: "")
-    var data = uuid.data(using: .utf8) ?? Data(count: 16)
-    if data.count < 16 {
-        data.append(Data(count: 16 - data.count))
-        return data
-    }
-    return Data(data.prefix(16))
-}
