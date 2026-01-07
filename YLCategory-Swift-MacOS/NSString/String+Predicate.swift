@@ -18,7 +18,7 @@ public extension String {
     }
     
     /// 是否是中国手机号
-    func isChineseMobileNumer() -> Bool { isValid(by: "^(1[3-9][0-9])\\d{8}$")  }
+    func isChineseMobileNumber() -> Bool { isValid(by: "^(1[3-9][0-9])\\d{8}$")  }
     
     /// 是否是有效的邮箱地址
     func isEmailAddress() -> Bool { isValid(by: "[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}") }

@@ -88,6 +88,7 @@
 		00E850662D1C581A00EBE080 /* NSObject+Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E850652D1C581A00EBE080 /* NSObject+Event.swift */; };
 		00E8506A2D1D1E9C00EBE080 /* YLAppRating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E850692D1D1E9C00EBE080 /* YLAppRating.swift */; };
 		00EC0BB72F052F9A005BC3B3 /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00EC0BB62F052F97005BC3B3 /* Device.swift */; };
+		00EC0C182F0E5C7E005BC3B3 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00EC0C172F0E5C78005BC3B3 /* Extension.swift */; };
 		00FABB482EF686BC002E9CD4 /* YLTipButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00FABB472EF686B5002E9CD4 /* YLTipButton.swift */; };
 /* End PBXBuildFile section */
 
@@ -237,6 +238,7 @@
 		00E850652D1C581A00EBE080 /* NSObject+Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+Event.swift"; sourceTree = "<group>"; };
 		00E850692D1D1E9C00EBE080 /* YLAppRating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YLAppRating.swift; sourceTree = "<group>"; };
 		00EC0BB62F052F97005BC3B3 /* Device.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
+		00EC0C172F0E5C78005BC3B3 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		00FABB472EF686B5002E9CD4 /* YLTipButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YLTipButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -601,6 +603,7 @@
 		00B79AB82D1415AA00DAE137 /* YLKit */ = {
 			isa = PBXGroup;
 			children = (
+				00EC0C172F0E5C78005BC3B3 /* Extension.swift */,
 				00EC0BB62F052F97005BC3B3 /* Device.swift */,
 				008059962ED1681A004D0218 /* Color.swift */,
 				008059982ED16868004D0218 /* Screen.swift */,
@@ -859,6 +862,7 @@
 				00A0F9C12D19B9430043E075 /* NSTextField+Category.swift in Sources */,
 				00A0F9B92D19AE400043E075 /* NSImageView+Category.swift in Sources */,
 				008059A92ED16AEC004D0218 /* AppEnvironment.swift in Sources */,
+				00EC0C182F0E5C7E005BC3B3 /* Extension.swift in Sources */,
 				00A0F9B52D18EC1C0043E075 /* NSButton+Category.swift in Sources */,
 				00CFDB502D1E77E700EF4FA4 /* YLCollectionView.swift in Sources */,
 				008059A52ED16A76004D0218 /* Event.swift in Sources */,
