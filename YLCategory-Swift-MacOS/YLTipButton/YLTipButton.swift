@@ -28,21 +28,28 @@ open class YLTipButton: NSButton {
     ///   - tooltip: 提示信息
     ///   - alternateImage: state == .on时的图片
     ///   - alternateTooltip: state == .on时的提示信息
-    public convenience init(image: NSImage, tooltip: String?, alternateImage: NSImage? = nil, alternateTooltip: String? = nil, adjustAlternateImage: Bool = true) {
+    ///   - adjustAlternateImage: 是否调整 state == .on 时图片的颜色
+    ///   - isBordered: 是否显示边框
+    public convenience init(image: NSImage,
+                            tooltip: String?,
+                            alternateImage: NSImage? = nil,
+                            alternateTooltip: String? = nil,
+                            adjustAlternateImage: Bool = true,
+                            isBordered: Bool = false) {
         self.init()
-        contentTintColor = .secondaryLabelColor
+        self.contentTintColor = .secondaryLabelColor
         self.image = image
         self.alternateImage = alternateImage
-        self.imageScaling = .scaleProportionallyUpOrDown
-        self.isBordered = false
+        self.imageScaling = .scaleProportionallyDown
+        self.isBordered = isBordered
         self.tip = tooltip
         self.alternateTip = alternateTooltip
         self.adjustAlternateImage = adjustAlternateImage
         if alternateImage != nil || alternateTooltip != nil {
-            setButtonType(.toggle)
-            state = .off
+            self.setButtonType(.toggle)
+            self.state = .off
         } else {
-            setButtonType(.momentaryPushIn)
+            self.setButtonType(.momentaryPushIn)
         }
     }
     
@@ -109,7 +116,14 @@ open class YLTipButton: NSButton {
         trackingAreas.forEach { removeTrackingArea($0) }
         let trackingArea = NSTrackingArea(rect: bounds, options: [.activeAlways, .mouseEnteredAndExited], owner: self)
         addTrackingArea(trackingArea)
-        hideTip()
+        
+        // 滚动时，updateTrackingAreas会频繁调用，也会造成mouseEntered 频繁调用
+        // 防止hideTip，showTip多次调用造成的提示词闪烁，这里做判断后再决定是否隐藏提示
+        guard let point = window?.mouseLocationOutsideOfEventStream else { return }
+        let mouseInSelf = convert(point, from: nil)
+        if !bounds.contains(mouseInSelf) {
+            hideTip()
+        }
     }
     
     open override func mouseEntered(with event: NSEvent) { showTip() }

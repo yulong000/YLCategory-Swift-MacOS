@@ -5,6 +5,8 @@
 //  Created by 魏宇龙 on 2026/1/7.
 //
 
+import Foundation
+
 public extension Dictionary where Key == String, Value == Any {
     
     /// 从[String:Any]中读取bool值
@@ -100,6 +102,25 @@ public extension Dictionary where Key == String, Value == Any {
     func strictModels<T: JsonInitializableNullable>(_ key: String, _: T.Type) -> [T] {
         let arr = self.array(key, [String: Any].self)
         return arr.strictModels(T.self)
+    }
+    
+    
+    /// 将[String: Any]转换成json 字符串
+    /// - Parameter pretty: 是否美化显示格式
+    /// - Parameter sorted: 对key进行排序
+    /// - Returns: json字符串
+    func toJsonString(pretty: Bool = false, sorted: Bool = false) throws -> String {
+        
+        var options: JSONSerialization.WritingOptions = []
+        if pretty { options.insert(.prettyPrinted) }
+        if sorted { options.insert(.sortedKeys) }
+        
+        guard JSONSerialization.isValidJSONObject(self) else {
+            throw NSError(domain: "JSONError", code: -1, userInfo: [NSLocalizedDescriptionKey: "Dictionary contains non-JSON objects"])
+        }
+
+        let data = try JSONSerialization.data(withJSONObject: self, options: [])
+        return String(data: data, encoding: .utf8) ?? "{}"
     }
 }
 
