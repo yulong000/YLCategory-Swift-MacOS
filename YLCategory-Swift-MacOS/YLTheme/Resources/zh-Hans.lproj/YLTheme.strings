@@ -1,0 +1,12 @@
+/* 
+  YLTheme.strings
+  YLCategory-MacOS
+
+  Created by 魏宇龙 on 2026/01/20.
+  
+*/
+
+"Theme:" = "主题:";
+"Follow System" = "跟随系统";
+"Light" = "亮色";
+"Dark" = "暗色";

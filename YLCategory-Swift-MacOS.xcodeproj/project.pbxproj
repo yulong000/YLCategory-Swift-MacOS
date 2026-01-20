@@ -16,6 +16,8 @@
 		0037DECA2D2BA4E80061136D /* YLShortcut.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0037DEC92D2BA4E80061136D /* YLShortcut.swift */; };
 		0052FC8F2E42EF49006562CA /* NSSavePanel+Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0052FC8E2E42EF3D006562CA /* NSSavePanel+Category.swift */; };
 		0052FC912E42EF59006562CA /* NSOpenPanel+Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0052FC902E42EF4E006562CA /* NSOpenPanel+Category.swift */; };
+		00679FAD2F1F7FB700FFF8CE /* YLTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00679FAC2F1F7FB100FFF8CE /* YLTheme.swift */; };
+		00679FB92F1F808800FFF8CE /* YLTheme.strings in Resources */ = {isa = PBXBuildFile; fileRef = 00679FB82F1F808800FFF8CE /* YLTheme.strings */; };
 		007E5D662E6AF0FF00AB6B27 /* YLCategory-Swift-MacOS.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 007E5D652E6AF0FF00AB6B27 /* YLCategory-Swift-MacOS.podspec */; };
 		008059972ED1681D004D0218 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008059962ED1681A004D0218 /* Color.swift */; };
 		008059992ED1686D004D0218 /* Screen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008059982ED16868004D0218 /* Screen.swift */; };
@@ -115,6 +117,16 @@
 		0037DEC92D2BA4E80061136D /* YLShortcut.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YLShortcut.swift; sourceTree = "<group>"; };
 		0052FC8E2E42EF3D006562CA /* NSSavePanel+Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSSavePanel+Category.swift"; sourceTree = "<group>"; };
 		0052FC902E42EF4E006562CA /* NSOpenPanel+Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSOpenPanel+Category.swift"; sourceTree = "<group>"; };
+		00679FAC2F1F7FB100FFF8CE /* YLTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YLTheme.swift; sourceTree = "<group>"; };
+		00679FAF2F1F808800FFF8CE /* YLLanguage.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = YLLanguage.strings; path = en.lproj/YLTheme.strings; sourceTree = "<group>"; };
+		00679FB02F1F808800FFF8CE /* YLLanguage.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = YLLanguage.strings; path = "zh-Hans.lproj/YLTheme.strings"; sourceTree = "<group>"; };
+		00679FB12F1F808800FFF8CE /* YLLanguage.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = YLLanguage.strings; path = "zh-Hant.lproj/YLTheme.strings"; sourceTree = "<group>"; };
+		00679FB22F1F808800FFF8CE /* YLLanguage.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = YLLanguage.strings; path = fr.lproj/YLTheme.strings; sourceTree = "<group>"; };
+		00679FB32F1F808800FFF8CE /* YLLanguage.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = YLLanguage.strings; path = de.lproj/YLTheme.strings; sourceTree = "<group>"; };
+		00679FB42F1F808800FFF8CE /* YLLanguage.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = YLLanguage.strings; path = ja.lproj/YLTheme.strings; sourceTree = "<group>"; };
+		00679FB52F1F808800FFF8CE /* YLLanguage.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = YLLanguage.strings; path = ko.lproj/YLTheme.strings; sourceTree = "<group>"; };
+		00679FB62F1F808800FFF8CE /* YLLanguage.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = YLLanguage.strings; path = pt.lproj/YLTheme.strings; sourceTree = "<group>"; };
+		00679FB72F1F808800FFF8CE /* YLLanguage.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = YLLanguage.strings; path = es.lproj/YLTheme.strings; sourceTree = "<group>"; };
 		007E5D652E6AF0FF00AB6B27 /* YLCategory-Swift-MacOS.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = "YLCategory-Swift-MacOS.podspec"; sourceTree = SOURCE_ROOT; };
 		008059962ED1681A004D0218 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		008059982ED16868004D0218 /* Screen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Screen.swift; sourceTree = "<group>"; };
@@ -277,6 +289,23 @@
 			path = NSSavePanel;
 			sourceTree = "<group>";
 		};
+		00679FAB2F1F7FA000FFF8CE /* YLTheme */ = {
+			isa = PBXGroup;
+			children = (
+				00679FAC2F1F7FB100FFF8CE /* YLTheme.swift */,
+				00679FAE2F1F807900FFF8CE /* Resources */,
+			);
+			path = YLTheme;
+			sourceTree = "<group>";
+		};
+		00679FAE2F1F807900FFF8CE /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				00679FB82F1F808800FFF8CE /* YLTheme.strings */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		0080A4C02D0448EA00EEFEA2 = {
 			isa = PBXGroup;
 			children = (
@@ -312,6 +341,7 @@
 		0080A4E62D04490900EEFEA2 /* YLCategory-Swift-MacOS */ = {
 			isa = PBXGroup;
 			children = (
+				00679FAB2F1F7FA000FFF8CE /* YLTheme */,
 				00FABB462EF6829E002E9CD4 /* YLTipButton */,
 				000A53052E24CA3800C58A6C /* YLSystemBeep */,
 				00D772132D75FCDE004043E6 /* YLScrollLabel */,
@@ -809,6 +839,7 @@
 				00B79ADC2D1415AB00DAE137 /* YLLanguage.strings in Resources */,
 				00B79ADE2D1415AB00DAE137 /* YLPermissionManager.bundle in Resources */,
 				00B79ADF2D1415AB00DAE137 /* YLUpdateManager.strings in Resources */,
+				00679FB92F1F808800FFF8CE /* YLTheme.strings in Resources */,
 				00B79AE02D1415AB00DAE137 /* YLShortcutManager.bundle in Resources */,
 				00B79AE12D1415AB00DAE137 /* YLAppleScript.strings in Resources */,
 				00B79AE22D1415AB00DAE137 /* YLHud.bundle in Resources */,
@@ -875,6 +906,7 @@
 				00CFDB442D1D486400EF4FA4 /* YLControl.swift in Sources */,
 				0097297C2E6AC6AC0021A5D4 /* NSView+SmoothCorner.swift in Sources */,
 				0052FC912E42EF59006562CA /* NSOpenPanel+Category.swift in Sources */,
+				00679FAD2F1F7FB700FFF8CE /* YLTheme.swift in Sources */,
 				0080599F2ED1696B004D0218 /* Process.swift in Sources */,
 				00CFDCAF2D214AF500EF4FA4 /* YLPermissionViewController.swift in Sources */,
 				00E850642D1C579A00EBE080 /* NSObject+Notification.swift in Sources */,
@@ -904,6 +936,22 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		00679FB82F1F808800FFF8CE /* YLTheme.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				00679FAF2F1F808800FFF8CE /* YLLanguage.strings */,
+				00679FB02F1F808800FFF8CE /* YLLanguage.strings */,
+				00679FB12F1F808800FFF8CE /* YLLanguage.strings */,
+				00679FB22F1F808800FFF8CE /* YLLanguage.strings */,
+				00679FB32F1F808800FFF8CE /* YLLanguage.strings */,
+				00679FB42F1F808800FFF8CE /* YLLanguage.strings */,
+				00679FB52F1F808800FFF8CE /* YLLanguage.strings */,
+				00679FB62F1F808800FFF8CE /* YLLanguage.strings */,
+				00679FB72F1F808800FFF8CE /* YLLanguage.strings */,
+			);
+			name = YLTheme.strings;
+			sourceTree = "<group>";
+		};
 		0080A4DE2D04490300EEFEA2 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -1142,7 +1190,7 @@
 				CODE_SIGN_ENTITLEMENTS = "YLCategory-Swift-Demo/YLCategory_Swift_MacOS.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 2026010901;
+				CURRENT_PROJECT_VERSION = 2026012001;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 87LJF62PN6;
 				ENABLE_APP_SANDBOX = YES;
@@ -1192,7 +1240,7 @@
 				CODE_SIGN_ENTITLEMENTS = "YLCategory-Swift-Demo/YLCategory_Swift_MacOS.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 2026010901;
+				CURRENT_PROJECT_VERSION = 2026012001;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 87LJF62PN6;
 				ENABLE_APP_SANDBOX = YES;
