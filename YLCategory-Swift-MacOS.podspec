@@ -144,6 +144,11 @@ Pod::Spec.new do |s|
     ss.source_files  =   'YLCategory-Swift-MacOS/YLLanguage/**/*.swift'
     ss.resource      =   'YLCategory-Swift-MacOS/YLLanguage/Resources/*'
     end
+    
+    s.subspec 'YLTheme' do |ss|
+    ss.source_files  =   'YLCategory-Swift-MacOS/YLTheme/**/*.swift'
+    ss.resource      =   'YLCategory-Swift-MacOS/YLTheme/Resources/*'
+    end
 
     s.subspec 'YLPermissionManager' do |ss|
     ss.source_files  =   'YLCategory-Swift-MacOS/YLPermissionManager/**/*.swift'
